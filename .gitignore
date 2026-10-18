@@ -1,5 +1,6 @@
 node_modules
 dist
+_assets_unpack
 .DS_Store
 *.log
 playwright-report
