@@ -182,11 +182,12 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
     return () => window.clearTimeout(t);
   }, [activeBeat, captionBeat, mobileAnimate]);
 
+  const mobileFocusY =
+    activeBeat < 0 ? 38 : Math.round(Math.min(88, focus.fy * 92 + 4));
+
   const masterObjectPosition = isDesktop
     ? undefined
-    : activeBeat < 0
-      ? 'center top'
-      : `${Math.round(focus.fx * 100)}% top`;
+    : `${Math.round(activeBeat < 0 ? 50 : focus.fx * 100)}% ${mobileFocusY}%`;
 
   const fxOverlay = (
     <div
@@ -248,7 +249,7 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
                     <ResponsivePicture
                       className="sticky-story__master-picture"
                       assetId={data.masterAssetId}
-                      objectFit="contain"
+                      objectFit="cover"
                       objectPosition={masterObjectPosition}
                     />
                     {fxOverlay}

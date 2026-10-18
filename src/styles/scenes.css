@@ -192,6 +192,8 @@
     display: flex;
     flex-direction: column;
     background: var(--color-navy-mid);
+    min-height: 100svh;
+    min-height: 100dvh;
   }
 
   .sticky-story__layout--mobile {
@@ -200,37 +202,76 @@
     flex: 1;
     min-height: 0;
     height: 100%;
+    width: 100%;
   }
 
+  /* Moderate portrait-ish cover band (~4:5 feel at typical phone widths) */
   .sticky-story__mobile-image {
     position: relative;
-    flex: 0 0 auto;
+    flex: 0 0 clamp(62svh, 68svh, 68svh);
+    height: clamp(62svh, 68svh, 68svh);
     width: 100%;
-    line-height: 0;
     background: var(--color-navy-soft);
     overflow: hidden;
   }
 
+  .sticky-story__mobile-image::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 18%;
+    background: linear-gradient(180deg, transparent 0%, rgba(37, 59, 80, 0.45) 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Fills all remaining viewport — no dead navy below the dock */
   .sticky-story__mobile-dock {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem calc(0.7rem + env(safe-area-inset-bottom, 0px));
+    background: linear-gradient(180deg, var(--color-navy-mid) 0%, #2a4258 55%, #243a4f 100%);
+    border-top: 1px solid rgba(212, 176, 118, 0.14);
+  }
+
+  .sticky-story__mobile-dock .mobile-caption__body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+  }
+
+  .sticky-story__mobile-dock .sticky-story__dots {
     flex: 0 0 auto;
-    padding: 0.85rem 1rem calc(0.85rem + env(safe-area-inset-bottom, 0px));
-    background: linear-gradient(180deg, var(--color-navy-mid) 0%, #2a4258 100%);
-    border-top: 1px solid rgba(212, 176, 118, 0.18);
+    margin-top: auto;
+    padding-top: 0.25rem;
   }
 
   .sticky-story__mobile-image .sticky-story__master-picture {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
   }
 
   .sticky-story__mobile-image .sticky-story__master-picture img {
     width: 100%;
-    height: auto;
-    max-height: min(56svh, 56dvh);
-    object-fit: contain !important;
-    object-position: center top;
+    height: 100%;
+    object-fit: cover !important;
+    object-position: var(--mobile-focus-x, 50%) var(--mobile-focus-y, 42%);
     display: block;
+  }
+
+  .sticky-story__mobile-image .sticky-story__fx {
+    z-index: 1;
   }
 }
 
