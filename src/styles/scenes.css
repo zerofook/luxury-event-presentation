@@ -208,8 +208,10 @@
   /* Moderate portrait-ish cover band (~4:5 feel at typical phone widths) */
   .sticky-story__mobile-image {
     position: relative;
-    flex: 0 0 clamp(62svh, 68svh, 68svh);
-    height: clamp(62svh, 68svh, 68svh);
+    flex: 0 0 68svh;
+    height: 68svh;
+    min-height: 62svh;
+    max-height: 68svh;
     width: 100%;
     background: var(--color-navy-soft);
     overflow: hidden;
