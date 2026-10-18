@@ -18,9 +18,17 @@ const CLIPS = [
   { inputs: ['glass-confetti.mp4'], out: 'glass-confetti', posterAt: 1 },
   { inputs: ['photo-zone-car.mp4', 'vintage-car-performers.mp4'], out: 'vintage-car-performers', posterAt: 0.5 },
   { inputs: ['corridor-walkthrough.mp4'], out: 'corridor-walkthrough', posterAt: 1 },
+  {
+    inputs: ['n13_gala_hall_alive_guests.mp4', 'gala-hall-alive.mp4'],
+    out: 'gala-hall-alive',
+    posterAt: 0.5,
+  },
 ];
 
-const SOURCE_DIRS = ['videos', 'video'].map((d) => path.join(ROOT, 'sources', 'v3', d));
+const SOURCE_DIRS = [
+  ...['videos', 'video'].map((d) => path.join(ROOT, 'sources', 'v3', d)),
+  path.join(ROOT, 'sources', 'v4', 'assets-v4'),
+];
 
 function resolveInput(candidates) {
   for (const name of candidates) {

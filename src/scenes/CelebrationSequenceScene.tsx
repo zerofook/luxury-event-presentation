@@ -10,8 +10,14 @@ function CelebrationBlock({ section, index }: { section: CelebrationSection; ind
 
   if (section.layout === 'pause') {
     return (
-      <div className="celebration-sequence__pause" aria-hidden="true">
-        <div className="celebration-sequence__pause-line" />
+      <div className="celebration-sequence__pause scroll-pause" aria-labelledby={headingId}>
+        <div className="celebration-sequence__pause-line" aria-hidden="true" />
+        {section.titleBg && (
+          <h2 id={headingId} className="section-title section-title--on-dark">
+            {section.titleBg}
+          </h2>
+        )}
+        {section.bodyBg && <p className="section-lead section-lead--on-dark">{section.bodyBg}</p>}
       </div>
     );
   }

@@ -122,10 +122,19 @@
 .photo-exp__band {
   position: relative;
   width: 100%;
-  max-height: min(52svh, 520px);
-  aspect-ratio: 16 / 5;
+  min-height: min(62svh, 820px);
+  max-height: min(72svh, 900px);
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--color-navy-mid);
+}
+
+@media (max-width: 899px) {
+  .photo-exp__band {
+    min-height: 68svh;
+    max-height: 68svh;
+    aspect-ratio: auto;
+  }
 }
 
 .photo-exp__video,

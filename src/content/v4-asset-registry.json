@@ -1,0 +1,541 @@
+{
+  "generated": "2026-10-18T19:10:50.724Z",
+  "assets": [
+    {
+      "id": "v4_p02_00_1688x932",
+      "width": 1688,
+      "height": 932,
+      "pdfPage": 2,
+      "canvaPage": 2,
+      "sourcePath": "sources/v4/extract/p02/p02_00_1688x932.jpg"
+    },
+    {
+      "id": "v4_p04_00_1536x1024",
+      "width": 1536,
+      "height": 1024,
+      "pdfPage": 4,
+      "canvaPage": 4,
+      "sourcePath": "sources/v4/extract/p04/p04_00_1536x1024.jpg"
+    },
+    {
+      "id": "v4_p04_crop_entrance_v1",
+      "width": 510,
+      "height": 614,
+      "pdfPage": 4,
+      "canvaPage": 4,
+      "sourcePath": "sources/v4/extract/p04/p04_crop_entrance_v1.jpg"
+    },
+    {
+      "id": "v4_p04_crop_entrance_v2",
+      "width": 504,
+      "height": 614,
+      "pdfPage": 4,
+      "canvaPage": 4,
+      "sourcePath": "sources/v4/extract/p04/p04_crop_entrance_v2.jpg"
+    },
+    {
+      "id": "v4_p04_crop_entrance_v3",
+      "width": 510,
+      "height": 614,
+      "pdfPage": 4,
+      "canvaPage": 4,
+      "sourcePath": "sources/v4/extract/p04/p04_crop_entrance_v3.jpg"
+    },
+    {
+      "id": "v4_p06_05_830x474",
+      "width": 830,
+      "height": 474,
+      "pdfPage": 6,
+      "canvaPage": 6,
+      "sourcePath": "sources/v4/extract/p06/p06_05_830x474.jpg"
+    },
+    {
+      "id": "v4_p06_06_1774x887",
+      "width": 1774,
+      "height": 887,
+      "pdfPage": 6,
+      "canvaPage": 6,
+      "sourcePath": "sources/v4/extract/p06/p06_06_1774x887.jpg"
+    },
+    {
+      "id": "v4_p06_crop_photowall_v1",
+      "width": 589,
+      "height": 577,
+      "pdfPage": 6,
+      "canvaPage": 6,
+      "sourcePath": "sources/v4/extract/p06/p06_crop_photowall_v1.jpg"
+    },
+    {
+      "id": "v4_p06_crop_photowall_v2",
+      "width": 582,
+      "height": 577,
+      "pdfPage": 6,
+      "canvaPage": 6,
+      "sourcePath": "sources/v4/extract/p06/p06_crop_photowall_v2.jpg"
+    },
+    {
+      "id": "v4_p06_crop_photowall_v3",
+      "width": 589,
+      "height": 577,
+      "pdfPage": 6,
+      "canvaPage": 6,
+      "sourcePath": "sources/v4/extract/p06/p06_crop_photowall_v3.jpg"
+    },
+    {
+      "id": "v4_p07_00_1536x1024",
+      "width": 1536,
+      "height": 1024,
+      "pdfPage": 7,
+      "canvaPage": 7,
+      "sourcePath": "sources/v4/extract/p07/p07_00_1536x1024.jpg"
+    },
+    {
+      "id": "v4_p07_crop_photozone_orange",
+      "width": 757,
+      "height": 502,
+      "pdfPage": 7,
+      "canvaPage": 7,
+      "sourcePath": "sources/v4/extract/p07/p07_crop_photozone_orange.jpg"
+    },
+    {
+      "id": "v4_p07_crop_photozone_burgundy",
+      "width": 757,
+      "height": 502,
+      "pdfPage": 7,
+      "canvaPage": 7,
+      "sourcePath": "sources/v4/extract/p07/p07_crop_photozone_burgundy.jpg"
+    },
+    {
+      "id": "v4_p07_crop_photozone_ivory_wide",
+      "width": 1536,
+      "height": 507,
+      "pdfPage": 7,
+      "canvaPage": 7,
+      "sourcePath": "sources/v4/extract/p07/p07_crop_photozone_ivory_wide.jpg"
+    },
+    {
+      "id": "v4_p08_00_1374x1145",
+      "width": 1374,
+      "height": 1145,
+      "pdfPage": 8,
+      "canvaPage": 8,
+      "sourcePath": "sources/v4/extract/p08/p08_00_1374x1145.jpg"
+    },
+    {
+      "id": "v4_p13_04_1536x1024",
+      "width": 1536,
+      "height": 1024,
+      "pdfPage": 13,
+      "canvaPage": 13,
+      "sourcePath": "sources/v4/extract/p13/p13_04_1536x1024.jpg"
+    },
+    {
+      "id": "v4_p13_crop_corridor_main",
+      "width": 1235,
+      "height": 598,
+      "pdfPage": 13,
+      "canvaPage": 13,
+      "sourcePath": "sources/v4/extract/p13/p13_crop_corridor_main.jpg"
+    },
+    {
+      "id": "v4_p13_crop_led_ceiling",
+      "width": 272,
+      "height": 227,
+      "pdfPage": 13,
+      "canvaPage": 13,
+      "sourcePath": "sources/v4/extract/p13/p13_crop_led_ceiling.jpg"
+    },
+    {
+      "id": "v4_p13_crop_guest_toast",
+      "width": 272,
+      "height": 196,
+      "pdfPage": 13,
+      "canvaPage": 13,
+      "sourcePath": "sources/v4/extract/p13/p13_crop_guest_toast.jpg"
+    },
+    {
+      "id": "v4_p13_crop_hostesses",
+      "width": 272,
+      "height": 316,
+      "pdfPage": 13,
+      "canvaPage": 13,
+      "sourcePath": "sources/v4/extract/p13/p13_crop_hostesses.jpg"
+    },
+    {
+      "id": "v4_p13_crop_led_wall_detail",
+      "width": 443,
+      "height": 178,
+      "pdfPage": 13,
+      "canvaPage": 13,
+      "sourcePath": "sources/v4/extract/p13/p13_crop_led_wall_detail.jpg"
+    },
+    {
+      "id": "v4_p14_00_1134x680",
+      "width": 1134,
+      "height": 680,
+      "pdfPage": 14,
+      "canvaPage": 14,
+      "sourcePath": "sources/v4/extract/p14/p14_00_1134x680.jpg"
+    },
+    {
+      "id": "v4_p14_01_1134x680",
+      "width": 1134,
+      "height": 680,
+      "pdfPage": 14,
+      "canvaPage": 14,
+      "sourcePath": "sources/v4/extract/p14/p14_01_1134x680.jpg"
+    },
+    {
+      "id": "v4_p14_02_1134x680",
+      "width": 1134,
+      "height": 680,
+      "pdfPage": 14,
+      "canvaPage": 14,
+      "sourcePath": "sources/v4/extract/p14/p14_02_1134x680.jpg"
+    },
+    {
+      "id": "v4_p15_crop_corridor_hero",
+      "width": 1660,
+      "height": 483,
+      "pdfPage": 15,
+      "canvaPage": 15,
+      "sourcePath": "sources/v4/extract/p15/p15_crop_corridor_hero.jpg"
+    },
+    {
+      "id": "v4_p17_crop_stage_hero",
+      "width": 1527,
+      "height": 613,
+      "pdfPage": 17,
+      "canvaPage": 17,
+      "sourcePath": "sources/v4/extract/p17/p17_crop_stage_hero.jpg"
+    },
+    {
+      "id": "v4_p17_crop_stage_decor_detail",
+      "width": 324,
+      "height": 288,
+      "pdfPage": 17,
+      "canvaPage": 17,
+      "sourcePath": "sources/v4/extract/p17/p17_crop_stage_decor_detail.jpg"
+    },
+    {
+      "id": "v4_p17_crop_stage_cake_reveal",
+      "width": 270,
+      "height": 288,
+      "pdfPage": 17,
+      "canvaPage": 17,
+      "sourcePath": "sources/v4/extract/p17/p17_crop_stage_cake_reveal.jpg"
+    },
+    {
+      "id": "v4_p18_crop_hall_clean_left",
+      "width": 1150,
+      "height": 941,
+      "pdfPage": 18,
+      "canvaPage": 18,
+      "sourcePath": "sources/v4/extract/p18/p18_crop_hall_clean_left.jpg"
+    },
+    {
+      "id": "v4_p21_00_1851x849",
+      "width": 1851,
+      "height": 849,
+      "pdfPage": 21,
+      "canvaPage": 21,
+      "sourcePath": "sources/v4/extract/p21/p21_00_1851x849.jpg"
+    },
+    {
+      "id": "v4_p22_00_1659x948",
+      "width": 1659,
+      "height": 948,
+      "pdfPage": 22,
+      "canvaPage": 22,
+      "sourcePath": "sources/v4/extract/p22/p22_00_1659x948.jpg"
+    },
+    {
+      "id": "v4_p23_00_1659x948",
+      "width": 1659,
+      "height": 948,
+      "pdfPage": 23,
+      "canvaPage": 23,
+      "sourcePath": "sources/v4/extract/p23/p23_00_1659x948.jpg"
+    },
+    {
+      "id": "v4_p24_crop_centerpiece_v1",
+      "width": 506,
+      "height": 402,
+      "pdfPage": 24,
+      "canvaPage": 24,
+      "sourcePath": "sources/v4/extract/p24/p24_crop_centerpiece_v1.jpg"
+    },
+    {
+      "id": "v4_p24_crop_centerpiece_v2",
+      "width": 502,
+      "height": 402,
+      "pdfPage": 24,
+      "canvaPage": 24,
+      "sourcePath": "sources/v4/extract/p24/p24_crop_centerpiece_v2.jpg"
+    },
+    {
+      "id": "v4_p24_crop_centerpiece_v3",
+      "width": 503,
+      "height": 402,
+      "pdfPage": 24,
+      "canvaPage": 24,
+      "sourcePath": "sources/v4/extract/p24/p24_crop_centerpiece_v3.jpg"
+    },
+    {
+      "id": "v4_p32_crop_performer1",
+      "width": 358,
+      "height": 441,
+      "pdfPage": 32,
+      "canvaPage": 32,
+      "sourcePath": "sources/v4/extract/p32/p32_crop_performer1.jpg"
+    },
+    {
+      "id": "v4_p32_crop_performer2",
+      "width": 380,
+      "height": 441,
+      "pdfPage": 32,
+      "canvaPage": 32,
+      "sourcePath": "sources/v4/extract/p32/p32_crop_performer2.jpg"
+    },
+    {
+      "id": "v4_p32_crop_performer3",
+      "width": 349,
+      "height": 441,
+      "pdfPage": 32,
+      "canvaPage": 32,
+      "sourcePath": "sources/v4/extract/p32/p32_crop_performer3.jpg"
+    },
+    {
+      "id": "v4_p32_crop_performer4",
+      "width": 375,
+      "height": 441,
+      "pdfPage": 32,
+      "canvaPage": 32,
+      "sourcePath": "sources/v4/extract/p32/p32_crop_performer4.jpg"
+    },
+    {
+      "id": "v4_p34_crop_dance_show_stage_with_quote",
+      "width": 860,
+      "height": 602,
+      "pdfPage": 34,
+      "canvaPage": 34,
+      "sourcePath": "sources/v4/extract/p34/p34_crop_dance_show_stage_with_quote.jpg"
+    },
+    {
+      "id": "v4_p34_crop_dance_show_dancers",
+      "width": 860,
+      "height": 312,
+      "pdfPage": 34,
+      "canvaPage": 34,
+      "sourcePath": "sources/v4/extract/p34/p34_crop_dance_show_dancers.jpg"
+    },
+    {
+      "id": "v4_p35_crop_mihaela_portrait",
+      "width": 369,
+      "height": 768,
+      "pdfPage": 35,
+      "canvaPage": 35,
+      "sourcePath": "sources/v4/extract/p35/p35_crop_mihaela_portrait.jpg"
+    },
+    {
+      "id": "v4_p35_crop_mihaela_jazz_quartet",
+      "width": 446,
+      "height": 250,
+      "pdfPage": 35,
+      "canvaPage": 35,
+      "sourcePath": "sources/v4/extract/p35/p35_crop_mihaela_jazz_quartet.jpg"
+    },
+    {
+      "id": "v4_p35_crop_mihaela_with_dancers",
+      "width": 439,
+      "height": 281,
+      "pdfPage": 35,
+      "canvaPage": 35,
+      "sourcePath": "sources/v4/extract/p35/p35_crop_mihaela_with_dancers.jpg"
+    },
+    {
+      "id": "v4_p36_crop_cocktail_retro_car",
+      "width": 579,
+      "height": 236,
+      "pdfPage": 36,
+      "canvaPage": 36,
+      "sourcePath": "sources/v4/extract/p36/p36_crop_cocktail_retro_car.jpg"
+    },
+    {
+      "id": "v4_p36_crop_little_party_waitresses",
+      "width": 512,
+      "height": 236,
+      "pdfPage": 36,
+      "canvaPage": 36,
+      "sourcePath": "sources/v4/extract/p36/p36_crop_little_party_waitresses.jpg"
+    },
+    {
+      "id": "v4_p36_crop_little_party_feathers",
+      "width": 544,
+      "height": 236,
+      "pdfPage": 36,
+      "canvaPage": 36,
+      "sourcePath": "sources/v4/extract/p36/p36_crop_little_party_feathers.jpg"
+    },
+    {
+      "id": "v4_p36_crop_gimme_gimme_cabaret",
+      "width": 573,
+      "height": 218,
+      "pdfPage": 36,
+      "canvaPage": 36,
+      "sourcePath": "sources/v4/extract/p36/p36_crop_gimme_gimme_cabaret.jpg"
+    },
+    {
+      "id": "v4_p36_crop_sway_feathers",
+      "width": 512,
+      "height": 229,
+      "pdfPage": 36,
+      "canvaPage": 36,
+      "sourcePath": "sources/v4/extract/p36/p36_crop_sway_feathers.jpg"
+    },
+    {
+      "id": "v4_p36_crop_cake_fans",
+      "width": 544,
+      "height": 208,
+      "pdfPage": 36,
+      "canvaPage": 36,
+      "sourcePath": "sources/v4/extract/p36/p36_crop_cake_fans.jpg"
+    },
+    {
+      "id": "v4_p37_00_1536x1024",
+      "width": 1536,
+      "height": 1024,
+      "pdfPage": 37,
+      "canvaPage": 37,
+      "sourcePath": "sources/v4/extract/p37/p37_00_1536x1024.jpg"
+    },
+    {
+      "id": "v4_p37_crop_hats_accessories",
+      "width": 504,
+      "height": 313,
+      "pdfPage": 37,
+      "canvaPage": 37,
+      "sourcePath": "sources/v4/extract/p37/p37_crop_hats_accessories.jpg"
+    },
+    {
+      "id": "v4_p37_crop_cake_arrival",
+      "width": 479,
+      "height": 313,
+      "pdfPage": 37,
+      "canvaPage": 37,
+      "sourcePath": "sources/v4/extract/p37/p37_crop_cake_arrival.jpg"
+    },
+    {
+      "id": "v4_p37_crop_cake_cutting",
+      "width": 535,
+      "height": 313,
+      "pdfPage": 37,
+      "canvaPage": 37,
+      "sourcePath": "sources/v4/extract/p37/p37_crop_cake_cutting.jpg"
+    },
+    {
+      "id": "v4_p37_crop_countdown_22",
+      "width": 504,
+      "height": 291,
+      "pdfPage": 37,
+      "canvaPage": 37,
+      "sourcePath": "sources/v4/extract/p37/p37_crop_countdown_22.jpg"
+    },
+    {
+      "id": "v4_p37_crop_toast",
+      "width": 473,
+      "height": 291,
+      "pdfPage": 37,
+      "canvaPage": 37,
+      "sourcePath": "sources/v4/extract/p37/p37_crop_toast.jpg"
+    },
+    {
+      "id": "v4_p37_crop_party_begins_live",
+      "width": 542,
+      "height": 291,
+      "pdfPage": 37,
+      "canvaPage": 37,
+      "sourcePath": "sources/v4/extract/p37/p37_crop_party_begins_live.jpg"
+    },
+    {
+      "id": "v4_p38_crop_disco_ball_dancers",
+      "width": 964,
+      "height": 593,
+      "pdfPage": 38,
+      "canvaPage": 38,
+      "sourcePath": "sources/v4/extract/p38/p38_crop_disco_ball_dancers.jpg"
+    },
+    {
+      "id": "v4_p39_crop_live_show_band_dancers",
+      "width": 1085,
+      "height": 415,
+      "pdfPage": 39,
+      "canvaPage": 39,
+      "sourcePath": "sources/v4/extract/p39/p39_crop_live_show_band_dancers.jpg"
+    },
+    {
+      "id": "v4_n03_corridor_ivory",
+      "width": 2487,
+      "height": 1492,
+      "pdfPage": null,
+      "canvaPage": null,
+      "sourcePath": "sources/v4/assets-v4/n03_corridor_ivory.jpg"
+    },
+    {
+      "id": "v4_n04_corridor_burgundy",
+      "width": 2539,
+      "height": 1524,
+      "pdfPage": null,
+      "canvaPage": null,
+      "sourcePath": "sources/v4/assets-v4/n04_corridor_burgundy.jpg"
+    },
+    {
+      "id": "v4_n05_corridor_terracotta",
+      "width": 2487,
+      "height": 1492,
+      "pdfPage": null,
+      "canvaPage": null,
+      "sourcePath": "sources/v4/assets-v4/n05_corridor_terracotta.jpg"
+    },
+    {
+      "id": "v4_n07_first_floor_terracotta",
+      "width": 2600,
+      "height": 2166,
+      "pdfPage": null,
+      "canvaPage": null,
+      "sourcePath": "sources/v4/assets-v4/n07_first_floor_terracotta.jpg"
+    },
+    {
+      "id": "v4_n08_first_floor_burgundy",
+      "width": 2600,
+      "height": 2188,
+      "pdfPage": null,
+      "canvaPage": null,
+      "sourcePath": "sources/v4/assets-v4/n08_first_floor_burgundy.jpg"
+    },
+    {
+      "id": "v4_n09_first_floor_amber",
+      "width": 2600,
+      "height": 2148,
+      "pdfPage": null,
+      "canvaPage": null,
+      "sourcePath": "sources/v4/assets-v4/n09_first_floor_amber.jpg"
+    },
+    {
+      "id": "v4_n10_first_floor_ivory_clean_A",
+      "width": 2600,
+      "height": 2254,
+      "pdfPage": null,
+      "canvaPage": null,
+      "sourcePath": "sources/v4/assets-v4/n10_first_floor_ivory_clean_A.jpg"
+    },
+    {
+      "id": "v4_n11_first_floor_ivory_clean_B",
+      "width": 2600,
+      "height": 2167,
+      "pdfPage": null,
+      "canvaPage": null,
+      "sourcePath": "sources/v4/assets-v4/n11_first_floor_ivory_clean_B.jpg"
+    }
+  ]
+}

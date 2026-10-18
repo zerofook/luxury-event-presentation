@@ -1,5 +1,6 @@
 import type { MediaAsset } from './types';
 import { publicUrl } from '@/lib/publicUrl';
+import { v4Assets } from './assets.v4.generated';
 
 const img = (
   id: string,
@@ -86,6 +87,7 @@ export const assets: Record<string, MediaAsset> = {
     'Гала зала — алтернативна перспектива',
     { provenance: 'owner-visualization' },
   ),
+  ...v4Assets,
 };
 
 /** Pick best width ladder file suffix for viewport */
