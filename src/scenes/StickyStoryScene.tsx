@@ -5,7 +5,6 @@ import { ResponsivePicture } from '@/components/ResponsivePicture';
 import { useScrollProgress } from '@/lib/useScrollProgress';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
 import { useIsDesktopStoryLayout } from '@/lib/useMediaQuery';
-import { InvestmentSummary } from '@/components/InvestmentSummary';
 import { PaletteCompare } from '@/components/PaletteCompare';
 
 interface Props {
@@ -272,11 +271,6 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
         </div>
       </section>
 
-      <InvestmentSummary
-        titleBg={data.investmentTitleBg}
-        introBg={data.investmentIntroBg}
-        priceIds={[...data.priceIds]}
-      />
       <PaletteCompare />
     </>
   );

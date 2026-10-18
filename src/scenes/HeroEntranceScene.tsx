@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import type { HeroSceneData, VideoEntranceSceneData, EntranceTransition } from '@/content/types';
 import { ResponsivePicture } from '@/components/ResponsivePicture';
+import { FilmOverlay } from '@/components/FilmOverlay';
+import { FILM_BUTTON_LABEL } from '@/config/film';
 import { useVideoInView } from '@/lib/useVideoInView';
 import { useScrollProgress } from '@/lib/useScrollProgress';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
@@ -10,7 +12,7 @@ interface Props {
   hero: HeroSceneData;
   entrance: VideoEntranceSceneData;
   entranceTransition: EntranceTransition;
-  ui: { playVideo: string; ariaHeroSection: string };
+  ui: { playVideo: string; ariaHeroSection: string; filmOverlayTitle: string; filmOverlayClose: string };
 }
 
 export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Props) {
@@ -21,6 +23,7 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
   });
   const { trackRef, progress } = useScrollProgress(!reduced);
   const [dissolve, setDissolve] = useState(false);
+  const [filmOpen, setFilmOpen] = useState(false);
 
   useEffect(() => {
     if (reduced) return;
@@ -56,6 +59,13 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
             <h1 className="display">{hero.headlineBg}</h1>
             <p className="lead">{hero.sublineBg}</p>
             <div className="gold-rule" aria-hidden="true" />
+            <button
+              type="button"
+              className="hero-film-cta"
+              onClick={() => setFilmOpen(true)}
+            >
+              {FILM_BUTTON_LABEL}
+            </button>
           </div>
 
           <div className="hero-entrance__media" ref={containerRef}>
@@ -100,6 +110,12 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
           <p className="section-lead">{entrance.bodyBg}</p>
         </div>
       </div>
+      <FilmOverlay
+        open={filmOpen}
+        onClose={() => setFilmOpen(false)}
+        title={ui.filmOverlayTitle}
+        closeLabel={ui.filmOverlayClose}
+      />
     </section>
   );
 }

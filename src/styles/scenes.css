@@ -69,6 +69,91 @@
   z-index: 2;
 }
 
+.hero-film-cta {
+  margin-top: 1.25rem;
+  padding: 0.65rem 1.15rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--color-champagne);
+  background: transparent;
+  border: 1px solid rgba(212, 176, 118, 0.65);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.hero-film-cta:hover {
+  background: rgba(212, 176, 118, 0.12);
+  color: var(--color-ivory);
+}
+
+.hero-film-cta:focus-visible {
+  outline: 2px solid var(--color-champagne);
+  outline-offset: 3px;
+}
+
+.film-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 2.5rem);
+  background: rgba(23, 36, 48, 0.88);
+}
+
+.film-overlay__dialog {
+  width: min(960px, 100%);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.film-overlay__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--color-ivory);
+}
+
+.film-overlay__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-weight: 500;
+  margin: 0;
+}
+
+.film-overlay__close {
+  flex-shrink: 0;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
+  color: var(--color-ivory);
+  background: transparent;
+  border: 1px solid rgba(247, 241, 230, 0.35);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.film-overlay__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid rgba(212, 176, 118, 0.35);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+}
+
+.film-overlay__video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
 .entrance-copy {
   border-top: 1px solid rgba(212, 176, 118, 0.25);
 }
@@ -82,9 +167,17 @@
 .photo-exp__band {
   position: relative;
   width: 100%;
-  max-height: min(52svh, 520px);
-  aspect-ratio: 16 / 5;
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+.photo-exp__band--still {
+  max-height: min(48svh, 480px);
+  aspect-ratio: 16 / 6;
   overflow: hidden;
+  border: 1px solid rgba(37, 59, 80, 0.1);
+  border-radius: 2px;
   background: var(--color-navy-mid);
 }
 
@@ -115,22 +208,97 @@
   transform: none;
 }
 
-.photo-exp__variants {
-  display: flex;
-  gap: 0.75rem;
-  max-width: var(--max-content);
-  margin: 1.5rem auto 0;
-  padding: 0 1.25rem;
-  opacity: 0.85;
+.photo-exp__palettes {
+  max-width: var(--max-content-wide, 72rem);
+  margin: 2.5rem auto 0;
+  padding: 0 clamp(1rem, 4vw, 2rem) var(--space-section);
 }
 
-.photo-exp__variant-thumb {
-  flex: 1;
-  max-width: 200px;
+.photo-exp__palette-grid {
+  margin-top: 0;
+}
+
+.editorial-video {
+  padding: var(--space-section) clamp(1rem, 4vw, 2rem);
+}
+
+.editorial-video--cream {
+  background: var(--color-cream);
+  color: var(--color-navy);
+}
+
+.editorial-video--navy {
+  background: linear-gradient(180deg, var(--color-navy-mid) 0%, var(--color-navy) 100%);
+  color: var(--color-ivory);
+}
+
+.editorial-video--navy .section-title,
+.editorial-video--navy .section-lead {
+  color: var(--color-ivory);
+}
+
+.editorial-video__inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.editorial-video__copy {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.editorial-video__copy.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.editorial-video__eyebrow {
+  color: var(--color-champagne);
+  margin-bottom: 0.35rem;
+}
+
+.editorial-video--navy .editorial-video__disclaimer,
+.editorial-video__disclaimer {
+  margin-top: 0.75rem;
+  font-size: 0.88rem;
+  opacity: 0.78;
+}
+
+.editorial-video__frame-wrap {
+  position: relative;
+  width: 100%;
   aspect-ratio: 16 / 9;
+  max-height: min(56svh, 540px);
   overflow: hidden;
+  border: 1px solid rgba(212, 176, 118, 0.28);
   border-radius: 2px;
-  border: 1px solid rgba(37, 59, 80, 0.12);
+  background: var(--color-navy-mid);
+}
+
+.editorial-video--cream .editorial-video__frame-wrap {
+  border-color: rgba(37, 59, 80, 0.14);
+}
+
+.editorial-video__video,
+.editorial-video__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+.editorial-video__poster {
+  z-index: 0;
+}
+
+.editorial-video__video {
+  z-index: 1;
 }
 
 /* Sticky cocktail */

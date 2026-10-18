@@ -66,14 +66,25 @@ export interface VideoEntranceSceneData {
 export interface PhotoExperienceSceneData {
   type: 'photoExperience';
   id: string;
-  videoSrc: string;
-  posterSrc: string;
+  /** V5: car clip deferred — still + palette frames only */
   stillAssetId: string;
-  width: number;
-  height: number;
   titleBg: string;
   bodyBg: string;
-  variantAssetIds?: string[];
+  paletteVariantIds: string[];
+}
+
+export interface EditorialVideoSceneData {
+  type: 'editorialVideo';
+  id: string;
+  tone: 'cream' | 'navy';
+  eyebrowBg?: string;
+  titleBg: string;
+  bodyBg: string;
+  disclaimerBg?: string;
+  videoSrc: string;
+  posterSrc: string;
+  width: number;
+  height: number;
 }
 
 export interface StickyBeat {
@@ -93,9 +104,6 @@ export interface StickyStorySceneData {
   masterAssetId: string;
   trackSvh: { desktop: number; mobile: number };
   beats: StickyBeat[];
-  investmentTitleBg: string;
-  investmentIntroBg: string;
-  priceIds: string[];
 }
 
 export interface ScrubSceneData {
@@ -124,6 +132,7 @@ export type SceneData =
   | VideoEntranceSceneData
   | PhotoExperienceSceneData
   | StickyStorySceneData
+  | EditorialVideoSceneData
   | ScrubSceneData;
 
 export interface SiteUiStrings {
@@ -133,6 +142,8 @@ export interface SiteUiStrings {
   devScrubHint: string;
   ariaHeroSection: string;
   ariaPhotoVariants: string;
+  filmOverlayTitle: string;
+  filmOverlayClose: string;
 }
 
 export interface SiteContent {

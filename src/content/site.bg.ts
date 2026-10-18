@@ -34,7 +34,9 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
     passagePaletteNote: 'Примерни палитри — една и съща камера (p14)',
     devScrubHint: 'Активира се с ?scrubTest=1 — не е част от основната история.',
     ariaHeroSection: 'Вход и герой',
-    ariaPhotoVariants: 'Други цветови варианти на фото зоната',
+    ariaPhotoVariants: 'Цветови варианти на фото зоната',
+    filmOverlayTitle: 'Geotrading 22 — кратък филм',
+    filmOverlayClose: 'Затвори',
   },
   closingLineBg:
     'С уважение към традицията и поглед към бъдещето — Global Event Agency представя визията за юбилейната вечер на Geotrading.',
@@ -62,15 +64,11 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
     {
       type: 'photoExperience',
       id: 'photo-zone',
-      videoSrc: 'media/video/vintage-car-trimmed.mp4',
-      posterSrc: 'media/video/vintage-car-poster.jpg',
       stillAssetId: 'c02c_photozone_light_p07',
-      width: 1264,
-      height: 720,
       titleBg: 'Фото зона',
       bodyBg:
         'Винтидж автомобил, флорални акценти и атмосфера от златните двадесет — момент за снимка, който разказва историята на марката.',
-      variantAssetIds: ['c02a_photozone_orange_p07', 'c02b_photozone_plum_p07'],
+      paletteVariantIds: ['c02a_photozone_orange_p07', 'c02b_photozone_plum_p07', 'c02c_photozone_light_p07'],
     },
     {
       type: 'stickyStory',
@@ -109,10 +107,33 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
           focus: { fx: 0.48, fy: 0.86, fr: 0.4 },
         },
       ],
-      investmentTitleBg: 'Инвестиция — зона коктейл',
-      investmentIntroBg:
-        'Ориентировъчни стойности от предложението. Статусите са непотвърдени до финално одобрение от агенцията и клиента.',
-      priceIds: ['foyer_wall_drapes', 'column_decor', 'cocktail_tables', 'floral_freestanding'],
+    },
+    {
+      type: 'editorialVideo',
+      id: 'perf-champagne',
+      tone: 'cream',
+      eyebrowBg: 'Артистични изяви',
+      titleBg: 'Шампанско обслужване',
+      bodyBg:
+        'Елегантни артисти в костюми приветстват гостите с шампанско — топъл акцент в началото на вечерта.',
+      disclaimerBg: 'Предложена концепция — програмата подлежи на финално одобрение.',
+      videoSrc: 'media/video/champagne-costume.mp4',
+      posterSrc: 'media/video/champagne-costume-poster.jpg',
+      width: 1280,
+      height: 720,
+    },
+    {
+      type: 'editorialVideo',
+      id: 'perf-glass',
+      tone: 'navy',
+      titleBg: 'Гигантско стъкло и конфети',
+      bodyBg:
+        'Театрален момент с артист в прозрачно стъкло и златен конфetti — спектакъл, който събира погледите във фоайето.',
+      disclaimerBg: 'Предложена концепция — без имена и без потвърдени изпълнители.',
+      videoSrc: 'media/video/glass-confetti.mp4',
+      posterSrc: 'media/video/glass-confetti-poster.jpg',
+      width: 1280,
+      height: 720,
     },
     {
       type: 'scrubPassage',
