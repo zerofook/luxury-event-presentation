@@ -5,12 +5,9 @@ import { ResponsivePicture } from '@/components/ResponsivePicture';
 import { useScrollProgress } from '@/lib/useScrollProgress';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
 import { useIsDesktopStoryLayout } from '@/lib/useMediaQuery';
-import { InvestmentSummary } from '@/components/InvestmentSummary';
-import { PaletteCompare } from '@/components/PaletteCompare';
-
 interface Props {
   data: StickyStorySceneData;
-  treatment: 'spotlight' | 'editorial';
+  treatment?: 'spotlight' | 'editorial';
   scrollHint: string;
 }
 
@@ -137,7 +134,7 @@ function MobileCaptionPanel({
   );
 }
 
-export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
+export function StickyStoryScene({ data, scrollHint }: Props) {
   const reduced = getPrefersReducedMotion();
   const isDesktop = useIsDesktopStoryLayout();
   const { trackRef, progress } = useScrollProgress(!reduced);
@@ -153,14 +150,16 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
 
   const focus = activeBeat >= 0 ? data.beats[activeBeat]!.focus : { fx: 0.5, fy: 0.5, fr: 0.55 };
 
-  const overlayStyle =
-    treatment === 'spotlight' && !reduced
-      ? ({
-          '--fx': `${focus.fx * 100}%`,
-          '--fy': `${focus.fy * 100}%`,
-          '--fr': `${focus.fr * 100}%`,
-        } as React.CSSProperties)
-      : undefined;
+  const gentleZoom = reduced ? 1 : 1 + progress * 0.06;
+
+  const overlayStyle = !reduced
+    ? ({
+        '--fx': `${focus.fx * 100}%`,
+        '--fy': `${focus.fy * 100}%`,
+        '--fr': `${focus.fr * 100}%`,
+        '--story-zoom': gentleZoom,
+      } as React.CSSProperties)
+    : undefined;
 
   const mobileAnimate = !isDesktop && !reduced;
 
@@ -191,7 +190,7 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
 
   const fxOverlay = (
     <div
-      className={`sticky-story__fx sticky-story__fx--${treatment}${reduced ? ' is-off' : ''}`}
+      className={`sticky-story__fx sticky-story__fx--editorial sticky-story__fx--editorial-gentle${reduced ? ' is-off' : ''}`}
       style={overlayStyle}
       aria-hidden="true"
     />
@@ -236,22 +235,32 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
 
               {isDesktop ? (
                 <div className="sticky-story__visual">
-                  <ResponsivePicture
-                    className="sticky-story__master-picture"
-                    assetId={data.masterAssetId}
-                    objectFit="contain"
-                  />
+                  <div
+                    className="sticky-story__master-zoom"
+                    style={reduced ? undefined : ({ transform: `scale(${gentleZoom})` } as React.CSSProperties)}
+                  >
+                    <ResponsivePicture
+                      className="sticky-story__master-picture"
+                      assetId={data.masterAssetId}
+                      objectFit="contain"
+                    />
+                  </div>
                   {fxOverlay}
                 </div>
               ) : (
                 <>
                   <div className="sticky-story__mobile-image">
-                    <ResponsivePicture
-                      className="sticky-story__master-picture"
-                      assetId={data.masterAssetId}
-                      objectFit="cover"
-                      objectPosition={masterObjectPosition}
-                    />
+                    <div
+                      className="sticky-story__master-zoom"
+                      style={reduced ? undefined : ({ transform: `scale(${gentleZoom})` } as React.CSSProperties)}
+                    >
+                      <ResponsivePicture
+                        className="sticky-story__master-picture"
+                        assetId={data.masterAssetId}
+                        objectFit="cover"
+                        objectPosition={masterObjectPosition}
+                      />
+                    </div>
                     {fxOverlay}
                   </div>
                   <div className="sticky-story__mobile-dock" aria-live="polite">
@@ -271,13 +280,6 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
           </div>
         </div>
       </section>
-
-      <InvestmentSummary
-        titleBg={data.investmentTitleBg}
-        introBg={data.investmentIntroBg}
-        priceIds={[...data.priceIds]}
-      />
-      <PaletteCompare />
     </>
   );
 }

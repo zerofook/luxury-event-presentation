@@ -108,6 +108,75 @@ export interface EditorialInterludeSceneData {
   id: string;
   headlineBg: string;
   sublineBg?: string;
+  backgroundAssetId?: string;
+}
+
+export interface FirstFloorPerformanceClip {
+  id: string;
+  videoSrc: string;
+  posterSrc: string;
+  width: number;
+  height: number;
+  captionBg?: string;
+}
+
+export interface FirstFloorEnvironmentSceneData {
+  type: 'firstFloorEnvironment';
+  id: string;
+  anchorAssetId: string;
+  markers: SpatialMarker[];
+  trackOverviewSvh?: number;
+  trackPerformancesSvh?: number;
+  performances: FirstFloorPerformanceClip[];
+  overviewTitleBg?: string;
+  overviewBodyBg?: string;
+  schematicNoteBg?: string;
+}
+
+export interface GalaDetailPanel {
+  assetId: string;
+  titleBg: string;
+  bodyBg?: string;
+}
+
+export interface GalaSequenceSceneData {
+  type: 'galaSequence';
+  id: string;
+  emptyAssetId: string;
+  emptyObjectPosition?: string;
+  aliveVideoSrc: string;
+  alivePosterSrc: string;
+  width: number;
+  height: number;
+  titleBg: string;
+  bodyBg: string;
+  aliveNoteBg?: string;
+  aliveObjectPosition?: string;
+  detailPanels: GalaDetailPanel[];
+  heroTrackSvh?: number;
+}
+
+export interface CelebrationSection {
+  layout: 'fullscreen' | 'editorial' | 'triptych' | 'pause';
+  titleBg?: string;
+  bodyBg?: string;
+  assetIds?: string[];
+  objectPosition?: string;
+}
+
+export interface CelebrationSequenceSceneData {
+  type: 'celebrationSequence';
+  id: string;
+  programmeNoteBg: string;
+  sections: CelebrationSection[];
+}
+
+export interface EntertainmentStripSceneData {
+  type: 'entertainmentStrip';
+  id: string;
+  titleBg: string;
+  programmeNoteBg: string;
+  assetIds: string[];
 }
 
 export interface CorridorPassageSceneData {
@@ -154,6 +223,7 @@ export interface PhotoExperienceSceneData {
   height: number;
   titleBg: string;
   bodyBg: string;
+  stillObjectPosition?: string;
   variantAssetIds?: string[];
 }
 
@@ -174,9 +244,9 @@ export interface StickyStorySceneData {
   masterAssetId: string;
   trackSvh: { desktop: number; mobile: number };
   beats: StickyBeat[];
-  investmentTitleBg: string;
-  investmentIntroBg: string;
-  priceIds: string[];
+  investmentTitleBg?: string;
+  investmentIntroBg?: string;
+  priceIds?: string[];
 }
 
 export interface ScrubSceneData {
@@ -204,12 +274,16 @@ export type SceneData =
   | HeroSceneData
   | VideoEntranceSceneData
   | FirstFloorOverviewSceneData
+  | FirstFloorEnvironmentSceneData
   | VideoBeatSceneData
   | EditorialInterludeSceneData
   | CorridorPassageSceneData
   | GalaRevealSceneData
+  | GalaSequenceSceneData
   | PhotoExperienceSceneData
   | StickyStorySceneData
+  | CelebrationSequenceSceneData
+  | EntertainmentStripSceneData
   | ScrubSceneData;
 
 export interface SiteUiStrings {

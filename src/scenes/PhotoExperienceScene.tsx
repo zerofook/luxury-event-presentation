@@ -32,7 +32,7 @@ export function PhotoExperienceScene({ data, ui }: Props) {
   }, [ended, reduced]);
 
   return (
-    <section className="photo-exp" aria-labelledby="photo-heading">
+    <section id={`scene-${data.id}`} className="photo-exp" aria-labelledby="photo-heading">
       <div className="photo-exp__band" ref={containerRef}>
         {!reduced && (
           <video
@@ -49,7 +49,11 @@ export function PhotoExperienceScene({ data, ui }: Props) {
           />
         )}
         <div className="photo-exp__still" style={{ opacity: showStill || reduced ? 1 : 0 }}>
-          <ResponsivePicture assetId={data.stillAssetId} objectFit="cover" />
+          <ResponsivePicture
+            assetId={data.stillAssetId}
+            objectFit="cover"
+            objectPosition={data.stillObjectPosition ?? '50% 50%'}
+          />
         </div>
         {needsTap && !reduced && (
           <button type="button" className="play-affordance" onClick={() => void tryPlay()}>
