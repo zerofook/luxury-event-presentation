@@ -1,0 +1,9 @@
+---
+description: Scene components — animation only, no copy
+globs: src/scenes/**
+alwaysApply: false
+---
+
+- Scenes consume typed data from `src/content/`; no hard-coded Bulgarian strings.
+- Clean up GSAP with `useGSAP` or explicit `ScrollTrigger.kill()` on unmount.
+- Every scene must render a readable static layout when JS fails or `prefers-reduced-motion` is set.

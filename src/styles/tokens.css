@@ -1,0 +1,19 @@
+:root {
+  /* Sampled from PDF pages — confirm with brand */
+  --color-navy: #253b50;
+  --color-navy-deep: #1a2a38;
+  --color-blue-gray: #5a6f82;
+  --color-ivory: #f7f1e6;
+  --color-cream: #ede4d4;
+  --color-champagne: #d4b076;
+  --color-gold-muted: #b4935b;
+  /* Placeholder — Geotrading brand turquoise unknown */
+  --color-turquoise-accent: #3a8f8c;
+
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Noto Sans', system-ui, sans-serif;
+
+  --space-section: clamp(3rem, 8vw, 6rem);
+  --max-content: 72rem;
+  --focus-ring: 2px solid var(--color-champagne);
+}

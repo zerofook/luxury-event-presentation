@@ -1,0 +1,9 @@
+---
+description: Content layer rules
+globs: src/content/**
+alwaysApply: false
+---
+
+- All user-visible copy in Bulgarian (`lang="bg"` on `<html>`).
+- Mark invented or placeholder copy with `// TODO:` comments.
+- Media paths reference `public/media/` assets validated by `npm run validate`.

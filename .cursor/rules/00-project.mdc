@@ -1,0 +1,12 @@
+---
+description: GEOTRADING 22 project invariants
+alwaysApply: true
+---
+
+# GEOTRADING 22
+
+- Preserve supplied render crops; never AI-edit venue imagery.
+- Bulgarian client copy only in `src/content/**`.
+- Prices only from `pricing.bg.ts` with source page and VAT status.
+- No GSAP `pin: true`; use CSS sticky + ScrollTrigger progress.
+- Native scroll; reduced-motion fallbacks required.

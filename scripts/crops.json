@@ -1,0 +1,210 @@
+{
+ "c01_entrance_render_p05": {
+  "src": "01_entrance_hero_pdf-p05.jpg",
+  "box": [
+   152,
+   0,
+   1296,
+   1094
+  ],
+  "size": [
+   1144,
+   1094
+  ]
+ },
+ "c02a_photozone_orange_p07": {
+  "src": "02_photo_zone_pdf-p07.jpg",
+  "box": [
+   0,
+   0,
+   968,
+   538
+  ],
+  "size": [
+   968,
+   538
+  ]
+ },
+ "c02b_photozone_plum_p07": {
+  "src": "02_photo_zone_pdf-p07.jpg",
+  "box": [
+   976,
+   0,
+   1944,
+   538
+  ],
+  "size": [
+   968,
+   538
+  ]
+ },
+ "c02c_photozone_light_p07": {
+  "src": "02_photo_zone_pdf-p07.jpg",
+  "box": [
+   0,
+   548,
+   1944,
+   1094
+  ],
+  "size": [
+   1944,
+   546
+  ]
+ },
+ "c03_cocktail_aerial_p08": {
+  "src": "03_cocktail_master_pdf-p08.jpg",
+  "box": [
+   497,
+   0,
+   1944,
+   1094
+  ],
+  "size": [
+   1447,
+   1094
+  ]
+ },
+ "c04_cocktail_callouts_p11": {
+  "src": "04_cocktail_details_pricing_pdf-p11.jpg",
+  "box": [
+   312,
+   0,
+   1632,
+   1094
+  ],
+  "size": [
+   1320,
+   1094
+  ]
+ },
+ "c05a_palette_orange_p04": {
+  "src": "05_color_variants_entrance_pdf-p04.jpg",
+  "box": [
+   0,
+   60,
+   499,
+   721
+  ],
+  "size": [
+   499,
+   661
+  ]
+ },
+ "c05b_palette_plum_p04": {
+  "src": "05_color_variants_entrance_pdf-p04.jpg",
+  "box": [
+   503,
+   60,
+   1002,
+   721
+  ],
+  "size": [
+   499,
+   661
+  ]
+ },
+ "c05c_palette_light_p04": {
+  "src": "05_color_variants_entrance_pdf-p04.jpg",
+  "box": [
+   1004,
+   60,
+   1503,
+   721
+  ],
+  "size": [
+   499,
+   661
+  ]
+ },
+ "c06a_passage_orange_p14": {
+  "src": "06_golden_passage_variants_pdf-p14.jpg",
+  "box": [
+   0,
+   0,
+   879,
+   527
+  ],
+  "size": [
+   879,
+   527
+  ]
+ },
+ "c06b_passage_plum_p14": {
+  "src": "06_golden_passage_variants_pdf-p14.jpg",
+  "box": [
+   956,
+   0,
+   1894,
+   527
+  ],
+  "size": [
+   938,
+   527
+  ]
+ },
+ "c06c_passage_light_p14": {
+  "src": "06_golden_passage_variants_pdf-p14.jpg",
+  "box": [
+   0,
+   560,
+   879,
+   1094
+  ],
+  "size": [
+   879,
+   534
+  ]
+ },
+ "c07_passage_hero_p15": {
+  "src": "07_golden_passage_specs_pdf-p15.jpg",
+  "box": [
+   0,
+   0,
+   1944,
+   562
+  ],
+  "size": [
+   1944,
+   562
+  ]
+ },
+ "c08_galahall_full_p21": {
+  "src": "08_gala_hall_grand_reveal_pdf-p21.jpg",
+  "box": [
+   0,
+   0,
+   1944,
+   1094
+  ],
+  "size": [
+   1944,
+   1094
+  ]
+ },
+ "c09_galahall2_p22": {
+  "src": "09_gala_hall_second_angle_pdf-p22.jpg",
+  "box": [
+   19,
+   19,
+   1925,
+   1063
+  ],
+  "size": [
+   1906,
+   1044
+  ]
+ },
+ "c10_table_clean_p24": {
+  "src": "10_table_styling_pdf-p24.jpg",
+  "box": [
+   0,
+   0,
+   872,
+   790
+  ],
+  "size": [
+   872,
+   790
+  ]
+ }
+}
