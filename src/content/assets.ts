@@ -1,11 +1,12 @@
 import type { MediaAsset } from './types';
+import { publicUrl } from '@/lib/publicUrl';
 
 const img = (id: string, w: number, h: number, pdfPage: string, crop: string, altBg: string): MediaAsset => ({
   id,
   altBg,
   width: w,
   height: h,
-  basePath: `/media/img/${id}`,
+  basePath: `media/img/${id}`,
   source: { pdfPage, crop },
 });
 
@@ -153,5 +154,5 @@ export function assetSrc(asset: MediaAsset, viewportWidth: number, format: 'avif
   const widths = [640, 1024, 1600, 1944].filter((w) => w <= asset.width);
   const pick = widths.reduce((best, w) => (w <= viewportWidth ? w : best), widths[0] ?? 640);
   const w = Math.min(pick, asset.width);
-  return `${asset.basePath}-${w}.${format}`;
+  return publicUrl(`${asset.basePath}-${w}.${format}`);
 }

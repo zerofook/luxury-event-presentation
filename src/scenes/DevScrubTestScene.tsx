@@ -2,6 +2,7 @@ import { useScrollProgress } from '@/lib/useScrollProgress';
 import { ScrubSequence } from '@/components/ScrubSequence';
 import type { DevScrubTestData } from '@/content/types';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
+import { publicUrl } from '@/lib/publicUrl';
 import { useMemo } from 'react';
 
 interface Props {
@@ -29,7 +30,7 @@ export function DevScrubTestScene({ config, hint }: Props) {
             frameCount={config.frameCount}
             progress={progress}
             active
-            posterUrl="/media/frames/entrance-test-desktop/f001.webp"
+            posterUrl={publicUrl('media/frames/entrance-test-desktop/f001.webp')}
             className="dev-scrub__canvas"
           />
         </div>

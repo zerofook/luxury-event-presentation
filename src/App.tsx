@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { getSiteContent } from '@/content/site.bg';
+import { HeroPreload } from '@/components/HeroPreload';
 import { HeroEntranceScene } from '@/scenes/HeroEntranceScene';
 import { PhotoExperienceScene } from '@/scenes/PhotoExperienceScene';
 import { StickyStoryScene } from '@/scenes/StickyStoryScene';
@@ -16,7 +17,9 @@ export default function App() {
   const passage = site.scenes.find((s) => s.type === 'scrubPassage')!;
 
   return (
-    <main id="main">
+    <>
+      <HeroPreload />
+      <main id="main">
       <HeroEntranceScene
         hero={hero}
         entrance={entrance}
@@ -35,5 +38,6 @@ export default function App() {
         <p>{site.closingLineBg}</p>
       </footer>
     </main>
+    </>
   );
 }

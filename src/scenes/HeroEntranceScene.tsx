@@ -4,6 +4,7 @@ import { ResponsivePicture } from '@/components/ResponsivePicture';
 import { useVideoInView } from '@/lib/useVideoInView';
 import { useScrollProgress } from '@/lib/useScrollProgress';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
+import { publicUrl } from '@/lib/publicUrl';
 
 interface Props {
   hero: HeroSceneData;
@@ -60,7 +61,7 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
           <div className="hero-entrance__media" ref={containerRef}>
             <img
               className="hero-entrance__poster"
-              src={entrance.posterSrc}
+              src={publicUrl(entrance.posterSrc)}
               alt=""
               aria-hidden
               width={entrance.width}
@@ -72,8 +73,8 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
                 ref={videoRef}
                 className="hero-entrance__video"
                 style={{ opacity: videoOpacity }}
-                src={entrance.videoSrc}
-                poster={entrance.posterSrc}
+                src={publicUrl(entrance.videoSrc)}
+                poster={publicUrl(entrance.posterSrc)}
                 muted
                 playsInline
                 preload="auto"

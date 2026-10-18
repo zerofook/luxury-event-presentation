@@ -11,7 +11,7 @@ const assetRefs = {};
 
 function readTsExports(filePath) {
   const text = fs.readFileSync(filePath, 'utf8');
-  return [...text.matchAll(/['"`](\/media\/[^'"`$]+)['"`]/g)].map((m) => m[1]);
+  return [...text.matchAll(/['"`](\/?media\/[^'"`$]+)['"`]/g)].map((m) => m[1].replace(/^\//, ''));
 }
 
 function checkFile(rel) {

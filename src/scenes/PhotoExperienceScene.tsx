@@ -3,6 +3,7 @@ import type { PhotoExperienceSceneData } from '@/content/types';
 import { ResponsivePicture } from '@/components/ResponsivePicture';
 import { useVideoInView } from '@/lib/useVideoInView';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
+import { publicUrl } from '@/lib/publicUrl';
 
 interface Props {
   data: PhotoExperienceSceneData;
@@ -38,8 +39,8 @@ export function PhotoExperienceScene({ data, ui }: Props) {
             ref={videoRef}
             className="photo-exp__video"
             style={{ opacity: showStill ? 0 : 1 }}
-            src={data.videoSrc}
-            poster={data.posterSrc}
+            src={publicUrl(data.videoSrc)}
+            poster={publicUrl(data.posterSrc)}
             muted
             playsInline
             preload="none"

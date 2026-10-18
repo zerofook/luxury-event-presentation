@@ -27,6 +27,31 @@ npm run validate        # checks content paths
 
 Requires `ffmpeg` and `sharp` (devDependency) for `npm run assets`.
 
+### GitHub Pages (online preview)
+
+The site can be deployed to **GitHub Pages** with a project sub-path base:
+
+1. In the repo on GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+2. Merge to `main` (or run the **Deploy GitHub Pages** workflow manually via **Actions → Deploy GitHub Pages → Run workflow**).
+
+**Live URL (after deploy):** [https://zerofook.github.io/luxury-event-presentation/](https://zerofook.github.io/luxury-event-presentation/)
+
+Build locally the same way CI does:
+
+```bash
+npm run build:pages
+npm run preview:pages
+# open http://localhost:4173/luxury-event-presentation/
+```
+
+Vite `base` comes from `VITE_BASE` (default `/` for `npm run dev`). Runtime media URLs use `publicUrl()` + `import.meta.env.BASE_URL` so images, videos, scrub frames, and `?scrubTest=1` work under the sub-path.
+
+**Privacy:** `<meta name="robots" content="noindex">` and `public/robots.txt` (`Disallow: /`) discourage indexing, but **GitHub Pages is public** — anyone with the link can view the site (no password). Before client delivery, prefer protected hosting, for example:
+
+- **Cloudflare Pages** + **Cloudflare Access** (email/SSO gate)
+- **Netlify** or **Vercel** password protection / team-only deploys
+- Private object storage + signed URLs for media
+
 ## Scenes & scroll effects
 
 | Scene | Mechanism |
@@ -46,7 +71,7 @@ Edit copy, scenes, prices, and asset ids in:
 - `src/content/site.bg.ts` — scene definitions, UI strings, track lengths
 - `src/content/pricing.bg.ts` — prices with `sourcePage`, VAT, status
 - `src/content/palettes.ts` — swatch hex (flagged to verify)
-- `src/content/assets.ts` — dimensions, alt text, `/media/img/` base paths
+- `src/content/assets.ts` — dimensions, alt text, `media/img/` paths (resolved via `publicUrl()`)
 
 Scene components in `src/scenes/` only consume this data.
 

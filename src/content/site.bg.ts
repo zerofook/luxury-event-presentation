@@ -1,4 +1,5 @@
 import type { SiteContent } from './types';
+import { publicUrl } from '@/lib/publicUrl';
 
 function readDevFlags(): SiteContent['dev'] {
   if (typeof window === 'undefined') {
@@ -17,8 +18,8 @@ function readDevFlags(): SiteContent['dev'] {
     cocktailTreatment: cocktail === 'editorial' ? 'editorial' : 'spotlight',
     scrubTest: {
       enabled: scrubTest,
-      desktopPattern: '/media/frames/entrance-test-desktop/f%03d.webp',
-      mobilePattern: '/media/frames/entrance-test-mobile/m%03d.webp',
+      desktopPattern: publicUrl('media/frames/entrance-test-desktop/f%03d.webp'),
+      mobilePattern: publicUrl('media/frames/entrance-test-mobile/m%03d.webp'),
       frameCount: 25,
     },
   };
@@ -48,8 +49,8 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
     {
       type: 'videoEntrance',
       id: 'grand-entrance',
-      videoSrc: '/media/video/grand-entrance.mp4',
-      posterSrc: '/media/video/grand-entrance-poster.jpg',
+      videoSrc: 'media/video/grand-entrance.mp4',
+      posterSrc: 'media/video/grand-entrance-poster.jpg',
       stillAssetId: 'c01_entrance_render_p05',
       stillAltAssetId: 'c05c_palette_light_p04',
       width: 1264,
@@ -61,8 +62,8 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
     {
       type: 'photoExperience',
       id: 'photo-zone',
-      videoSrc: '/media/video/vintage-car-trimmed.mp4',
-      posterSrc: '/media/video/vintage-car-poster.jpg',
+      videoSrc: 'media/video/vintage-car-trimmed.mp4',
+      posterSrc: 'media/video/vintage-car-poster.jpg',
       stillAssetId: 'c02c_photozone_light_p07',
       width: 1264,
       height: 720,
