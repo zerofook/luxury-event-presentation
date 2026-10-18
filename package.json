@@ -17,7 +17,8 @@
     "assets:video": "bash scripts/make-video.sh",
     "assets:frames": "bash scripts/make-frames.sh",
     "assets": "npm run assets:images && npm run assets:video && npm run assets:frames",
-    "screenshots": "node scripts/capture-screenshots.mjs"
+    "screenshots": "node scripts/capture-screenshots.mjs",
+    "screenshots:cocktail-mobile": "node scripts/capture-cocktail-mobile.mjs"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.2.5",

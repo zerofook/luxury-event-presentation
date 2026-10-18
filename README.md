@@ -58,7 +58,7 @@ Vite `base` comes from `VITE_BASE` (default `/` for `npm run dev`). Runtime medi
 |--------|-----------|
 | **Hero + Grand Entrance** | Sticky `100svh` stage; **entrance poster/video visible at scroll 0** (left scrim, not empty black); navy **#253B50–#33506B** (no near-black fills); video plays once on IO, dissolves to p5 still; ivory copy block **without prices**. |
 | **Photo experience** | Letterboxed band; car video **trimmed to ~3.2s**, play-once, crossfade to p7 light strip; optional orange/plum thumbs. |
-| **Cocktail sticky story** | Track **280svh** desktop / **260svh** mobile; `position: sticky` stage; ScrollTrigger drives beat index; **spotlight** (radial vignette) or **editorial** (soft band + ring) via `?cocktail=`. **Desktop:** text column + faded inactive beats. **Mobile (&lt;900px):** full-bleed image with a single bottom caption (intro → one beat at a time, crossfade) + subtle dots. Beats are **copy only** (no prices). Prices only in «Инвестиция» after the pin. |
+| **Cocktail sticky story** | Track **280svh** desktop / **260svh** mobile; ScrollTrigger beat index; **spotlight** / **editorial** via `?cocktail=`. **Desktop:** text column + faded beats. **Mobile (&lt;900px):** top-anchored **`contain`** aerial (~full width), caption **dock** below (56px detail circle + title/body, sequential fade), dots. No prices in beats. |
 | **Golden passage** | **Placeholder** (dev badge): push-in on p15 strip + p14 palette beat + veil → p21 (optional p22 ghost). Not a real corridor scrub until footage exists. |
 | **ScrubSequence (dev)** | `?scrubTest=1` — canvas sequence from entrance clip frames (12 fps); validates loader/lerp/cache for future corridor video. |
 

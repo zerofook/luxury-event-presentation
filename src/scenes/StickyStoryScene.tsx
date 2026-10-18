@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { StickyStorySceneData } from '@/content/types';
+import { assets, assetSrc } from '@/content/assets';
 import { ResponsivePicture } from '@/components/ResponsivePicture';
 import { useScrollProgress } from '@/lib/useScrollProgress';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
@@ -18,6 +19,23 @@ function beatIndex(progress: number, count: number): number {
   return Math.min(count - 1, Math.floor(progress * count));
 }
 
+function DetailBadge({ assetId }: { assetId: string }) {
+  const asset = assets[assetId];
+  if (!asset) return null;
+  const src = assetSrc(asset, 320, 'jpg');
+  return (
+    <img
+      className="beat__badge-img"
+      src={src}
+      alt={asset.altBg}
+      width={56}
+      height={56}
+      loading="lazy"
+      decoding="async"
+    />
+  );
+}
+
 function BeatContent({
   beat,
   compact,
@@ -25,15 +43,96 @@ function BeatContent({
   beat: StickyStorySceneData['beats'][number];
   compact?: boolean;
 }) {
+  const text = (
+    <>
+      <h3>{beat.titleBg}</h3>
+      <p>{beat.bodyBg}</p>
+    </>
+  );
+
+  if (compact) {
+    return (
+      <div className="beat__caption-row">
+        {beat.detailBadgeAssetId && <DetailBadge assetId={beat.detailBadgeAssetId} />}
+        <div className="beat__caption-text">{text}</div>
+      </div>
+    );
+  }
+
   return (
     <>
       {beat.detailBadgeAssetId && (
-        <div className={`beat__badge ${compact ? 'beat__badge--sm' : ''}`}>
-          <ResponsivePicture assetId={beat.detailBadgeAssetId} objectFit="cover" />
+        <div className="beat__badge">
+          <DetailBadge assetId={beat.detailBadgeAssetId} />
         </div>
       )}
-      <h3>{beat.titleBg}</h3>
-      <p>{beat.bodyBg}</p>
+      {text}
+    </>
+  );
+}
+
+function MobileCaptionPanel({
+  data,
+  captionBeat,
+  captionVisible,
+  scrollHint,
+  mobileAnimate,
+  activeBeat,
+  reduced,
+}: {
+  data: StickyStorySceneData;
+  captionBeat: number;
+  captionVisible: boolean;
+  scrollHint: string;
+  mobileAnimate: boolean;
+  activeBeat: number;
+  reduced: boolean;
+}) {
+  if (reduced) {
+    return (
+      <div className="sticky-story__mobile-caption-stack">
+        <h2 id="cocktail-heading" className="section-title section-title--on-dark section-title--caption">
+          {data.titleBg}
+        </h2>
+        <p className="section-lead section-lead--on-dark">{data.introBg}</p>
+        {data.beats.map((beat) => (
+          <article key={beat.id} className="beat beat--static beat--caption">
+            <BeatContent beat={beat} compact />
+          </article>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="mobile-caption__body">
+        <div
+          className={`mobile-caption__panel mobile-caption__panel--solo ${captionVisible ? 'is-visible' : ''} ${mobileAnimate ? 'mobile-caption__panel--animate' : ''}`}
+        >
+          {captionBeat < 0 ? (
+            <>
+              <h2 id="cocktail-heading" className="section-title section-title--on-dark section-title--caption">
+                {data.titleBg}
+              </h2>
+              <p className="section-lead section-lead--on-dark mobile-caption__intro">{data.introBg}</p>
+              <p className="mobile-caption__hint">{scrollHint}</p>
+            </>
+          ) : (
+            <article className="beat beat--caption">
+              <BeatContent beat={data.beats[captionBeat]!} compact />
+            </article>
+          )}
+        </div>
+      </div>
+      <div className="sticky-story__dots" aria-hidden="true">
+        {data.beats.map((beat, i) => (
+          <span
+            key={beat.id}
+            className={`sticky-story__dot ${activeBeat === i ? 'is-active' : ''} ${activeBeat < 0 && i === 0 ? 'is-next' : ''}`}
+          />
+        ))}
+      </div>
     </>
   );
 }
@@ -63,8 +162,7 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
         } as React.CSSProperties)
       : undefined;
 
-  const showMobileCaption = !isDesktop;
-  const mobileAnimate = showMobileCaption && !reduced;
+  const mobileAnimate = !isDesktop && !reduced;
 
   const [captionBeat, setCaptionBeat] = useState(activeBeat);
   const [captionVisible, setCaptionVisible] = useState(true);
@@ -84,17 +182,19 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
     return () => window.clearTimeout(t);
   }, [activeBeat, captionBeat, mobileAnimate]);
 
-  const mobileImageFocus =
-    activeBeat >= 0
-      ? { x: Math.round(focus.fx * 100), y: Math.round(focus.fy * 100) }
-      : { x: 50, y: 36 };
+  const masterObjectPosition = isDesktop
+    ? undefined
+    : activeBeat < 0
+      ? 'center top'
+      : `${Math.round(focus.fx * 100)}% top`;
 
-  const visualStyle = !isDesktop
-    ? ({
-        '--mobile-focus-x': `${mobileImageFocus.x}%`,
-        '--mobile-focus-y': `${mobileImageFocus.y}%`,
-      } as React.CSSProperties)
-    : undefined;
+  const fxOverlay = (
+    <div
+      className={`sticky-story__fx sticky-story__fx--${treatment}${reduced ? ' is-off' : ''}`}
+      style={overlayStyle}
+      aria-hidden="true"
+    />
+  );
 
   return (
     <>
@@ -111,12 +211,10 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
                 } as React.CSSProperties)
           }
         >
-          <div className="sticky-story__stage">
-            <div className="sticky-story__layout">
+          <div className={`sticky-story__stage${!isDesktop ? ' sticky-story__stage--mobile' : ''}`}>
+            <div className={`sticky-story__layout${!isDesktop ? ' sticky-story__layout--mobile' : ''}`}>
               <div className="sticky-story__text-col sticky-story__text-col--desktop">
-                <h2 id="cocktail-heading" className="section-title section-title--on-dark">
-                  {data.titleBg}
-                </h2>
+                <h2 className="section-title section-title--on-dark">{data.titleBg}</h2>
                 <p className="section-lead section-lead--on-dark">{data.introBg}</p>
 
                 <div className="sticky-story__beats" aria-live="polite">
@@ -135,76 +233,39 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
                 </div>
               </div>
 
-              <div
-                className={`sticky-story__visual${!isDesktop ? ' sticky-story__visual--mobile-fill' : ''}`}
-                style={visualStyle}
-              >
-                <ResponsivePicture
-                  assetId={data.masterAssetId}
-                  objectFit={isDesktop ? 'contain' : 'cover'}
-                  objectPosition={
-                    isDesktop ? undefined : `${mobileImageFocus.x}% ${mobileImageFocus.y}%`
-                  }
-                />
-                <div
-                  className={`sticky-story__fx sticky-story__fx--${treatment}${reduced ? ' is-off' : ''}`}
-                  style={overlayStyle}
-                  aria-hidden="true"
-                />
-
-                {showMobileCaption && (
-                  <div
-                    className={`sticky-story__mobile-caption ${mobileAnimate ? 'sticky-story__mobile-caption--animate' : ''}`}
-                    aria-live="polite"
-                  >
-                    {reduced ? (
-                      <div className="sticky-story__mobile-caption-stack">
-                        <h2 className="section-title section-title--on-dark section-title--caption">
-                          {data.titleBg}
-                        </h2>
-                        <p className="section-lead section-lead--on-dark">{data.introBg}</p>
-                        {data.beats.map((beat) => (
-                          <article key={beat.id} className="beat beat--static beat--caption">
-                            <BeatContent beat={beat} compact />
-                          </article>
-                        ))}
-                      </div>
-                    ) : (
-                      <>
-                        <div className="mobile-caption__body">
-                          <div
-                            className={`mobile-caption__panel mobile-caption__panel--solo ${captionVisible ? 'is-visible' : ''}`}
-                          >
-                            {captionBeat < 0 ? (
-                              <>
-                                <h2 className="section-title section-title--on-dark section-title--caption">
-                                  {data.titleBg}
-                                </h2>
-                                <p className="section-lead section-lead--on-dark mobile-caption__intro">
-                                  {data.introBg}
-                                </p>
-                                <p className="mobile-caption__hint">{scrollHint}</p>
-                              </>
-                            ) : (
-                              <article className="beat beat--caption">
-                                <BeatContent beat={data.beats[captionBeat]!} compact />
-                              </article>
-                            )}
-                          </div>
-                        </div>
-                        <div className="sticky-story__dots" aria-hidden="true">
-                          {data.beats.map((beat, i) => (
-                            <span
-                              key={beat.id}
-                              className={`sticky-story__dot ${activeBeat === i ? 'is-active' : ''} ${activeBeat < 0 && i === 0 ? 'is-next' : ''}`}
-                            />
-                          ))}
-                        </div>
-                      </>
-                    )}
+              {isDesktop ? (
+                <div className="sticky-story__visual">
+                  <ResponsivePicture
+                    className="sticky-story__master-picture"
+                    assetId={data.masterAssetId}
+                    objectFit="contain"
+                  />
+                  {fxOverlay}
+                </div>
+              ) : (
+                <>
+                  <div className="sticky-story__mobile-image">
+                    <ResponsivePicture
+                      className="sticky-story__master-picture"
+                      assetId={data.masterAssetId}
+                      objectFit="contain"
+                      objectPosition={masterObjectPosition}
+                    />
+                    {fxOverlay}
                   </div>
-                )}
-              </div>
+                  <div className="sticky-story__mobile-dock" aria-live="polite">
+                    <MobileCaptionPanel
+                      data={data}
+                      captionBeat={captionBeat}
+                      captionVisible={captionVisible}
+                      scrollHint={scrollHint}
+                      mobileAnimate={mobileAnimate}
+                      activeBeat={activeBeat}
+                      reduced={reduced}
+                    />
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>

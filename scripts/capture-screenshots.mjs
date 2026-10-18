@@ -6,7 +6,7 @@ import { spawn } from 'node:child_process';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const OUT = path.join(ROOT, 'docs', 'screenshots');
-const SETTLE_MS = 900;
+const SETTLE_MS = 750;
 
 function startPreview() {
   return new Promise((resolve, reject) => {
@@ -28,6 +28,20 @@ function startPreview() {
     });
     setTimeout(() => reject(new Error('preview timeout')), 45000);
   });
+}
+
+async function waitForServer(url, ms = 20000) {
+  const start = Date.now();
+  while (Date.now() - start < ms) {
+    try {
+      const res = await fetch(url);
+      if (res.ok) return;
+    } catch {
+      /* retry */
+    }
+    await new Promise((r) => setTimeout(r, 250));
+  }
+  throw new Error(`Server not ready: ${url}`);
 }
 
 async function snap(page, name) {
@@ -62,7 +76,7 @@ async function scrollPassagePhase(page, phase) {
 
 async function runDesktop(page) {
   const prefix = 'desktop';
-  await page.goto('http://127.0.0.1:4173/', { waitUntil: 'networkidle' });
+  await page.goto('http://127.0.0.1:4173/', { waitUntil: 'load', timeout: 60000 });
   await page.evaluate(() => window.scrollTo(0, 0));
   await snap(page, `${prefix}-hero-top.png`);
 
@@ -85,7 +99,7 @@ async function runDesktop(page) {
 }
 
 async function runMobileCocktail(page, prefix) {
-  await page.goto('http://127.0.0.1:4173/', { waitUntil: 'networkidle' });
+  await page.goto('http://127.0.0.1:4173/', { waitUntil: 'load', timeout: 60000 });
   await scrollCocktailBeat(page, -1);
   await snap(page, `${prefix}-cocktail-intro.png`);
   for (let b = 0; b < 4; b++) {
@@ -97,6 +111,7 @@ async function runMobileCocktail(page, prefix) {
 async function main() {
   await fs.mkdir(OUT, { recursive: true });
   const proc = await startPreview();
+  await waitForServer('http://127.0.0.1:4173/');
   const browser = await chromium.launch();
 
   const desktop = await browser.newPage({ viewport: { width: 1440, height: 900 } });
