@@ -16,9 +16,11 @@
     "assets:images": "node scripts/make-images.mjs",
     "assets:video": "bash scripts/make-video.sh",
     "assets:frames": "bash scripts/make-frames.sh",
-    "assets": "npm run assets:images && npm run assets:video && npm run assets:frames",
+    "assets:v3": "node scripts/make-v3-video.mjs && node scripts/make-v3-stills.mjs",
+    "assets": "npm run assets:images && npm run assets:video && npm run assets:frames && npm run assets:v3",
     "screenshots": "node scripts/capture-screenshots.mjs",
-    "screenshots:cocktail-mobile": "node scripts/capture-cocktail-mobile.mjs"
+    "screenshots:cocktail-mobile": "node scripts/capture-cocktail-mobile.mjs",
+    "screenshots:v3": "node scripts/capture-journey-v3.mjs"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.2.5",

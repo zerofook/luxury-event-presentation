@@ -15,13 +15,15 @@ export interface PriceItem {
   notes?: string;
 }
 
+export type AssetProvenance = 'pdf-crop' | 'pdf-page' | 'owner-visualization';
+
 export interface MediaAsset {
   id: string;
   altBg: string;
   width: number;
   height: number;
   basePath: string; // media/img/{id} without width suffix (use publicUrl at runtime)
-  source: { pdfPage: string; crop?: string };
+  source: { pdfPage?: string; crop?: string; provenance: AssetProvenance };
 }
 
 export interface PaletteSwatch {
@@ -38,7 +40,7 @@ export interface PaletteVariant {
   previewAssetId: string;
 }
 
-export type EntranceTransition = 'dissolve-still' | 'scroll-natural';
+export type EntranceTransition = 'dissolve-still' | 'scroll-natural' | 'hold-video-only';
 
 export interface HeroSceneData {
   type: 'hero';
@@ -53,7 +55,7 @@ export interface VideoEntranceSceneData {
   id: string;
   videoSrc: string;
   posterSrc: string;
-  stillAssetId: string;
+  stillAssetId?: string;
   stillAltAssetId?: string;
   width: number;
   height: number;
@@ -61,6 +63,78 @@ export interface VideoEntranceSceneData {
   bodyBg: string;
   priceId?: string;
   doorwayOrigin?: { x: number; y: number };
+}
+
+export interface SpatialMarker {
+  id: string;
+  labelBg: string;
+  /** Approximate normalized position on overview art (0–1) */
+  x: number;
+  y: number;
+}
+
+export interface FirstFloorOverviewSceneData {
+  type: 'firstFloorOverview';
+  id: string;
+  primaryAssetId: string;
+  alternateAssetId?: string;
+  alternateNoteBg?: string;
+  titleBg: string;
+  bodyBg: string;
+  markers: SpatialMarker[];
+}
+
+export interface VideoBeatSceneData {
+  type: 'videoBeat';
+  id: string;
+  videoSrc: string;
+  posterSrc: string;
+  width: number;
+  height: number;
+  titleBg: string;
+  bodyBg: string;
+  stillAssetId?: string;
+  preload?: 'none' | 'metadata';
+  eager?: boolean;
+}
+
+export interface EditorialInterludeSceneData {
+  type: 'editorialInterlude';
+  id: string;
+  headlineBg: string;
+  sublineBg?: string;
+}
+
+export interface CorridorPassageSceneData {
+  type: 'corridorPassage';
+  id: string;
+  videoSrc: string;
+  posterSrc: string;
+  width: number;
+  height: number;
+  trackSvh: number;
+  titleBg: string;
+  bodyBg: string;
+  playbackNoteBg: string;
+  variantPanelTitleBg?: string;
+  variantAssetIds?: string[];
+}
+
+export interface GalaPerspective {
+  assetId: string;
+  labelBg: string;
+  provenanceBg: string;
+}
+
+export interface GalaRevealSceneData {
+  type: 'galaReveal';
+  id: string;
+  primaryAssetId: string;
+  primaryProvenanceBg: string;
+  titleBg: string;
+  bodyBg: string;
+  perspectives: GalaPerspective[];
+  perspectivesNoteBg: string;
 }
 
 export interface PhotoExperienceSceneData {
@@ -122,6 +196,11 @@ export interface DevScrubTestData {
 export type SceneData =
   | HeroSceneData
   | VideoEntranceSceneData
+  | FirstFloorOverviewSceneData
+  | VideoBeatSceneData
+  | EditorialInterludeSceneData
+  | CorridorPassageSceneData
+  | GalaRevealSceneData
   | PhotoExperienceSceneData
   | StickyStorySceneData
   | ScrubSceneData;
@@ -133,12 +212,22 @@ export interface SiteUiStrings {
   devScrubHint: string;
   ariaHeroSection: string;
   ariaPhotoVariants: string;
+  journeyChapterLabel: string;
+  spatialThreadHint: string;
+  provenancePdf: string;
+  provenanceOwner: string;
+}
+
+export interface JourneyChapter {
+  id: string;
+  labelBg: string;
 }
 
 export interface SiteContent {
   lang: 'bg';
   title: string;
   closingLineBg: string;
+  journeyChapters: JourneyChapter[];
   ui: SiteUiStrings;
   dev: {
     entranceTransition: EntranceTransition;
