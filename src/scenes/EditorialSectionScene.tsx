@@ -3,7 +3,6 @@ import type { EditorialSectionSceneData } from '@/content/types';
 import { ResponsivePicture } from '@/components/ResponsivePicture';
 import { maxRenderWidth } from '@/content/assets';
 import { useActiveVideoInView } from '@/lib/useActiveVideoInView';
-import { useScrollProgress } from '@/lib/useScrollProgress';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
 import { publicUrl } from '@/lib/publicUrl';
 
@@ -56,15 +55,12 @@ function BoxedImage({
 
 function PassageSection({ data, playLabel }: Props) {
   const reduced = getPrefersReducedMotion();
-  const { trackRef, progress } = useScrollProgress(!reduced);
-  const scale = reduced ? 1 : 1 + progress * 0.06;
-  const origin = data.zoomOrigin ?? { x: 0.5, y: 0.5 };
   const { videoRef, containerRef, needsTap, playing, tryPlay } = useActiveVideoInView({ loop: true });
   const toneClass = `editorial-section editorial-section--${data.tone}`;
 
   return (
     <section id={`scene-${data.id}`} className={toneClass} aria-labelledby={`${data.id}-heading`}>
-      <div className="editorial-section__inner">
+      <div className="editorial-section__inner editorial-section__inner--passage">
         <FadeCopy>
           {data.eyebrowBg && <p className="eyebrow">{data.eyebrowBg}</p>}
           <h2 id={`${data.id}-heading`} className="section-title">
@@ -72,17 +68,11 @@ function PassageSection({ data, playLabel }: Props) {
           </h2>
           <p className="section-lead">{data.bodyBg}</p>
         </FadeCopy>
-        <div className="editorial-section__passage-track" ref={trackRef as React.RefObject<HTMLDivElement>}>
-          <div
-            className="editorial-section__box editorial-section__box--passage"
-            style={{
-              transform: `scale(${scale})`,
-              transformOrigin: `${origin.x * 100}% ${origin.y * 100}%`,
-            }}
-          >
-            {data.assetId && <ResponsivePicture assetId={data.assetId} objectFit="cover" />}
+        {data.assetId && (
+          <div className="editorial-section__box editorial-section__box--passage">
+            <ResponsivePicture assetId={data.assetId} objectFit="cover" />
           </div>
-        </div>
+        )}
         {data.videoSrc && (
           <div className="editorial-section__box editorial-section__box--video" ref={containerRef}>
             {!reduced && (
@@ -91,7 +81,6 @@ function PassageSection({ data, playLabel }: Props) {
                 className="editorial-section__video"
                 style={{ opacity: playing ? 1 : 0 }}
                 src={publicUrl(data.videoSrc)}
-                poster={data.posterSrc ? publicUrl(data.posterSrc) : undefined}
                 muted
                 playsInline
                 preload="none"
@@ -99,13 +88,13 @@ function PassageSection({ data, playLabel }: Props) {
                 height={data.videoHeight}
               />
             )}
-            {data.posterSrc && (
+            {!playing && data.posterSrc && (
               <img
                 className="editorial-section__poster"
                 src={publicUrl(data.posterSrc)}
                 alt=""
                 aria-hidden
-                style={{ opacity: reduced || !playing ? 1 : 0 }}
+                style={{ opacity: 1 }}
               />
             )}
             {needsTap && !reduced && (
@@ -122,23 +111,37 @@ function PassageSection({ data, playLabel }: Props) {
 
 function GalaRevealSection({ data, playLabel }: Props) {
   const reduced = getPrefersReducedMotion();
-  const { videoRef, containerRef, needsTap, playing, tryPlay } = useActiveVideoInView({ loop: true });
+  const { videoRef, containerRef, needsTap, playing, tryPlay } = useActiveVideoInView({
+    threshold: 0.38,
+    exitThreshold: 0.1,
+    resetOnPause: false,
+  });
   const toneClass = `editorial-section editorial-section--${data.tone} editorial-section--gala`;
 
   return (
     <section id={`scene-${data.id}`} className={toneClass} aria-labelledby={`${data.id}-heading`}>
-      <div className="editorial-section__inner">
-        <FadeCopy>
+      <div className="editorial-section__inner editorial-section__inner--gala">
+        <FadeCopy className="editorial-section__copy--gala-intro">
           {data.eyebrowBg && <p className="eyebrow">{data.eyebrowBg}</p>}
-          <h2 id={`${data.id}-heading`} className="section-title">
+          <h2 id={`${data.id}-heading`} className="section-title section-title--gala-empty">
             {data.titleBg}
           </h2>
-          <p className="section-lead">{data.bodyBg}</p>
+          {data.bodyBg && <p className="section-lead section-lead--gala-empty">{data.bodyBg}</p>}
         </FadeCopy>
-        <div className="editorial-section__box editorial-section__box--gala" ref={containerRef}>
+        {data.stillAssetId && (
+          <div className="editorial-section__box editorial-section__box--gala-empty">
+            <ResponsivePicture assetId={data.stillAssetId} objectFit="cover" objectPosition={data.objectPosition} />
+          </div>
+        )}
+        {(data.aliveLabelBg || data.disclaimerBg) && (
+          <FadeCopy className="editorial-section__copy--gala-alive">
+            <p className="eyebrow editorial-section__gala-alive-eyebrow">{data.aliveLabelBg ?? data.disclaimerBg}</p>
+          </FadeCopy>
+        )}
+        <div className="editorial-section__box editorial-section__box--gala-alive" ref={containerRef}>
           {data.stillAssetId && (
             <div className="editorial-section__gala-still" style={{ opacity: playing ? 0 : 1 }}>
-              <ResponsivePicture assetId={data.stillAssetId} objectFit="cover" />
+              <ResponsivePicture assetId={data.stillAssetId} objectFit="cover" objectPosition={data.objectPosition} />
             </div>
           )}
           {!reduced && data.videoSrc && (
@@ -166,16 +169,55 @@ function GalaRevealSection({ data, playLabel }: Props) {
   );
 }
 
+function VisualChapterSection({ data }: { data: EditorialSectionSceneData }) {
+  const toneClass = `editorial-section editorial-section--${data.tone} editorial-section--chapter`;
+  const vw = typeof window !== 'undefined' ? window.innerWidth : 1440;
+  const stageCap = data.assetId ? maxRenderWidth(data.assetId, vw) : undefined;
+
+  return (
+    <section id={`scene-${data.id}`} className={toneClass} aria-labelledby={`${data.id}-heading`}>
+      <div className="editorial-section__inner">
+        <FadeCopy>
+          {data.eyebrowBg && <p className="eyebrow">{data.eyebrowBg}</p>}
+          <h2 id={`${data.id}-heading`} className="section-title">
+            {data.titleBg}
+          </h2>
+          <p className="section-lead">{data.bodyBg}</p>
+        </FadeCopy>
+        {data.assetId && (
+          <BoxedImage
+            assetId={data.assetId}
+            objectPosition={data.objectPosition}
+            capWidth={stageCap}
+            className="editorial-section__box--stage-hero"
+          />
+        )}
+        {data.secondaryAssetId && (
+          <BoxedImage
+            assetId={data.secondaryAssetId}
+            capWidth={maxRenderWidth(data.secondaryAssetId, Math.min(vw, 960))}
+            className="editorial-section__box--chapter-secondary"
+          />
+        )}
+      </div>
+    </section>
+  );
+}
+
 export function EditorialSectionScene({ data, playLabel }: Props) {
   const toneClass = `editorial-section editorial-section--${data.tone}`;
 
   if (data.variant === 'passage') return <PassageSection data={data} playLabel={playLabel} />;
   if (data.variant === 'gala-reveal') return <GalaRevealSection data={data} playLabel={playLabel} />;
+  if (data.variant === 'visual-chapter') return <VisualChapterSection data={data} />;
 
   if (data.variant === 'ceremony' && data.frames) {
+    const hero = data.heroFrame ?? data.frames[0];
+    const rest = data.heroFrame ? data.frames : data.frames.slice(1);
+
     return (
       <section id={`scene-${data.id}`} className={toneClass} aria-labelledby={`${data.id}-heading`}>
-        <div className="editorial-section__inner">
+        <div className="editorial-section__inner editorial-section__inner--ceremony">
           <FadeCopy>
             <h2 id={`${data.id}-heading`} className="section-title">
               {data.titleBg}
@@ -183,25 +225,54 @@ export function EditorialSectionScene({ data, playLabel }: Props) {
             <p className="section-lead">{data.bodyBg}</p>
             {data.disclaimerBg && <p className="editorial-section__disclaimer">{data.disclaimerBg}</p>}
           </FadeCopy>
-          <ul className="editorial-section__ceremony-list">
-            {data.frames.map((f) => (
-              <li key={f.assetId} className="editorial-section__ceremony-item">
-                <BoxedImage
-                  assetId={f.assetId}
-                  objectPosition={f.objectPosition}
-                  capWidth={maxRenderWidth(f.assetId, 520)}
-                  className="editorial-section__box--ceremony"
-                />
-                <p className="editorial-section__frame-caption">{f.captionBg}</p>
-              </li>
-            ))}
-          </ul>
+          {hero && (
+            <figure className="editorial-section__ceremony-hero">
+              <BoxedImage
+                assetId={hero.assetId}
+                objectPosition={hero.objectPosition}
+                className="editorial-section__box--ceremony-hero"
+              />
+              <figcaption className="editorial-section__frame-caption">{hero.captionBg}</figcaption>
+            </figure>
+          )}
+          {rest.length > 0 && (
+            <ul className="editorial-section__ceremony-secondary">
+              {rest.map((f) => (
+                <li key={f.assetId} className="editorial-section__ceremony-item">
+                  <BoxedImage
+                    assetId={f.assetId}
+                    objectPosition={f.objectPosition}
+                    capWidth={maxRenderWidth(f.assetId, 480)}
+                    className="editorial-section__box--ceremony"
+                  />
+                  <p className="editorial-section__frame-caption">{f.captionBg}</p>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
     );
   }
 
-  if (data.variant === 'programme' && data.frames) {
+  const renderProgrammeGrid = (className: string) =>
+    data.frames && (
+      <div className={className}>
+        {data.frames.map((f) => (
+          <figure key={f.assetId} className="editorial-section__programme-item">
+            <BoxedImage
+              assetId={f.assetId}
+              objectPosition={f.objectPosition}
+              capWidth={maxRenderWidth(f.assetId, data.variant === 'entertainment-duo' ? 880 : 720)}
+              className={data.variant === 'entertainment-duo' ? 'editorial-section__box--entertainment' : undefined}
+            />
+            <figcaption>{f.captionBg}</figcaption>
+          </figure>
+        ))}
+      </div>
+    );
+
+  if ((data.variant === 'programme' || data.variant === 'entertainment-duo') && data.frames) {
     return (
       <section id={`scene-${data.id}`} className={toneClass} aria-labelledby={`${data.id}-heading`}>
         <div className="editorial-section__inner">
@@ -213,18 +284,11 @@ export function EditorialSectionScene({ data, playLabel }: Props) {
             <p className="section-lead">{data.bodyBg}</p>
             {data.programmeNoteBg && <p className="editorial-section__disclaimer">{data.programmeNoteBg}</p>}
           </FadeCopy>
-          <div className="editorial-section__programme-grid">
-            {data.frames.map((f) => (
-              <figure key={f.assetId} className="editorial-section__programme-item">
-                <BoxedImage
-                  assetId={f.assetId}
-                  objectPosition={f.objectPosition}
-                  capWidth={maxRenderWidth(f.assetId, 720)}
-                />
-                <figcaption>{f.captionBg}</figcaption>
-              </figure>
-            ))}
-          </div>
+          {renderProgrammeGrid(
+            data.variant === 'entertainment-duo'
+              ? 'editorial-section__entertainment-duo'
+              : 'editorial-section__programme-grid',
+          )}
         </div>
       </section>
     );

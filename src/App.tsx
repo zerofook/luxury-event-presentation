@@ -7,6 +7,7 @@ import { PhotoExperienceScene } from '@/scenes/PhotoExperienceScene';
 import { StickyStoryScene } from '@/scenes/StickyStoryScene';
 import { EditorialVideoScene } from '@/scenes/EditorialVideoScene';
 import { EditorialSectionScene } from '@/scenes/EditorialSectionScene';
+import { ClosingScene } from '@/scenes/ClosingScene';
 import { DevScrubTestScene } from '@/scenes/DevScrubTestScene';
 import type { SceneData } from '@/content/types';
 
@@ -34,6 +35,8 @@ export default function App() {
         return <PhotoExperienceScene key={scene.id} data={scene} ui={site.ui} />;
       case 'editorialSection':
         return <EditorialSectionScene key={scene.id} data={scene} playLabel={site.ui.playVideo} />;
+      case 'closing':
+        return <ClosingScene key={scene.id} data={scene} />;
       default:
         return null;
     }
@@ -51,10 +54,6 @@ export default function App() {
         />
         {site.scenes.map((scene) => renderScene(scene))}
         <DevScrubTestScene config={site.dev.scrubTest} hint={site.ui.devScrubHint} />
-        <footer className="site-footer">
-          <p className="site-footer__programme">{site.ui.programmeDisclaimerBg}</p>
-          <p>{site.closingLineBg}</p>
-        </footer>
       </main>
     </ActiveVideoProvider>
   );

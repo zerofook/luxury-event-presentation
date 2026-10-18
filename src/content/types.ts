@@ -75,7 +75,7 @@ export interface PhotoExperienceSceneData {
   bodyBg: string;
 }
 
-export type EditorialVideoLayout = 'stack-wide' | 'split-narrow';
+export type EditorialVideoLayout = 'stack-wide' | 'split-narrow' | 'split-impact';
 
 export interface EditorialVideoSceneData {
   type: 'editorialVideo';
@@ -90,6 +90,8 @@ export interface EditorialVideoSceneData {
   posterSrc: string;
   width: number;
   height: number;
+  /** Optional hysteresis for in-view playback (e.g. champagne clip). */
+  videoInView?: { threshold?: number; exitThreshold?: number; resetOnPause?: boolean };
 }
 
 export interface EditorialFrameItem {
@@ -102,7 +104,14 @@ export interface EditorialSectionSceneData {
   type: 'editorialSection';
   id: string;
   tone: 'cream' | 'navy' | 'ivory';
-  variant: 'standard' | 'passage' | 'gala-reveal' | 'ceremony' | 'programme';
+  variant:
+    | 'standard'
+    | 'passage'
+    | 'gala-reveal'
+    | 'ceremony'
+    | 'programme'
+    | 'entertainment-duo'
+    | 'visual-chapter';
   titleBg: string;
   bodyBg: string;
   eyebrowBg?: string;
@@ -110,6 +119,8 @@ export interface EditorialSectionSceneData {
   assetId?: string;
   secondaryAssetId?: string;
   objectPosition?: string;
+  /** gala-reveal: short label before alive video */
+  aliveLabelBg?: string;
   /** gala-reveal */
   stillAssetId?: string;
   videoSrc?: string;
@@ -120,6 +131,20 @@ export interface EditorialSectionSceneData {
   zoomOrigin?: { x: number; y: number };
   frames?: EditorialFrameItem[];
   programmeNoteBg?: string;
+  /** ceremony: dominant hero frame */
+  heroFrame?: EditorialFrameItem;
+}
+
+export interface ClosingSceneData {
+  type: 'closing';
+  id: string;
+  titleBg: string;
+  bodyBg: string;
+  disclaimerBg: string;
+  assetId: string;
+  objectPosition?: string;
+  ctaLabelBg: string;
+  ctaSoonBg: string;
 }
 
 export interface StickyBeat {
@@ -154,7 +179,8 @@ export type SceneData =
   | PhotoExperienceSceneData
   | StickyStorySceneData
   | EditorialVideoSceneData
-  | EditorialSectionSceneData;
+  | EditorialSectionSceneData
+  | ClosingSceneData;
 
 export interface SiteUiStrings {
   playVideo: string;
@@ -170,7 +196,6 @@ export interface SiteUiStrings {
 export interface SiteContent {
   lang: 'bg';
   title: string;
-  closingLineBg: string;
   ui: SiteUiStrings;
   dev: {
     entranceTransition: EntranceTransition;

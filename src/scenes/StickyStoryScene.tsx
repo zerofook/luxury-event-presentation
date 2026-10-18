@@ -217,11 +217,10 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
                 <p className="section-lead section-lead--on-dark">{data.introBg}</p>
 
                 <div className="sticky-story__beats" aria-live="polite">
-                  {(reduced ? data.beats : activeBeat >= 0 ? data.beats : []).map((beat, i) => (
+                  {(reduced ? data.beats : data.beats).map((beat, i) => (
                     <article
                       key={beat.id}
-                      className={`beat ${!reduced && i === activeBeat ? 'beat--active' : ''} ${reduced ? 'beat--static' : ''}`}
-                      style={{ opacity: reduced || activeBeat === i ? 1 : 0.2 }}
+                      className={`beat ${!reduced && i === activeBeat ? 'beat--active' : ''} ${!reduced && activeBeat >= 0 && i !== activeBeat ? 'beat--inactive' : ''} ${reduced ? 'beat--static' : ''}`}
                     >
                       <BeatContent beat={beat} />
                     </article>

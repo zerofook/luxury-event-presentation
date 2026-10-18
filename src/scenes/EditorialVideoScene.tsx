@@ -11,7 +11,13 @@ interface Props {
 
 export function EditorialVideoScene({ data, playLabel }: Props) {
   const reduced = getPrefersReducedMotion();
-  const { videoRef, containerRef, needsTap, playing, tryPlay } = useActiveVideoInView({ loop: true });
+  const inView = data.videoInView ?? {};
+  const { videoRef, containerRef, needsTap, playing, tryPlay } = useActiveVideoInView({
+    loop: true,
+    threshold: inView.threshold,
+    exitThreshold: inView.exitThreshold,
+    resetOnPause: inView.resetOnPause,
+  });
   const textRef = useRef<HTMLDivElement>(null);
   const [textVisible, setTextVisible] = useState(reduced);
 
@@ -32,7 +38,11 @@ export function EditorialVideoScene({ data, playLabel }: Props) {
   const bandClass =
     data.tone === 'navy' ? 'editorial-video editorial-video--navy' : 'editorial-video editorial-video--cream';
   const layoutClass =
-    data.layout === 'split-narrow' ? 'editorial-video__inner--split' : 'editorial-video__inner--wide';
+    data.layout === 'split-narrow'
+      ? 'editorial-video__inner--split'
+      : data.layout === 'split-impact'
+        ? 'editorial-video__inner--split-impact'
+        : 'editorial-video__inner--wide';
 
   return (
     <section id={`scene-${data.id}`} className={bandClass} aria-labelledby={`${data.id}-heading`}>
