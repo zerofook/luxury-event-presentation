@@ -67,6 +67,7 @@ export interface VideoEntranceSceneData {
 
 export interface SpatialMarker {
   id: string;
+  order: number;
   labelBg: string;
   /** Approximate normalized position on overview art (0–1) */
   x: number;
@@ -78,7 +79,9 @@ export interface FirstFloorOverviewSceneData {
   id: string;
   primaryAssetId: string;
   alternateAssetId?: string;
-  alternateNoteBg?: string;
+  alternateCaptionBg?: string;
+  schematicNoteBg?: string;
+  trackSvh?: number;
   titleBg: string;
   bodyBg: string;
   markers: SpatialMarker[];
@@ -115,7 +118,7 @@ export interface CorridorPassageSceneData {
   trackSvh: number;
   titleBg: string;
   bodyBg: string;
-  playbackNoteBg: string;
+  playbackNoteBg?: string;
   variantPanelTitleBg?: string;
   variantAssetIds?: string[];
 }
@@ -123,14 +126,14 @@ export interface CorridorPassageSceneData {
 export interface GalaPerspective {
   assetId: string;
   labelBg: string;
-  provenanceBg: string;
+  /** Documentation only — not shown in UI */
+  provenanceBg?: string;
 }
 
 export interface GalaRevealSceneData {
   type: 'galaReveal';
   id: string;
   primaryAssetId: string;
-  primaryProvenanceBg: string;
   titleBg: string;
   bodyBg: string;
   perspectives: GalaPerspective[];

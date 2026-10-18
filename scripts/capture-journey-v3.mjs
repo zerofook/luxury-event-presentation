@@ -9,15 +9,15 @@ const OUT = path.join(ROOT, 'docs', 'screenshots', 'v3');
 const SETTLE = 900;
 
 const SCENES = [
-  { id: 'arrival', file: '01-arrival' },
-  { id: 'first-floor', file: '02-first-floor' },
+  { id: 'arrival', file: '01-arrival', selector: '#scene-arrival' },
+  { id: 'first-floor', file: '02-first-floor', selector: '#scene-first-floor .first-floor__stage' },
   { id: 'champagne', file: '03-champagne' },
   { id: 'glass-performer', file: '04-glass' },
   { id: 'photo-zone', file: '05-photo-zone' },
   { id: 'moving-upstairs', file: '06-upstairs' },
-  { id: 'golden-passage', file: '07-corridor' },
-  { id: 'gala-reveal', file: '08-gala' },
-  { id: 'cocktail', file: '09-cocktail-intro', selector: '#scene-cocktail .sticky-story__stage--mobile, #scene-cocktail .sticky-story__stage' },
+  { id: 'golden-passage', file: '07-corridor', selector: '#scene-golden-passage .corridor-passage__hero' },
+  { id: 'gala-reveal', file: '08-gala', selector: '#scene-gala-reveal .gala-reveal__hero' },
+  { id: 'cocktail', file: '09-cocktail-intro', selector: '#scene-cocktail .sticky-story__stage' },
 ];
 
 async function preview() {
@@ -39,6 +39,34 @@ async function preview() {
   throw new Error('preview failed');
 }
 
+async function scrollToSceneMid(page, selector) {
+  await page.evaluate((sel) => {
+    const el = document.querySelector(sel);
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const y = window.scrollY + r.top + r.height / 2 - window.innerHeight / 2;
+    window.scrollTo(0, Math.max(0, y));
+  }, selector);
+}
+
+async function assertImagesLoaded(page) {
+  await page.waitForFunction(
+    () => {
+      const vh = window.innerHeight;
+      const vw = window.innerWidth;
+      const visible = [...document.querySelectorAll('img')].filter((i) => {
+        if (!i.src || i.src.startsWith('data:')) return false;
+        const r = i.getBoundingClientRect();
+        return r.bottom > 8 && r.top < vh - 8 && r.right > 8 && r.left < vw - 8;
+      });
+      if (!visible.length) return true;
+      return visible.every((i) => i.complete && i.naturalWidth > 0 && i.naturalHeight > 0);
+    },
+    undefined,
+    { timeout: 8000 },
+  );
+}
+
 async function captureViewport(viewport, prefix) {
   const browser = await chromium.launch();
   const context = await browser.newContext({ viewport, deviceScaleFactor: 1 });
@@ -48,21 +76,18 @@ async function captureViewport(viewport, prefix) {
 
   for (const scene of SCENES) {
     const sel = scene.selector ?? `#scene-${scene.id}`;
-    await page.evaluate((selector) => {
-      const el = document.querySelector(selector);
-      if (el) el.scrollIntoView({ block: 'start', behavior: 'instant' });
-    }, sel);
-    await page.waitForTimeout(SETTLE);
+    await scrollToSceneMid(page, sel);
     if (scene.id === 'cocktail') {
       await page.evaluate(() => {
         const track = document.querySelector('#scene-cocktail .sticky-story__track');
         if (!track) return;
-        window.scrollTo(0, track.offsetTop + 0.05 * track.offsetHeight);
+        window.scrollTo(0, track.offsetTop + 0.06 * track.offsetHeight - window.innerHeight * 0.12);
       });
       await page.waitForTimeout(600);
     }
-    const target = page.locator(sel).first();
-    await target.screenshot({ path: path.join(OUT, `${prefix}-${scene.file}.png`) });
+    await page.waitForTimeout(SETTLE);
+    await assertImagesLoaded(page);
+    await page.screenshot({ path: path.join(OUT, `${prefix}-${scene.file}.png`), fullPage: false });
   }
 
   await browser.close();

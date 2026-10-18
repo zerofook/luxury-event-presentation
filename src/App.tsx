@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { getSiteContent } from '@/content/site.bg';
 import { HeroPreload } from '@/components/HeroPreload';
-import { JourneyChapterNav } from '@/components/JourneyChapterNav';
 import { HeroEntranceScene } from '@/scenes/HeroEntranceScene';
 import { FirstFloorOverviewScene } from '@/scenes/FirstFloorOverviewScene';
 import { VideoBeatScene } from '@/scenes/VideoBeatScene';
@@ -31,7 +30,6 @@ export default function App() {
   return (
     <>
       <HeroPreload />
-      <JourneyChapterNav chapters={site.journeyChapters} uiLabel={site.ui.journeyChapterLabel} />
       <main id="main">
         <HeroEntranceScene
           hero={hero}
@@ -39,7 +37,7 @@ export default function App() {
           entranceTransition={site.dev.entranceTransition}
           ui={site.ui}
         />
-        <FirstFloorOverviewScene data={firstFloor} spatialHint={site.ui.spatialThreadHint} />
+        <FirstFloorOverviewScene data={firstFloor} />
         {videoBeats.map((beat) => (
           <VideoBeatScene key={beat.id} data={beat} playLabel={site.ui.playVideo} />
         ))}

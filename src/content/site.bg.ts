@@ -32,28 +32,18 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
   ui: {
     playVideo: 'Пусни видео',
     cocktailScrollHint: 'Продължете надолу, за да откриете детайлите…',
-    passagePaletteNote: 'Примерни палитри — една и съща камера (p14)',
+    passagePaletteNote: 'Три палитри на същата композиция — за ориентир при избор на тон.',
     devScrubHint: 'Активира се с ?scrubTest=1 — не е част от основната история.',
     ariaHeroSection: 'Вход и герой',
     ariaPhotoVariants: 'Други цветови варианти на фото зоната',
     journeyChapterLabel: 'Маршрут на госта',
-    spatialThreadHint: 'Ориентировъчни маркери — не са архитектурен план.',
+    spatialThreadHint: 'Схемата е илюстративна.',
     provenancePdf: 'Оригинален PDF / изрязване',
     provenanceOwner: 'Визуализация, предоставена от клиента',
   },
   closingLineBg:
     'С уважение към традицията и поглед към бъдещето — Global Event Agency представя визията за юбилейната вечер на Geotrading.',
-  journeyChapters: [
-    { id: 'arrival', labelBg: 'Пристигане' },
-    { id: 'first-floor', labelBg: 'Първи етаж' },
-    { id: 'champagne', labelBg: 'Шампанско' },
-    { id: 'glass-performer', labelBg: 'Стъкло' },
-    { id: 'photo-zone', labelBg: 'Фото зона' },
-    { id: 'upstairs', labelBg: 'Нагоре' },
-    { id: 'passage', labelBg: 'Коридор' },
-    { id: 'gala', labelBg: 'Гала' },
-    { id: 'cocktail', labelBg: 'Детайли' },
-  ],
+  journeyChapters: [],
   scenes: [
     {
       type: 'hero',
@@ -70,24 +60,23 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       width: 1264,
       height: 720,
       titleBg: 'Пристигане',
-      bodyBg:
-        'Гостите влизат през декорирания външен вход. Клипът се пуска веднъж; след края остава последният кадър — без принудителен преход към несъвпадаща статична сцена.',
+      bodyBg: 'Първи контакт с вечерта — декориран вход и топло посрещане на гостите.',
     },
     {
       type: 'firstFloorOverview',
       id: 'first-floor',
       primaryAssetId: 'c03_cocktail_aerial_p08',
-      alternateAssetId: 'first_floor_cocktail_overview_p08',
-      alternateNoteBg:
-        'По-долу: пълната страница p8 от PDF за контекст. Отделната owner-визуализация с „стъклото“ вляво ще замени основния кадър, когато бъде добавена в хранилището.',
-      titleBg: 'Първи етаж — обзор',
-      bodyBg:
-        'Просторна зона коктейл преди официалната част. Маркерите по-долу са ориентировъчни и отразяват потвърден от клиента маршрут, не точна CAD геометрия.',
+      alternateAssetId: 'first_floor_layout_with_glass',
+      alternateCaptionBg: 'Разположение с акцент върху изпълнителя в стъклото — вляво след входа.',
+      schematicNoteBg: 'Схемата е илюстративна.',
+      trackSvh: 160,
+      titleBg: 'Първи етаж',
+      bodyBg: 'Зона коктейл преди официалната част — следете маршрута на госта.',
       markers: [
-        { id: 'entrance', labelBg: 'Вход (долу)', x: 0.5, y: 0.9 },
-        { id: 'glass', labelBg: 'Стъкло — вляво след входа', x: 0.2, y: 0.68 },
-        { id: 'photo', labelBg: 'Фото зона — далечният край', x: 0.52, y: 0.22 },
-        { id: 'elevators', labelBg: 'Асансьори — вляво от автомобила', x: 0.28, y: 0.24 },
+        { id: 'entrance', order: 1, labelBg: 'Вход', x: 0.5, y: 0.88 },
+        { id: 'glass', order: 2, labelBg: 'Стъклото вляво', x: 0.17, y: 0.64 },
+        { id: 'photo', order: 3, labelBg: 'Фото зона в далечния край', x: 0.5, y: 0.15 },
+        { id: 'elevators', order: 4, labelBg: 'Асансьори вляво от автомобила', x: 0.31, y: 0.19 },
       ],
     },
     {
@@ -98,7 +87,7 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       width: 1168,
       height: 784,
       titleBg: 'Шампанско приветствие',
-      bodyBg: 'Аниматори в костюми с чаши — кратък акцент в потока на първия етаж.',
+      bodyBg: 'Аниматори в костюми с чаши — топло посрещане в началото на зоната.',
       preload: 'none',
     },
     {
@@ -109,8 +98,7 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       width: 1280,
       height: 720,
       titleBg: 'Изпълнител в гигантско стъкло',
-      bodyBg:
-        'Позиционирано вляво малко след влизане — златен конфetti и централна атракция, видима още от обзора.',
+      bodyBg: 'Централна атракция вляво след входа — златен блясък и движение.',
       preload: 'none',
     },
     {
@@ -121,8 +109,7 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       width: 1264,
       height: 720,
       titleBg: 'Фото зона в далечния край',
-      bodyBg:
-        'Винтидж автомобил с артисти — финал на първия етаж. Асансьорите са вляво от колата; преминаваме нагоре без генерирана сцена на асансьор.',
+      bodyBg: 'Винтидж автомобил и артисти — споделен момент пред асансьорите към втория етаж.',
       stillAssetId: 'c02c_photozone_light_p07',
       preload: 'none',
     },
@@ -130,7 +117,7 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       type: 'editorialInterlude',
       id: 'moving-upstairs',
       headlineBg: 'Към следващата глава на вечерта',
-      sublineBg: 'Кратък преход към втория етаж и гала залата.',
+      sublineBg: 'Преход към втория етаж и гала залата.',
     },
     {
       type: 'corridorPassage',
@@ -141,45 +128,28 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       height: 720,
       trackSvh: 180,
       titleBg: 'Златният коридор',
-      bodyBg:
-        'Напредващ клип по коридора (≈6 s). Пускане веднъж, когато секцията е видима — по-плавно на мобилни от canvas scrub; кадърът не съвпада 1:1 с p15.',
-      playbackNoteBg: 'Play-once при видимост · poster при reduced-motion',
-      variantPanelTitleBg: 'Палитри от p14 (референция, извън pin)',
+      bodyBg: 'Пътешествие по коридора към сърцето на празника.',
+      variantPanelTitleBg: 'Цветови варианти на коридора',
       variantAssetIds: ['c06c_passage_light_p14', 'c06a_passage_orange_p14', 'c06b_passage_plum_p14'],
     },
     {
       type: 'galaReveal',
       id: 'gala-reveal',
-      primaryAssetId: 'c08_galahall_full_p21',
-      primaryProvenanceBg: 'Основен ъгъл: изрязване от PDF p21 (до добавяне на owner view A в repo)',
-      titleBg: 'Гала зала — разкриване',
-      bodyBg:
-        'Редакционен акцент пред детайлите по зоната коктейл. Ъглите по-долу са различни перспективи — не третираме ги като идентични кадри.',
-      perspectivesNoteBg: 'Допълнителни перспективи (различни източници)',
+      primaryAssetId: 'second_floor_gala_view_A',
+      titleBg: 'Гала зала',
+      bodyBg: 'Тържествено разкриване на залата — маси, светлина и атмосфера на празник.',
+      perspectivesNoteBg: 'Други перспективи',
       perspectives: [
-        {
-          assetId: 'gala_hall_full_p21_ref',
-          labelBg: 'PDF p21 — пълна страница',
-          provenanceBg: 'Оригинален PDF raster',
-        },
-        {
-          assetId: 'c09_galahall2_p22',
-          labelBg: 'PDF p22 — втори ъгъл (repo)',
-          provenanceBg: 'Оригинален PDF изрязване',
-        },
-        {
-          assetId: 'c08_galahall_full_p21',
-          labelBg: 'Алтернативен crop p21',
-          provenanceBg: 'Оригинален PDF изрязване',
-        },
+        { assetId: 'second_floor_gala_view_B', labelBg: 'Алтернативен ъгъл', provenanceBg: 'owner-visualization' },
+        { assetId: 'c08_galahall_full_p21', labelBg: 'Визуализация от предложението', provenanceBg: 'pdf-crop' },
+        { assetId: 'c09_galahall2_p22', labelBg: 'Допълнителен план', provenanceBg: 'pdf-crop' },
       ],
     },
     {
       type: 'stickyStory',
       id: 'cocktail',
       titleBg: 'Зона коктейл — детайли',
-      introBg:
-        'След маршрута на госта — спецификации по декора, маси и флора от предложението (без цени в pin-овете).',
+      introBg: 'Декор, маси и флорални акценти — спецификация след маршрута на госта.',
       masterAssetId: 'c03_cocktail_aerial_p08',
       trackSvh: { desktop: 280, mobile: 260 },
       beats: [

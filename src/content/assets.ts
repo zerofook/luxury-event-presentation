@@ -65,26 +65,26 @@ export const assets: Record<string, MediaAsset> = {
     'Гала зала — пълна визуализация с маси и осветление',
   ),
   c09_galahall2_p22: crop('c09_galahall2_p22', 1906, 1044, 'p22', 'c09', 'Гала зала — втори ъгъл'),
-  first_floor_cocktail_overview_p08: img(
-    'first_floor_cocktail_overview_p08',
-    1714,
-    1296,
-    'Първи етаж — оригинална страница от PDF (p8)',
-    { pdfPage: 'p8', provenance: 'pdf-page' },
+  first_floor_layout_with_glass: img(
+    'first_floor_layout_with_glass',
+    1784,
+    1336,
+    'Първи етаж — разположение с акцент върху стъклото вляво',
+    { provenance: 'owner-visualization' },
   ),
-  corridor_variants_p14_full: img(
-    'corridor_variants_p14_full',
+  second_floor_gala_view_A: img(
+    'second_floor_gala_view_A',
     2048,
-    1152,
-    'Коридор — палитри от PDF p14 (референция, не е кадър от видеото)',
-    { pdfPage: 'p14', provenance: 'pdf-page' },
+    1158,
+    'Гала зала — основна перспектива',
+    { provenance: 'owner-visualization' },
   ),
-  gala_hall_full_p21_ref: img(
-    'gala_hall_full_p21_ref',
+  second_floor_gala_view_B: img(
+    'second_floor_gala_view_B',
     2048,
-    1152,
-    'Гала зала — оригинална страница PDF p21',
-    { pdfPage: 'p21', provenance: 'pdf-page' },
+    1147,
+    'Гала зала — алтернативна перспектива',
+    { provenance: 'owner-visualization' },
   ),
 };
 

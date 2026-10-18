@@ -78,20 +78,20 @@ Encoded via `scripts/make-v3-video.mjs` from `sources/v3/video/` (correctly rena
 
 ### Provenance (content layer)
 
-`src/content/assets.ts` marks `provenance: 'pdf-crop' | 'pdf-page' | 'owner-visualization'`. Gala / corridor UI strings cite PDF vs owner-supplied sources. **Owner stills** (`first_floor_layout_with_glass`, `second_floor_gala_view_A/B`) were **not present on disk in this agent run** — wire when added under `sources/v3/stills/` and re-run `npm run assets:v3`.
+`src/content/assets.ts` marks `provenance: 'pdf-crop' | 'pdf-page' | 'owner-visualization`. Owner stills (`first_floor_layout_with_glass`, `second_floor_gala_view_A/B`) live in `sources/v3/stills/` → `npm run assets:v3`.
 
 ### Differences from early plan
 
 - Corridor: **play-once** instead of scroll-scrub (single-keyframe clip; lighter than 144-frame lazy canvas).
-- First-floor primary remains **p8 aerial crop** until owner glass layout file is in repo.
-- Gala primary: **p21 crop** until owner view A is committed.
+- First-floor hero: **p8 aerial**; contextual still: **owner glass layout**.
+- Gala hero: **owner view A**; perspectives: view B + proposal crops.
 
 ### Known limitations
 
 - PDF rasters ≤2048px; baked text/watermarks on p7/p21 composites
 - Short AI-looking clips; artefacts not manually retouched
 - Real-device iOS autoplay / FPS not verified here
-- Missing ≥3000px agency masters; owner V3 PNG/JPG stills not bundled in this PR
+- Missing ≥3000px agency masters
 - p15 corridor **still ≠ video framing** — not claimed as identical
 - Cocktail prices only in post-pin **Инвестиция** block
 
