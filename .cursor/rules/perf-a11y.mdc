@@ -1,0 +1,10 @@
+---
+description: Performance and accessibility
+globs: "{src/**,index.html}"
+alwaysApply: false
+---
+
+- Use `svh`/`dvh` with `vh` fallback; explicit width/height on media.
+- Videos: `muted`, `playsinline`, handle `play()` rejection, poster fallback.
+- Animate `transform` and `opacity` only; no `position: fixed` scroll hacks.
+- Bulgarian `alt` text; focus-visible styles; contrast via gradients on imagery.

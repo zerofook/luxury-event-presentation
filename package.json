@@ -1,0 +1,40 @@
+{
+  "name": "geotrading22-presentation",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run validate && tsc -b && vite build",
+    "build:pages": "VITE_BASE=/luxury-event-presentation/ npm run build",
+    "preview": "vite preview",
+    "preview:pages": "VITE_BASE=/luxury-event-presentation/ vite preview",
+    "validate": "node scripts/validate-content.mjs",
+    "assets:images": "node scripts/make-images.mjs",
+    "assets:video": "bash scripts/make-video.sh",
+    "assets:frames": "bash scripts/make-frames.sh",
+    "assets": "npm run assets:images && npm run assets:video && npm run assets:frames",
+    "screenshots": "node scripts/capture-screenshots.mjs"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.2.5",
+    "@fontsource/noto-sans": "^5.2.5",
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.12.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "playwright": "^1.51.0",
+    "sharp": "^0.33.5",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0"
+  }
+}

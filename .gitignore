@@ -1,0 +1,8 @@
+node_modules
+dist
+_assets_unpack
+*.tsbuildinfo
+.DS_Store
+*.log
+playwright-report
+test-results
