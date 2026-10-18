@@ -51,7 +51,7 @@ export function ScrubSequence({
       }
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = 'high';
-      ctx.fillStyle = '#1a2a38';
+      ctx.fillStyle = '#33506b';
       ctx.fillRect(0, 0, cw, ch);
       const scale = Math.max(cw / bmp.width, ch / bmp.height);
       const dw = bmp.width * scale;

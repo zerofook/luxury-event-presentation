@@ -57,7 +57,6 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       titleBg: 'Декор на входа',
       bodyBg:
         'Впечатляващо първо посещение — кристални колони, топло осветление и пътека, която насочва гостите към сърцето на празника.',
-      priceId: 'entrance_whole',
     },
     {
       type: 'photoExperience',
@@ -85,14 +84,12 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
           id: 'walls',
           titleBg: 'Платове и текстил по стените',
           bodyBg: 'Меки платове във фоайето създават уют и подчертават височината на пространството.',
-          priceId: 'foyer_wall_drapes',
           focus: { fx: 0.06, fy: 0.32, fr: 0.38 },
         },
         {
           id: 'columns',
           titleBg: 'Декорация на колони',
           bodyBg: 'Колоните получават дискретен декор със златни и кристални акценти.',
-          priceId: 'column_decor',
           detailBadgeAssetId: 'd1_columns_circle_p11',
           focus: { fx: 0.74, fy: 0.18, fr: 0.32 },
         },
@@ -100,7 +97,6 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
           id: 'tables',
           titleBg: 'Коктейлни маси',
           bodyBg: 'Компактни маси с флорални центрове и свещи — за свободно общуване между гостите.',
-          priceId: 'cocktail_tables',
           detailBadgeAssetId: 'd2_tables_circle_p11',
           focus: { fx: 0.66, fy: 0.42, fr: 0.35 },
         },
@@ -108,7 +104,6 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
           id: 'florals',
           titleBg: 'Флорални композиции',
           bodyBg: 'Свободно стоящи аранжименти маркират ключови зони и водят погледа към входа.',
-          priceId: 'floral_freestanding',
           detailBadgeAssetId: 'd3_floral_circle_p11',
           focus: { fx: 0.48, fy: 0.86, fr: 0.4 },
         },

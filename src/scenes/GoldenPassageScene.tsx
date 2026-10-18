@@ -36,7 +36,7 @@ export function GoldenPassageScene({ data, paletteNote }: Props) {
   }, [progress]);
 
   return (
-    <section className="golden-passage" aria-labelledby="passage-heading">
+    <section id="scene-passage" className="golden-passage" aria-labelledby="passage-heading">
       <div className="dev-badge" aria-label="Developer placeholder marker">
         {data.placeholderLabelBg}
       </div>

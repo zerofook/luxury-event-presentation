@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import type { StickyStorySceneData } from '@/content/types';
 import { ResponsivePicture } from '@/components/ResponsivePicture';
-import { PriceLine } from '@/components/PriceLine';
 import { useScrollProgress } from '@/lib/useScrollProgress';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
 import { InvestmentSummary } from '@/components/InvestmentSummary';
@@ -44,7 +43,7 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
 
   return (
     <>
-      <section className="sticky-story" aria-labelledby="cocktail-heading">
+      <section id="scene-cocktail" className="sticky-story" aria-labelledby="cocktail-heading">
         <div
           className="sticky-story__track"
           ref={trackRef as React.RefObject<HTMLDivElement>}
@@ -79,7 +78,6 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
                         )}
                         <h3>{beat.titleBg}</h3>
                         <p>{beat.bodyBg}</p>
-                        {beat.priceId && <PriceLine priceId={beat.priceId} compact />}
                       </article>
                     ),
                   )}

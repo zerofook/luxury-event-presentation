@@ -9,7 +9,7 @@ interface Props {
 
 export function InvestmentSummary({ titleBg, introBg, priceIds }: Props) {
   return (
-    <section className="investment" aria-labelledby="investment-heading">
+    <section id="scene-investment" className="investment" aria-labelledby="investment-heading">
       <div className="investment__inner">
         <h2 id="investment-heading" className="section-title section-title--sm">
           {titleBg}

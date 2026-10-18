@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { HeroSceneData, VideoEntranceSceneData, EntranceTransition } from '@/content/types';
 import { ResponsivePicture } from '@/components/ResponsivePicture';
-import { PriceLine } from '@/components/PriceLine';
 import { useVideoInView } from '@/lib/useVideoInView';
 import { useScrollProgress } from '@/lib/useScrollProgress';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
@@ -43,14 +42,14 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
   const gradientReveal = reduced ? 0 : Math.min(1, progress * 2);
 
   return (
-    <section className="hero-entrance" aria-label={ui.ariaHeroSection}>
+    <section id="scene-hero" className="hero-entrance" aria-label={ui.ariaHeroSection}>
       <div
         className="hero-entrance__track"
         ref={trackRef as React.RefObject<HTMLDivElement>}
         style={{ height: reduced ? 'auto' : 'min(120svh, 120vh)' }}
       >
         <div className="hero-entrance__stage">
-          <div className="hero-entrance__navy" style={{ opacity: 1 - gradientReveal * 0.95 }} />
+          <div className="hero-entrance__scrim" style={{ opacity: 1 - gradientReveal * 0.35 }} />
           <div className="hero-entrance__copy" style={{ opacity: heroFade }}>
             <p className="eyebrow">{hero.eventMetaBg}</p>
             <h1 className="display">{hero.headlineBg}</h1>
@@ -59,6 +58,15 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
           </div>
 
           <div className="hero-entrance__media" ref={containerRef}>
+            <img
+              className="hero-entrance__poster"
+              src={entrance.posterSrc}
+              alt=""
+              aria-hidden
+              width={entrance.width}
+              height={entrance.height}
+              fetchPriority="high"
+            />
             {!reduced && (
               <video
                 ref={videoRef}
@@ -68,7 +76,7 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
                 poster={entrance.posterSrc}
                 muted
                 playsInline
-                preload="metadata"
+                preload="auto"
                 width={entrance.width}
                 height={entrance.height}
               />
@@ -89,7 +97,6 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
         <div className="block-ivory__inner">
           <h2 className="section-title">{entrance.titleBg}</h2>
           <p className="section-lead">{entrance.bodyBg}</p>
-          {entrance.priceId && <PriceLine priceId={entrance.priceId} />}
         </div>
       </div>
     </section>

@@ -1,7 +1,10 @@
 :root {
   /* Sampled from PDF pages — confirm with brand */
   --color-navy: #253b50;
-  --color-navy-deep: #1a2a38;
+  --color-navy-mid: #33506b;
+  --color-navy-soft: #3d5f7a;
+  /** Lifted from near-black — dominant UI backgrounds stay in navy / blue-gray */
+  --color-navy-deep: #33506b;
   --color-blue-gray: #5a6f82;
   --color-ivory: #f7f1e6;
   --color-cream: #ede4d4;
