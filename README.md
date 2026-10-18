@@ -58,7 +58,7 @@ Vite `base` comes from `VITE_BASE` (default `/` for `npm run dev`). Runtime medi
 |--------|-----------|
 | **Hero + Grand Entrance** | Sticky `100svh` stage; **entrance poster/video visible at scroll 0** (left scrim, not empty black); navy **#253B50–#33506B** (no near-black fills); video plays once on IO, dissolves to p5 still; ivory copy block **without prices**. |
 | **Photo experience** | Letterboxed band; car video **trimmed to ~3.2s**, play-once, crossfade to p7 light strip; optional orange/plum thumbs. |
-| **Cocktail sticky story** | Track **280svh** desktop / **260svh** mobile; `position: sticky` stage; ScrollTrigger drives beat index; **spotlight** (radial vignette) or **editorial** (soft band + ring) via `?cocktail=`. Beats are **copy only** (no prices). All cocktail prices appear **only** in «Инвестиция» (+ expandable detail) after the pin, then palette compare. |
+| **Cocktail sticky story** | Track **280svh** desktop / **260svh** mobile; ScrollTrigger beat index; **spotlight** / **editorial** via `?cocktail=`. **Desktop:** text column + faded beats. **Mobile (&lt;900px):** top-anchored **`contain`** aerial (~full width), caption **dock** below (56px detail circle + title/body, sequential fade), dots. No prices in beats. |
 | **Golden passage** | **Placeholder** (dev badge): push-in on p15 strip + p14 palette beat + veil → p21 (optional p22 ghost). Not a real corridor scrub until footage exists. |
 | **ScrubSequence (dev)** | `?scrubTest=1` — canvas sequence from entrance clip frames (12 fps); validates loader/lerp/cache for future corridor video. |
 
@@ -122,7 +122,7 @@ Test path already wired: `npm run assets:frames` + `?scrubTest=1`.
 ## Validation
 
 - `npm run validate` — content media paths exist
-- `npm run screenshots` — Playwright desktop (1440) + mobile (iPhone 12): hero, cocktail intro + 4 beats, investment, passage corridor/gala → `docs/screenshots/`
+- `npm run screenshots` — Playwright desktop (1440) + mobile cocktail at **390×844** and **360×640** (intro + beats 1–4, settled 900ms after scroll) → `docs/screenshots/`
 - `npm run build` — **passes** in CI/agent environment
 
 **Not verified here:** real Safari/iOS autoplay/LPM, 55fps scroll profiling, or manual video playback (headless captures layout only).
