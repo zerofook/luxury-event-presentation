@@ -9,6 +9,17 @@ export default defineConfig(({ mode }) => {
   return {
     base,
     plugins: [react()],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('/src/phase2/') || id.includes('phase2/data/items.json')) {
+              return 'phase2-proposal';
+            }
+          },
+        },
+      },
+    },
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),

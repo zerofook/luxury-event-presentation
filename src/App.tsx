@@ -1,60 +1,31 @@
-import { useMemo } from 'react';
-import { getSiteContent } from '@/content/site.bg';
-import { HeroPreload } from '@/components/HeroPreload';
-import { ActiveVideoProvider } from '@/lib/ActiveVideoContext';
-import { HeroEntranceScene } from '@/scenes/HeroEntranceScene';
-import { PhotoExperienceScene } from '@/scenes/PhotoExperienceScene';
-import { StickyStoryScene } from '@/scenes/StickyStoryScene';
-import { EditorialVideoScene } from '@/scenes/EditorialVideoScene';
-import { EditorialSectionScene } from '@/scenes/EditorialSectionScene';
-import { ClosingScene } from '@/scenes/ClosingScene';
-import { DevScrubTestScene } from '@/scenes/DevScrubTestScene';
-import type { SceneData } from '@/content/types';
+import { Suspense, lazy } from 'react';
+import { useHashRoute, isProposalRoute } from '@/lib/useHashRoute';
+
+const GuestExperienceApp = lazy(() => import('./GuestExperienceApp'));
+const ProposalApp = lazy(() => import('./phase2/ProposalApp'));
+
+function Loading() {
+  return (
+    <div style={{ padding: '2rem', textAlign: 'center', fontFamily: 'system-ui' }} aria-live="polite">
+      Зареждане…
+    </div>
+  );
+}
 
 export default function App() {
-  const site = useMemo(() => getSiteContent(), []);
+  const route = useHashRoute();
 
-  const hero = site.scenes.find((s) => s.type === 'hero')!;
-  const entrance = site.scenes.find((s) => s.type === 'videoEntrance')!;
-
-  const renderScene = (scene: SceneData) => {
-    if (scene.type === 'hero' || scene.type === 'videoEntrance') return null;
-    switch (scene.type) {
-      case 'stickyStory':
-        return (
-          <StickyStoryScene
-            key={scene.id}
-            data={scene}
-            treatment={site.dev.cocktailTreatment}
-            scrollHint={site.ui.cocktailScrollHint}
-          />
-        );
-      case 'editorialVideo':
-        return <EditorialVideoScene key={scene.id} data={scene} playLabel={site.ui.playVideo} />;
-      case 'photoExperience':
-        return <PhotoExperienceScene key={scene.id} data={scene} ui={site.ui} />;
-      case 'editorialSection':
-        return <EditorialSectionScene key={scene.id} data={scene} playLabel={site.ui.playVideo} />;
-      case 'closing':
-        return <ClosingScene key={scene.id} data={scene} />;
-      default:
-        return null;
-    }
-  };
+  if (isProposalRoute(route)) {
+    return (
+      <Suspense fallback={<Loading />}>
+        <ProposalApp route={route} />
+      </Suspense>
+    );
+  }
 
   return (
-    <ActiveVideoProvider>
-      <HeroPreload />
-      <main id="main">
-        <HeroEntranceScene
-          hero={hero}
-          entrance={entrance}
-          entranceTransition={site.dev.entranceTransition}
-          ui={site.ui}
-        />
-        {site.scenes.map((scene) => renderScene(scene))}
-        <DevScrubTestScene config={site.dev.scrubTest} hint={site.ui.devScrubHint} />
-      </main>
-    </ActiveVideoProvider>
+    <Suspense fallback={<Loading />}>
+      <GuestExperienceApp />
+    </Suspense>
   );
 }

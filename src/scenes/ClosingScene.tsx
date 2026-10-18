@@ -34,10 +34,9 @@ export function ClosingScene({ data }: Props) {
           </h2>
           <p className="closing-scene__lead">{data.bodyBg}</p>
           <p className="closing-scene__disclaimer">{data.disclaimerBg}</p>
-          <button type="button" className="closing-scene__cta" disabled aria-disabled="true">
+          <a className="closing-scene__cta closing-scene__cta--link" href={`${import.meta.env.BASE_URL}#/proposal`}>
             {data.ctaLabelBg}
-            <span className="closing-scene__cta-soon">{data.ctaSoonBg}</span>
-          </button>
+          </a>
         </div>
       </div>
     </section>
