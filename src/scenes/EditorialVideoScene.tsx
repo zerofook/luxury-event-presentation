@@ -31,10 +31,12 @@ export function EditorialVideoScene({ data, playLabel }: Props) {
 
   const bandClass =
     data.tone === 'navy' ? 'editorial-video editorial-video--navy' : 'editorial-video editorial-video--cream';
+  const layoutClass =
+    data.layout === 'split-narrow' ? 'editorial-video__inner--split' : 'editorial-video__inner--wide';
 
   return (
     <section id={`scene-${data.id}`} className={bandClass} aria-labelledby={`${data.id}-heading`}>
-      <div className="editorial-video__inner">
+      <div className={`editorial-video__inner ${layoutClass}`}>
         <div
           className={`editorial-video__copy ${textVisible ? 'is-visible' : ''}`}
           ref={textRef}

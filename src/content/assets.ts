@@ -1,5 +1,6 @@
 import type { MediaAsset } from './types';
 import { publicUrl } from '@/lib/publicUrl';
+import { v4Assets } from './assets.v4.generated';
 
 const img = (id: string, w: number, h: number, pdfPage: string, crop: string, altBg: string): MediaAsset => ({
   id,
@@ -10,7 +11,7 @@ const img = (id: string, w: number, h: number, pdfPage: string, crop: string, al
   source: { pdfPage, crop },
 });
 
-export const assets: Record<string, MediaAsset> = {
+const v1Assets: Record<string, MediaAsset> = {
   c01_entrance_render_p05: img(
     'c01_entrance_render_p05',
     1144,
@@ -149,9 +150,21 @@ export const assets: Record<string, MediaAsset> = {
   ),
 };
 
+export const assets: Record<string, MediaAsset> = {
+  ...v1Assets,
+  ...v4Assets,
+};
+
+/** Cap display width at ~1.3× native for small crops */
+export function maxRenderWidth(assetId: string, viewportWidth: number): number {
+  const asset = assets[assetId];
+  if (!asset) return viewportWidth;
+  return Math.min(viewportWidth, Math.round(asset.width * 1.3));
+}
+
 /** Pick best width ladder file suffix for viewport */
 export function assetSrc(asset: MediaAsset, viewportWidth: number, format: 'avif' | 'webp' | 'jpg' = 'avif'): string {
-  const widths = [640, 1024, 1600, 1944].filter((w) => w <= asset.width);
+  const widths = [640, 1024, 1600, 1944, 2048].filter((w) => w <= asset.width);
   const pick = widths.reduce((best, w) => (w <= viewportWidth ? w : best), widths[0] ?? 640);
   const w = Math.min(pick, asset.width);
   return publicUrl(`${asset.basePath}-${w}.${format}`);

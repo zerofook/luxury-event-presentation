@@ -37,16 +37,13 @@ async function hold(page, ms) {
   await page.waitForTimeout(ms);
 }
 
-async function smoothScrollTo(page, y, ms = 1200) {
-  const start = await page.evaluate(() => window.scrollY);
-  const t0 = Date.now();
-  while (true) {
-    const t = Math.min(1, (Date.now() - t0) / ms);
-    const eased = 1 - (1 - t) ** 3;
-    await page.evaluate((yy) => window.scrollTo(0, yy), start + (y - start) * eased);
-    if (t >= 1) break;
-    await page.waitForTimeout(32);
-  }
+async function scrollTo(page, sel) {
+  await page.evaluate((s) => document.querySelector(s)?.scrollIntoView({ block: 'center' }), sel);
+  await hold(page, 400);
+}
+
+async function playVideo(page, sel) {
+  await page.evaluate((s) => void document.querySelector(s)?.play(), sel);
 }
 
 fs.mkdirSync(OUT_DIR, { recursive: true });
@@ -62,38 +59,48 @@ const page = await context.newPage();
 await page.goto(url, { waitUntil: 'load' });
 await page.waitForSelector('#main');
 
-await hold(page, 4000);
+await hold(page, 3500);
 await page.click('.hero-film-cta');
-await hold(page, 18000);
+await hold(page, 16000);
 await page.keyboard.press('Escape');
 await hold(page, 2000);
 
-await smoothScrollTo(page, await page.evaluate(() => {
-  const el = document.querySelector('.entrance-copy');
-  return el ? el.getBoundingClientRect().top + window.scrollY - 80 : 400;
-}));
+await scrollTo(page, '.entrance-copy');
 await hold(page, 4500);
 
-await page.evaluate(() => document.querySelector('#scene-photo-zone')?.scrollIntoView({ block: 'start' }));
-await hold(page, 6000);
-
-await smoothScrollTo(page, await page.evaluate(() => {
+await page.evaluate(() => {
   const track = document.querySelector('#scene-cocktail .sticky-story__track');
-  if (!track) return window.scrollY;
-  return track.getBoundingClientRect().top + window.scrollY + track.offsetHeight * 0.4;
-}));
-await hold(page, 9000);
+  if (!track) return;
+  const top = track.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo(0, top + track.offsetHeight * 0.35);
+});
+await hold(page, 12000);
 
-await page.evaluate(() => document.querySelector('#scene-perf-champagne')?.scrollIntoView({ block: 'center' }));
-await page.evaluate(() => void document.querySelector('#scene-perf-champagne video')?.play());
-await hold(page, 9000);
+for (const sel of ['#scene-perf-champagne', '#scene-perf-glass', '#scene-photo-zone']) {
+  await scrollTo(page, sel);
+  await playVideo(page, `${sel} video`);
+  await hold(page, 9000);
+}
 
-await page.evaluate(() => document.querySelector('#scene-perf-glass')?.scrollIntoView({ block: 'center' }));
-await page.evaluate(() => void document.querySelector('#scene-perf-glass video')?.play());
-await hold(page, 9000);
+for (const sel of [
+  '#scene-golden-passage',
+  '#scene-gala-reveal',
+  '#scene-ballroom-atmosphere',
+  '#scene-stage-scenography',
+  '#scene-hall-lighting',
+  '#scene-table-decor',
+  '#scene-anniversary-ceremony',
+  '#scene-entertainment-programme',
+]) {
+  await scrollTo(page, sel);
+  if (sel.includes('gala') || sel.includes('golden-passage')) {
+    await playVideo(page, `${sel} video`);
+  }
+  await hold(page, sel.includes('ceremony') || sel.includes('entertainment') ? 9000 : 8000);
+}
 
-await page.evaluate(() => document.querySelector('#scene-passage')?.scrollIntoView({ block: 'start' }));
-await hold(page, 6000);
+await scrollTo(page, '.site-footer');
+await hold(page, 8000);
 
 await context.close();
 await browser.close();
@@ -118,4 +125,22 @@ while (fs.statSync(mp4Path).size > maxBytes && crf < 34) {
   encode(crf);
 }
 fs.unlinkSync(webmPath);
-console.log('Recorded', mp4Path, 'bytes', fs.statSync(mp4Path).size, 'crf', crf);
+
+const framesDir = path.join(OUT_DIR, 'frame-check-v5');
+fs.mkdirSync(framesDir, { recursive: true });
+for (const { label, t } of [
+  { label: 'champagne', t: '00:01:05' },
+  { label: 'gala', t: '00:02:35' },
+  { label: 'corridor', t: '00:02:05' },
+]) {
+  const a = path.join(framesDir, `${label}-a.jpg`);
+  const b = path.join(framesDir, `${label}-b.jpg`);
+  spawnSync('ffmpeg', ['-y', '-ss', t, '-i', mp4Path, '-frames:v', '1', a], { stdio: 'ignore' });
+  const sec = t.split(':').reduce((acc, v, i) => acc + Number(v) * [3600, 60, 1][i], 0) + 2;
+  const t2 = new Date(sec * 1000).toISOString().slice(11, 19);
+  spawnSync('ffmpeg', ['-y', '-ss', t2, '-i', mp4Path, '-frames:v', '1', b], { stdio: 'ignore' });
+}
+const dur = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp4Path], {
+  encoding: 'utf8',
+});
+console.log('Recorded', mp4Path, 'duration', dur.stdout.trim(), 'bytes', fs.statSync(mp4Path).size, 'crf', crf);

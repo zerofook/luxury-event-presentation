@@ -3,6 +3,7 @@ import { chromium } from 'playwright';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const OUT = path.join(ROOT, 'docs', 'screenshots', 'v5');
@@ -12,12 +13,15 @@ function startUrl() {
   const html = fs.readFileSync(path.join(ROOT, 'dist', 'index.html'), 'utf8');
   const m = html.match(/src="(\/[^"]*\/)assets\//);
   const basePath = m ? m[1] : '/';
-  return { basePath, startUrl: `http://127.0.0.1:${PORT}${basePath}` };
+  return { startUrl: `http://127.0.0.1:${PORT}${basePath}` };
 }
 
 async function preview() {
-  const { basePath, startUrl: url } = startUrl();
+  const html = fs.readFileSync(path.join(ROOT, 'dist', 'index.html'), 'utf8');
+  const m = html.match(/src="(\/[^"]*\/)assets\//);
+  const basePath = m ? m[1] : '/';
   const script = basePath === '/' ? 'preview' : 'preview:pages';
+  const { startUrl: url } = startUrl();
   const proc = spawn('npm', ['run', script, '--', '--port', String(PORT), '--strictPort', '--host', '127.0.0.1'], {
     cwd: ROOT,
     stdio: 'ignore',
@@ -33,11 +37,8 @@ async function preview() {
   throw new Error('preview failed');
 }
 
-async function waitVideo(page, selector, min = 0.2) {
-  await page.evaluate((sel) => {
-    const v = document.querySelector(sel);
-    if (v) void v.play();
-  }, selector);
+async function waitVideo(page, selector, min = 0.25) {
+  await page.evaluate((sel) => void document.querySelector(sel)?.play(), selector);
   await page
     .waitForFunction(
       ({ sel, min }) => {
@@ -51,77 +52,93 @@ async function waitVideo(page, selector, min = 0.2) {
   await page.waitForTimeout(900);
 }
 
+const SCENES = [
+  { file: '01-hero-top', run: (p) => p.evaluate(() => window.scrollTo(0, 0)) },
+  {
+    file: '02-hero-film-open',
+    run: async (p) => {
+      await p.evaluate(() => window.scrollTo(0, 0));
+      await p.click('.hero-film-cta');
+      await p.waitForSelector('.film-overlay__dialog');
+      await p.waitForTimeout(500);
+    },
+    after: async (p) => {
+      await p.keyboard.press('Escape');
+      await p.waitForTimeout(300);
+    },
+  },
+  {
+    file: '03-arrival-copy',
+    run: (p) => p.evaluate(() => document.querySelector('.entrance-copy')?.scrollIntoView({ block: 'center' })),
+  },
+  {
+    file: '04-cocktail-split',
+    run: (p) =>
+      p.evaluate(() => {
+        const track = document.querySelector('#scene-cocktail .sticky-story__track');
+        if (!track) return;
+        const top = track.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo(0, top + track.offsetHeight * 0.35);
+      }),
+  },
+  {
+    file: '05-clip-champagne',
+    run: async (p) => {
+      await p.evaluate(() => document.querySelector('#scene-perf-champagne')?.scrollIntoView({ block: 'center' }));
+      await waitVideo(p, '#scene-perf-champagne video');
+    },
+  },
+  {
+    file: '06-clip-glass',
+    run: async (p) => {
+      await p.evaluate(() => document.querySelector('#scene-perf-glass')?.scrollIntoView({ block: 'center' }));
+      await waitVideo(p, '#scene-perf-glass video');
+    },
+  },
+  {
+    file: '07-photo-zone',
+    run: async (p) => {
+      await p.evaluate(() => document.querySelector('#scene-photo-zone')?.scrollIntoView({ block: 'center' }));
+      await waitVideo(p, '#scene-photo-zone video', 0.2);
+    },
+  },
+  {
+    file: '08-golden-passage',
+    run: (p) => p.evaluate(() => document.querySelector('#scene-golden-passage')?.scrollIntoView({ block: 'start' })),
+  },
+  {
+    file: '09-gala-reveal',
+    run: async (p) => {
+      await p.evaluate(() => document.querySelector('#scene-gala-reveal')?.scrollIntoView({ block: 'center' }));
+      await waitVideo(p, '#scene-gala-reveal video', 0.3);
+    },
+  },
+  { file: '10-ballroom', run: (p) => p.evaluate(() => document.querySelector('#scene-ballroom-atmosphere')?.scrollIntoView({ block: 'start' })) },
+  { file: '11-stage', run: (p) => p.evaluate(() => document.querySelector('#scene-stage-scenography')?.scrollIntoView({ block: 'center' })) },
+  { file: '12-lighting', run: (p) => p.evaluate(() => document.querySelector('#scene-hall-lighting')?.scrollIntoView({ block: 'center' })) },
+  { file: '13-table-decor', run: (p) => p.evaluate(() => document.querySelector('#scene-table-decor')?.scrollIntoView({ block: 'center' })) },
+  { file: '14-ceremony', run: (p) => p.evaluate(() => document.querySelector('#scene-anniversary-ceremony')?.scrollIntoView({ block: 'start' })) },
+  { file: '15-entertainment', run: (p) => p.evaluate(() => document.querySelector('#scene-entertainment-programme')?.scrollIntoView({ block: 'start' })) },
+  { file: '16-footer', run: (p) => p.evaluate(() => document.querySelector('.site-footer')?.scrollIntoView({ block: 'end' })) },
+];
+
 async function capture(viewport, prefix) {
   const { startUrl: url } = startUrl();
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport, deviceScaleFactor: 1 });
   await page.goto(url, { waitUntil: 'load', timeout: 60000 });
   await page.waitForSelector('#main');
+  const hashes = new Map();
 
-  const shots = [
-    { file: '01-hero-top', fn: async () => page.evaluate(() => window.scrollTo(0, 0)) },
-    {
-      file: '02-hero-film-open',
-      fn: async () => {
-        await page.evaluate(() => window.scrollTo(0, 0));
-        await page.click('.hero-film-cta');
-        await page.waitForSelector('.film-overlay__dialog', { state: 'visible' });
-        await page.waitForTimeout(600);
-      },
-    },
-    {
-      file: '03-arrival-copy',
-      fn: async () => {
-        await page.keyboard.press('Escape');
-        await page.waitForTimeout(300);
-        await page.evaluate(() => {
-          const el = document.querySelector('.entrance-copy');
-          if (el) el.scrollIntoView({ block: 'center' });
-        });
-      },
-    },
-    {
-      file: '04-cocktail-split',
-      fn: async () => {
-        await page.evaluate(() => {
-          const track = document.querySelector('#scene-cocktail .sticky-story__track');
-          if (!track) return;
-          const top = track.getBoundingClientRect().top + window.scrollY;
-          window.scrollTo(0, top + track.offsetHeight * 0.35);
-        });
-        await page.waitForTimeout(800);
-      },
-    },
-    {
-      file: '05-clip-champagne',
-      fn: async () => {
-        await page.evaluate(() => document.querySelector('#scene-perf-champagne')?.scrollIntoView({ block: 'center' }));
-        await waitVideo(page, '#scene-perf-champagne video');
-      },
-    },
-    {
-      file: '06-clip-glass',
-      fn: async () => {
-        await page.evaluate(() => document.querySelector('#scene-perf-glass')?.scrollIntoView({ block: 'center' }));
-        await waitVideo(page, '#scene-perf-glass video');
-      },
-    },
-    {
-      file: '07-photo-zone',
-      fn: async () => {
-        await page.evaluate(() => document.querySelector('#scene-photo-zone')?.scrollIntoView({ block: 'start' }));
-        await page.waitForTimeout(900);
-      },
-    },
-  ];
-
-  for (const s of shots) {
-    await s.fn();
-    await page.screenshot({ path: path.join(OUT, `${prefix}-${s.file}.png`) });
-    if (s.file === '02-hero-film-open') {
-      await page.keyboard.press('Escape');
-      await page.waitForTimeout(400);
-    }
+  for (const scene of SCENES) {
+    await scene.run(page);
+    await page.waitForTimeout(scene.file.includes('cocktail') ? 800 : 650);
+    const outPath = path.join(OUT, `${prefix}-${scene.file}.png`);
+    await page.screenshot({ path: outPath, fullPage: false });
+    const h = crypto.createHash('md5').update(fs.readFileSync(outPath)).digest('hex');
+    if (hashes.has(h)) console.warn(`DUPLICATE ${scene.file} vs ${hashes.get(h)}`);
+    else hashes.set(h, scene.file);
+    if (scene.after) await scene.after(page);
   }
   await browser.close();
 }

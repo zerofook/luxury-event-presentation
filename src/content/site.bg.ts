@@ -31,12 +31,13 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
   ui: {
     playVideo: 'Пусни видео',
     cocktailScrollHint: 'Продължете надолу, за да откриете детайлите…',
-    passagePaletteNote: 'Примерни палитри — една и съща камера (p14)',
+    passagePaletteNote: '',
     devScrubHint: 'Активира се с ?scrubTest=1 — не е част от основната история.',
     ariaHeroSection: 'Вход и герой',
-    ariaPhotoVariants: 'Цветови варианти на фото зоната',
     filmOverlayTitle: 'Geotrading 22 — кратък филм',
     filmOverlayClose: 'Затвори',
+    programmeDisclaimerBg:
+      'Предложена програма и визуализации — концепция на вечерта, без потвърдени изпълнители или резервации.',
   },
   closingLineBg:
     'С уважение към традицията и поглед към бъдещето — Global Event Agency представя визията за юбилейната вечер на Geotrading.',
@@ -60,15 +61,6 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       titleBg: 'Декор на входа',
       bodyBg:
         'Впечатляващо първо посещение — кристални колони, топло осветление и пътека, която насочва гостите към сърцето на празника.',
-    },
-    {
-      type: 'photoExperience',
-      id: 'photo-zone',
-      stillAssetId: 'c02c_photozone_light_p07',
-      titleBg: 'Фото зона',
-      bodyBg:
-        'Винтидж автомобил, флорални акценти и атмосфера от златните двадесет — момент за снимка, който разказва историята на марката.',
-      paletteVariantIds: ['c02a_photozone_orange_p07', 'c02b_photozone_plum_p07', 'c02c_photozone_light_p07'],
     },
     {
       type: 'stickyStory',
@@ -112,6 +104,7 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       type: 'editorialVideo',
       id: 'perf-champagne',
       tone: 'cream',
+      layout: 'stack-wide',
       eyebrowBg: 'Артистични изяви',
       titleBg: 'Шампанско обслужване',
       bodyBg:
@@ -126,9 +119,10 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       type: 'editorialVideo',
       id: 'perf-glass',
       tone: 'navy',
+      layout: 'split-narrow',
       titleBg: 'Гигантско стъкло и конфети',
       bodyBg:
-        'Театрален момент с артист в прозрачно стъкло и златен конфetti — спектакъл, който събира погледите във фоайето.',
+        'Театрален момент с артист в прозрачно стъкло и златен confetti — спектакъл, който събира погледите във фоайето.',
       disclaimerBg: 'Предложена концепция — без имена и без потвърдени изпълнители.',
       videoSrc: 'media/video/glass-confetti.mp4',
       posterSrc: 'media/video/glass-confetti-poster.jpg',
@@ -136,18 +130,124 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       height: 720,
     },
     {
-      type: 'scrubPassage',
+      type: 'photoExperience',
+      id: 'photo-zone',
+      videoSrc: 'media/video/vintage-car-performers.mp4',
+      posterSrc: 'media/video/vintage-car-performers-poster.jpg',
+      stillAssetId: 'c02c_photozone_light_p07',
+      width: 1280,
+      height: 720,
+      titleBg: 'Фото зона',
+      bodyBg:
+        'Винтидж автомобил, флорални акценти и атмосфера от златните двадесет — финален акцент на първия етаж преди качване нагоре.',
+    },
+    {
+      type: 'editorialSection',
       id: 'golden-passage',
-      trackSvh: 240,
-      corridorAssetId: 'c07_passage_hero_p15',
-      passageVariantAssetIds: ['c06c_passage_light_p14', 'c06b_passage_plum_p14', 'c06a_passage_orange_p14'],
-      galaAssetId: 'c08_galahall_full_p21',
-      galaSecondaryAssetId: 'c09_galahall2_p22',
-      doorwayOrigin: { x: 0.5, y: 0.51 },
-      placeholderLabelBg: 'Техн. placeholder — без коридорно видео',
+      tone: 'ivory',
+      variant: 'passage',
       titleBg: 'Златният коридор',
       bodyBg:
-        'Преход към гала залата — в финалната версия тук ще следва плавно „пътуване“ по коридора; засега показваме подготвена визуализация и палитри.',
+        'Преход към втория етаж — огледала, златни акценти и топло осветление подготвят гостите за гала залата.',
+      assetId: 'v4_p13_crop_corridor_main',
+      zoomOrigin: { x: 0.5, y: 0.55 },
+      videoSrc: 'media/video/corridor-walkthrough.mp4',
+      posterSrc: 'media/video/corridor-walkthrough-poster.jpg',
+      videoWidth: 1280,
+      videoHeight: 720,
+    },
+    {
+      type: 'editorialSection',
+      id: 'gala-reveal',
+      tone: 'navy',
+      variant: 'gala-reveal',
+      eyebrowBg: 'Втори етаж',
+      titleBg: 'Гала зала — от подготовка към живо събитие',
+      bodyBg:
+        'Празната зала с пълна декорация дава място на енергията на гостите — плавен преход към живата атмосфера.',
+      stillAssetId: 'v4_p18_crop_hall_clean_left',
+      videoSrc: 'media/video/gala-hall-alive.mp4',
+      posterSrc: 'media/video/gala-hall-alive-poster.jpg',
+      videoWidth: 1280,
+      videoHeight: 720,
+    },
+    {
+      type: 'editorialSection',
+      id: 'ballroom-atmosphere',
+      tone: 'cream',
+      variant: 'standard',
+      titleBg: 'Атмосфера в балната зала',
+      bodyBg:
+        'Маси с перушина и златни акценти, люстри и простор за танц — визия за пълната гала вечер.',
+      assetId: 'v4_p21_00_1851x849',
+      secondaryAssetId: 'v4_p22_00_1659x948',
+    },
+    {
+      type: 'editorialSection',
+      id: 'stage-scenography',
+      tone: 'navy',
+      variant: 'standard',
+      titleBg: 'Сцена и декор',
+      bodyBg: 'Ар деко сцена с флорални акценти и LED „22“ — център на официалната част.',
+      assetId: 'v4_p17_crop_stage_hero',
+      objectPosition: '50% 72%',
+    },
+    {
+      type: 'editorialSection',
+      id: 'hall-lighting',
+      tone: 'cream',
+      variant: 'standard',
+      titleBg: 'Осветление и атмосфера',
+      bodyBg: 'Топло наситено осветление и дълбоки тонове в залата — спокойна рамка за церемонията.',
+      assetId: 'v4_p18_crop_hall_clean_left',
+    },
+    {
+      type: 'editorialSection',
+      id: 'table-decor',
+      tone: 'ivory',
+      variant: 'standard',
+      titleBg: 'Декор на масите',
+      bodyBg: 'Централни аранжименти и златни детайли — пауза преди програмата.',
+      assetId: 'v4_p24_crop_centerpiece_v1',
+    },
+    {
+      type: 'editorialSection',
+      id: 'anniversary-ceremony',
+      tone: 'cream',
+      variant: 'ceremony',
+      titleBg: '22-годишен юбилей — церемония',
+      bodyBg: 'Ключови моменти от предложената церемония — шапки и аксесоари, торта, тост и празненство.',
+      disclaimerBg: 'Концептуална последователност — подлежи на финално одобрение.',
+      frames: [
+        { assetId: 'v4_p37_crop_hats_accessories', captionBg: 'Шапки и аксесоари за гостите' },
+        { assetId: 'v4_p37_crop_cake_arrival', captionBg: 'Тортата пристига зад перушина' },
+        { assetId: 'v4_p37_crop_countdown_22', captionBg: 'Обратно броене към 22' },
+        { assetId: 'v4_p37_crop_toast', captionBg: 'Тост и искри' },
+      ],
+    },
+    {
+      type: 'editorialSection',
+      id: 'entertainment-programme',
+      tone: 'navy',
+      variant: 'programme',
+      eyebrowBg: 'Предложена програма',
+      titleBg: 'Забавление и финал',
+      bodyBg: 'Подбрани артистични акценти в духа на вечерта — танц, музика и енергия на финала.',
+      programmeNoteBg: 'Предложена програма / концепция — без имена; не е потвърдена резервация.',
+      frames: [
+        { assetId: 'v4_p34_crop_dance_show_dancers', captionBg: 'Танцово шоу в стил Гетсби' },
+        {
+          assetId: 'v4_p35_crop_mihaela_with_dancers',
+          captionBg: 'Музикален гост с ансамбъл',
+          objectPosition: '50% 40%',
+        },
+        { assetId: 'v4_p38_crop_disco_ball_dancers', captionBg: 'Disco Ball Dance' },
+        {
+          assetId: 'v4_p39_crop_live_show_band_dancers',
+          captionBg: 'Финал на вечерта — сцена и светлини',
+          objectPosition: '50% 78%',
+        },
+      ],
     },
   ],
 };
@@ -156,5 +256,4 @@ export function getSiteContent(): SiteContent {
   return { ...siteStatic, dev: readDevFlags() };
 }
 
-/** Default export for static validation paths */
 export const site = siteStatic;

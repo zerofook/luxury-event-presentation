@@ -21,7 +21,7 @@ export interface MediaAsset {
   width: number;
   height: number;
   basePath: string; // media/img/{id} without width suffix (use publicUrl at runtime)
-  source: { pdfPage: string; crop?: string };
+  source: { pdfPage?: string; crop?: string; provenance?: string };
 }
 
 export interface PaletteSwatch {
@@ -66,17 +66,22 @@ export interface VideoEntranceSceneData {
 export interface PhotoExperienceSceneData {
   type: 'photoExperience';
   id: string;
-  /** V5: car clip deferred — still + palette frames only */
+  videoSrc: string;
+  posterSrc: string;
   stillAssetId: string;
+  width: number;
+  height: number;
   titleBg: string;
   bodyBg: string;
-  paletteVariantIds: string[];
 }
+
+export type EditorialVideoLayout = 'stack-wide' | 'split-narrow';
 
 export interface EditorialVideoSceneData {
   type: 'editorialVideo';
   id: string;
   tone: 'cream' | 'navy';
+  layout?: EditorialVideoLayout;
   eyebrowBg?: string;
   titleBg: string;
   bodyBg: string;
@@ -85,6 +90,36 @@ export interface EditorialVideoSceneData {
   posterSrc: string;
   width: number;
   height: number;
+}
+
+export interface EditorialFrameItem {
+  assetId: string;
+  captionBg: string;
+  objectPosition?: string;
+}
+
+export interface EditorialSectionSceneData {
+  type: 'editorialSection';
+  id: string;
+  tone: 'cream' | 'navy' | 'ivory';
+  variant: 'standard' | 'passage' | 'gala-reveal' | 'ceremony' | 'programme';
+  titleBg: string;
+  bodyBg: string;
+  eyebrowBg?: string;
+  disclaimerBg?: string;
+  assetId?: string;
+  secondaryAssetId?: string;
+  objectPosition?: string;
+  /** gala-reveal */
+  stillAssetId?: string;
+  videoSrc?: string;
+  posterSrc?: string;
+  videoWidth?: number;
+  videoHeight?: number;
+  /** passage subtle zoom origin */
+  zoomOrigin?: { x: number; y: number };
+  frames?: EditorialFrameItem[];
+  programmeNoteBg?: string;
 }
 
 export interface StickyBeat {
@@ -106,20 +141,6 @@ export interface StickyStorySceneData {
   beats: StickyBeat[];
 }
 
-export interface ScrubSceneData {
-  type: 'scrubPassage';
-  id: string;
-  trackSvh: number;
-  corridorAssetId: string;
-  passageVariantAssetIds: string[];
-  galaAssetId: string;
-  galaSecondaryAssetId?: string;
-  doorwayOrigin: { x: number; y: number };
-  placeholderLabelBg: string;
-  titleBg: string;
-  bodyBg: string;
-}
-
 export interface DevScrubTestData {
   enabled: boolean;
   desktopPattern: string;
@@ -133,7 +154,7 @@ export type SceneData =
   | PhotoExperienceSceneData
   | StickyStorySceneData
   | EditorialVideoSceneData
-  | ScrubSceneData;
+  | EditorialSectionSceneData;
 
 export interface SiteUiStrings {
   playVideo: string;
@@ -141,9 +162,9 @@ export interface SiteUiStrings {
   passagePaletteNote: string;
   devScrubHint: string;
   ariaHeroSection: string;
-  ariaPhotoVariants: string;
   filmOverlayTitle: string;
   filmOverlayClose: string;
+  programmeDisclaimerBg: string;
 }
 
 export interface SiteContent {

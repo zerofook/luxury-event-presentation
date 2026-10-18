@@ -6,27 +6,38 @@ import { HeroEntranceScene } from '@/scenes/HeroEntranceScene';
 import { PhotoExperienceScene } from '@/scenes/PhotoExperienceScene';
 import { StickyStoryScene } from '@/scenes/StickyStoryScene';
 import { EditorialVideoScene } from '@/scenes/EditorialVideoScene';
-import { GoldenPassageScene } from '@/scenes/GoldenPassageScene';
+import { EditorialSectionScene } from '@/scenes/EditorialSectionScene';
 import { DevScrubTestScene } from '@/scenes/DevScrubTestScene';
 import type { SceneData } from '@/content/types';
-
-function findScene<T extends SceneData['type']>(scenes: SceneData[], type: T) {
-  return scenes.find((s) => s.type === type) as Extract<SceneData, { type: T }> | undefined;
-}
-
-function findScenes<T extends SceneData['type']>(scenes: SceneData[], type: T) {
-  return scenes.filter((s) => s.type === type) as Extract<SceneData, { type: T }>[];
-}
 
 export default function App() {
   const site = useMemo(() => getSiteContent(), []);
 
-  const hero = findScene(site.scenes, 'hero')!;
-  const entrance = findScene(site.scenes, 'videoEntrance')!;
-  const photo = findScene(site.scenes, 'photoExperience')!;
-  const cocktail = findScene(site.scenes, 'stickyStory')!;
-  const performances = findScenes(site.scenes, 'editorialVideo');
-  const passage = findScene(site.scenes, 'scrubPassage')!;
+  const hero = site.scenes.find((s) => s.type === 'hero')!;
+  const entrance = site.scenes.find((s) => s.type === 'videoEntrance')!;
+
+  const renderScene = (scene: SceneData) => {
+    if (scene.type === 'hero' || scene.type === 'videoEntrance') return null;
+    switch (scene.type) {
+      case 'stickyStory':
+        return (
+          <StickyStoryScene
+            key={scene.id}
+            data={scene}
+            treatment={site.dev.cocktailTreatment}
+            scrollHint={site.ui.cocktailScrollHint}
+          />
+        );
+      case 'editorialVideo':
+        return <EditorialVideoScene key={scene.id} data={scene} playLabel={site.ui.playVideo} />;
+      case 'photoExperience':
+        return <PhotoExperienceScene key={scene.id} data={scene} ui={site.ui} />;
+      case 'editorialSection':
+        return <EditorialSectionScene key={scene.id} data={scene} playLabel={site.ui.playVideo} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <ActiveVideoProvider>
@@ -38,18 +49,10 @@ export default function App() {
           entranceTransition={site.dev.entranceTransition}
           ui={site.ui}
         />
-        <PhotoExperienceScene data={photo} ui={site.ui} />
-        <StickyStoryScene
-          data={cocktail}
-          treatment={site.dev.cocktailTreatment}
-          scrollHint={site.ui.cocktailScrollHint}
-        />
-        {performances.map((perf) => (
-          <EditorialVideoScene key={perf.id} data={perf} playLabel={site.ui.playVideo} />
-        ))}
-        <GoldenPassageScene data={passage} paletteNote={site.ui.passagePaletteNote} />
+        {site.scenes.map((scene) => renderScene(scene))}
         <DevScrubTestScene config={site.dev.scrubTest} hint={site.ui.devScrubHint} />
         <footer className="site-footer">
+          <p className="site-footer__programme">{site.ui.programmeDisclaimerBg}</p>
           <p>{site.closingLineBg}</p>
         </footer>
       </main>

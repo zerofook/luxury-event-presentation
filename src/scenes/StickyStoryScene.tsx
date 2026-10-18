@@ -5,7 +5,6 @@ import { ResponsivePicture } from '@/components/ResponsivePicture';
 import { useScrollProgress } from '@/lib/useScrollProgress';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
 import { useIsDesktopStoryLayout } from '@/lib/useMediaQuery';
-import { PaletteCompare } from '@/components/PaletteCompare';
 
 interface Props {
   data: StickyStorySceneData;
@@ -271,7 +270,6 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
         </div>
       </section>
 
-      <PaletteCompare />
     </>
   );
 }

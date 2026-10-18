@@ -36,10 +36,27 @@ function walkTs(dir) {
 }
 
 for (const file of walkTs(path.join(ROOT, 'src'))) {
+  if (file.includes('assets.v4.generated')) continue;
   const paths = readTsExports(file);
   for (const p of paths) {
     if (p.includes('%')) continue;
+    if (!/\.(jpg|webp|avif|mp4|png)$/i.test(p)) continue;
     if (!checkFile(p)) ok = false;
+  }
+}
+
+// V4 ladder assets: at least one width variant exists per id in registry
+const regPath = path.join(ROOT, 'src/content/v4-asset-registry.json');
+if (fs.existsSync(regPath)) {
+  const reg = JSON.parse(fs.readFileSync(regPath, 'utf8'));
+  for (const a of reg.assets) {
+    const dir = path.join(PUBLIC, 'media/img');
+    const prefix = `${a.id}-`;
+    const hasLadder = fs.readdirSync(dir).some((f) => f.startsWith(prefix) && f.endsWith('.jpg') && !f.endsWith('-lqip.jpg'));
+    if (!hasLadder) {
+      console.error(`Missing V4 ladder: media/img/${a.id}-*.jpg`);
+      ok = false;
+    }
   }
 }
 
