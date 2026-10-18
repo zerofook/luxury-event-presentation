@@ -122,7 +122,7 @@ Test path already wired: `npm run assets:frames` + `?scrubTest=1`.
 ## Validation
 
 - `npm run validate` — content media paths exist
-- `npm run screenshots` — Playwright desktop (1440) + mobile (iPhone 12): hero, cocktail intro + 4 beats, investment, passage corridor/gala → `docs/screenshots/`
+- `npm run screenshots` — Playwright desktop (1440) + mobile cocktail at **390×844** and **360×640** (intro + beats 1–4, settled 900ms after scroll) → `docs/screenshots/`
 - `npm run build` — **passes** in CI/agent environment
 
 **Not verified here:** real Safari/iOS autoplay/LPM, 55fps scroll profiling, or manual video playback (headless captures layout only).

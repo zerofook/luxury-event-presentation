@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-import { chromium, devices } from 'playwright';
+import { chromium } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const OUT = path.join(ROOT, 'docs', 'screenshots');
+const SETTLE_MS = 900;
 
 function startPreview() {
   return new Promise((resolve, reject) => {
@@ -30,7 +31,7 @@ function startPreview() {
 }
 
 async function snap(page, name) {
-  await page.waitForTimeout(350);
+  await page.waitForTimeout(SETTLE_MS);
   await page.screenshot({ path: path.join(OUT, name), fullPage: false });
 }
 
@@ -42,8 +43,9 @@ async function scrollCocktailBeat(page, beatIndex) {
     const h = track.offsetHeight;
     const introEnd = 0.12;
     const beats = 4;
-    const progress = introEnd + ((idx + 0.55) / beats) * (1 - introEnd);
-    window.scrollTo({ top: top + progress * h - window.innerHeight * 0.35, behavior: 'instant' });
+    const progress =
+      idx < 0 ? introEnd * 0.45 : introEnd + ((idx + 0.58) / beats) * (1 - introEnd);
+    window.scrollTo({ top: top + progress * h - window.innerHeight * 0.08, behavior: 'instant' });
   }, beatIndex);
 }
 
@@ -58,33 +60,38 @@ async function scrollPassagePhase(page, phase) {
   }, phase);
 }
 
-async function runSet(page, prefix) {
+async function runDesktop(page) {
+  const prefix = 'desktop';
   await page.goto('http://127.0.0.1:4173/', { waitUntil: 'networkidle' });
   await page.evaluate(() => window.scrollTo(0, 0));
   await snap(page, `${prefix}-hero-top.png`);
 
-  await page.evaluate(() => {
-    const el = document.getElementById('scene-cocktail');
-    if (el) window.scrollTo(0, el.offsetTop + 40);
-  });
+  await scrollCocktailBeat(page, -1);
   await snap(page, `${prefix}-cocktail-intro.png`);
-
   for (let b = 0; b < 4; b++) {
     await scrollCocktailBeat(page, b);
     await snap(page, `${prefix}-cocktail-beat-${b + 1}.png`);
   }
 
   await page.evaluate(() => {
-    const el = document.getElementById('scene-investment');
-    if (el) el.scrollIntoView({ block: 'start' });
+    document.getElementById('scene-investment')?.scrollIntoView({ block: 'start' });
   });
   await snap(page, `${prefix}-investment.png`);
 
   await scrollPassagePhase(page, 'corridor');
   await snap(page, `${prefix}-passage-corridor.png`);
-
   await scrollPassagePhase(page, 'gala');
   await snap(page, `${prefix}-passage-gala.png`);
+}
+
+async function runMobileCocktail(page, prefix) {
+  await page.goto('http://127.0.0.1:4173/', { waitUntil: 'networkidle' });
+  await scrollCocktailBeat(page, -1);
+  await snap(page, `${prefix}-cocktail-intro.png`);
+  for (let b = 0; b < 4; b++) {
+    await scrollCocktailBeat(page, b);
+    await snap(page, `${prefix}-cocktail-beat-${b + 1}.png`);
+  }
 }
 
 async function main() {
@@ -93,11 +100,13 @@ async function main() {
   const browser = await chromium.launch();
 
   const desktop = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  await runSet(desktop, 'desktop');
+  await runDesktop(desktop);
 
-  const ctx = await browser.newContext({ ...devices['iPhone 12'] });
-  const mobile = await ctx.newPage();
-  await runSet(mobile, 'mobile');
+  const mobile390 = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  await runMobileCocktail(mobile390, 'mobile-390');
+
+  const mobile360 = await browser.newPage({ viewport: { width: 360, height: 640 } });
+  await runMobileCocktail(mobile360, 'mobile-360');
 
   await browser.close();
   proc.kill('SIGTERM');

@@ -8,9 +8,17 @@ interface Props {
   sizes?: string;
   priority?: boolean;
   objectFit?: 'cover' | 'contain';
+  objectPosition?: string;
 }
 
-export function ResponsivePicture({ assetId, className, sizes = '100vw', priority, objectFit = 'cover' }: Props) {
+export function ResponsivePicture({
+  assetId,
+  className,
+  sizes = '100vw',
+  priority,
+  objectFit = 'cover',
+  objectPosition,
+}: Props) {
   const asset: MediaAsset | undefined = assets[assetId];
   const [vw, setVw] = useState(typeof window !== 'undefined' ? window.innerWidth : 1440);
 
@@ -43,7 +51,7 @@ export function ResponsivePicture({ assetId, className, sizes = '100vw', priorit
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
         fetchPriority={priority ? 'high' : 'auto'}
-        style={{ width: '100%', height: '100%', objectFit }}
+        style={{ width: '100%', height: '100%', objectFit, objectPosition }}
       />
     </picture>
   );

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { StickyStorySceneData } from '@/content/types';
 import { ResponsivePicture } from '@/components/ResponsivePicture';
 import { useScrollProgress } from '@/lib/useScrollProgress';
@@ -66,6 +66,36 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
   const showMobileCaption = !isDesktop;
   const mobileAnimate = showMobileCaption && !reduced;
 
+  const [captionBeat, setCaptionBeat] = useState(activeBeat);
+  const [captionVisible, setCaptionVisible] = useState(true);
+
+  useEffect(() => {
+    if (!mobileAnimate) {
+      setCaptionBeat(activeBeat);
+      setCaptionVisible(true);
+      return;
+    }
+    if (activeBeat === captionBeat) return;
+    setCaptionVisible(false);
+    const t = window.setTimeout(() => {
+      setCaptionBeat(activeBeat);
+      window.requestAnimationFrame(() => setCaptionVisible(true));
+    }, 200);
+    return () => window.clearTimeout(t);
+  }, [activeBeat, captionBeat, mobileAnimate]);
+
+  const mobileImageFocus =
+    activeBeat >= 0
+      ? { x: Math.round(focus.fx * 100), y: Math.round(focus.fy * 100) }
+      : { x: 50, y: 36 };
+
+  const visualStyle = !isDesktop
+    ? ({
+        '--mobile-focus-x': `${mobileImageFocus.x}%`,
+        '--mobile-focus-y': `${mobileImageFocus.y}%`,
+      } as React.CSSProperties)
+    : undefined;
+
   return (
     <>
       <section id="scene-cocktail" className="sticky-story" aria-labelledby="cocktail-heading">
@@ -105,8 +135,17 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
                 </div>
               </div>
 
-              <div className="sticky-story__visual">
-                <ResponsivePicture assetId={data.masterAssetId} objectFit="contain" />
+              <div
+                className={`sticky-story__visual${!isDesktop ? ' sticky-story__visual--mobile-fill' : ''}`}
+                style={visualStyle}
+              >
+                <ResponsivePicture
+                  assetId={data.masterAssetId}
+                  objectFit={isDesktop ? 'contain' : 'cover'}
+                  objectPosition={
+                    isDesktop ? undefined : `${mobileImageFocus.x}% ${mobileImageFocus.y}%`
+                  }
+                />
                 <div
                   className={`sticky-story__fx sticky-story__fx--${treatment}${reduced ? ' is-off' : ''}`}
                   style={overlayStyle}
@@ -134,28 +173,24 @@ export function StickyStoryScene({ data, treatment, scrollHint }: Props) {
                       <>
                         <div className="mobile-caption__body">
                           <div
-                            className={`mobile-caption__panel ${activeBeat < 0 ? 'is-active' : ''}`}
-                            aria-hidden={activeBeat >= 0}
+                            className={`mobile-caption__panel mobile-caption__panel--solo ${captionVisible ? 'is-visible' : ''}`}
                           >
-                            <h2 className="section-title section-title--on-dark section-title--caption">
-                              {data.titleBg}
-                            </h2>
-                            <p className="section-lead section-lead--on-dark mobile-caption__intro">
-                              {data.introBg}
-                            </p>
-                            {activeBeat < 0 && <p className="mobile-caption__hint">{scrollHint}</p>}
-                          </div>
-                          {data.beats.map((beat, i) => (
-                            <div
-                              key={beat.id}
-                              className={`mobile-caption__panel mobile-caption__panel--beat ${activeBeat === i ? 'is-active' : ''}`}
-                              aria-hidden={activeBeat !== i}
-                            >
+                            {captionBeat < 0 ? (
+                              <>
+                                <h2 className="section-title section-title--on-dark section-title--caption">
+                                  {data.titleBg}
+                                </h2>
+                                <p className="section-lead section-lead--on-dark mobile-caption__intro">
+                                  {data.introBg}
+                                </p>
+                                <p className="mobile-caption__hint">{scrollHint}</p>
+                              </>
+                            ) : (
                               <article className="beat beat--caption">
-                                <BeatContent beat={beat} compact />
+                                <BeatContent beat={data.beats[captionBeat]!} compact />
                               </article>
-                            </div>
-                          ))}
+                            )}
+                          </div>
                         </div>
                         <div className="sticky-story__dots" aria-hidden="true">
                           {data.beats.map((beat, i) => (
