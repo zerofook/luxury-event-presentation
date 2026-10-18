@@ -21,6 +21,24 @@ npm run validate
 
 Requires `ffmpeg` and `sharp` for `npm run assets`.
 
+### Replace with originals
+
+Drop client masters here, then regenerate optimized outputs (missing files are skipped):
+
+| Folder | Purpose |
+|--------|---------|
+| `sources/v3/stills/` | Owner stills (e.g. `first_floor_layout_with_glass.png`, `second_floor_gala_view_A.png`, `second_floor_gala_view_B.png`) |
+| `sources/v3/videos/` | Full-res clips — **`arrival.mp4`**, **`champagne.mp4`**, **`glass-confetti.mp4`**, **`photo-zone-car.mp4`**, **`corridor-walkthrough.mp4`** (legacy names under `sources/v3/video/` still work) |
+| `sources/v3/renders/` | Clean agency renders without baked watermarks (basename becomes `public/media/img/{basename}-*.webp` etc.) |
+
+```bash
+npm run assets:v3    # videos + stills + renders → public/media/
+npm run assets       # full pipeline including PDF crops and legacy encodes
+npm run validate
+```
+
+Wire new render basenames in `src/content/assets.ts` if they replace PDF crops.
+
 ### GitHub Pages
 
 **Live URL (after deploy on `main`):** [https://zerofook.github.io/luxury-event-presentation/](https://zerofook.github.io/luxury-event-presentation/)
@@ -88,6 +106,7 @@ Encoded via `scripts/make-v3-video.mjs` from `sources/v3/video/` (correctly rena
 
 ### Known limitations
 
+- **Gala hero (`second_floor_gala_view_A`):** small **«GA»** agency watermark on the floor — not retouched; desktop/mobile crop via `object-position` de-emphasizes it; clean masters belong in `sources/v3/renders/` or a replacement still in `sources/v3/stills/`
 - PDF rasters ≤2048px; baked text/watermarks on p7/p21 composites
 - Short AI-looking clips; artefacts not manually retouched
 - Real-device iOS autoplay / FPS not verified here

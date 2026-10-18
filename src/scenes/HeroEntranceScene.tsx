@@ -54,7 +54,7 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
         style={{ height: reduced ? 'auto' : 'min(120svh, 120vh)' }}
       >
         <div className="hero-entrance__stage">
-          <div className="hero-entrance__scrim" style={{ opacity: 1 - gradientReveal * 0.35 }} />
+          <div className="hero-entrance__scrim" style={{ opacity: Math.max(0.92, 1 - gradientReveal * 0.08) }} />
           <div className="hero-entrance__copy" style={{ opacity: heroFade }}>
             <p className="eyebrow">{hero.eventMetaBg}</p>
             <h1 className="display">{hero.headlineBg}</h1>

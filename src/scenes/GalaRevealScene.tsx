@@ -9,7 +9,12 @@ export function GalaRevealScene({ data }: Props) {
   return (
     <section id={`scene-${data.id}`} className="gala-reveal" aria-labelledby="gala-heading">
       <div className="gala-reveal__hero">
-        <ResponsivePicture assetId={data.primaryAssetId} objectFit="cover" priority />
+        <ResponsivePicture
+          assetId={data.primaryAssetId}
+          objectFit="cover"
+          objectPosition={data.primaryObjectPosition ?? '50% 50%'}
+          priority
+        />
         <div className="gala-reveal__hero-copy">
           <h2 id="gala-heading" className="section-title section-title--on-dark">
             {data.titleBg}

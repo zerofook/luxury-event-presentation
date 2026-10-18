@@ -69,6 +69,8 @@ export interface SpatialMarker {
   id: string;
   order: number;
   labelBg: string;
+  /** Shorter label for narrow viewports (legend uses full labelBg) */
+  labelShortBg?: string;
   /** Approximate normalized position on overview art (0–1) */
   x: number;
   y: number;
@@ -134,6 +136,8 @@ export interface GalaRevealSceneData {
   type: 'galaReveal';
   id: string;
   primaryAssetId: string;
+  /** CSS object-position for hero still (e.g. crop agency watermark) */
+  primaryObjectPosition?: string;
   titleBg: string;
   bodyBg: string;
   perspectives: GalaPerspective[];

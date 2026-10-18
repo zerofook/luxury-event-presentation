@@ -16,7 +16,7 @@
     "assets:images": "node scripts/make-images.mjs",
     "assets:video": "bash scripts/make-video.sh",
     "assets:frames": "bash scripts/make-frames.sh",
-    "assets:v3": "node scripts/make-v3-video.mjs && node scripts/make-v3-stills.mjs",
+    "assets:v3": "node scripts/make-v3-video.mjs && node scripts/make-v3-stills.mjs && node scripts/make-v3-renders.mjs",
     "assets": "npm run assets:images && npm run assets:video && npm run assets:frames && npm run assets:v3",
     "screenshots": "node scripts/capture-screenshots.mjs",
     "screenshots:cocktail-mobile": "node scripts/capture-cocktail-mobile.mjs",

@@ -73,10 +73,10 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       titleBg: 'Първи етаж',
       bodyBg: 'Зона коктейл преди официалната част — следете маршрута на госта.',
       markers: [
-        { id: 'entrance', order: 1, labelBg: 'Вход', x: 0.5, y: 0.88 },
-        { id: 'glass', order: 2, labelBg: 'Стъклото вляво', x: 0.17, y: 0.64 },
-        { id: 'photo', order: 3, labelBg: 'Фото зона в далечния край', x: 0.5, y: 0.15 },
-        { id: 'elevators', order: 4, labelBg: 'Асансьори вляво от автомобила', x: 0.31, y: 0.19 },
+        { id: 'entrance', order: 1, labelBg: 'Вход', labelShortBg: 'Вход', x: 0.5, y: 0.9 },
+        { id: 'glass', order: 2, labelBg: 'Стъклото вляво', labelShortBg: 'Стъкло', x: 0.13, y: 0.78 },
+        { id: 'photo', order: 3, labelBg: 'Фото зона в далечния край', labelShortBg: 'Фото зона', x: 0.4, y: 0.2 },
+        { id: 'elevators', order: 4, labelBg: 'Асансьори вляво от автомобила', labelShortBg: 'Асансьори', x: 0.24, y: 0.22 },
       ],
     },
     {
@@ -136,6 +136,7 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       type: 'galaReveal',
       id: 'gala-reveal',
       primaryAssetId: 'second_floor_gala_view_A',
+      primaryObjectPosition: '48% 42%',
       titleBg: 'Гала зала',
       bodyBg: 'Тържествено разкриване на залата — маси, светлина и атмосфера на празник.',
       perspectivesNoteBg: 'Други перспективи',

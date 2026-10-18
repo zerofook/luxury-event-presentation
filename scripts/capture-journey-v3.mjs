@@ -9,8 +9,20 @@ const OUT = path.join(ROOT, 'docs', 'screenshots', 'v3');
 const SETTLE = 900;
 
 const SCENES = [
+  { id: 'hero', file: '00-hero', selector: '#scene-hero .hero-entrance__stage', scrollTop: true },
   { id: 'arrival', file: '01-arrival', selector: '#scene-arrival' },
-  { id: 'first-floor', file: '02-first-floor', selector: '#scene-first-floor .first-floor__stage' },
+  {
+    id: 'first-floor-start',
+    file: '02-first-floor-start',
+    selector: '#scene-first-floor .first-floor__track',
+    trackProgress: 0.03,
+  },
+  {
+    id: 'first-floor',
+    file: '02-first-floor',
+    selector: '#scene-first-floor .first-floor__track',
+    trackProgress: 0.76,
+  },
   { id: 'champagne', file: '03-champagne' },
   { id: 'glass-performer', file: '04-glass' },
   { id: 'photo-zone', file: '05-photo-zone' },
@@ -49,6 +61,19 @@ async function scrollToSceneMid(page, selector) {
   }, selector);
 }
 
+async function scrollTrackProgress(page, selector, fraction) {
+  await page.evaluate(
+    ({ sel, fraction: f }) => {
+      const track = document.querySelector(sel);
+      if (!track) return;
+      const top = track.getBoundingClientRect().top + window.scrollY;
+      const range = Math.max(0, track.offsetHeight - window.innerHeight);
+      window.scrollTo(0, top + range * f);
+    },
+    { sel: selector, fraction },
+  );
+}
+
 async function assertImagesLoaded(page) {
   await page.waitForFunction(
     () => {
@@ -75,8 +100,15 @@ async function captureViewport(viewport, prefix) {
   await page.waitForSelector('#main', { timeout: 15000 });
 
   for (const scene of SCENES) {
-    const sel = scene.selector ?? `#scene-${scene.id}`;
-    await scrollToSceneMid(page, sel);
+    if (scene.scrollTop) {
+      await page.evaluate(() => window.scrollTo(0, 0));
+    } else if (scene.trackProgress != null && scene.selector) {
+      await scrollTrackProgress(page, scene.selector, scene.trackProgress);
+    } else {
+      const sel = scene.selector ?? `#scene-${scene.id}`;
+      await scrollToSceneMid(page, sel);
+    }
+
     if (scene.id === 'cocktail') {
       await page.evaluate(() => {
         const track = document.querySelector('#scene-cocktail .sticky-story__track');
@@ -85,6 +117,7 @@ async function captureViewport(viewport, prefix) {
       });
       await page.waitForTimeout(600);
     }
+
     await page.waitForTimeout(SETTLE);
     await assertImagesLoaded(page);
     await page.screenshot({ path: path.join(OUT, `${prefix}-${scene.file}.png`), fullPage: false });
