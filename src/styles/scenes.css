@@ -520,6 +520,14 @@
   border-left-color: var(--color-champagne);
 }
 
+.beat--inactive {
+  opacity: 0.62;
+}
+
+.beat--inactive p {
+  color: rgba(247, 241, 230, 0.72);
+}
+
 .beat h3 {
   font-family: var(--font-display);
   font-size: 1.25rem;
@@ -1448,19 +1456,70 @@
   color: rgba(247, 241, 230, 0.88);
 }
 
-/* Celebration sequence */
+/* Celebration sequence — Act III (navy / champagne / ivory) */
 .celebration-sequence {
-  background: var(--color-cream);
-  color: var(--color-navy);
+  background: linear-gradient(180deg, var(--color-navy-mid) 0%, #2a4258 48%, var(--color-navy-mid) 100%);
+  color: var(--color-ivory);
 }
 
-.celebration-sequence__fullscreen {
+.celebration-media {
   position: relative;
-  min-height: min(72svh, 720px);
+  width: 100%;
+  min-height: min(52svh, 560px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 }
 
-.celebration-sequence__fullscreen-media {
-  min-height: min(72svh, 720px);
+.celebration-media__wash {
+  position: absolute;
+  inset: -12%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(28px) saturate(1.15) brightness(0.55);
+  transform: scale(1.08);
+  opacity: 0.85;
+}
+
+.celebration-media__frame,
+.celebration-media--framed picture {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, var(--celebration-max-w, 720px));
+  max-height: min(58svh, 620px);
+  margin: 0 auto;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(212, 176, 118, 0.28);
+}
+
+.celebration-media__frame img,
+.celebration-media--framed img {
+  width: 100%;
+  height: auto;
+  max-height: min(58svh, 620px);
+  object-fit: contain;
+}
+
+.celebration-sequence__immersive,
+.celebration-sequence__showcase,
+.celebration-sequence__energy {
+  position: relative;
+  min-height: min(68svh, 720px);
+}
+
+.celebration-sequence__showcase-copy,
+.celebration-sequence__energy-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: clamp(1rem, 4vw, 2rem);
+  background: linear-gradient(180deg, transparent, rgba(23, 36, 52, 0.92));
+}
+
+.celebration-sequence__showcase--highlight .celebration-media__frame {
+  border-color: var(--color-champagne);
+  box-shadow: 0 0 32px rgba(212, 176, 118, 0.35);
 }
 
 .celebration-sequence__copy {
@@ -1475,33 +1534,26 @@
   right: 0;
   bottom: 0;
   max-width: none;
-  padding: clamp(1rem, 4vw, 2rem);
-  background: linear-gradient(180deg, transparent, rgba(37, 59, 80, 0.88));
+  z-index: 2;
 }
 
-.celebration-sequence__editorial {
-  padding: 2rem 1.25rem;
+.celebration-sequence__copy--center {
+  text-align: center;
+  padding-bottom: 0.5rem;
 }
 
-.celebration-sequence__editorial-inner {
-  max-width: 72rem;
-  margin: 0 auto;
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  align-items: center;
-}
-
-.celebration-sequence__triptych {
-  padding: 2rem 1.25rem;
+.celebration-sequence__calm-triptych {
+  padding: clamp(2rem, 6svh, 3rem) 1.25rem;
+  background: rgba(23, 36, 52, 0.45);
 }
 
 .celebration-sequence__triptych-grid {
   list-style: none;
-  margin: 1rem 0 0;
+  margin: 1.25rem auto 0;
   padding: 0;
+  max-width: 72rem;
   display: grid;
-  gap: 0.65rem;
+  gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -1511,14 +1563,50 @@
   }
 }
 
+.celebration-sequence__storyboard {
+  padding: clamp(2rem, 5svh, 2.75rem) 1rem 2.5rem;
+}
+
+.celebration-sequence__filmstrip {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0 0.5rem 0.5rem;
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  max-width: 100%;
+}
+
+.celebration-sequence__filmstrip li {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: min(42vw, 220px);
+}
+
+.celebration-sequence__filmstrip li.is-highlight {
+  width: min(52vw, 280px);
+}
+
+.celebration-sequence__filmstrip .celebration-media {
+  min-height: auto;
+}
+
+.celebration-sequence__filmstrip .celebration-media--framed picture {
+  width: 100%;
+  max-height: none;
+}
+
 .celebration-sequence__pause {
-  padding: 2.5rem 1.25rem;
+  padding: clamp(2.5rem, 8svh, 4rem) 1.25rem;
+  text-align: center;
+  background: rgba(23, 36, 52, 0.55);
 }
 
 .celebration-sequence__pause-line {
   width: 2px;
   height: 3rem;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
   background: linear-gradient(180deg, transparent, var(--color-gold), transparent);
 }
 
@@ -1527,7 +1615,12 @@
   margin: 0 auto;
   padding: 0 1.25rem 2.5rem;
   font-size: 0.82rem;
-  opacity: 0.75;
+  color: rgba(247, 241, 230, 0.78);
+}
+
+.celebration-sequence .section-title--on-dark,
+.celebration-sequence .section-lead--on-dark {
+  color: var(--color-ivory);
 }
 
 /* Entertainment strip */

@@ -157,11 +157,14 @@ export interface GalaSequenceSceneData {
 }
 
 export interface CelebrationSection {
-  layout: 'fullscreen' | 'editorial' | 'triptych' | 'pause';
+  layout: 'pause' | 'immersive' | 'showcase' | 'calm-triptych' | 'storyboard' | 'energy-peak';
+  slug?: string;
   titleBg?: string;
   bodyBg?: string;
   assetIds?: string[];
   objectPosition?: string;
+  mediaMode?: 'framed' | 'ambient';
+  highlight?: boolean;
 }
 
 export interface CelebrationSequenceSceneData {

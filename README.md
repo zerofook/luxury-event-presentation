@@ -43,12 +43,23 @@ Wire new render basenames in `src/content/assets.ts` if they replace PDF crops.
 
 **Live URL (after deploy on `main`):** [https://zerofook.github.io/luxury-event-presentation/](https://zerofook.github.io/luxury-event-presentation/)
 
+Production deploys only from **`main`** via `.github/workflows/deploy-pages.yml` (GitHub Pages custom-branch policy). **Merging PR #5 (V4 cinematic path) triggers the same workflow** — there is no branch preview deploy.
+
 ```bash
 npm run build:pages
 npm run preview:pages
+node scripts/verify-pages-base.mjs   # after build:pages — checks dist/media under BASE
 ```
 
 Runtime URLs use `publicUrl()` + `import.meta.env.BASE_URL`. `<meta name="robots" content="noindex">` and `public/robots.txt` discourage indexing.
+
+### V4 journey artifacts
+
+```bash
+npm run build:pages
+npm run screenshots:v4    # docs/screenshots/v4/ — 27 beats × desktop + mobile
+npm run record:v4         # docs/artifacts/v4-journey-scroll-desktop.mp4 (preview:pages)
+```
 
 ---
 

@@ -55,6 +55,7 @@ function PerformanceLayer({
   return (
     <div
       className="first-floor-env__clip"
+      data-perf-id={perf.id}
       ref={containerRef}
       style={{ opacity, zIndex: opacity > 0.01 ? 2 : 0 }}
       aria-hidden={opacity < 0.05}

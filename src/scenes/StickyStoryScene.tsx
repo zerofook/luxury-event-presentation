@@ -150,14 +150,21 @@ export function StickyStoryScene({ data, scrollHint }: Props) {
 
   const focus = activeBeat >= 0 ? data.beats[activeBeat]!.focus : { fx: 0.5, fy: 0.5, fr: 0.55 };
 
-  const gentleZoom = reduced ? 1 : 1 + progress * 0.06;
+  const focusScale = reduced ? 1 : activeBeat >= 0 ? 1.14 : 1.03;
+  const panX = reduced || activeBeat < 0 ? 0 : (0.5 - focus.fx) * 14;
+  const panY = reduced || activeBeat < 0 ? 0 : (0.5 - focus.fy) * 12;
+  const zoomStyle = reduced
+    ? undefined
+    : ({
+        transform: `scale(${focusScale}) translate(${panX}%, ${panY}%)`,
+        transformOrigin: `${(activeBeat >= 0 ? focus.fx : 0.5) * 100}% ${(activeBeat >= 0 ? focus.fy : 0.5) * 100}%`,
+      } as React.CSSProperties);
 
   const overlayStyle = !reduced
     ? ({
         '--fx': `${focus.fx * 100}%`,
         '--fy': `${focus.fy * 100}%`,
         '--fr': `${focus.fr * 100}%`,
-        '--story-zoom': gentleZoom,
       } as React.CSSProperties)
     : undefined;
 
@@ -218,11 +225,10 @@ export function StickyStoryScene({ data, scrollHint }: Props) {
                 <p className="section-lead section-lead--on-dark">{data.introBg}</p>
 
                 <div className="sticky-story__beats" aria-live="polite">
-                  {(reduced ? data.beats : activeBeat >= 0 ? data.beats : []).map((beat, i) => (
+                  {(reduced ? data.beats : data.beats).map((beat, i) => (
                     <article
                       key={beat.id}
-                      className={`beat ${!reduced && i === activeBeat ? 'beat--active' : ''} ${reduced ? 'beat--static' : ''}`}
-                      style={{ opacity: reduced || activeBeat === i ? 1 : 0.2 }}
+                      className={`beat ${!reduced && i === activeBeat ? 'beat--active' : ''} ${reduced ? 'beat--static' : ''} ${!reduced && activeBeat >= 0 && i !== activeBeat ? 'beat--inactive' : ''}`}
                     >
                       <BeatContent beat={beat} />
                     </article>
@@ -235,14 +241,12 @@ export function StickyStoryScene({ data, scrollHint }: Props) {
 
               {isDesktop ? (
                 <div className="sticky-story__visual">
-                  <div
-                    className="sticky-story__master-zoom"
-                    style={reduced ? undefined : ({ transform: `scale(${gentleZoom})` } as React.CSSProperties)}
-                  >
+                  <div className="sticky-story__master-zoom" style={zoomStyle}>
                     <ResponsivePicture
                       className="sticky-story__master-picture"
                       assetId={data.masterAssetId}
-                      objectFit="contain"
+                      objectFit="cover"
+                      objectPosition="48% 42%"
                     />
                   </div>
                   {fxOverlay}
@@ -250,10 +254,7 @@ export function StickyStoryScene({ data, scrollHint }: Props) {
               ) : (
                 <>
                   <div className="sticky-story__mobile-image">
-                    <div
-                      className="sticky-story__master-zoom"
-                      style={reduced ? undefined : ({ transform: `scale(${gentleZoom})` } as React.CSSProperties)}
-                    >
+                    <div className="sticky-story__master-zoom" style={zoomStyle}>
                       <ResponsivePicture
                         className="sticky-story__master-picture"
                         assetId={data.masterAssetId}

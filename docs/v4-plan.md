@@ -457,6 +457,12 @@ Canva page = PDF page for pp.1–40. **None blocking** — site ships with curre
 | 21–23 | Gala hall renders | Act II empty + detail panels | ≥3000 px | Reduce watermark visibility; print-quality review | Important |
 | 36 | Ballet Nova hero | Act III ballet beat | ≥1920 px | Current crop is small in editorial layout | Optional |
 | 37 | Ceremony storyboard frames | Act III ceremony montage | ≥1920 px each key frame | Clearer countdown/cake moments | Optional |
-| 39 | Live show hero | Act III finale | ≥1920 px | Finer detail on wide desktop | Optional |
+| 39 | Live show hero | Act III finale | ≥1920 px | Finer detail on wide desktop; **likeness** — prefer wide stage master | Important |
+| 35 | Music guest ensemble | Act III music beat | ≥1920 px | Small crop (~860 px class); framed + wash today | Important |
+| 34 | Gatsby dance | Act III dance showcase | ≥1920 px | p34 crops ~475–540 px — filmstrip / ambient only | Important |
+| 38 | Disco ball | Act III energy peak | ≥1920 px | p38 ~964 px — capped at 1.3× native | Optional |
+| 32 | Cocktail entertainment strip | Act I strip | ≥1920 px | p32 thumbs ~350–380 px — strip tiles only | Optional |
+
+**Shipped V4 composition rule (refinement):** at 1440 px / 1× DPR, raster heroes do not exceed **~1.3× native width** (`CelebrationMedia`, Act III layouts). Scenes **source-limited today** without owner masters: **p34 dance**, **p35 music**, **p37 ceremony cells**, **p38 disco**, **p39 finale**, **p32 strip** — ambient wash + framed contain; immersive full-bleed only where ladder width allows (stage p17 decor, lighting p18, tables p24).
 
 **Likeness / programme:** see **`docs/v4-likeness-and-programme.md`**. Stage crop uses **`p17_crop_stage_decor_detail`** (not hero LED face). Entertainment copy uses **generic Bulgarian act names**; **`bookingStatus`** in manifest is **proposal** for p32–p39.
