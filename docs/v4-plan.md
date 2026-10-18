@@ -395,7 +395,7 @@ Classification of **`assets-v4.zip`** (inspected locally; **not** committed in p
 |------|--------|
 | **Branch** | `cursor/geotrading22-v4-plan-1e82` |
 | **Base (draft PR target)** | `cursor/geotrading22-guest-journey-v3-1e82` (PR #3) |
-| **Commit SHA** | `9150eea` |
+| **Commit SHA** | `cc8d448` |
 
 ---
 
