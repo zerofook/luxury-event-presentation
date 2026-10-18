@@ -20,7 +20,7 @@ export interface MediaAsset {
   altBg: string;
   width: number;
   height: number;
-  basePath: string; // /media/img/{id} without width suffix
+  basePath: string; // media/img/{id} without width suffix (use publicUrl at runtime)
   source: { pdfPage: string; crop?: string };
 }
 
