@@ -55,8 +55,44 @@ function BoxedImage({
 
 function PassageSection({ data, playLabel }: Props) {
   const reduced = getPrefersReducedMotion();
-  const { videoRef, containerRef, needsTap, playing, tryPlay } = useActiveVideoInView({ loop: true });
-  const toneClass = `editorial-section editorial-section--${data.tone}`;
+  const [ended, setEnded] = useState(false);
+  const [revealed, setRevealed] = useState(false);
+  const { videoRef, containerRef, needsTap, playing, tryPlay } = useActiveVideoInView({
+    loop: false,
+    threshold: 0.52,
+    exitThreshold: 0.16,
+    resetOnPause: false,
+  });
+  const toneClass = `editorial-section editorial-section--${data.tone} editorial-section--passage-video`;
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v || !data.videoSrc) return;
+    const onPlay = () => setRevealed(true);
+    const onEnded = () => {
+      setEnded(true);
+      setRevealed(true);
+    };
+    v.addEventListener('play', onPlay);
+    v.addEventListener('ended', onEnded);
+    return () => {
+      v.removeEventListener('play', onPlay);
+      v.removeEventListener('ended', onEnded);
+    };
+  }, [videoRef, data.videoSrc]);
+
+  const showPoster = Boolean(data.posterSrc) && !revealed && !ended;
+  const showPlay = needsTap || (reduced && !revealed && !ended);
+
+  const handlePlay = () => {
+    if (reduced) {
+      const v = videoRef.current;
+      if (!v) return;
+      void v.play().then(() => setRevealed(true)).catch(() => {});
+      return;
+    }
+    void tryPlay();
+  };
 
   return (
     <section id={`scene-${data.id}`} className={toneClass} aria-labelledby={`${data.id}-heading`}>
@@ -66,39 +102,32 @@ function PassageSection({ data, playLabel }: Props) {
           <h2 id={`${data.id}-heading`} className="section-title">
             {data.titleBg}
           </h2>
-          <p className="section-lead">{data.bodyBg}</p>
+          <p className="section-lead section-lead--passage">{data.bodyBg}</p>
         </FadeCopy>
-        {data.assetId && (
-          <div className="editorial-section__box editorial-section__box--passage">
-            <ResponsivePicture assetId={data.assetId} objectFit="cover" />
-          </div>
-        )}
         {data.videoSrc && (
-          <div className="editorial-section__box editorial-section__box--video" ref={containerRef}>
-            {!reduced && (
-              <video
-                ref={videoRef}
-                className="editorial-section__video"
-                style={{ opacity: playing ? 1 : 0 }}
-                src={publicUrl(data.videoSrc)}
-                muted
-                playsInline
-                preload="none"
-                width={data.videoWidth}
-                height={data.videoHeight}
-              />
-            )}
-            {!playing && data.posterSrc && (
+          <div className="editorial-section__box editorial-section__box--passage-video" ref={containerRef}>
+            <video
+              ref={videoRef}
+              className="editorial-section__video editorial-section__video--passage"
+              style={{ opacity: revealed || playing || ended ? 1 : 0 }}
+              src={publicUrl(data.videoSrc)}
+              poster={data.posterSrc ? publicUrl(data.posterSrc) : undefined}
+              muted
+              playsInline
+              preload="metadata"
+              width={data.videoWidth}
+              height={data.videoHeight}
+            />
+            {showPoster && (
               <img
-                className="editorial-section__poster"
-                src={publicUrl(data.posterSrc)}
+                className="editorial-section__poster editorial-section__poster--passage"
+                src={publicUrl(data.posterSrc!)}
                 alt=""
                 aria-hidden
-                style={{ opacity: 1 }}
               />
             )}
-            {needsTap && !reduced && (
-              <button type="button" className="play-affordance" onClick={() => void tryPlay()}>
+            {showPlay && (
+              <button type="button" className="play-affordance" onClick={() => void handlePlay()}>
                 {playLabel}
               </button>
             )}

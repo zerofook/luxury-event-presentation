@@ -146,13 +146,10 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       tone: 'ivory',
       variant: 'passage',
       titleBg: 'Златният коридор',
-      bodyBg:
-        'Преход към втория етаж — огледала, златни акценти и топло осветление подготвят гостите за гала залата.',
-      assetId: 'v4_p13_crop_corridor_main',
-      zoomOrigin: { x: 0.5, y: 0.55 },
+      bodyBg: 'Преминете към втория етаж.',
       videoSrc: 'media/video/corridor-walkthrough.mp4',
       posterSrc: 'media/video/corridor-walkthrough-poster.jpg',
-      videoWidth: 1280,
+      videoWidth: 1264,
       videoHeight: 720,
     },
     {

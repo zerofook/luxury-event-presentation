@@ -130,14 +130,6 @@
       "sourcePath": "sources/v4/extract/p13/p13_04_1536x1024.jpg"
     },
     {
-      "id": "v4_p13_crop_corridor_main",
-      "width": 1235,
-      "height": 598,
-      "pdfPage": 13,
-      "canvaPage": 13,
-      "sourcePath": "sources/v4/extract/p13/p13_crop_corridor_main.jpg"
-    },
-    {
       "id": "v4_p13_crop_led_ceiling",
       "width": 272,
       "height": 227,

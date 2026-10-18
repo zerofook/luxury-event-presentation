@@ -20,7 +20,9 @@ Target branch: `cursor/geotrading22-v5-v1-foundation-1e82` (PR #6). Refinement o
 - Tighter spacing between still/video band and title copy.
 
 ## F. Golden Passage
-- Removed scroll-zoom track and duplicate poster stack; **one corridor still + walkthrough video**.
+- **Video-only** transition: short headline + centred corridor walkthrough clip (max **1400 px** wide, native **1264×720**, no loop — holds last frame).
+- Champagne-style **playback hysteresis**; poster until play; reduced-motion uses play affordance.
+- Removed unused **`v4_p13_crop_corridor_main`** still from content and V4 asset registry.
 
 ## G. Gala reveal (P0)
 - **Empty decorated ballroom first** — large `p21` still, minimal copy.
