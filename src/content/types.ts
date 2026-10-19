@@ -191,9 +191,14 @@ export interface SiteUiStrings {
   cocktailScrollHint: string;
   passagePaletteNote: string;
   devScrubHint: string;
-  ariaHeroSection: string;
-  filmOverlayTitle: string;
-  filmOverlayClose: string;
+  ariaFilmHeroBg: string;
+  ariaEntranceSectionBg: string;
+  filmCountdownLeadBg: string;
+  filmCountdownSubBg: string;
+  filmSkipCountdownAriaBg: string;
+  filmUnmuteBg: string;
+  filmPlayBg: string;
+  filmAriaLabelBg: string;
   programmeDisclaimerBg: string;
 }
 
