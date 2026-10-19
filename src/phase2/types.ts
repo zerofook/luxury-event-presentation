@@ -55,6 +55,7 @@ export interface ProposalClientMeta {
   vatNoteBg: string;
   currencyNoteBg: string;
   itemCount: number;
+  investmentIntroBg?: string;
 }
 
 export interface PartialDecorSumClient {
@@ -91,9 +92,7 @@ export interface ProposalClientBundle {
   meta: ProposalClientMeta;
   items: ClientLineItem[];
   paletteAlternatives: PaletteAlternativeClient[];
-  partialDecorSum: PartialDecorSumClient;
   investmentCategories: InvestmentCategory[];
-  groupSubtotals: GroupSubtotalClient[];
   technicalIndicativeNoteBg?: string;
 }
 

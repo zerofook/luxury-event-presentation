@@ -12,7 +12,7 @@
     "build:pages": "VITE_BASE=/luxury-event-presentation/ npm run build",
     "preview": "vite preview",
     "preview:pages": "VITE_BASE=/luxury-event-presentation/ vite preview",
-    "validate": "node scripts/build-proposal-client.mjs && node scripts/validate-content.mjs && node scripts/validate-phase2-data.mjs",
+    "validate": "node scripts/build-proposal-client.mjs && node scripts/verify-client-copy.mjs && node scripts/validate-content.mjs && node scripts/validate-phase2-data.mjs",
     "assets:images": "node scripts/make-images.mjs",
     "assets:video": "bash scripts/make-video.sh",
     "assets:frames": "bash scripts/make-frames.sh",

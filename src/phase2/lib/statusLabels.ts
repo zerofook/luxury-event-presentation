@@ -2,7 +2,7 @@ import type { PriceType, ProposalStatus } from '../types';
 
 const PROPOSAL_LABELS: Record<ProposalStatus, string> = {
   suggested: 'Предложено',
-  included: 'Включено в блока',
+  included: 'Включено в описанието',
   alternative: 'Алтернатива',
   optional: 'По избор',
   excluded: 'Изключено',
@@ -10,12 +10,12 @@ const PROPOSAL_LABELS: Record<ProposalStatus, string> = {
 };
 
 const PRICE_LABELS: Record<PriceType, string> = {
-  fixed: 'Фиксирана оферта',
+  fixed: 'Фиксирана цена',
   unit_price: 'Единична цена',
-  range: 'Диапазон',
-  on_request: 'Цена по запитване',
-  pending_confirmation: 'Цена за потвърждение',
-  not_provided: 'Без посочена цена',
+  range: 'Ориентировъчен диапазон',
+  on_request: 'По запитване',
+  pending_confirmation: 'Очаква потвърждение',
+  not_provided: 'Не е посочена цена',
 };
 
 export function proposalStatusLabel(status: ProposalStatus): string {
@@ -24,6 +24,12 @@ export function proposalStatusLabel(status: ProposalStatus): string {
 
 export function priceTypeLabel(type: PriceType): string {
   return PRICE_LABELS[type] ?? type;
+}
+
+export function bookingStatusLabel(status: string): string | null {
+  if (status === 'proposed_not_confirmed') return 'Непотвърдено';
+  if (status === 'confirmed') return 'Потвърдено';
+  return null;
 }
 
 export function proposalStatusClass(status: ProposalStatus): string {

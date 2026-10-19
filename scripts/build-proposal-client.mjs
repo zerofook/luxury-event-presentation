@@ -20,6 +20,57 @@ const STATUS_TO_PROPOSAL = {
   price_on_request: 'optional',
 };
 
+function sanitizeBg(text) {
+  if (!text || typeof text !== 'string') return text;
+  return text
+    .replace(/\s*\[[^\]]*[A-Za-z][^\]]*\]/g, '')
+    .replace(/\s*\([^)]*[A-Za-z][^)]*\)/g, '')
+    .replace(/\s*\/\s*EXCL\.?\s*VAT/gi, '')
+    .replace(/\bSTOCK\b/gi, 'стокови')
+    .replace(/\bCUSTOM\b/gi, 'авторски')
+    .replace(/\bPARTIAL\b/gi, 'частичен')
+    .replace(/\bFULL\b/gi, 'пълен')
+    .replace(/\bMercedes-Benz\b/g, 'Mercedes-Benz')
+    .replace(/The New Chapter/gi, '„Новата глава“')
+    .replace(/Bamboléo/gi, 'Бамболео')
+    .replace(/Volare/gi, 'Воларе')
+    .replace(/\bPDF\b/g, 'предложение')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function latinRatio(text) {
+  const latin = (text.match(/[A-Za-z]/g) || []).length;
+  const cyr = (text.match(/[\u0400-\u04FF]/g) || []).length;
+  return latin / Math.max(1, latin + cyr);
+}
+
+function clientTitle(title) {
+  if (!title) return title;
+  const chunks = title.split(/[\u2014\u2013–—/]+/).map((p) => sanitizeBg(p.trim())).filter(Boolean);
+  const withCyr = chunks.filter((c) => (c.match(/[\u0400-\u04FF]/g) || []).length >= 6);
+  if (withCyr.length) {
+    return withCyr[withCyr.length - 1].replace(/^[A-Z0-9&'’.\s]+(?=\(|[\u0400-\u04FF])/i, '').trim();
+  }
+  return clientTextField(title) || chunks[chunks.length - 1] || sanitizeBg(title);
+}
+
+function clientTextField(text) {
+  const t = sanitizeBg(text);
+  if (!t) return undefined;
+  if (latinRatio(t) > 0.28) return undefined;
+  return t;
+}
+
+function sanitizeVat(v) {
+  if (!v) return v;
+  return v
+    .replace(/EXCL\.?\s*VAT/gi, '')
+    .replace(/\//g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function derivePriceType(item) {
   if (item.priceType) return item.priceType;
   if (item.status === 'price_on_request') return 'on_request';
@@ -38,16 +89,34 @@ function clientSourceRef(item) {
   if (item.source?.sourceType === 'owner-provided') {
     return {
       sourceType: 'owner-provided',
-      labelBg: item.source.labelBg ?? 'Материал, предоставен от клиента',
+      labelBg: sanitizeBg(item.source.labelBg) || 'Материал от възложителя',
       fileRef: item.source.fileRef,
       date: item.source.date,
     };
   }
   if (item.pdfPage) {
-    return { sourceType: 'pdf', pdfPage: item.pdfPage, labelBg: `PDF стр. ${item.pdfPage}` };
+    return { sourceType: 'pdf', pdfPage: item.pdfPage, labelBg: `Страница ${item.pdfPage} · одобрено предложение` };
   }
-  return { sourceType: 'pdf', labelBg: 'Одобрено PDF предложение' };
+  return { sourceType: 'pdf', labelBg: 'Одобрено предложение' };
 }
+
+const AREA_BG = {
+  'Вход / Grand Entrance': 'Входна зона',
+  'Коктейл зона / фоайе': 'Коктейлна зона',
+  'Коктейл зона — мокет (варианти)': 'Коктейлна зона — мокет',
+  'Коридор към Ивент центъра (Golden Passage)': 'Златен коридор',
+  'Зала гала — сцена и сценография': 'Сцена',
+  'Зала гала — декор': 'Гала зала',
+  'Зала гала — 3D мапинг': '3D мапинг',
+  'Декор на гостни маси': 'Декорация на масите',
+  'Техническо обезпечаване': 'Техническо обезпечаване',
+  'Техническо обезпечаване — допълнителни услуги': 'Техника — допълнителни услуги',
+  'Менюта, подаръци и аксесоари': 'Менюта и подаръци',
+  'Артистична програма — коктейлна част': 'Коктейлна програма',
+  'Музикална и танцова програма': 'Музикална и танцова програма',
+  'Водещ на събитието': 'Водещ',
+  'Допълнителни изпълнители (p40)': 'Допълнителни изпълнители',
+};
 
 function toClientItem(item) {
   const proposalStatus = item.proposalStatus ?? STATUS_TO_PROPOSAL[item.status] ?? 'suggested';
@@ -58,12 +127,12 @@ function toClientItem(item) {
       ? 'proposed_not_confirmed'
       : 'not_applicable');
 
-  const out = {
+  return {
     id: item.id,
-    area: item.area,
+    area: AREA_BG[item.area] ?? (sanitizeBg(item.area) || item.area),
     sectionKey: item.sectionKey,
-    titleBg: item.titleBg,
-    descriptionBg: item.descriptionBg,
+    titleBg: clientTitle(item.titleBg) || item.titleBg,
+    descriptionBg: clientTextField(item.descriptionBg),
     quantity: item.quantity,
     unit: item.unit,
     unitPrice: item.unitPrice,
@@ -71,17 +140,16 @@ function toClientItem(item) {
     priceMin: item.priceMin ?? null,
     priceMax: item.priceMax ?? null,
     currency: item.currency,
-    vatTreatment: item.vatTreatment,
+    vatTreatment: sanitizeVat(item.vatTreatment),
     priceType,
     proposalStatus,
     bookingStatus,
     alternativeGroup: item.alternativeGroup,
     source: clientSourceRef(item),
-    clientNoteBg: item.clientNoteBg,
-    overlapNoteBg: item.overlapNoteBg,
+    clientNoteBg: clientTextField(item.clientNoteBg),
+    overlapNoteBg: clientTextField(item.overlapNoteBg),
     mediaPath: item.mediaPath ?? null,
   };
-  return out;
 }
 
 function ensureVintageCarItem(bundle) {
@@ -111,22 +179,13 @@ function ensureVintageCarItem(bundle) {
     clientNoteBg:
       'Цената включва доставянето на автомобила и тематичната декорация. Окончателната стойност зависи от избраните декоративни елементи.',
     overlapNoteBg:
-      'Визуализациите за фото зона от 42-страничното PDF остават валидни; пълноразмерната кола там е без цена. Тази оферта е отделен източник и не се включва в частични суми от PDF.',
+      'Визуализациите за фото зона от 42-страничното предложение остават валидни; пълноразмерната кола там е без цена. Тази оферта е отделен източник и не се сумира с други позиции.',
     source: {
       sourceType: 'owner-provided',
-      labelBg: 'Допълнителна концепция на собственика',
+      labelBg: 'Допълнителна концепция от възложителя',
       date: '2026-10-19',
       fileRef: 'public/media/img/owner-vintage-car-installation.jpg',
     },
-    specBulletsBg: [
-      'Централен декоративен часовник с брандинг',
-      'Модулни Art Deco панели',
-      'LED осветление',
-      'Флорални композиции',
-      'Конструкция, монтаж и демонтаж',
-      'Транспорт и екип',
-    ],
-    dimensionsNoteBg: 'Ориентировъчно ~6,00 m × 4,00 m (концепция от предоставения материал).',
   });
   bundle.meta.itemCount = bundle.items.length;
 }
@@ -141,63 +200,52 @@ const client = {
   meta: {
     eventTitleBg: 'GEOTRADING — 22-ра юбилейна гала',
     eventDateBg: '12 януари 2027',
-    guestCountNoteBg: 'Предложена конфигурация ~150 госта (по изходния layout; не е финално потвърдено)',
-    vatNoteBg:
-      'Цените следват формулировките в източника — основно „без ДДС“, освен където PDF посочва друго.',
-    currencyNoteBg: bundle.meta.currencyNote,
+    guestCountNoteBg: 'Предложена конфигурация ~150 госта (по изходния план на залата; не е финално потвърдено)',
+    vatNoteBg: 'Цените следват формулировките в източника — основно „без ДДС“, освен където е посочено друго.',
+    currencyNoteBg:
+      'Почти всички суми са в евро; изключение: страница 40 — Gipsy Kings (85 000 £).',
     itemCount: clientItems.length,
+    investmentIntroBg:
+      'Към момента не е представена обща сума. Изисква се избрана конфигурация (палитра, програма, технически пакет, количества) и съгласуване на припокриващи се позиции.',
   },
   items: clientItems,
   paletteAlternatives: (bundle.paletteAlternatives ?? []).map((p) => ({
     id: p.id,
-    nameBg: p.nameBg,
+    nameBg: sanitizeBg(p.nameBg),
     hex: p.hex,
-    noteBg: p.note?.replace(/OCR|unverified/gi, '') || undefined,
   })),
-  partialDecorSum: {
-    labelBg: bundle.partialDecorSum?.label ?? 'Частична сума — декорация',
-    exprBg: bundle.partialDecorSum?.expr ?? '',
-    value: bundle.partialDecorSum?.value ?? 0,
-    excludesBg: bundle.partialDecorSum?.excludes ?? '',
-  },
   investmentCategories: [
     {
       id: 'dekoracia',
       titleBg: 'Декорация',
-      scopeBg: 'Вход, фоайе, коридор, зала, сцена, маси',
-      partialAmount: bundle.partialDecorSum?.value ?? null,
-      partialLabelBg: 'Частична сума — без фоайе p11, маси, mapping и др.',
+      scopeBg: 'Вход, фоайе, коридор, зала, сцена, маси — отделни суми от предложението, без обща декорация.',
     },
     {
       id: 'programa',
       titleBg: 'Развлечения',
-      scopeBg: 'Коктейлна част, шоу програма, водещ, алтернативни изпълнители',
+      scopeBg: 'Коктейлна част, шоу програма, водещ, алтернативни изпълнители.',
     },
     {
       id: 'technika',
       titleBg: 'Техническо обезпечаване',
-      scopeBg: 'Звук, светлина, LED, сцена, коридор, mapping',
-      notesBg: 'Отпечатан пакет на стр. 29 изисква съгласуване; коридор/LED сумите в PDF се разминават.',
+      scopeBg: 'Звук, светлина, LED, сцена, коридор, 3D мапинг.',
+      notesBg:
+        'На страница 29 е отпечатана обща цена за техническия пакет; редовете в таблицата и допълнителните услуги изискват съгласуване. Сумите за LED екран в коридора се разминават в източника.',
     },
     {
       id: 'gostopriemstvo',
       titleBg: 'Гостоприемство',
-      scopeBg: 'Менюта, подаръци, аксесоари',
+      scopeBg: 'Менюта, подаръци, аксесоари.',
     },
     {
       id: 'opcii',
       titleBg: 'Допълнителни опции',
-      scopeBg: 'Owner-provided допълнения (напр. ретро кола), необ priced блокове',
+      scopeBg: 'Допълнения от възложителя (напр. ретро автомобил) и позиции без посочена цена.',
     },
   ],
-  groupSubtotals: (bundle.groupSubtotals ?? []).map((g) => ({
-    labelBg: g.label,
-    sum: g.sum,
-    noteBg: g.note,
-    derived: g.derived,
-  })),
   technicalIndicativeNoteBg:
-    'За техническия раздел на стр. 29 в PDF: „Цените са индикативни и могат да бъдат променяни…“ — показва се само в контекста на техническото обезпечаване.',
+    'Бележка от страница 29 на предложението: „Цените са индикативни и могат да бъдат променяни…“ — важи само за техническото обезпечаване.',
+  /** Audit-only: partialDecorSum 28 212 € = p05 4300 + p15 8952 + p17 7524 + p18 callouts 7436 (derived). Not shipped to UI. */
 };
 
 fs.writeFileSync(OUT_PATH, JSON.stringify(client, null, 2));

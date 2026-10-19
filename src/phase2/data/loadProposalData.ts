@@ -16,7 +16,7 @@ export function deriveAlternativeGroups(items: ClientLineItem[]) {
     map.set(item.alternativeGroup, list);
   }
   const titles: Record<string, string> = {
-    '3D_MAPPING': '3D mapping на сцената',
+    '3D_MAPPING': '3D мапинг на сцената',
     PALETTE_TABLE_DECOR: 'Декор на гостни маси — палитра',
     DANCE_SHOW_GATSBY: 'Танцово шоу „Великият Гетсби“',
     FILEVA_FORMAT: 'Михаела Филева — формат',
@@ -32,29 +32,21 @@ export function deriveAlternativeGroups(items: ClientLineItem[]) {
 }
 
 export const DECORATION_SUBSECTIONS = [
-  { id: 'dekor-vhod', labelBg: 'Входна зона', areas: ['Вход / Grand Entrance'] },
+  { id: 'dekor-vhod', labelBg: 'Входна зона', areas: ['Входна зона'] },
   {
     id: 'dekor-koktejl',
     labelBg: 'Коктейлна зона',
-    areas: ['Коктейл зона / фоайе', 'Коктейл зона — мокет (варианти)'],
+    areas: ['Коктейлна зона', 'Коктейлна зона — мокет'],
   },
   { id: 'dekor-foto', labelBg: 'Фото зона', areas: ['Фото зона'] },
-  {
-    id: 'dekor-koridor',
-    labelBg: 'Златен коридор',
-    areas: ['Коридор към Ивент центъра (Golden Passage)'],
-  },
+  { id: 'dekor-koridor', labelBg: 'Златен коридор', areas: ['Златен коридор'] },
   {
     id: 'dekor-gala',
     labelBg: 'Гала зала',
-    areas: ['Зала гала — декор', 'Зала гала — 3D мапинг'],
+    areas: ['Гала зала', '3D мапинг'],
   },
-  {
-    id: 'dekor-scena',
-    labelBg: 'Сцена',
-    areas: ['Зала гала — сцена и сценография'],
-  },
-  { id: 'dekor-masi', labelBg: 'Декорация на масите', areas: ['Декор на гостни маси'] },
+  { id: 'dekor-scena', labelBg: 'Сцена', areas: ['Сцена'] },
+  { id: 'dekor-masi', labelBg: 'Декорация на масите', areas: ['Декорация на масите'] },
 ] as const;
 
 export const DECORATION_AREA_ORDER = DECORATION_SUBSECTIONS.flatMap((s) => s.areas);
@@ -89,9 +81,29 @@ export function programmeItems(items: ClientLineItem[]): ClientLineItem[] {
 }
 
 export function technicalItems(items: ClientLineItem[]): ClientLineItem[] {
-  return items.filter((i) => i.area.includes('Техническо'));
+  return items.filter((i) => i.area.includes('Техническ') || i.area.includes('Техника'));
 }
 
 export function hospitalityItems(items: ClientLineItem[]): ClientLineItem[] {
   return items.filter((i) => i.area.includes('Менюта') || i.area.includes('подаръци'));
+}
+
+export function decorationPricedItems(items: ClientLineItem[]): ClientLineItem[] {
+  const areas = new Set<string>(DECORATION_AREA_ORDER);
+  return items.filter(
+    (i) =>
+      areas.has(i.area) &&
+      i.priceType !== 'not_provided' &&
+      i.id !== 'owner-vintage-car-photo-zone',
+  );
+}
+
+export function hasDisplayPrice(item: ClientLineItem): boolean {
+  return (
+    item.lineTotal != null ||
+    item.unitPrice != null ||
+    item.priceType === 'range' ||
+    item.priceType === 'on_request' ||
+    item.priceType === 'pending_confirmation'
+  );
 }

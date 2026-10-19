@@ -2,19 +2,23 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ResponsivePicture } from '@/components/ResponsivePicture';
 import {
   DECORATION_SUBSECTIONS,
+  decorationPricedItems,
   deriveAlternativeGroups,
   getItemById,
   getProposalBundle,
+  hasDisplayPrice,
   hospitalityItems,
   itemsForAreas,
   programmeItems,
   technicalItems,
 } from '../data/loadProposalData';
 import { AREA_HERO_ASSET, PALETTE_CORRIDOR_ASSETS, PALETTE_ENTRANCE_ASSETS } from '../data/areaAssets';
+import { SECTION_HERO_ASSET } from '../data/sectionAssets';
 import { ProposalMobileNav, ProposalSidebar } from '../components/ProposalSidebar';
+import { ItemRowList } from '../components/ItemRowList';
 import { LineItemTable } from '../components/LineItemTable';
 import { VintageCarFeature } from '../components/VintageCarFeature';
-import { formatItemPrice, formatMoney } from '../lib/formatMoney';
+import { formatItemPrice } from '../lib/formatMoney';
 import { StatusChip } from '../components/StatusChip';
 import { scrollToSection, useScrollSpy } from '../hooks/useScrollSpy';
 import { proposalHref, type ProposalSectionId } from '../navigation/sections';
@@ -32,7 +36,7 @@ const CATEGORY_CARDS: {
     sub: 'dekor-vhod',
     num: '02',
     titleBg: 'Декорация и сценография',
-    bodyBg: 'Пространства, материали и ценови референции от одобреното PDF.',
+    bodyBg: 'Пространства, материали и ценови референции от одобреното предложение.',
     assetId: 'v4_p21_00_1851x849',
   },
   {
@@ -46,7 +50,7 @@ const CATEGORY_CARDS: {
     section: 'technika',
     num: '04',
     titleBg: 'Техническо обезпечаване',
-    bodyBg: 'Звук, светлина, LED и mapping — с отворени точки за съгласуване.',
+    bodyBg: 'Звук, светлина, LED и 3D мапинг — с точки за съгласуване.',
     assetId: 'v4_p17_crop_stage_hero',
   },
   {
@@ -67,7 +71,7 @@ const CATEGORY_CARDS: {
     section: 'investicia',
     num: '07',
     titleBg: 'Инвестиция',
-    bodyBg: 'Категории и частични суми — без обща оферта до финален избор.',
+    bodyBg: 'Категории и отделни суми от източника — без обща оферта.',
     assetId: 'v4_p18_crop_hall_clean_left',
   },
 ];
@@ -114,7 +118,10 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
 
   const prog = programmeItems(bundle.items);
   const tech = technicalItems(bundle.items);
+  const techMain = tech.filter((i) => i.area === 'Техническо обезпечаване');
+  const techExtra = tech.filter((i) => i.area.includes('допълнителни'));
   const hosp = hospitalityItems(bundle.items);
+  const decorPriced = decorationPricedItems(bundle.items).filter(hasDisplayPrice);
 
   return (
     <div className="p2-scroll">
@@ -136,18 +143,18 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             <h1 className="p2-title">Цялостна концепция за незабравима вечер</h1>
             <p className="p2-lead">
               Юбилейна гала за GEOTRADING — структуриран преглед на пространствата, програмата, техническото
-              обезпечаване и инвестицията. Визуализациите са от одобрените източници; цените следват PDF и
-              допълнителни материали на собственика.
+              обезпечаване и инвестицията. Визуализациите са от одобрените източници; цените следват
+              предложението и допълнителни материали от възложителя.
             </p>
             <ul className="p2-facts">
               <li>
                 <strong>{bundle.meta.guestCountNoteBg}</strong>
               </li>
               <li>
-                <strong>Sofia Event Center</strong> · концепция „Great Gatsby“
+                <strong>Sofia Event Center</strong> · концепция Great Gatsby
               </li>
               <li>
-                <strong>Препоръчана светла палитра</strong> на основните ценови рендери в PDF
+                <strong>Препоръчана светла палитра</strong> на основните ценови визуализации в предложението
               </li>
             </ul>
             <div className="p2-hero__visual p2-hero__visual--wide">
@@ -198,7 +205,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                 {sub.id === 'dekor-foto' && (
                   <>
                     <p className="p2-lead">
-                      Gatsby фото зона от PDF (стр. 6–7) остава част от концепцията; по-долу е допълнителната оферта за
+                      Gatsby фото зона от страници 6–7 остава част от концепцията; по-долу е допълнителната оферта за
                       ретро автомобил.
                     </p>
                     <div className="p2-photo-pdf-row">
@@ -210,7 +217,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                 )}
                 {areaItems.length > 0 && <LineItemTable items={areaItems} />}
                 {sub.id !== 'dekor-foto' && areaItems.length === 0 && (
-                  <p className="p2-muted">Детайлните редове за тази зона са в съседни PDF секции или без отделна цена.</p>
+                  <p className="p2-muted">Детайлните редове за тази зона са в съседни секции на предложението или без отделна цена.</p>
                 )}
               </section>
             );
@@ -220,7 +227,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             <p className="p2-eyebrow">03 · Програма</p>
             <h2 className="p2-title">Развлекателна програма</h2>
             <p className="p2-lead">
-              Имената и сумите идват от PDF като предложение. Посочена цена не означава потвърдено участие или
+              Имената и сумите идват от предложението като ориентир. Посочена цена не означава потвърдено участие или
               наличност.
             </p>
             <ProgrammeCards items={prog} />
@@ -230,22 +237,31 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             <p className="p2-eyebrow">04 · Техника</p>
             <h2 className="p2-title">Техническо обезпечаване</h2>
             <p className="p2-lead">{bundle.technicalIndicativeNoteBg}</p>
-            <TechOverview items={tech} />
-            <LineItemTable items={tech} />
+            <SectionVisual assetId={SECTION_HERO_ASSET.technika} />
+            <h3 className="p2-area__title">Основен пакет</h3>
+            <ItemRowList items={techMain.filter(hasDisplayPrice)} compact />
+            {techExtra.length > 0 && (
+              <>
+                <h3 className="p2-area__title p2-area__title--spaced">Допълнителни услуги</h3>
+                <ItemRowList items={techExtra.filter(hasDisplayPrice)} compact />
+              </>
+            )}
           </section>
 
           <section id="gostopriemstvo" className="p2-section-block">
             <p className="p2-eyebrow">05 · Детайли</p>
             <h2 className="p2-title">Гостоприемство и детайли</h2>
             <p className="p2-lead">Менюта, подаръци и аксесоари — с ясно обозначен тип цена (на гост, на брой, пакет).</p>
-            <LineItemTable items={hosp} />
+            <SectionVisual assetId={SECTION_HERO_ASSET.gostopriemstvo} />
+            <ItemRowList items={hosp.filter(hasDisplayPrice)} compact />
           </section>
 
           <section id="alternativi" className="p2-section-block">
             <p className="p2-eyebrow">06 · Алтернативи</p>
             <h2 className="p2-title">Три стила, една незабравима атмосфера</h2>
             <p className="p2-lead">
-              Сравнение на палитри и взаимно изключващи се опции. Няма автоматично сумиране на mapping конфигурациите.
+              Сравнение на палитри и взаимно изключващи се опции. Няма автоматично сумиране на конфигурациите за 3D
+              мапинг.
             </p>
             <div className="p2-palette-row">
               {PALETTE_ENTRANCE_ASSETS.map((p) => (
@@ -287,46 +303,26 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
           <section id="investicia" className="p2-section-block">
             <p className="p2-eyebrow">07 · Инвестиция</p>
             <h2 className="p2-title">Прозрачна структура и ясна представа за бюджета</h2>
-            <p className="p2-lead">
-              Общата инвестиция изисква избрана конфигурация и съгласуване на припокриващи се позиции. По-долу са
-              категориите и частични суми — без grand total.
-            </p>
+            <p className="p2-lead">{bundle.meta.investmentIntroBg}</p>
+            <SectionVisual assetId={SECTION_HERO_ASSET.investicia} />
             <div className="p2-invest-grid">
               {bundle.investmentCategories.map((cat) => (
                 <article key={cat.id} className="p2-invest-card">
                   <h3>{cat.titleBg}</h3>
                   <p>{cat.scopeBg}</p>
-                  {cat.partialAmount != null && (
-                    <p className="p2-partial-sum">
-                      <span className="p2-partial-sum__label">{cat.partialLabelBg ?? 'Частична сума'}</span>
-                      <strong>{formatMoney(cat.partialAmount)}</strong>
-                    </p>
-                  )}
                   {cat.notesBg && <p className="p2-invest-note">{cat.notesBg}</p>}
                 </article>
               ))}
             </div>
-            <details className="p2-details">
-              <summary>Разширена разбивка по групи от PDF</summary>
-              <div className="p2-subtotal-list">
-                {bundle.groupSubtotals.map((g) => (
-                  <article key={g.labelBg} className="p2-subtotal-card">
-                    <h3>{g.labelBg}</h3>
-                    <p className="p2-subtotal-sum">{formatMoney(g.sum)}</p>
-                    {g.noteBg && <p className="p2-subtotal-note">{g.noteBg}</p>}
-                  </article>
-                ))}
-              </div>
-            </details>
-            <article className="p2-partial-sum p2-partial-sum--block">
-              <span className="p2-partial-sum__label">{bundle.partialDecorSum.labelBg}</span>
-              <p className="p2-subtotal-expr">{bundle.partialDecorSum.exprBg}</p>
-              <strong>{formatMoney(bundle.partialDecorSum.value)}</strong>
-              <p className="p2-subtotal-note">{bundle.partialDecorSum.excludesBg}</p>
-            </article>
+            <h3 className="p2-area__title p2-area__title--spaced">Декорация — отделни суми от предложението</h3>
+            <p className="p2-muted p2-invest-note">
+              Всяка сума по-долу е отпечатана или посочена на съответната страница. Обща сума за декорация не е
+              посочена в предложението — позициите се разглеждат поотделно.
+            </p>
+            <ItemRowList items={decorPriced} compact />
             <div className="p2-invest-actions">
               <a className="p2-btn p2-btn--primary" href={`${base}sources/v4/presentation.pdf`} download>
-                Изтегли пълна оферта (PDF)
+                Изтегли пълна оферта
               </a>
               <a className="p2-btn p2-btn--ghost" href={`${base}#/`}>
                 Обсъди предложението
@@ -366,16 +362,10 @@ function ProgrammeCards({ items }: { items: ReturnType<typeof programmeItems> })
   );
 }
 
-function TechOverview({ items }: { items: ReturnType<typeof technicalItems> }) {
-  const priced = items.filter((i) => i.lineTotal != null || i.priceType === 'pending_confirmation');
+function SectionVisual({ assetId }: { assetId: string }) {
   return (
-    <div className="p2-tech-cards">
-      {priced.slice(0, 4).map((item) => (
-        <article key={item.id} className="p2-tech-card">
-          <h3>{item.titleBg}</h3>
-          <p>{formatItemPrice(item)}</p>
-        </article>
-      ))}
+    <div className="p2-section-visual">
+      <ResponsivePicture assetId={assetId} objectFit="cover" />
     </div>
   );
 }

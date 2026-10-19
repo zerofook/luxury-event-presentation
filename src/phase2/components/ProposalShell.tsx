@@ -8,7 +8,7 @@ export function ProposalShell({ children }: { children: ReactNode }) {
       <main className="p2-main p2-main--scroll">{children}</main>
       <footer className="p2-footer">
         <p>
-          Цените следват одобрените източници (42-странично PDF и допълнителни материали на собственика). Обща сума се
+          Цените следват одобрените източници (42-странично предложение и материали от възложителя). Обща сума се
           формира след избор на конфигурация.
         </p>
       </footer>
