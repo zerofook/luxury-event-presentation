@@ -115,7 +115,9 @@ export interface EditorialSectionSceneData {
     | 'entertainment-duo'
     | 'visual-chapter';
   titleBg: string;
-  bodyBg: string;
+  bodyBg?: string;
+  /** visual-chapter: multiple lead paragraphs instead of a single bodyBg */
+  bodyParagraphsBg?: string[];
   eyebrowBg?: string;
   disclaimerBg?: string;
   assetId?: string;
