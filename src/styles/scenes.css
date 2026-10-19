@@ -1287,3 +1287,30 @@
 #scene-stage-scenography .section-lead {
   max-width: none;
 }
+
+/* Closing CTA: clear primary (gold) button, normal link cursor */
+.closing-scene__title {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
+
+.closing-scene__cta.closing-scene__cta--link {
+  cursor: pointer;
+  color: var(--color-navy);
+  background: var(--color-gold-muted);
+  border-color: var(--color-gold-muted);
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.85rem 1.75rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.closing-scene__cta.closing-scene__cta--link:hover,
+.closing-scene__cta.closing-scene__cta--link:focus-visible {
+  background: #c9a86d;
+  border-color: #c9a86d;
+  color: var(--color-navy);
+  transform: translateY(-1px);
+}
