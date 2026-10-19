@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18T19:10:50.724Z",
+  "generated": "2026-10-19T05:05:02.087Z",
   "assets": [
     {
       "id": "v4_p02_00_1688x932",
@@ -40,6 +40,15 @@
       "pdfPage": 4,
       "canvaPage": 4,
       "sourcePath": "sources/v4/extract/p04/p04_crop_entrance_v3.jpg"
+    },
+    {
+      "id": "v4_p05_crop_entrance_hero_clean",
+      "width": 5400,
+      "height": 1856,
+      "pdfPage": 5,
+      "canvaPage": 5,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p05_crop_entrance_hero_clean.jpg",
+      "phase22": true
     },
     {
       "id": "v4_p06_05_830x474",
@@ -90,14 +99,6 @@
       "sourcePath": "sources/v4/extract/p07/p07_00_1536x1024.jpg"
     },
     {
-      "id": "v4_p07_crop_photozone_orange",
-      "width": 757,
-      "height": 502,
-      "pdfPage": 7,
-      "canvaPage": 7,
-      "sourcePath": "sources/v4/extract/p07/p07_crop_photozone_orange.jpg"
-    },
-    {
       "id": "v4_p07_crop_photozone_burgundy",
       "width": 757,
       "height": 502,
@@ -114,6 +115,14 @@
       "sourcePath": "sources/v4/extract/p07/p07_crop_photozone_ivory_wide.jpg"
     },
     {
+      "id": "v4_p07_crop_photozone_orange",
+      "width": 757,
+      "height": 502,
+      "pdfPage": 7,
+      "canvaPage": 7,
+      "sourcePath": "sources/v4/extract/p07/p07_crop_photozone_orange.jpg"
+    },
+    {
       "id": "v4_p08_00_1374x1145",
       "width": 1374,
       "height": 1145,
@@ -122,20 +131,21 @@
       "sourcePath": "sources/v4/extract/p08/p08_00_1374x1145.jpg"
     },
     {
+      "id": "v4_p11_crop_cocktail_aerial_clean",
+      "width": 3300,
+      "height": 1519,
+      "pdfPage": 11,
+      "canvaPage": 11,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p11_crop_cocktail_aerial_clean.jpg",
+      "phase22": true
+    },
+    {
       "id": "v4_p13_04_1536x1024",
       "width": 1536,
       "height": 1024,
       "pdfPage": 13,
       "canvaPage": 13,
       "sourcePath": "sources/v4/extract/p13/p13_04_1536x1024.jpg"
-    },
-    {
-      "id": "v4_p13_crop_led_ceiling",
-      "width": 272,
-      "height": 227,
-      "pdfPage": 13,
-      "canvaPage": 13,
-      "sourcePath": "sources/v4/extract/p13/p13_crop_led_ceiling.jpg"
     },
     {
       "id": "v4_p13_crop_guest_toast",
@@ -152,6 +162,14 @@
       "pdfPage": 13,
       "canvaPage": 13,
       "sourcePath": "sources/v4/extract/p13/p13_crop_hostesses.jpg"
+    },
+    {
+      "id": "v4_p13_crop_led_ceiling",
+      "width": 272,
+      "height": 227,
+      "pdfPage": 13,
+      "canvaPage": 13,
+      "sourcePath": "sources/v4/extract/p13/p13_crop_led_ceiling.jpg"
     },
     {
       "id": "v4_p13_crop_led_wall_detail",
@@ -194,20 +212,13 @@
       "sourcePath": "sources/v4/extract/p15/p15_crop_corridor_hero.jpg"
     },
     {
-      "id": "v4_p17_crop_stage_hero",
-      "width": 1527,
-      "height": 613,
-      "pdfPage": 17,
-      "canvaPage": 17,
-      "sourcePath": "sources/v4/extract/p17/p17_crop_stage_hero.jpg"
-    },
-    {
-      "id": "v4_p17_crop_stage_decor_detail",
-      "width": 324,
-      "height": 288,
-      "pdfPage": 17,
-      "canvaPage": 17,
-      "sourcePath": "sources/v4/extract/p17/p17_crop_stage_decor_detail.jpg"
+      "id": "v4_p16_crop_table_layout",
+      "width": 5400,
+      "height": 1688,
+      "pdfPage": 16,
+      "canvaPage": 16,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p16_crop_table_layout.jpg",
+      "phase22": true
     },
     {
       "id": "v4_p17_crop_stage_cake_reveal",
@@ -218,12 +229,48 @@
       "sourcePath": "sources/v4/extract/p17/p17_crop_stage_cake_reveal.jpg"
     },
     {
+      "id": "v4_p17_crop_stage_decor_detail",
+      "width": 324,
+      "height": 288,
+      "pdfPage": 17,
+      "canvaPage": 17,
+      "sourcePath": "sources/v4/extract/p17/p17_crop_stage_decor_detail.jpg"
+    },
+    {
+      "id": "v4_p17_crop_stage_hero",
+      "width": 1527,
+      "height": 613,
+      "pdfPage": 17,
+      "canvaPage": 17,
+      "sourcePath": "sources/v4/extract/p17/p17_crop_stage_hero.jpg"
+    },
+    {
       "id": "v4_p18_crop_hall_clean_left",
       "width": 1150,
       "height": 941,
       "pdfPage": 18,
       "canvaPage": 18,
       "sourcePath": "sources/v4/extract/p18/p18_crop_hall_clean_left.jpg"
+    },
+    {
+      "id": "v4_p19_crop_mapping_hall_left",
+      "width": 1029,
+      "height": 872,
+      "pdfPage": 19,
+      "canvaPage": 19,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p19_crop_mapping_hall_left.jpg",
+      "phase22": true,
+      "extractMethod": "pdfimages+crop"
+    },
+    {
+      "id": "v4_p20_crop_mapping_hall_left",
+      "width": 1029,
+      "height": 872,
+      "pdfPage": 20,
+      "canvaPage": 20,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p20_crop_mapping_hall_left.jpg",
+      "phase22": true,
+      "extractMethod": "pdfimages+crop"
     },
     {
       "id": "v4_p21_00_1851x849",
@@ -274,6 +321,206 @@
       "sourcePath": "sources/v4/extract/p24/p24_crop_centerpiece_v3.jpg"
     },
     {
+      "id": "v4_p25_crop_menu_fan",
+      "width": 1680,
+      "height": 1080,
+      "pdfPage": 25,
+      "canvaPage": 25,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p25_crop_menu_fan.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p25_crop_menu_record",
+      "width": 1800,
+      "height": 1080,
+      "pdfPage": 25,
+      "canvaPage": 25,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p25_crop_menu_record.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p25_crop_menu_spread",
+      "width": 1800,
+      "height": 1080,
+      "pdfPage": 25,
+      "canvaPage": 25,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p25_crop_menu_spread.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p26_crop_menu_vision1",
+      "width": 1320,
+      "height": 1283,
+      "pdfPage": 26,
+      "canvaPage": 26,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p26_crop_menu_vision1.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p26_crop_menu_vision2",
+      "width": 1320,
+      "height": 1283,
+      "pdfPage": 26,
+      "canvaPage": 26,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p26_crop_menu_vision2.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p26_crop_menu_vision3",
+      "width": 1320,
+      "height": 1283,
+      "pdfPage": 26,
+      "canvaPage": 26,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p26_crop_menu_vision3.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p26_crop_menu_vision4",
+      "width": 1320,
+      "height": 1283,
+      "pdfPage": 26,
+      "canvaPage": 26,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p26_crop_menu_vision4.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p27_crop_gifts_feathers",
+      "width": 2700,
+      "height": 1418,
+      "pdfPage": 27,
+      "canvaPage": 27,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p27_crop_gifts_feathers.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p27_crop_gifts_rose",
+      "width": 2640,
+      "height": 1418,
+      "pdfPage": 27,
+      "canvaPage": 27,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p27_crop_gifts_rose.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p28_crop_miniature_car_hero",
+      "width": 3120,
+      "height": 1620,
+      "pdfPage": 28,
+      "canvaPage": 28,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p28_crop_miniature_car_hero.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p29_crop_tech_corridor_light",
+      "width": 1380,
+      "height": 608,
+      "pdfPage": 29,
+      "canvaPage": 29,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p29_crop_tech_corridor_light.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p29_crop_tech_foyer_light",
+      "width": 1380,
+      "height": 608,
+      "pdfPage": 29,
+      "canvaPage": 29,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p29_crop_tech_foyer_light.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p29_crop_tech_gala_light",
+      "width": 1380,
+      "height": 608,
+      "pdfPage": 29,
+      "canvaPage": 29,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p29_crop_tech_gala_light.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p29_crop_tech_gala_sound",
+      "width": 1380,
+      "height": 608,
+      "pdfPage": 29,
+      "canvaPage": 29,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p29_crop_tech_gala_sound.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p29_crop_tech_led_corridor",
+      "width": 1380,
+      "height": 608,
+      "pdfPage": 29,
+      "canvaPage": 29,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p29_crop_tech_led_corridor.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p29_crop_tech_led_gala",
+      "width": 1380,
+      "height": 608,
+      "pdfPage": 29,
+      "canvaPage": 29,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p29_crop_tech_led_gala.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p30_crop_hall_burgundy_dining",
+      "width": 2760,
+      "height": 1418,
+      "pdfPage": 30,
+      "canvaPage": 30,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p30_crop_hall_burgundy_dining.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p30_crop_hall_burgundy_stage",
+      "width": 2880,
+      "height": 1418,
+      "pdfPage": 30,
+      "canvaPage": 30,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p30_crop_hall_burgundy_stage.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p30_crop_hall_orange_dining",
+      "width": 2760,
+      "height": 1418,
+      "pdfPage": 30,
+      "canvaPage": 30,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p30_crop_hall_orange_dining.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p30_crop_hall_orange_stage",
+      "width": 2880,
+      "height": 1418,
+      "pdfPage": 30,
+      "canvaPage": 30,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p30_crop_hall_orange_stage.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
       "id": "v4_p32_crop_performer1",
       "width": 358,
       "height": 441,
@@ -306,12 +553,44 @@
       "sourcePath": "sources/v4/extract/p32/p32_crop_performer4.jpg"
     },
     {
-      "id": "v4_p34_crop_dance_show_stage_with_quote",
-      "width": 860,
-      "height": 602,
-      "pdfPage": 34,
-      "canvaPage": 34,
-      "sourcePath": "sources/v4/extract/p34/p34_crop_dance_show_stage_with_quote.jpg"
+      "id": "v4_p33_crop_host_1",
+      "width": 1320,
+      "height": 1418,
+      "pdfPage": 33,
+      "canvaPage": 33,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_1.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p33_crop_host_2",
+      "width": 1320,
+      "height": 1418,
+      "pdfPage": 33,
+      "canvaPage": 33,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_2.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p33_crop_host_3",
+      "width": 1320,
+      "height": 1418,
+      "pdfPage": 33,
+      "canvaPage": 33,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_3.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p33_crop_host_4",
+      "width": 1320,
+      "height": 1418,
+      "pdfPage": 33,
+      "canvaPage": 33,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_4.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
     },
     {
       "id": "v4_p34_crop_dance_show_dancers",
@@ -322,12 +601,12 @@
       "sourcePath": "sources/v4/extract/p34/p34_crop_dance_show_dancers.jpg"
     },
     {
-      "id": "v4_p35_crop_mihaela_portrait",
-      "width": 369,
-      "height": 768,
-      "pdfPage": 35,
-      "canvaPage": 35,
-      "sourcePath": "sources/v4/extract/p35/p35_crop_mihaela_portrait.jpg"
+      "id": "v4_p34_crop_dance_show_stage_with_quote",
+      "width": 860,
+      "height": 602,
+      "pdfPage": 34,
+      "canvaPage": 34,
+      "sourcePath": "sources/v4/extract/p34/p34_crop_dance_show_stage_with_quote.jpg"
     },
     {
       "id": "v4_p35_crop_mihaela_jazz_quartet",
@@ -338,52 +617,20 @@
       "sourcePath": "sources/v4/extract/p35/p35_crop_mihaela_jazz_quartet.jpg"
     },
     {
+      "id": "v4_p35_crop_mihaela_portrait",
+      "width": 369,
+      "height": 768,
+      "pdfPage": 35,
+      "canvaPage": 35,
+      "sourcePath": "sources/v4/extract/p35/p35_crop_mihaela_portrait.jpg"
+    },
+    {
       "id": "v4_p35_crop_mihaela_with_dancers",
       "width": 439,
       "height": 281,
       "pdfPage": 35,
       "canvaPage": 35,
       "sourcePath": "sources/v4/extract/p35/p35_crop_mihaela_with_dancers.jpg"
-    },
-    {
-      "id": "v4_p36_crop_cocktail_retro_car",
-      "width": 579,
-      "height": 236,
-      "pdfPage": 36,
-      "canvaPage": 36,
-      "sourcePath": "sources/v4/extract/p36/p36_crop_cocktail_retro_car.jpg"
-    },
-    {
-      "id": "v4_p36_crop_little_party_waitresses",
-      "width": 512,
-      "height": 236,
-      "pdfPage": 36,
-      "canvaPage": 36,
-      "sourcePath": "sources/v4/extract/p36/p36_crop_little_party_waitresses.jpg"
-    },
-    {
-      "id": "v4_p36_crop_little_party_feathers",
-      "width": 544,
-      "height": 236,
-      "pdfPage": 36,
-      "canvaPage": 36,
-      "sourcePath": "sources/v4/extract/p36/p36_crop_little_party_feathers.jpg"
-    },
-    {
-      "id": "v4_p36_crop_gimme_gimme_cabaret",
-      "width": 573,
-      "height": 218,
-      "pdfPage": 36,
-      "canvaPage": 36,
-      "sourcePath": "sources/v4/extract/p36/p36_crop_gimme_gimme_cabaret.jpg"
-    },
-    {
-      "id": "v4_p36_crop_sway_feathers",
-      "width": 512,
-      "height": 229,
-      "pdfPage": 36,
-      "canvaPage": 36,
-      "sourcePath": "sources/v4/extract/p36/p36_crop_sway_feathers.jpg"
     },
     {
       "id": "v4_p36_crop_cake_fans",
@@ -394,20 +641,52 @@
       "sourcePath": "sources/v4/extract/p36/p36_crop_cake_fans.jpg"
     },
     {
+      "id": "v4_p36_crop_cocktail_retro_car",
+      "width": 579,
+      "height": 236,
+      "pdfPage": 36,
+      "canvaPage": 36,
+      "sourcePath": "sources/v4/extract/p36/p36_crop_cocktail_retro_car.jpg"
+    },
+    {
+      "id": "v4_p36_crop_gimme_gimme_cabaret",
+      "width": 573,
+      "height": 218,
+      "pdfPage": 36,
+      "canvaPage": 36,
+      "sourcePath": "sources/v4/extract/p36/p36_crop_gimme_gimme_cabaret.jpg"
+    },
+    {
+      "id": "v4_p36_crop_little_party_feathers",
+      "width": 544,
+      "height": 236,
+      "pdfPage": 36,
+      "canvaPage": 36,
+      "sourcePath": "sources/v4/extract/p36/p36_crop_little_party_feathers.jpg"
+    },
+    {
+      "id": "v4_p36_crop_little_party_waitresses",
+      "width": 512,
+      "height": 236,
+      "pdfPage": 36,
+      "canvaPage": 36,
+      "sourcePath": "sources/v4/extract/p36/p36_crop_little_party_waitresses.jpg"
+    },
+    {
+      "id": "v4_p36_crop_sway_feathers",
+      "width": 512,
+      "height": 229,
+      "pdfPage": 36,
+      "canvaPage": 36,
+      "sourcePath": "sources/v4/extract/p36/p36_crop_sway_feathers.jpg"
+    },
+    {
       "id": "v4_p37_00_1536x1024",
       "width": 1536,
       "height": 1024,
       "pdfPage": 37,
       "canvaPage": 37,
       "sourcePath": "sources/v4/extract/p37/p37_00_1536x1024.jpg"
-    },
-    {
-      "id": "v4_p37_crop_hats_accessories",
-      "width": 504,
-      "height": 313,
-      "pdfPage": 37,
-      "canvaPage": 37,
-      "sourcePath": "sources/v4/extract/p37/p37_crop_hats_accessories.jpg"
     },
     {
       "id": "v4_p37_crop_cake_arrival",
@@ -434,12 +713,12 @@
       "sourcePath": "sources/v4/extract/p37/p37_crop_countdown_22.jpg"
     },
     {
-      "id": "v4_p37_crop_toast",
-      "width": 473,
-      "height": 291,
+      "id": "v4_p37_crop_hats_accessories",
+      "width": 504,
+      "height": 313,
       "pdfPage": 37,
       "canvaPage": 37,
-      "sourcePath": "sources/v4/extract/p37/p37_crop_toast.jpg"
+      "sourcePath": "sources/v4/extract/p37/p37_crop_hats_accessories.jpg"
     },
     {
       "id": "v4_p37_crop_party_begins_live",
@@ -448,6 +727,14 @@
       "pdfPage": 37,
       "canvaPage": 37,
       "sourcePath": "sources/v4/extract/p37/p37_crop_party_begins_live.jpg"
+    },
+    {
+      "id": "v4_p37_crop_toast",
+      "width": 473,
+      "height": 291,
+      "pdfPage": 37,
+      "canvaPage": 37,
+      "sourcePath": "sources/v4/extract/p37/p37_crop_toast.jpg"
     },
     {
       "id": "v4_p38_crop_disco_ball_dancers",
@@ -464,6 +751,75 @@
       "pdfPage": 39,
       "canvaPage": 39,
       "sourcePath": "sources/v4/extract/p39/p39_crop_live_show_band_dancers.jpg"
+    },
+    {
+      "id": "v4_p40_crop_dara_ekimova",
+      "width": 900,
+      "height": 945,
+      "pdfPage": 40,
+      "canvaPage": 40,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_dara_ekimova.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p40_crop_gipsy_kings",
+      "width": 2760,
+      "height": 1215,
+      "pdfPage": 40,
+      "canvaPage": 40,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_gipsy_kings.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p40_crop_live_show_hero",
+      "width": 3480,
+      "height": 2430,
+      "pdfPage": 40,
+      "canvaPage": 40,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_live_show_hero.jpg",
+      "phase22": true
+    },
+    {
+      "id": "v4_p40_crop_mihaela_marinova",
+      "width": 900,
+      "height": 945,
+      "pdfPage": 40,
+      "canvaPage": 40,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_mihaela_marinova.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p40_crop_orlin_pavlov",
+      "width": 900,
+      "height": 945,
+      "pdfPage": 40,
+      "canvaPage": 40,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_orlin_pavlov.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p40_crop_papi_hans",
+      "width": 900,
+      "height": 945,
+      "pdfPage": 40,
+      "canvaPage": 40,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_papi_hans.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
+    },
+    {
+      "id": "v4_p40_crop_the_swan",
+      "width": 2760,
+      "height": 1215,
+      "pdfPage": 40,
+      "canvaPage": 40,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_the_swan.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
     },
     {
       "id": "v4_n03_corridor_ivory",

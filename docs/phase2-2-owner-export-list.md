@@ -1,27 +1,47 @@
-# Phase 2.2 — Owner high-resolution export list
+# Owner export list (only what we could not extract cleanly)
 
-Export from the **approved 42-page PDF** (or matching **Canva c1–c40, c57–c58** only). Do **not** use hidden Canva c41–c56.
+We extracted most visuals from the approved Canva PDF in the agent environment (`pdfimages` + `pdftoppm` at 300 dpi). **Only request the items below** if you have separate design layers or original photo files.
 
-Prefer **PNG or JPG without baked-in price text** where a clean art layer exists. Minimum long edge **2400 px** for hero use; **1600 px** acceptable for cards.
+---
 
-| Priority | PDF p. | Canva | Subject | Why the site needs it |
-| --- | ---: | ---: | --- | --- |
-| P1 | 29 | 29 | Technical atmosphere — lit hall / stage / LED (full bleed) | No clean p29 visualization in repo; tech section story |
-| P1 | 29 | 29 | Technical package overview **without** price table overlay | Replace text-only tech block |
-| P2 | 25 | 25 | Menu design spreads (cocktail / gala) | Hospitality editorial |
-| P2 | 26 | 26 | Alternative menu concepts | Hospitality |
-| P2 | 27 | 27 | Gifts & accessories layout (full page) | Hospitality — only small p37 hat crop exists |
-| P2 | 28 | 28 | Miniature vintage car gift + branding panel | Hospitality (distinct from owner car install) |
-| P2 | 33 | 33 | Hosts — portraits / stage presence | Entertainment — hosts not visualized |
-| P2 | 40 | 40 | Gipsy Kings / celebrity alternatives collage | Entertainment finale block |
-| P3 | 19 | 19 | 3D mapping on walls — **clean render without price columns** | Technical / mapping story |
-| P3 | 20 | 20 | Full 3D mapping variant renders (clean) | Technical alternatives context |
-| P3 | 30 | 30 | Hall & stage colour variants (orange vs burgundy) | Alternatives — no extract/ entries today |
-| P3 | 31 | 31 | Additional programme / production pages (if pictorial) | Entertainment gap fill |
-| P4 | 5 | 5 | Entrance render without price panel (if separate layer) | Decoration hero variety |
-| P4 | 11 | 11 | Cocktail zone annotated aerial **without callout text** | Decoration — only p08 clean overhead in repo |
-| P4 | 16 | 16 | Table layout plan (if higher res than web crop) | Investment / guest count context |
+### 1 — Celebrity portraits without name/price overlays (Priority: high)
 
-Already in repo at usable quality (no export required unless owner has masters): p4, p6–8, p13–15, p17–18, p21–24, p32, p34–39, p37 ceremony grid crops.
+| PDF page | What to export | Format & size | Save as | Used for |
+| --- | --- | --- | --- | --- |
+| **40** | **Gipsy Kings** photo only — crop the band image; **do not include** the „85 000 £“ box or title text | JPG or PNG, long edge **≥ 2400 px** | `p40-gipsy-kings-clean.jpg` | `public/media/img/v4_p40_crop_gipsy_kings_clean-*` — Entertainment finale |
+| **40** | **The Swan** formation photo without price strip | Same | `p40-the-swan-clean.jpg` | `public/media/img/v4_p40_crop_the_swan_clean-*` |
+| **40** | Bottom row **Bulgarian artists** (6 headshots) — each portrait **without** the name/price bar at the bottom | Same | `p40-artist-<name>-clean.jpg` | Optional upgrade for finale cards |
 
-Owner-provided (separate from PDF): `public/media/img/owner-vintage-car-installation.jpg` — keep as-is.
+*Why:* Current crops still include baked-in typography from the slide layout.
+
+---
+
+### 2 — Live show hero without typography (Priority: medium)
+
+| PDF page | What to export | Format & size | Save as | Used for |
+| --- | --- | --- | --- | --- |
+| **39** | **Vessela Boneva & Kalin Velyov** stage photo — **left part of the slide only**, excluding the „7 500 €“ box and large name lettering | JPG, **≥ 2400 px** wide | `p39-live-show-clean.jpg` | `public/media/img/v4_p39_live_show_clean-*` — Music chapter |
+
+*Why:* The only embedded stream is the full composed slide.
+
+---
+
+### 3 — Original PDF for download link (Priority: medium, operational)
+
+| Item | What we need | Notes |
+| --- | --- | --- |
+| **42-page client PDF** | A **compressed** export (under ~25 MB if possible) for the website „Изтегли концептуалната презентация“ button | Save as `public/sources/v4/presentation.pdf` |
+
+*Why:* Full Canva export is ~291 MB — too large for the repository; the link should still work on GitHub Pages.
+
+---
+
+### Pages with **no separate clean image layer** (do not re-export unless you have masters)
+
+- **29 — Technical grid:** atmosphere photos are only inside numbered cells with price chips; we use **cell crops** (acceptable quality). A single full-bleed „lit hall“ layer **does not exist** on the page.
+- **33 — Hosts:** portraits are usable after crop; **name and price bars** remain at the bottom of each card in PDF-only form.
+- **25–28 — Menus & gifts:** extracted menu/gift photos are **in use**; cleaner masters would help but are optional.
+
+---
+
+When sending files, email or share the folder and tell us the filenames match the table above — we will wire them into `public/media/img/` and update the asset registry.

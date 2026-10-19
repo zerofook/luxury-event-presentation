@@ -984,15 +984,30 @@ button.p2-btn {
   font-weight: 600;
 }
 
-.p2-tech-story {
+.p2-tech-story--large {
   display: grid;
   gap: 1.25rem;
   margin: 1rem 0 1.5rem;
 }
 
+.p2-tech-story__slide--hero {
+  margin: 0;
+}
+
+.p2-tech-story__visual--hero {
+  aspect-ratio: 21 / 9;
+  max-height: 420px;
+  overflow: hidden;
+}
+
+.p2-tech-story__pair {
+  display: grid;
+  gap: 1rem;
+}
+
 @media (min-width: 900px) {
-  .p2-tech-story {
-    grid-template-columns: repeat(2, 1fr);
+  .p2-tech-story__pair {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -1165,21 +1180,69 @@ button.p2-btn {
   border: 1px solid var(--p2-navy);
 }
 
-.p2-invest-category {
+.p2-invest-category--open {
   border: 1px solid rgba(52, 76, 96, 0.12);
   background: rgba(255, 255, 255, 0.35);
-  padding: 0.35rem 1rem 1rem;
+  padding: 1rem 1rem 1.15rem;
 }
 
-.p2-invest-category summary {
-  cursor: pointer;
-  font-weight: 600;
-  padding: 0.65rem 0;
-  list-style: none;
+.p2-invest-category__head {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  font-size: 1.05rem;
+  align-items: baseline;
+  margin-bottom: 0.35rem;
+}
+
+.p2-invest-category__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-family: var(--font-display, serif);
+}
+
+.p2-invest-key--alt {
+  background: var(--p2-navy);
+  opacity: 0.35;
+}
+
+.p2-item-row__spec summary {
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: var(--p2-turquoise);
+  font-weight: 600;
+}
+
+.p2-palette-compare__view-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.p2-palette-compare__view-tabs button {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(52, 76, 96, 0.15);
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+}
+
+.p2-palette-compare__view-tabs button.is-active {
+  border-color: var(--p2-gold);
+}
+
+.p2-contact-closing__placeholder {
+  background: rgba(228, 233, 236, 0.55);
+  border: 1px solid rgba(52, 76, 96, 0.1);
+  padding: 1.25rem 1.35rem;
+  max-width: 40rem;
+}
+
+.p2-contact-closing__steps {
+  margin: 0.75rem 0;
+  padding-left: 1.15rem;
+  line-height: 1.55;
+  font-size: 0.95rem;
 }
 
 .p2-invest-category__scope {

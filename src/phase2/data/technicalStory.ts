@@ -1,22 +1,26 @@
 export const TECHNICAL_STORY_SLIDES = [
   {
-    assetId: 'v4_p18_crop_hall_clean_left',
-    titleBg: 'Гала зала в светла палитра',
-    bodyBg: 'Пълно осветление и декорация на залата — базата, върху която се наслагват сцена, звук и специални ефекти.',
+    assetId: 'v4_p29_crop_tech_gala_light',
+    titleBg: 'Осветление на гала залата',
+    bodyBg: 'Сценични лъчи и атмосфера в залата — ефектът от пакета „зала гала“, преди детайлните спецификации.',
+    layout: 'hero' as const,
   },
   {
-    assetId: 'v4_p17_crop_stage_hero',
-    titleBg: 'Сцена и флорална рамка',
-    bodyBg: 'Сценография, LED и прожекционни зони — визуализацията показва финалната картина, не отделни машини.',
+    assetId: 'v4_p29_crop_tech_led_gala',
+    titleBg: 'LED екран и сцена',
+    bodyBg: 'Визуализация на LED и сценичната картина — част от техническия пакет на събитието.',
+    layout: 'hero' as const,
   },
   {
-    assetId: 'v4_p15_crop_corridor_hero',
-    titleBg: 'Златен коридор',
-    bodyBg: 'Линейно осветление и декорация по маршрута на гостите — част от техническия и декоративен пакет.',
+    assetId: 'v4_p29_crop_tech_corridor_light',
+    titleBg: 'Коридор и LED',
+    bodyBg: 'Линейно осветление и LED по маршрута на гостите — коридорният акцент от предложението.',
+    layout: 'half' as const,
   },
   {
-    assetId: 'v4_p37_crop_countdown_22',
-    titleBg: 'LED и динамика на сцената',
-    bodyBg: 'Ефектът на светлината в ключови моменти — юбилей, тортa и преход към party частта.',
+    assetId: 'v4_p19_crop_mapping_hall_left',
+    titleBg: '3D мапинг и пространство',
+    bodyBg: 'Проекция върху архитектурата — визуален ефект от вариантите за 3D мапинг (без ценови колони).',
+    layout: 'half' as const,
   },
 ] as const;

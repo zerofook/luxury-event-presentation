@@ -18,6 +18,7 @@ const CLIENT_STRING_KEYS = new Set([
   'eventTitleBg',
   'eventDateBg',
   'investmentIntroBg',
+  'investmentClarityBg',
   'technicalIndicativeNoteBg',
   'currencyNoteBg',
   'contactPlaceholderBg',

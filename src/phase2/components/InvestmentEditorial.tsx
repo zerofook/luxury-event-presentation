@@ -37,6 +37,8 @@ export function InvestmentEditorial({
   return (
     <div className="p2-invest-editorial">
       <div className="p2-invest-legend">
+        <p>{meta.investmentIntroBg}</p>
+        {meta.investmentClarityBg && <p>{meta.investmentClarityBg}</p>}
         <p>{meta.vatNoteBg}</p>
         <p>{meta.currencyNoteBg}</p>
         <ul className="p2-invest-legend__keys">
@@ -49,21 +51,24 @@ export function InvestmentEditorial({
           <li>
             <span className="p2-invest-key p2-invest-key--pending" /> Изисква потвърждение / по запитване
           </li>
+          <li>
+            <span className="p2-invest-key p2-invest-key--alt" /> Алтернатива — избира се една опция от група
+          </li>
         </ul>
       </div>
       {categories.map((cat) => {
         const catItems = itemsForInvestCategory(cat.id, items);
         if (!catItems.length && !cat.notesBg) return null;
         return (
-          <details key={cat.id} className="p2-invest-category" open={cat.id === 'dekoracia'}>
-            <summary>
-              <span className="p2-invest-category__title">{cat.titleBg}</span>
+          <article key={cat.id} className="p2-invest-category p2-invest-category--open">
+            <header className="p2-invest-category__head">
+              <h3 className="p2-invest-category__title">{cat.titleBg}</h3>
               <span className="p2-invest-category__count">{catItems.length} позиции</span>
-            </summary>
+            </header>
             <p className="p2-invest-category__scope">{cat.scopeBg}</p>
             {cat.notesBg && <p className="p2-invest-note">{cat.notesBg}</p>}
             {catItems.length > 0 && <ItemRowList items={catItems} />}
-          </details>
+          </article>
         );
       })}
     </div>

@@ -1,45 +1,36 @@
-# Phase 2.2 — Changelog (by section)
+# Phase 2.2 — Changelog (polish round)
 
-## Step 1 — Asset audit
-- Added `docs/phase2-2-asset-audit.md` (66 in-repo assets + gap pages).
-- Contact sheet: `docs/artifacts/phase2-2-asset-contact-sheet.jpg`.
-- Owner exports: `docs/phase2-2-owner-export-list.md`.
+## Assets
+- Downloaded approved Canva PDF locally; extracted **30+ crops** via `pdfimages` / `pdftoppm` (300 dpi) + sharp.
+- Fixed page mapping for hospitality (p25–28), technical (p29), hall variants (p30), hosts (p33), celebrities (p40).
+- Rebuilt contact sheet (`docs/artifacts/phase2-2-asset-contact-sheet.jpg`) — numbered, no empty tiles.
+- Rewrote owner export list for non-technical readers (only remaining gaps).
 
-## 01 Overview
-- Editorial hero copy and category cards without technical/service catalogue tone.
-- Category navigation unchanged (hash deep links).
+## 03 Entertainment
+- Added **hosts** chapter with `v4_p33_crop_host_*` portraits.
+- Finale gallery: Gipsy Kings / The Swan / premium artists from p40.
+- Music chapter uses live-show crop from p39 slide.
 
-## 02 Decoration
-- Rotating layout modifiers (`split`, `inset`, detail strips) for corridor and stage.
-- Vintage car block unchanged inside фото зона.
-
-## 03 Entertainment (priority)
-- Chronological chapters: коктейл → церемония/водещ → Gatsby → музика → финал.
-- Hero + gallery imagery from PDF crops; performer cards + expandable full lists for large chapters.
-
-## 04 Technical (priority)
-- Four-slide visual story (hall, stage, corridor, LED moment).
-- Specs/prices moved into expandable `<details>`.
+## 04 Technical
+- Large hero + two-up story using **p29 atmosphere cells** and **p19 mapping** crop.
+- Small p13 crops removed from story; specs stay in `<details>`.
 
 ## 05 Hospitality
-- Six-image editorial gallery + item rows (menus p25–28 still text-only pending owner exports).
+- Gallery upgraded with menu (p25–26), gifts (p27), miniature car (p28) extractions.
 
 ## 06 Alternatives
-- Tabbed palette comparison (ivory default) using existing entrance/corridor crops.
-- Technical/performer alternative groups unchanged below.
+- Palette switcher adds **hall variant** view (p30 orange/burgundy + ivory references).
 
-## 07 Investment (priority)
-- Category `<details>` blocks with legend (fixed / range / pending), no grand total.
-- CTA scrolls to `#sledvashti-stapki`; PDF label clarifies conceptual presentation.
-
-## UX / data
-- Configurable `contact` in client bundle (empty by default) + placeholder copy in meta.
-- Header PDF control relabeled in natural Bulgarian.
+## 07 Investment
+- **All priced rows visible by default** per category; long descriptions in per-row `<details>`.
+- Added clarity copy on alternatives, ranges, and confirmation (`investmentClarityBg`).
+- Contact closing: intentional placeholder with next-step list when agency contact empty.
 
 ## Artifacts
-- Video: `docs/artifacts/phase2-2-scroll-desktop.mp4`
-- Screenshots: `docs/screenshots/phase2-2/`
+- Full-height desktop section screenshots: `docs/screenshots/phase2-2/desktop-1440-*-full.png`
+- Mobile full-page: nav, programme, technical, hospitality, alternatives, investment
+- Video refreshed: `docs/artifacts/phase2-2-scroll-desktop.mp4` (~4.6 MB)
 
-## Open items
-- Agency contact email/phone (owner).
-- High-res exports listed in `docs/phase2-2-owner-export-list.md` (p25–29, p33, p40, clean p19–20).
+## Scripts
+- `scripts/extract-phase2-2-from-pdf.mjs`, `scripts/extract-phase2-2-fix.mjs`
+- Capture uses element screenshots for full section height

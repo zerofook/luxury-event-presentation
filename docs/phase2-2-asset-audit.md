@@ -1,103 +1,64 @@
-# Phase 2.2 — Visual asset audit
-
-Generated for editorial refinement of `#/proposal`. Sources: `src/content/v4-asset-registry.json`, `public/media/img/`, approved 42-page PDF (pages 1–42). Hidden Canva **c41–c56** excluded.
+# Phase 2.2 — Visual asset audit (polish round)
 
 Contact sheet: [phase2-2-asset-contact-sheet.jpg](./artifacts/phase2-2-asset-contact-sheet.jpg)
 
-## Summary
+## Extraction method
 
-| Metric | Count |
-| --- | ---: |
-| Registry assets (total) | 66 |
-| Linked to PDF page | 58 |
-| Canva-only masters (`assets-v4/n*`) | 8 |
-| PDF pages with **no** extract in repo | 1, 3, 5, 9–12, 16, 19–20, 25–31, 33, 40–42 |
+- Source: approved Canva design exported to `v4/presentation.pdf` (local agent only, not committed — 291 MB).
+- Pipeline: `scripts/extract-phase2-2-from-pdf.mjs` + `scripts/extract-phase2-2-fix.mjs` (`pdfimages`, `pdftoppm -r 300`, sharp crops).
+- Audit PDF page numbers in `pdfPage` / registry; Canva export page index may differ by +1 for pages ≥25 (fix pass mapped manually).
 
-## Inventory (in repo)
+## Newly extracted (polish round)
 
-| Proposed image (id) | PDF / Canva | Website section | Status | Quality | Higher-res recommended |
-| --- | --- | --- | --- | --- | --- |
-| `v4_p02_00_1688x932` | p.2 / c2 | 01 Overview | existing | strong | no |
-| `v4_p04_00_1536x1024` | p.4 / c4 | 02 Decoration | existing | strong | no |
-| `v4_p04_crop_entrance_v1` | p.4 / c4 | 02 Decoration | existing | good | yes |
-| `v4_p04_crop_entrance_v2` | p.4 / c4 | 02 Decoration | existing | good | yes |
-| `v4_p04_crop_entrance_v3` | p.4 / c4 | 02 Decoration | existing | good | yes |
-| `v4_p06_05_830x474` | p.6 / c6 | 02 Decoration | existing | adequate card | optional |
-| `v4_p06_06_1774x887` | p.6 / c6 | 02 Decoration | existing | good | no |
-| `v4_p06_crop_photowall_v1` | p.6 / c6 | 02 Decoration | existing | good | yes |
-| `v4_p06_crop_photowall_v2` | p.6 / c6 | 02 Decoration | existing | good | yes |
-| `v4_p06_crop_photowall_v3` | p.6 / c6 | 02 Decoration | existing | good | yes |
-| `v4_p07_00_1536x1024` | p.7 / c7 | 02 Decoration / 06 Alternatives | existing | strong | no |
-| `v4_p07_crop_photozone_burgundy` | p.7 / c7 | 02 Decoration / 06 Alternatives | existing | good | yes |
-| `v4_p07_crop_photozone_ivory_wide` | p.7 / c7 | 02 Decoration / 06 Alternatives | existing | good | no |
-| `v4_p07_crop_photozone_orange` | p.7 / c7 | 02 Decoration / 06 Alternatives | existing | good | yes |
-| `v4_p08_00_1374x1145` | p.8 / c8 | 02 Decoration | existing | strong | optional |
-| `v4_p13_04_1536x1024` | p.13 / c13 | 04 Technical | existing | strong | no |
-| `v4_p13_crop_guest_toast` | p.13 / c13 | 04 Technical | existing | borderline (small crop) | yes |
-| `v4_p13_crop_hostesses` | p.13 / c13 | 04 Technical | existing | borderline (small crop) | yes |
-| `v4_p13_crop_led_ceiling` | p.13 / c13 | 04 Technical | existing | borderline (small crop) — Detail only; small | yes |
-| `v4_p13_crop_led_wall_detail` | p.13 / c13 | 04 Technical | existing | borderline (small crop) — Corridor LED detail | yes |
-| `v4_p14_00_1134x680` | p.14 / c14 | 04 Technical | existing | good | optional |
-| `v4_p14_01_1134x680` | p.14 / c14 | 04 Technical | existing | good | optional |
-| `v4_p14_02_1134x680` | p.14 / c14 | 04 Technical | existing | good | optional |
-| `v4_p15_crop_corridor_hero` | p.15 / c15 | 02 Decoration | existing | adequate card | no |
-| `v4_p17_crop_stage_cake_reveal` | p.17 / c17 | 02 Decoration / 04 Technical | existing | borderline (small crop) | yes |
-| `v4_p17_crop_stage_decor_detail` | p.17 / c17 | 02 Decoration / 04 Technical | existing | adequate card | yes |
-| `v4_p17_crop_stage_hero` | p.17 / c17 | 02 Decoration / 04 Technical | existing | good | no |
-| `v4_p18_crop_hall_clean_left` | p.18 / c18 | 02 Decoration | existing | strong | yes |
-| `v4_p21_00_1851x849` | p.21 / c21 | 02 Decoration | existing | good | no |
-| `v4_p22_00_1659x948` | p.22 / c22 | 02 Decoration | existing | strong | no |
-| `v4_p23_00_1659x948` | p.23 / c23 | 02 Decoration | existing | strong | no |
-| `v4_p24_crop_centerpiece_v1` | p.24 / c24 | 05 Hospitality | existing | adequate card | yes |
-| `v4_p24_crop_centerpiece_v2` | p.24 / c24 | 05 Hospitality | existing | adequate card | yes |
-| `v4_p24_crop_centerpiece_v3` | p.24 / c24 | 05 Hospitality | existing | adequate card | yes |
-| `v4_p32_crop_performer1` | p.32 / c32 | 03 Entertainment | existing | adequate card | yes |
-| `v4_p32_crop_performer2` | p.32 / c32 | 03 Entertainment | existing | adequate card | yes |
-| `v4_p32_crop_performer3` | p.32 / c32 | 03 Entertainment | existing | adequate card | yes |
-| `v4_p32_crop_performer4` | p.32 / c32 | 03 Entertainment | existing | adequate card | yes |
-| `v4_p34_crop_dance_show_dancers` | p.34 / c34 | 03 Entertainment | existing | adequate card | yes |
-| `v4_p34_crop_dance_show_stage_with_quote` | p.34 / c34 | 03 Entertainment | existing | good — Use dancers crop only; stage crop has baked quote — borderline | yes |
-| `v4_p35_crop_mihaela_jazz_quartet` | p.35 / c35 | 03 Entertainment | existing | borderline (small crop) | yes |
-| `v4_p35_crop_mihaela_portrait` | p.35 / c35 | 03 Entertainment | existing | adequate card | yes |
-| `v4_p35_crop_mihaela_with_dancers` | p.35 / c35 | 03 Entertainment | existing | adequate card | yes |
-| `v4_p36_crop_cake_fans` | p.36 / c36 | 03 Entertainment | existing | borderline (small crop) | yes |
-| `v4_p36_crop_cocktail_retro_car` | p.36 / c36 | 03 Entertainment | existing | borderline (small crop) | yes |
-| `v4_p36_crop_gimme_gimme_cabaret` | p.36 / c36 | 03 Entertainment | existing | borderline (small crop) | yes |
-| `v4_p36_crop_little_party_feathers` | p.36 / c36 | 03 Entertainment | existing | borderline (small crop) | yes |
-| `v4_p36_crop_little_party_waitresses` | p.36 / c36 | 03 Entertainment | existing | borderline (small crop) | yes |
-| `v4_p36_crop_sway_feathers` | p.36 / c36 | 03 Entertainment | existing | borderline (small crop) | yes |
-| `v4_p37_00_1536x1024` | p.37 / c37 | 03 Entertainment / 05 Hospitality | existing | strong | no |
-| `v4_p37_crop_cake_arrival` | p.37 / c37 | 03 Entertainment / 05 Hospitality | existing | adequate card | yes |
-| `v4_p37_crop_cake_cutting` | p.37 / c37 | 03 Entertainment / 05 Hospitality | existing | adequate card | yes |
-| `v4_p37_crop_countdown_22` | p.37 / c37 | 03 Entertainment / 05 Hospitality | existing | adequate card | yes |
-| `v4_p37_crop_hats_accessories` | p.37 / c37 | 03 Entertainment / 05 Hospitality | existing | adequate card | yes |
-| `v4_p37_crop_party_begins_live` | p.37 / c37 | 03 Entertainment / 05 Hospitality | existing | adequate card | yes |
-| `v4_p37_crop_toast` | p.37 / c37 | 03 Entertainment / 05 Hospitality | existing | adequate card | yes |
-| `v4_p38_crop_disco_ball_dancers` | p.38 / c38 | 03 Entertainment | existing | good | yes |
-| `v4_p39_crop_live_show_band_dancers` | p.39 / c39 | 03 Entertainment | existing | adequate card | yes |
-| `v4_n03_corridor_ivory` | Canva master only | 02 / 06 Alternatives | existing | strong | no |
-| `v4_n04_corridor_burgundy` | Canva master only | 02 / 06 Alternatives | existing | strong | no |
-| `v4_n05_corridor_terracotta` | Canva master only | 02 / 06 Alternatives | existing | strong | no |
-| `v4_n07_first_floor_terracotta` | Canva master only | 02 / 06 Alternatives | existing | strong | no |
-| `v4_n08_first_floor_burgundy` | Canva master only | 02 / 06 Alternatives | existing | strong | no |
-| `v4_n09_first_floor_amber` | Canva master only | 02 / 06 Alternatives | existing | strong | no |
-| `v4_n10_first_floor_ivory_clean_A` | Canva master only | 02 / 06 Alternatives | existing | strong | no |
-| `v4_n11_first_floor_ivory_clean_B` | Canva master only | 02 / 06 Alternatives | existing | strong | no |
+| Asset id | Audit p. | Size (px) | Section | Status |
+| --- | ---: | --- | --- | --- |
+| `v4_p05_crop_entrance_hero_clean` | 5 | 5400×1856 | — | in use / newly extracted |
+| `v4_p11_crop_cocktail_aerial_clean` | 11 | 3300×1519 | — | in use / newly extracted |
+| `v4_p16_crop_table_layout` | 16 | 5400×1688 | — | in use / newly extracted |
+| `v4_p19_crop_mapping_hall_left` | 19 | 1029×872 | — | in use / newly extracted |
+| `v4_p20_crop_mapping_hall_left` | 20 | 1029×872 | — | in use / newly extracted |
+| `v4_p25_crop_menu_fan` | 25 | 1680×1080 | — | in use / newly extracted |
+| `v4_p25_crop_menu_record` | 25 | 1800×1080 | — | in use / newly extracted |
+| `v4_p25_crop_menu_spread` | 25 | 1800×1080 | — | in use / newly extracted |
+| `v4_p26_crop_menu_vision1` | 26 | 1320×1283 | — | in use / newly extracted |
+| `v4_p26_crop_menu_vision2` | 26 | 1320×1283 | — | in use / newly extracted |
+| `v4_p26_crop_menu_vision3` | 26 | 1320×1283 | — | in use / newly extracted |
+| `v4_p26_crop_menu_vision4` | 26 | 1320×1283 | — | in use / newly extracted |
+| `v4_p27_crop_gifts_feathers` | 27 | 2700×1418 | — | in use / newly extracted |
+| `v4_p27_crop_gifts_rose` | 27 | 2640×1418 | — | in use / newly extracted |
+| `v4_p28_crop_miniature_car_hero` | 28 | 3120×1620 | — | in use / newly extracted |
+| `v4_p29_crop_tech_corridor_light` | 29 | 1380×608 | — | in use / newly extracted |
+| `v4_p29_crop_tech_foyer_light` | 29 | 1380×608 | — | in use / newly extracted |
+| `v4_p29_crop_tech_gala_light` | 29 | 1380×608 | — | in use / newly extracted |
+| `v4_p29_crop_tech_gala_sound` | 29 | 1380×608 | — | in use / newly extracted |
+| `v4_p29_crop_tech_led_corridor` | 29 | 1380×608 | — | in use / newly extracted |
+| `v4_p29_crop_tech_led_gala` | 29 | 1380×608 | — | in use / newly extracted |
+| `v4_p30_crop_hall_burgundy_dining` | 30 | 2760×1418 | — | in use / newly extracted |
+| `v4_p30_crop_hall_burgundy_stage` | 30 | 2880×1418 | — | in use / newly extracted |
+| `v4_p30_crop_hall_orange_dining` | 30 | 2760×1418 | — | in use / newly extracted |
+| `v4_p30_crop_hall_orange_stage` | 30 | 2880×1418 | — | in use / newly extracted |
+| `v4_p33_crop_host_1` | 33 | 1320×1418 | — | in use / newly extracted |
+| `v4_p33_crop_host_2` | 33 | 1320×1418 | — | in use / newly extracted |
+| `v4_p33_crop_host_3` | 33 | 1320×1418 | — | in use / newly extracted |
+| `v4_p33_crop_host_4` | 33 | 1320×1418 | — | in use / newly extracted |
+| `v4_p40_crop_dara_ekimova` | 40 | 900×945 | — | in use / newly extracted |
+| `v4_p40_crop_gipsy_kings` | 40 | 2760×1215 | — | in use / newly extracted |
+| `v4_p40_crop_live_show_hero` | 40 | 3480×2430 | — | in use / newly extracted |
+| `v4_p40_crop_mihaela_marinova` | 40 | 900×945 | — | in use / newly extracted |
+| `v4_p40_crop_orlin_pavlov` | 40 | 900×945 | — | in use / newly extracted |
+| `v4_p40_crop_papi_hans` | 40 | 900×945 | — | in use / newly extracted |
+| `v4_p40_crop_the_swan` | 40 | 2760×1215 | — | in use / newly extracted |
 
-## Gaps (not in repo — see owner export list)
+## Existing in-use (pre-2.2)
 
-| PDF p. | Section | Need |
-| --- | ---: | --- |
-| 25–28 | 05 Hospitality | Menus, gifts, miniature car — no dedicated extracts |
-| 29 | 04 Technical | Atmosphere renders for AV/light/LED package |
-| 33 | 03 Entertainment | Hosts imagery |
-| 40 | 03 Entertainment | Celebrity / Gipsy Kings visuals |
-| 19–20 | 04 Technical | Clean 3D mapping renders without price tables |
-| 30 | 06 Alternatives | Hall colour variant renders |
+See `src/content/v4-asset-registry.json` — 66+ legacy crops under `public/media/img/v4_*`.
 
-## Phase 2.2 usage decisions
+## Still needs owner export
 
-- **Use:** performer portraits (p32), Gatsby dancers crop (p34), Mihaela set (p35), cocktail strips (p36), ceremony/finale grid (p37), live band (p39), stage/corridor heroes (p15, p17, p18), LED countdown (p37), centerpieces (p24), hats (p37).
-- **Avoid as hero:** `v4_p34_crop_dance_show_stage_with_quote` (price/quote baked in), `v4_p13_04_1536x1024` (dark multi-panel collage), equipment-only crops unless as small detail.
-- **Borderline quality:** p13 small LED crops, p36 horizontal strips (short height), p17 decor detail crops.
+See [phase2-2-owner-export-list.md](./phase2-2-owner-export-list.md) — mainly celebrity/live-show slides with baked-in titles/prices and compressed client PDF for download.
 
+## Borderline
+
+- `v4_p40_crop_gipsy_kings`, `v4_p40_crop_the_swan`, `v4_p40_crop_live_show_hero` — usable but typography remains.
+- `v4_p33_crop_host_*` — portraits good; price bars may peek on some crops.
+- `v4_p29_crop_tech_*` — small cell crops (~1380×608); adequate for cards, not hero-scale.

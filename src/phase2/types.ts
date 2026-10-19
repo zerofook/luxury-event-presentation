@@ -56,6 +56,7 @@ export interface ProposalClientMeta {
   currencyNoteBg: string;
   itemCount: number;
   investmentIntroBg?: string;
+  investmentClarityBg?: string;
   contactPlaceholderBg?: string;
 }
 

@@ -12,12 +12,15 @@ export function TechnicalStory({
   extraItems: ClientLineItem[];
   indicativeNoteBg?: string;
 }) {
+  const heroes = TECHNICAL_STORY_SLIDES.filter((s) => s.layout === 'hero');
+  const halves = TECHNICAL_STORY_SLIDES.filter((s) => s.layout === 'half');
+
   return (
     <>
-      <div className="p2-tech-story">
-        {TECHNICAL_STORY_SLIDES.map((slide) => (
-          <figure key={slide.assetId} className="p2-tech-story__slide">
-            <div className="p2-tech-story__visual">
+      <div className="p2-tech-story p2-tech-story--large">
+        {heroes.map((slide) => (
+          <figure key={slide.assetId} className="p2-tech-story__slide p2-tech-story__slide--hero">
+            <div className="p2-tech-story__visual p2-tech-story__visual--hero">
               <ResponsivePicture assetId={slide.assetId} objectFit="cover" />
             </div>
             <figcaption>
@@ -26,6 +29,19 @@ export function TechnicalStory({
             </figcaption>
           </figure>
         ))}
+        <div className="p2-tech-story__pair">
+          {halves.map((slide) => (
+            <figure key={slide.assetId} className="p2-tech-story__slide">
+              <div className="p2-tech-story__visual">
+                <ResponsivePicture assetId={slide.assetId} objectFit="cover" />
+              </div>
+              <figcaption>
+                <h3>{slide.titleBg}</h3>
+                <p>{slide.bodyBg}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
       <details className="p2-tech-specs">
         <summary>Технически спецификации и цени от предложението</summary>

@@ -6,7 +6,6 @@ export interface ProgrammeChapterDef {
   leadBg: string;
   heroAssetId: string;
   galleryAssetIds?: string[];
-  /** Match programme line items for this chapter */
   match: (item: ClientLineItem) => boolean;
 }
 
@@ -37,6 +36,19 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
       'v4_p37_crop_cake_cutting',
       'v4_p37_crop_countdown_22',
     ],
+    match: () => false,
+  },
+  {
+    id: 'hosts',
+    titleBg: 'Водещ на вечерта',
+    leadBg:
+      'Предложени водещи с професионално присъствие — изборът определя тона на официалната част и прехода към шоу програмата.',
+    heroAssetId: 'v4_p33_crop_host_2',
+    galleryAssetIds: [
+      'v4_p33_crop_host_1',
+      'v4_p33_crop_host_3',
+      'v4_p33_crop_host_4',
+    ],
     match: (i) => i.area === 'Водещ',
   },
   {
@@ -54,18 +66,27 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     id: 'music',
     titleBg: 'Музикални изпълнения',
     leadBg:
-      'Джаз и поп формати с Михаела Филева и живо шоу след фоайето — предложени комбинации, не финален състав.',
+      'Джаз и поп формати с Михаела Филева и живо шоу след фоайерверките — предложени комбинации, не финален състав.',
     heroAssetId: 'v4_p35_crop_mihaela_portrait',
-    galleryAssetIds: ['v4_p35_crop_mihaela_jazz_quartet', 'v4_p39_crop_live_show_band_dancers'],
+    galleryAssetIds: [
+      'v4_p35_crop_mihaela_jazz_quartet',
+      'v4_p40_crop_live_show_hero',
+      'v4_p39_crop_live_show_band_dancers',
+    ],
     match: (i) => i.source.pdfPage === 35 || i.source.pdfPage === 39,
   },
   {
     id: 'finale',
-    titleBg: 'Празнуване и финал',
+    titleBg: 'Празнуване и звезден финал',
     leadBg:
-      'Преход към party частта и допълнителни звезден формат — опции за след официалната програма.',
-    heroAssetId: 'v4_p37_crop_party_begins_live',
-    galleryAssetIds: ['v4_p38_crop_disco_ball_dancers'],
+      'Party частта и допълнителни звездни формати — опции след официалната програма, с ясно обозначени алтернативи.',
+    heroAssetId: 'v4_p38_crop_disco_ball_dancers',
+    galleryAssetIds: [
+      'v4_p40_crop_gipsy_kings',
+      'v4_p40_crop_the_swan',
+      'v4_p40_crop_mihaela_marinova',
+      'v4_p40_crop_orlin_pavlov',
+    ],
     match: (i) => i.source.pdfPage === 38 || i.source.pdfPage === 40,
   },
 ];

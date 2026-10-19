@@ -57,6 +57,9 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                 извлечения набор.
               </p>
             )}
+            {chapterItems.length === 0 && chapter.id === 'hosts' && (
+              <p className="p2-muted">Няма извлечени ценови редове за водещи в клиентския набор.</p>
+            )}
           </article>
         );
       })}

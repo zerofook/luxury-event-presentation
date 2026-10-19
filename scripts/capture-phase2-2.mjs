@@ -29,20 +29,21 @@ async function preview() {
   throw new Error('preview failed');
 }
 
-const DESKTOP = [
-  { file: '01-pregled', hash: '#/proposal' },
-  { file: '02-dekoracia', hash: '#/proposal?section=dekoracia&sub=dekor-vhod' },
-  { file: '03-programa', hash: '#/proposal?section=programa' },
-  { file: '04-technika', hash: '#/proposal?section=technika' },
-  { file: '05-gostopriemstvo', hash: '#/proposal?section=gostopriemstvo' },
-  { file: '06-alternativi', hash: '#/proposal?section=alternativi' },
-  { file: '07-investicia', hash: '#/proposal?section=investicia' },
+const DESKTOP_SECTIONS = [
+  { file: '01-pregled', id: 'pregled' },
+  { file: '02-dekoracia', id: 'dekoracia' },
+  { file: '03-programa', id: 'programa' },
+  { file: '04-technika', id: 'technika' },
+  { file: '05-gostopriemstvo', id: 'gostopriemstvo' },
+  { file: '06-alternativi', id: 'alternativi' },
+  { file: '07-investicia', id: 'investicia' },
 ];
 
 const MOBILE = [
   { file: 'nav', hash: '#/proposal' },
   { file: 'programa', hash: '#/proposal?section=programa' },
   { file: 'technika', hash: '#/proposal?section=technika' },
+  { file: 'gostopriemstvo', hash: '#/proposal?section=gostopriemstvo' },
   { file: 'alternativi', hash: '#/proposal?section=alternativi' },
   { file: 'investicia', hash: '#/proposal?section=investicia' },
 ];
@@ -56,13 +57,10 @@ const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await page.goto(`${url}#/proposal`, { waitUntil: 'networkidle', timeout: 60000 });
   await page.waitForSelector('.p2-title', { timeout: 60000 });
-  for (const s of DESKTOP) {
-    await page.evaluate((h) => {
-      window.location.hash = h;
-    }, s.hash);
-    await page.waitForTimeout(1200);
-    await page.waitForSelector('.p2-title', { timeout: 60000 });
-    await page.screenshot({ path: path.join(OUT, `desktop-1440-${s.file}.png`) });
+  for (const s of DESKTOP_SECTIONS) {
+    await page.locator(`#${s.id}`).scrollIntoViewIfNeeded();
+    await page.waitForTimeout(400);
+    await page.locator(`#${s.id}`).screenshot({ path: path.join(OUT, `desktop-1440-${s.file}-full.png`) });
   }
   await page.close();
 }
@@ -75,9 +73,9 @@ const browser = await chromium.launch();
     await page.evaluate((h) => {
       window.location.hash = h;
     }, s.hash);
-    await page.waitForTimeout(1200);
+    await page.waitForTimeout(1000);
     await page.waitForSelector('.p2-title', { timeout: 60000 });
-    await page.screenshot({ path: path.join(OUT, `mobile-390-${s.file}.png`) });
+    await page.screenshot({ path: path.join(OUT, `mobile-390-${s.file}.png`), fullPage: true });
   }
   await page.close();
 }
