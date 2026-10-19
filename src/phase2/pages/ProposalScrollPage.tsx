@@ -26,6 +26,7 @@ import { HospitalityEditorial } from '../components/HospitalityEditorial';
 import { PaletteComparison } from '../components/PaletteComparison';
 import { InvestmentEditorial } from '../components/InvestmentEditorial';
 import { ContactClosing } from '../components/ContactClosing';
+import { DecorationOverview } from '../components/DecorationOverview';
 
 const CATEGORY_CARDS: {
   section: ProposalSectionId;
@@ -191,13 +192,13 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             </div>
           </section>
 
-          <section id="dekoracia" className="p2-section-block p2-section-block--intro">
+          <section id="dekoracia" className="p2-section-block p2-section-block--dekor">
             <p className="p2-eyebrow">02 · Декорация</p>
             <h2 className="p2-title">Декорация и сценография</h2>
             <p className="p2-lead">
               Всяко пространство с собствен ритъм — силни рендери, кратък контекст и оферти от предложението.
             </p>
-          </section>
+            <DecorationOverview />
 
           {DECORATION_SUBSECTIONS.map((sub, idx) => {
             const areaItems = itemsForAreas(bundle.items, [...sub.areas]);
@@ -207,7 +208,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                 : sub.areas.map((a) => AREA_HERO_ASSET[a]).find(Boolean);
             const layout = DEKOR_LAYOUT[idx % DEKOR_LAYOUT.length];
             return (
-              <section key={sub.id} id={sub.id} className={`p2-section-block p2-area ${layout}`}>
+              <div key={sub.id} id={sub.id} className={`p2-area p2-area--subsection ${layout}`}>
                 <h3 className="p2-area__title">{sub.labelBg}</h3>
                 {hero && (
                   <div className="p2-area__visual">
@@ -243,9 +244,10 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                 {sub.id !== 'dekor-foto' && areaItems.length === 0 && (
                   <p className="p2-muted">Няма отделни ценови редове за тази зона в извлечения набор.</p>
                 )}
-              </section>
+              </div>
             );
           })}
+          </section>
 
           <section id="programa" className="p2-section-block">
             <p className="p2-eyebrow">03 · Програма</p>

@@ -15,7 +15,7 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     titleBg: 'Коктейл и първи впечатления',
     leadBg:
       'Живи инсталации и перформанси в Art Deco дух — предложени артисти за фоайето и коктейлната част, преди официалното откриване.',
-    heroAssetId: 'v4_p32_crop_performer2',
+    heroAssetId: 'v4_p08_00_1374x1145',
     galleryAssetIds: [
       'v4_p32_crop_performer1',
       'v4_p32_crop_performer3',
@@ -67,12 +67,8 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     titleBg: 'Музикални изпълнения',
     leadBg:
       'Джаз и поп формати с Михаела Филева и живо шоу след фоайерверките — предложени комбинации, не финален състав.',
-    heroAssetId: 'v4_p35_crop_mihaela_portrait',
-    galleryAssetIds: [
-      'v4_p35_crop_mihaela_jazz_quartet',
-      'v4_p40_crop_live_show_hero',
-      'v4_p39_crop_live_show_band_dancers',
-    ],
+    heroAssetId: 'v4_p39_crop_live_show_band_dancers',
+    galleryAssetIds: ['v4_p35_crop_mihaela_jazz_quartet', 'v4_p35_crop_mihaela_with_dancers'],
     match: (i) => i.source.pdfPage === 35 || i.source.pdfPage === 39,
   },
   {
@@ -81,12 +77,7 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     leadBg:
       'Party частта и допълнителни звездни формати — опции след официалната програма, с ясно обозначени алтернативи.',
     heroAssetId: 'v4_p38_crop_disco_ball_dancers',
-    galleryAssetIds: [
-      'v4_p40_crop_gipsy_kings',
-      'v4_p40_crop_mihaela_marinova',
-      'v4_p40_crop_orlin_pavlov',
-      'v4_p40_crop_papi_hans',
-    ],
+    galleryAssetIds: ['v4_p40_crop_gipsy_kings', 'v4_p40_crop_mihaela_marinova'],
     match: (i) => i.source.pdfPage === 38 || i.source.pdfPage === 40,
   },
 ];

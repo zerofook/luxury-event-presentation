@@ -61,8 +61,8 @@ const jobs = [
   [27, { left: 0.28, top: 0.18, width: 0.22, height: 0.38 }, 'v4_p26_crop_menu_vision2', 26],
   [27, { left: 0.51, top: 0.18, width: 0.22, height: 0.38 }, 'v4_p26_crop_menu_vision3', 26],
   [27, { left: 0.74, top: 0.18, width: 0.22, height: 0.38 }, 'v4_p26_crop_menu_vision4', 26],
-  [28, { left: 0.04, top: 0.14, width: 0.45, height: 0.42 }, 'v4_p27_crop_gifts_feathers', 27],
-  [28, { left: 0.52, top: 0.14, width: 0.44, height: 0.42 }, 'v4_p27_crop_gifts_rose', 27],
+  [28, { left: 0.04, top: 0.42, width: 0.42, height: 0.32 }, 'v4_p27_crop_gifts_feathers', 27],
+  [28, { left: 0.52, top: 0.42, width: 0.42, height: 0.32 }, 'v4_p27_crop_gifts_rose', 27],
   [29, { left: 0.18, top: 0.38, width: 0.2, height: 0.24 }, 'v4_p28_crop_miniature_car_hero', 28],
   // Technical audit p29 on PDF 30 — atmosphere cells (picture areas only)
   [30, { left: 0.03, top: 0.14, width: 0.23, height: 0.18 }, 'v4_p29_crop_tech_foyer_light', 29],

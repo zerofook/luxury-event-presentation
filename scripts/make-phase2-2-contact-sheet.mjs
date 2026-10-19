@@ -15,13 +15,13 @@ const SHEET = [
   { n: 4, id: 'v4_p32_crop_performer2', page: 32, section: '03 Entertainment', status: 'in use' },
   { n: 5, id: 'v4_p33_crop_host_2', page: 33, section: '03 Hosts', status: 'newly extracted' },
   { n: 6, id: 'v4_p34_crop_dance_show_dancers', page: 34, section: '03 Gatsby', status: 'in use' },
-  { n: 7, id: 'v4_p29_crop_tech_gala_light', page: 29, section: '04 Technical', status: 'newly extracted' },
-  { n: 8, id: 'v4_p19_crop_mapping_hall_left', page: 19, section: '04 3D mapping', status: 'newly extracted' },
-  { n: 9, id: 'v4_p25_crop_menu_spread', page: 25, section: '05 Hospitality', status: 'newly extracted' },
-  { n: 10, id: 'v4_p28_crop_miniature_car_hero', page: 28, section: '05 Gift', status: 'newly extracted' },
+  { n: 7, id: 'v4_p21_00_1851x849', page: 21, section: '04 Technical lighting', status: 'in use (clean render)' },
+  { n: 8, id: 'v4_p14_01_1134x680', page: 14, section: '04 Corridor', status: 'in use (clean render)' },
+  { n: 9, id: 'v4_p24_crop_centerpiece_v1', page: 24, section: '05 Hospitality', status: 'in use' },
+  { n: 10, id: 'v4_p08_00_1374x1145', page: 8, section: '02 Cocktail', status: 'in use' },
   { n: 11, id: 'v4_p30_crop_hall_orange_stage', page: 30, section: '06 Alternatives', status: 'newly extracted' },
-  { n: 12, id: 'v4_p40_crop_gipsy_kings', page: 40, section: '03 Finale', status: 'newly extracted (borderline text)' },
-  { n: 13, id: 'v4_p40_crop_live_show_hero', page: 39, section: '03 Music', status: 'newly extracted (borderline text)' },
+  { n: 12, id: 'v4_p40_crop_gipsy_kings', page: 40, section: '03 Finale', status: 'tight photo crop' },
+  { n: 13, id: 'v4_p39_crop_live_show_band_dancers', page: 39, section: '03 Music', status: 'photo crop' },
   { n: 14, id: 'v4_p18_crop_hall_clean_left', page: 18, section: '07 Investment', status: 'in use' },
 ];
 
@@ -33,13 +33,17 @@ const rows = Math.ceil(SHEET.length / cols);
 const pad = 10;
 
 async function thumb(id) {
-  for (const w of [380, 640, 1024, 2048]) {
-    const p = path.join(IMG_DIR, `${id}-${w}.jpg`);
-    if (fs.existsSync(p)) {
-      return sharp(p).resize(cellW - pad * 2, imgH, { fit: 'cover' }).jpeg({ quality: 85 });
-    }
-  }
-  throw new Error(`missing ${id}`);
+  const candidates = fs
+    .readdirSync(IMG_DIR)
+    .filter((f) => f.startsWith(`${id}-`) && f.endsWith('.jpg') && !f.includes('-lqip'))
+    .sort((a, b) => {
+      const wa = Number(a.match(/-(\d+)\.jpg$/)?.[1] ?? 0);
+      const wb = Number(b.match(/-(\d+)\.jpg$/)?.[1] ?? 0);
+      return wb - wa;
+    });
+  const pick = candidates[0];
+  if (!pick) throw new Error(`missing ${id}`);
+  return sharp(path.join(IMG_DIR, pick)).resize(cellW - pad * 2, imgH, { fit: 'cover' }).jpeg({ quality: 85 });
 }
 
 const composites = [];

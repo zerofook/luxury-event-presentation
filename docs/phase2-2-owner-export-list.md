@@ -1,46 +1,52 @@
 # Owner export list (only what we could not extract cleanly)
 
-We extracted most visuals from the approved Canva PDF in the agent environment (`pdfimages` + `pdftoppm` at 300 dpi). **Only request the items below** if you have separate design layers or original photo files.
+We use **full clean renders** and **tight photo-only crops** from the approved PDF where possible. Request the items below only if you have separate design layers or original photo files.
 
 ---
 
-### 1 — Celebrity portraits without name/price overlays (Priority: high)
+### 1 — Hospitality menus & gifts (Priority: high)
 
 | PDF page | What to export | Format & size | Save as | Used for |
 | --- | --- | --- | --- | --- |
-| **40** | **The Swan** formation photo without price strip or title (piano / performers only) | JPG or PNG, long edge **≥ 2400 px** | `p40-the-swan-clean.jpg` | `public/media/img/v4_p40_crop_the_swan_clean-*` — Entertainment finale (not shown large until clean) |
-| **40** | Bottom row **Bulgarian artists** (6 headshots) — each portrait **without** the name/price bar at the bottom | Same | `p40-artist-<name>-clean.jpg` | Optional upgrade for finale cards |
-
-*Why:* Current crops still include baked-in typography from the slide layout.
-
----
-
-### 2 — Live show hero without typography (Priority: medium)
-
-| PDF page | What to export | Format & size | Save as | Used for |
-| --- | --- | --- | --- | --- |
-| **39** | *(Optional upgrade)* **Vessela Boneva & Kalin Velyov** stage photo — higher-res master without slide chrome | JPG, **≥ 2400 px** wide | `p39-live-show-clean.jpg` | Optional replacement for `v4_p39_crop_live_show_band_dancers` |
-
-*Why:* We use a tight photo crop from the slide; a clean layer would improve quality.
+| **25–26** | Menu spreads / fan / gramophone menus — **photo of printed menu only**, no „STARTER / MAIN / DESSERT“ or price lines | JPG, long edge **≥ 2400 px** | `p25-menu-clean.jpg`, `p26-menu-vision-clean.jpg` | `#gostopriemstvo` gallery (currently **text rows only**) |
+| **27–28** | Guest gifts & hair accessories — product photos **without** „~5 €“, „БЕЗ ДДС“, titles | Same | `p27-gifts-clean.jpg` | `#gostopriemstvo` |
+| **28** | Miniature car on plinth — **car only**, no „500 K“ plate text or „GEOTRADING“ slide chrome | Same | `p28-mini-car-clean.jpg` | Optional hospitality / decoration |
 
 ---
 
-### 3 — Original PDF for download link (Priority: medium, operational)
+### 2 — Celebrity & artist slides (Priority: high)
 
-| Item | What we need | Notes |
+| PDF page | What to export | Notes |
 | --- | --- | --- |
-| **42-page client PDF** | A **compressed** export (under ~25 MB if possible) for the website „Изтегли концептуалната презентация“ button | Save as `public/sources/v4/presentation.pdf` |
+| **40** | **The Swan** — piano/performers without „55 000 €“ and titles | Not shown in finale gallery until clean |
+| **40** | **Bulgarian artists** row (Orlin Pavlov, Papi Hans, …) — headshots without name/price bars | Removed from `#programa` finale gallery |
+| **39** | *(Optional)* Higher-res **live show** master without slide chrome | We use a tight photo crop from p39 |
 
-*Why:* Full Canva export is ~291 MB — too large for the repository; the link should still work on GitHub Pages.
-
----
-
-### Pages with **no separate clean image layer** (do not re-export unless you have masters)
-
-- **29 — Technical grid:** atmosphere photos are only inside numbered cells with price chips; we use **cell crops** (acceptable quality). A single full-bleed „lit hall“ layer **does not exist** on the page.
-- **33 — Hosts:** portraits are usable after crop; **name and price bars** remain at the bottom of each card in PDF-only form.
-- **25–28 — Menus & gifts:** extracted menu/gift photos are **in use**; cleaner masters would help but are optional.
+**Gipsy Kings:** tight guitar photo crop is in use (no price chip).
 
 ---
 
-When sending files, email or share the folder and tell us the filenames match the table above — we will wire them into `public/media/img/` and update the asset registry.
+### 3 — Small embedded crops used large (Priority: medium — softness)
+
+These load but render **>1.5× native width** at 1440 px desktop (soft). Prefer owner masters **≥ 2400 px** wide:
+
+| Asset / page | Issue |
+| --- | --- |
+| **37** ceremony steps (`v4_p37_crop_*`) | ~480 px wide crops used as 1128 px heroes |
+| **32** cocktail performers (`v4_p32_crop_*`) | ~380 px wide — used only in gallery thumbs |
+| **24** centerpieces | ~506 px — used in hospitality grid |
+| **04** entrance palette crops | Prefer `v4_p05_crop_entrance_hero_clean` (in use where possible) |
+
+---
+
+### 4 — Original PDF for download (operational)
+
+| Item | What we need |
+| --- | --- |
+| **42-page client PDF** | Compressed export (**≤ 25 MB**) → `public/sources/v4/presentation.pdf` |
+
+*Do not commit the 291 MB / 167 MB full export to git.*
+
+---
+
+When sending files, match the filenames above — we will register `textFree: true` in `v4-asset-registry.json` after visual QA.

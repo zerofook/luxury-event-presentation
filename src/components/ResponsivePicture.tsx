@@ -43,7 +43,11 @@ export function ResponsivePicture({
   const formats = asset.formats ?? ['avif', 'webp', 'jpg'];
 
   return (
-    <picture className={className} style={{ display: 'block', width: '100%', height: '100%' }}>
+    <picture
+      className={className}
+      data-asset-id={assetId}
+      style={{ display: 'block', width: '100%', height: '100%' }}
+    >
       {formats.includes('avif') && avif ? <source type="image/avif" srcSet={avif} sizes={sizes} /> : null}
       {formats.includes('webp') && webp ? <source type="image/webp" srcSet={webp} sizes={sizes} /> : null}
       <img

@@ -2,15 +2,11 @@ import { ResponsivePicture } from '@/components/ResponsivePicture';
 import type { ClientLineItem } from '../types';
 import { ItemRowList } from './ItemRowList';
 
+/** Photo-only table decor renders — menus/gifts/mini-car need owner clean layers. */
 const HOSPITALITY_GALLERY = [
-  { assetId: 'v4_p25_crop_menu_spread', captionBg: 'Тематични менюта — варианти от предложението' },
-  { assetId: 'v4_p25_crop_menu_fan', captionBg: 'Меню на ветрило' },
-  { assetId: 'v4_p26_crop_menu_vision1', captionBg: 'Меню на грамофонна плоча — класическа визия' },
-  { assetId: 'v4_p26_crop_menu_vision4', captionBg: 'Меню — златна премиум визия' },
-  { assetId: 'v4_p27_crop_gifts_feathers', captionBg: 'Подаръци и аксесоари за гостите' },
-  { assetId: 'v4_p27_crop_gifts_rose', captionBg: 'Златна роза в луксозна опаковка' },
-  { assetId: 'v4_p28_crop_miniature_car_hero', captionBg: 'Миниатюрен автомобил на постament' },
-  { assetId: 'v4_p24_crop_centerpiece_v1', captionBg: 'Флорални композиции на масите' },
+  { assetId: 'v4_p24_crop_centerpiece_v1', captionBg: 'Флорална композиция — светла гама' },
+  { assetId: 'v4_p24_crop_centerpiece_v2', captionBg: 'Флорална композиция — оранжева гама' },
+  { assetId: 'v4_p24_crop_centerpiece_v3', captionBg: 'Флорална композиция — слива и бордо' },
 ] as const;
 
 export function HospitalityEditorial({ items }: { items: ClientLineItem[] }) {
@@ -19,7 +15,9 @@ export function HospitalityEditorial({ items }: { items: ClientLineItem[] }) {
       <div className="p2-hospitality-gallery">
         {HOSPITALITY_GALLERY.map((g) => (
           <figure key={g.assetId} className="p2-hospitality-gallery__item">
-            <ResponsivePicture assetId={g.assetId} objectFit="cover" />
+            <div className="p2-hospitality-gallery__visual">
+              <ResponsivePicture assetId={g.assetId} objectFit="cover" sizes="(min-width: 900px) 380px, 45vw" />
+            </div>
             <figcaption>{g.captionBg}</figcaption>
           </figure>
         ))}

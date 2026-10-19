@@ -1,24 +1,27 @@
-# Phase 2.2 — Changelog (bug fix round)
+# Phase 2.2 — Changelog (post-merge fix round)
 
-## Root cause — empty Technical / Programme visuals
-- Phase 2.2 asset ids (`v4_p29_*`, `v4_p19_*`, `v4_p33_*`, hospitality crops, etc.) existed on disk and in `v4-asset-registry.json` but were **missing from** `assets.v4.generated.ts`, so `ResponsivePicture` returned `null` (blank `.p2-tech-story__visual` / `.p2-programme-chapter__hero` boxes).
-- JPG-only phase 2.2 ladders had **no AVIF/WebP** files; `<picture>` still advertised AVIF/WebP sources, so the browser selected broken URLs and showed empty slots.
+## Merge
+- Merged **`origin/main`** at **`dc60cdf`** (PR #9 Guest Experience copy fixes) into PR #8 branch via **merge commit** — Phase 1 copy (`site.bg.ts`, `bodyParagraphsBg`, Passage/Editorial scenes) preserved from main.
 
-## Fixes
-- **`scripts/generate-v4-assets.mjs`** — regenerates the v4 manifest from the registry (with per-asset `formats` detected on disk). Wired into `npm run validate` as `assets:v4`.
-- **`scripts/validate-phase2-assets.mjs`** — fails validate if any `src/phase2` `assetId` is absent from the merged manifest.
-- **`ResponsivePicture`** — omits `<source>` tags for formats not listed on the asset (defaults to avif+webp+jpg when all exist).
-- **`scripts/verify-proposal-images.mjs`** — Playwright smoke on production `dist/` after `build:pages`: scrolls `#/proposal`, requires every `img` `naturalWidth > 0` and no empty visual/hero slots.
-- **Tighter PDF crops** (`extract-phase2-2-fix.mjs`, `ONLY_IDS` for selective re-run): p28 car, p39 live show, p40 Gipsy Kings; **The Swan** dropped from finale gallery (no clean crop) — listed in owner export list.
-- **Capture / record** scripts use `VITE_BASE=/luxury-event-presentation/` preview URL (matches GitHub Pages).
+## #dekoracia
+- `#dekoracia` now wraps the full decoration block (overview + subsections) with **`DecorationOverview`** — 6 clean registry renders (entrance, cocktail, corridor, hall, stage, photo wall).
+- Subsections remain as scroll targets (`dekor-vhod`, …) inside the same section.
 
-## Verification (this round)
-- `npm run validate` — OK (includes `validate-phase2-assets`)
-- `npm run build:pages` — OK + **`verify-proposal-images: OK (62 images loaded)`** (all four technical visuals loaded as `.jpg`)
-- `node scripts/verify-dist-pricing.mjs` — OK
-- `node scripts/verify-pages-base.mjs` — OK
-- Manual review of refreshed `docs/screenshots/phase2-2/desktop-1440-04-technika-full.png`, `03-programa-full.png`, and crop JPGs under `public/media/img/` (hosts, car, live show, Gipsy Kings).
-- Desktop scroll video re-recorded: `docs/artifacts/phase2-2-scroll-desktop.mp4` (~5.5 MB).
+## #technika
+- Technical story uses **full clean renders** only: `v4_p21_00_1851x849`, `v4_p17_crop_stage_hero`, `v4_p14_01_1134x680`, `v4_p18_crop_hall_clean_left` (removed p29 icon strips and p19 spec typography).
 
-## PDF download
-- Link target unchanged (`public/sources/v4/presentation.pdf`); file still not committed (owner compressed PDF pending).
+## #programa
+- Removed baked-text crops: `v4_p40_crop_live_show_hero`, `v4_p40_crop_orlin_pavlov`, `v4_p40_crop_papi_hans`.
+- Music hero → `v4_p39_crop_live_show_band_dancers` (photo crop); cocktail hero → `v4_p08_00_1374x1145`.
+
+## #gostopriemstvo
+- Gallery deduped to **three centerpiece renders** only; menus/gifts/mini-car deferred to owner export list.
+
+## Layout & QA
+- CSS: image slots fill card width (`object-fit: cover`, explicit `picture`/`img` sizing); programme gallery uses `auto-fill`; `scroll-margin-top` for sticky header.
+- Registry **`textFree`** flag + `scripts/annotate-v4-text-free.mjs` (runs in `validate`).
+- **`verify-proposal-images`**: section min-heights, `textFree` on gallery slots, upscaled warnings (>1.5× natural width).
+
+## Verification
+- `npm run validate`, `npm run build:pages` (+ image smoke), `verify-dist-pricing`, `verify-pages-base`, `verify-client-copy`.
+- Refreshed `docs/screenshots/phase2-2/`, contact sheet, `docs/artifacts/phase2-2-scroll-desktop.mp4`.

@@ -5,6 +5,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const PHASE2 = path.join(ROOT, 'src/phase2');
+const DECOR_OVERVIEW = path.join(ROOT, 'src/phase2/data/decorationOverview.ts');
 
 /** @type {Set<string>} */
 const assetIds = new Set();
@@ -25,6 +26,10 @@ function walk(dir) {
 }
 
 walk(PHASE2);
+if (fs.existsSync(DECOR_OVERVIEW)) {
+  const text = fs.readFileSync(DECOR_OVERVIEW, 'utf8');
+  for (const m of text.matchAll(/assetId:\s*['"`](v4_[^'"`]+)['"`]/g)) assetIds.add(m[1]);
+}
 
 // Dynamic import of generated assets (via regex on generated file — no TS compile)
 const genPath = path.join(ROOT, 'src/content/assets.v4.generated.ts');

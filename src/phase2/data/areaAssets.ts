@@ -6,7 +6,7 @@ export const AREA_HERO_ASSET: Record<string, string> = {
   'Златен коридор': 'v4_p14_01_1134x680',
   Сцена: 'v4_p17_crop_stage_hero',
   'Гала зала': 'v4_p18_crop_hall_clean_left',
-  '3D мапинг': 'v4_p17_crop_stage_hero',
+  '3D мапинг': 'v4_p18_crop_hall_clean_left',
   'Декорация на масите': 'v4_p24_crop_centerpiece_v1',
 };
 
