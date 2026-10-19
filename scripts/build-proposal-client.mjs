@@ -252,7 +252,7 @@ function patchTableDecorPaletteClientItem(item) {
     source: {
       sourceType: 'owner-provided',
       date: '2026-10-19',
-      labelBg: 'Потвърдено от възложителя · 2026-10-19 · слайд #26',
+      labelBg: 'Страница 24 · одобрено предложение',
       fileRef: 'sources/v4/owner/additions/doc-026-tables-palettes-slide.jpg',
     },
   };

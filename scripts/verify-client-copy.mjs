@@ -83,6 +83,8 @@ const FORBIDDEN_PHRASES = [
   'собственика',
   'частични суми',
   'общо по предложението',
+  'слайд #',
+  'Потвърдено от възложителя',
 ];
 
 /** Former venue branding — must not appear in client-facing output. */
