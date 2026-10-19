@@ -1850,3 +1850,18 @@ button.p2-btn {
 .p2-programme-chapter .p2-owner-text-slide {
   margin: 1rem 0 0.5rem;
 }
+
+/* Logo: all caps with full-height (lining) numerals */
+.p2-logo {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 1.15rem;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'lnum' 1;
+}
+
+@media (max-width: 640px) {
+  .p2-logo {
+    font-size: 0.98rem;
+  }
+}
