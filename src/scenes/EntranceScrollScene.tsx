@@ -39,9 +39,6 @@ export function EntranceScrollScene({ entrance, entranceTransition, ui }: Props)
         : 0;
   const videoOpacity = reduced ? 0 : naturalMode ? 1 - stillOpacity * 0.85 : ended && dissolve ? 0 : 1;
   const gradientReveal = reduced ? 0 : Math.min(1, progress * 2);
-  const scrollStillId = entrance.scrollStillAssetId ?? entrance.stillAssetId;
-  const scrollStillFit = entrance.scrollStillObjectFit ?? 'cover';
-  const scrollStillPosition = entrance.scrollStillObjectPosition;
 
   return (
     <section id="scene-grand-entrance" className="hero-entrance" aria-label={ui.ariaEntranceSectionBg}>
@@ -85,11 +82,7 @@ export function EntranceScrollScene({ entrance, entranceTransition, ui }: Props)
               />
             )}
             <div className="hero-entrance__still" style={{ opacity: stillOpacity }}>
-              <ResponsivePicture
-                assetId={scrollStillId}
-                objectFit={scrollStillFit}
-                objectPosition={scrollStillPosition}
-              />
+              <ResponsivePicture assetId={entrance.stillAssetId} objectFit="cover" />
             </div>
             {needsTap && !reduced && (
               <button type="button" className="play-affordance" onClick={() => void tryPlay()}>

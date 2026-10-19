@@ -57,10 +57,6 @@ export interface VideoEntranceSceneData {
   posterSrc: string;
   stillAssetId: string;
   stillAltAssetId?: string;
-  /** Full-bleed still after entrance video crossfade (defaults to stillAssetId). */
-  scrollStillAssetId?: string;
-  scrollStillObjectFit?: 'cover' | 'contain';
-  scrollStillObjectPosition?: string;
   width: number;
   height: number;
   titleBg: string;

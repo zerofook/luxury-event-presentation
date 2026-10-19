@@ -1,7 +1,6 @@
 {
   "ingested": [
     "v4_owner_doc_001_entrance_clean",
-    "v4_owner_doc_002_entrance_callouts",
     "v4_owner_doc_003_champagne_tray_performer",
     "v4_owner_doc_004_champagne_tray_group",
     "v4_owner_doc_005_giant_glass_acrobat",
@@ -41,5 +40,5 @@
     "v4_owner_doc_015b_corridor_florals_crop",
     "v4_owner_doc_stage_gatsby_22"
   ],
-  "generated": "2026-10-19T14:07:14.396Z"
+  "generated": "2026-10-19T12:03:29.342Z"
 }
