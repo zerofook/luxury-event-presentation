@@ -18,6 +18,7 @@ import { formatItemPrice } from '../lib/formatMoney';
 import { StatusChip } from '../components/StatusChip';
 import { scrollToSection, useScrollSpy } from '../hooks/useScrollSpy';
 import { proposalHref, type ProposalSectionId } from '../navigation/sections';
+import { AdditionalPerformersGallery } from '../components/AdditionalPerformersGallery';
 import { EntertainmentProgramme } from '../components/EntertainmentProgramme';
 import { TechnicalStory } from '../components/TechnicalStory';
 import { HospitalityEditorial } from '../components/HospitalityEditorial';
@@ -27,7 +28,6 @@ import { ContactClosing } from '../components/ContactClosing';
 import { DecorationOverview } from '../components/DecorationOverview';
 import { PhotoZoneGallery } from '../components/PhotoZoneGallery';
 import { GalaHallVisuals } from '../components/GalaHallVisuals';
-import { AdditionalPerformersGallery } from '../components/AdditionalPerformersGallery';
 
 const CATEGORY_CARDS: {
   section: ProposalSectionId;

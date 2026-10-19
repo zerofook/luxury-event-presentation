@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19T11:32:21.397Z",
+  "generated": "2026-10-19T12:38:39.086Z",
   "assets": [
     {
       "id": "v4_p02_00_1688x932",
@@ -1353,6 +1353,69 @@
       "provenance": "owner-export",
       "altBg": "Декор на сцената — Gatsby сценография с LED „22 години GEOTRADING“",
       "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_026_tables_palettes_slide",
+      "width": 1620,
+      "height": 1080,
+      "sourcePath": "sources/v4/owner/additions/doc-026-tables-palettes-slide.jpg",
+      "provenance": "owner-export",
+      "ownerApprovedTextSlide": true,
+      "altBg": "Слайд: декор на гостни маси — три палитри, пакет 390 € на маса без ДДС, включени подложни чинии, покривка, аранжировки и салфетни декорации"
+    },
+    {
+      "id": "v4_owner_doc_027_menu_gramophone_slide",
+      "width": 1920,
+      "height": 1080,
+      "sourcePath": "sources/v4/owner/additions/doc-027-menu-slide.jpg",
+      "provenance": "owner-export",
+      "ownerApprovedTextSlide": true,
+      "altBg": "Слайд: меню върху грамофонна плоча — четири визии, 15 € за брой без ДДС, декорация с пера и лого на събитието"
+    },
+    {
+      "id": "v4_owner_doc_028_guest_gifts_slide",
+      "width": 1620,
+      "height": 1080,
+      "sourcePath": "sources/v4/owner/additions/doc-028-gifts-slide.jpg",
+      "provenance": "owner-export",
+      "ownerApprovedTextSlide": true,
+      "altBg": "Слайд: подаръци за гостите — бюджет 10 € на човек без ДДС; аксесоари за коса около 5 € за брой"
+    },
+    {
+      "id": "v4_owner_doc_029_vintage_car_gift_slide",
+      "width": 1612,
+      "height": 1075,
+      "sourcePath": "sources/v4/owner/additions/doc-029-gift-vintage-car-slide.jpg",
+      "provenance": "owner-export",
+      "ownerApprovedTextSlide": true,
+      "altBg": "Слайд: колекционерски модел Mercedes-Benz 500K на светещ постамент — 45 € за брой без ДДС; брандиране не е включено"
+    },
+    {
+      "id": "v4_owner_doc_030_technical_package_slide",
+      "width": 1601,
+      "height": 1068,
+      "sourcePath": "sources/v4/owner/additions/doc-030-technical-slide.jpg",
+      "provenance": "owner-export",
+      "ownerApprovedTextSlide": true,
+      "altBg": "Слайд: техническо обезпечаване — осветление, LED, сцени, озвучаване и допълнителни услуги; обща цена на слайда 59 220 € без ДДС"
+    },
+    {
+      "id": "v4_owner_doc_036_gatsby_dance_slide",
+      "width": 1838,
+      "height": 1029,
+      "sourcePath": "sources/v4/owner/additions/doc-036-opera-gatsby-slide.jpg",
+      "provenance": "owner-export",
+      "ownerApprovedTextSlide": true,
+      "altBg": "Слайд: танцово шоу „Великият Гетсби“ — 10 танцьора 3 500 € или 6 танцьора 2 500 € без ДДС"
+    },
+    {
+      "id": "v4_owner_doc_additional_performers_slide",
+      "width": 4658,
+      "height": 3105,
+      "sourcePath": "sources/v4/owner/additions/performers-slide.jpg",
+      "provenance": "owner-export",
+      "ownerApprovedTextSlide": true,
+      "altBg": "Слайд: допълнителни предложения за изпълнители — Gipsy Kings, The Swan, Михаела Маринова и други; цени на слайда без ДДС или по запитване"
     }
   ]
 }

@@ -236,6 +236,28 @@ function ensureVintageCarItem(bundle) {
   bundle.meta.itemCount = bundle.items.length;
 }
 
+const TABLE_DECOR_PALETTE_IDS = ['p24-tables-orange', 'p24-tables-ivory', 'p24-tables-plum'];
+
+function patchTableDecorPaletteClientItem(item) {
+  if (!TABLE_DECOR_PALETTE_IDS.includes(item.id)) return item;
+  return {
+    ...item,
+    unit: 'маса',
+    unitPrice: 390,
+    lineTotal: null,
+    currency: 'EUR',
+    vatTreatment: 'БЕЗ ДДС',
+    priceType: 'unit_price',
+    proposalStatus: 'alternative',
+    source: {
+      sourceType: 'owner-provided',
+      date: '2026-10-19',
+      labelBg: 'Страница 24 · одобрено предложение',
+      fileRef: 'sources/v4/owner/additions/doc-026-tables-palettes-slide.jpg',
+    },
+  };
+}
+
 function patchStageFloralsItem(item) {
   if (item.id !== 'p17-stage-florals') return item;
   /** PDF p17 prints 12×220 € and 2 904 € total — arithmetic mismatch; show unit × qty only. */
@@ -300,7 +322,9 @@ ensureRoundBarItem(bundle);
 bundle.items = bundle.items.map((i) => patchVintageCarMedia(patchVintageCarItem(i)));
 fs.writeFileSync(AUDIT_PATH, JSON.stringify(bundle, null, 1));
 
-const clientItems = bundle.items.map((i) => patchStageFloralsItem(toClientItem(i)));
+const clientItems = bundle.items.map((i) =>
+  patchTableDecorPaletteClientItem(patchStageFloralsItem(toClientItem(i))),
+);
 
 const client = {
   meta: {

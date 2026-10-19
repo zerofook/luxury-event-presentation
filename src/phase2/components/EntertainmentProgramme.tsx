@@ -1,4 +1,5 @@
 import { CompactAssetStrip } from './CompactAssetStrip';
+import { OwnerTextSlideFigure } from './OwnerTextSlideFigure';
 import { ProposalPicture } from './ProposalPicture';
 import { assets } from '@/content/assets';
 import { PROGRAMME_CHAPTERS, itemsForChapter } from '../data/programmeChapters';
@@ -111,13 +112,13 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                     {chapter.galleryAssetIds.map((id) => (
                       <div
                         key={id}
-                        className={`p2-programme-chapter__thumb${chapter.galleryPortraitIds?.includes(id) ? ' p2-programme-chapter__thumb--portrait' : ''}${chapter.id === 'hosts' && id.includes('host_1') ? ' p2-programme-chapter__thumb--host' : ''}`}
+                        className={`p2-programme-chapter__thumb${chapter.galleryPortraitIds?.includes(id) ? ' p2-programme-chapter__thumb--portrait' : ''}${chapter.id === 'hosts' ? ' p2-programme-chapter__thumb--host' : ''}`}
                       >
                         <ProposalPicture
                           assetId={id}
                           layout="fill"
                           objectFit="cover"
-                          objectPosition={chapter.id === 'hosts' && id.includes('host_1') ? '50% 18%' : undefined}
+                          objectPosition={chapter.id === 'hosts' ? '50% 26%' : undefined}
                           sizes="(min-width: 1024px) 280px, 30vw"
                           capScale={1}
                         />
@@ -127,6 +128,10 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                 )
               )
             ) : null}
+
+            {chapter.id === 'gatsby-show' && (
+              <OwnerTextSlideFigure assetId="v4_owner_doc_036_gatsby_dance_slide" />
+            )}
 
             {chapter.id === 'gatsby-show' && gatsbySpotlight && (
               <div className="p2-programme-chapter__spotlight p2-programme-chapter__spotlight--gatsby p2-programme-chapter__spotlight--text-only">

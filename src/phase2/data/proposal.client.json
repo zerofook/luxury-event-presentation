@@ -501,9 +501,10 @@
       "bookingStatus": "not_applicable",
       "alternativeGroup": "PALETTE_TABLE_DECOR",
       "source": {
-        "sourceType": "pdf",
-        "pdfPage": 24,
-        "labelBg": "Страница 24 · одобрено предложение"
+        "sourceType": "owner-provided",
+        "date": "2026-10-19",
+        "labelBg": "Страница 24 · одобрено предложение",
+        "fileRef": "sources/v4/owner/additions/doc-026-tables-palettes-slide.jpg"
       },
       "mediaPath": null
     },
@@ -514,20 +515,21 @@
       "descriptionBg": "В пакетната цена са включени: 8 подложни чинии, 1 покривка за маса, 1 голяма аранжировка, 1 по-малка аранжировка, 8 декоративни халки за салфетки",
       "quantity": null,
       "unit": "маса",
-      "unitPrice": null,
+      "unitPrice": 390,
       "lineTotal": null,
       "priceMin": null,
       "priceMax": null,
       "currency": "EUR",
-      "vatTreatment": null,
-      "priceType": "not_provided",
+      "vatTreatment": "БЕЗ ДДС",
+      "priceType": "unit_price",
       "proposalStatus": "alternative",
       "bookingStatus": "not_applicable",
       "alternativeGroup": "PALETTE_TABLE_DECOR",
       "source": {
-        "sourceType": "pdf",
-        "pdfPage": 24,
-        "labelBg": "Страница 24 · одобрено предложение"
+        "sourceType": "owner-provided",
+        "date": "2026-10-19",
+        "labelBg": "Страница 24 · одобрено предложение",
+        "fileRef": "sources/v4/owner/additions/doc-026-tables-palettes-slide.jpg"
       },
       "mediaPath": null
     },
@@ -538,20 +540,21 @@
       "descriptionBg": "В пакетната цена са включени: 8 подложни чинии, 1 покривка за маса, 1 голяма аранжировка, 1 по-малка аранжировка, 8 декоративни халки за салфетки",
       "quantity": null,
       "unit": "маса",
-      "unitPrice": null,
+      "unitPrice": 390,
       "lineTotal": null,
       "priceMin": null,
       "priceMax": null,
       "currency": "EUR",
-      "vatTreatment": null,
-      "priceType": "not_provided",
+      "vatTreatment": "БЕЗ ДДС",
+      "priceType": "unit_price",
       "proposalStatus": "alternative",
       "bookingStatus": "not_applicable",
       "alternativeGroup": "PALETTE_TABLE_DECOR",
       "source": {
-        "sourceType": "pdf",
-        "pdfPage": 24,
-        "labelBg": "Страница 24 · одобрено предложение"
+        "sourceType": "owner-provided",
+        "date": "2026-10-19",
+        "labelBg": "Страница 24 · одобрено предложение",
+        "fileRef": "sources/v4/owner/additions/doc-026-tables-palettes-slide.jpg"
       },
       "mediaPath": null
     },
