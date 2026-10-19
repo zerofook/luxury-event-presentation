@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import type { HeroSceneData, SiteUiStrings, VideoEntranceSceneData } from '@/content/types';
 import { ResponsivePicture } from '@/components/ResponsivePicture';
 import { FILM_POSTER, FILM_SRC } from '@/config/film';
@@ -41,6 +41,19 @@ export function FilmHeroScene({ hero, entrance, ui }: Props) {
 
   const showCountdown = phase === 'countdown' && countdown !== null;
   const showManualPlay = reduced || autoplayBlocked || phase === 'manual';
+  const showUnmute = isMuted && phase === 'playing';
+
+  useEffect(() => {
+    const href = publicUrl(entrance.posterSrc);
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = href;
+    document.head.appendChild(link);
+    return () => {
+      link.remove();
+    };
+  }, [entrance.posterSrc]);
 
   return (
     <section
@@ -61,39 +74,48 @@ export function FilmHeroScene({ hero, entrance, ui }: Props) {
           <p className="lead film-hero__lead">{hero.sublineBg}</p>
           <div className="gold-rule" aria-hidden="true" />
 
-          {!reduced && (
-            <div className="film-hero__countdown-block">
-              {showCountdown && (
-                <div className="film-hero__countdown" aria-live="polite">
-                  <button
-                    type="button"
-                    className="film-hero__countdown-ring"
-                    onClick={skipCountdown}
-                    aria-label={ui.filmSkipCountdownAriaBg}
-                  >
-                    <svg viewBox="0 0 44 44" aria-hidden="true">
-                      <circle className="film-hero__countdown-track" cx="22" cy="22" r="19" />
-                      <circle
-                        className="film-hero__countdown-progress"
-                        cx="22"
-                        cy="22"
-                        r="19"
-                        style={{ strokeDashoffset: `${119.38 * (1 - countdownProgress)}` }}
-                      />
-                    </svg>
-                    <span className="film-hero__countdown-num">{countdown}</span>
-                  </button>
-                  <div className="film-hero__countdown-copy">
-                    <p>{ui.filmCountdownLeadBg}</p>
-                    <p className="film-hero__countdown-sub">{ui.filmCountdownSubBg}</p>
-                  </div>
+          <div className="film-hero__countdown-block" aria-live={showCountdown ? 'polite' : 'off'}>
+            {reduced ? (
+              <p className="film-hero__countdown-static">{ui.filmCountdownLeadBg}</p>
+            ) : showCountdown ? (
+              <div className="film-hero__countdown">
+                <button
+                  type="button"
+                  className="film-hero__countdown-ring"
+                  onClick={skipCountdown}
+                  aria-label={ui.filmSkipCountdownAriaBg}
+                >
+                  <svg viewBox="0 0 44 44" aria-hidden="true">
+                    <circle className="film-hero__countdown-track" cx="22" cy="22" r="19" />
+                    <circle
+                      className="film-hero__countdown-progress"
+                      cx="22"
+                      cy="22"
+                      r="19"
+                      style={{ strokeDashoffset: `${119.38 * (1 - countdownProgress)}` }}
+                    />
+                  </svg>
+                  <span className="film-hero__countdown-num">{countdown}</span>
+                </button>
+                <div className="film-hero__countdown-copy">
+                  <p>{ui.filmCountdownLeadBg}</p>
+                  <p className="film-hero__countdown-sub">{ui.filmCountdownSubBg}</p>
                 </div>
-              )}
-              {!showCountdown && !showManualPlay && phase === 'idle' && (
-                <p className="film-hero__countdown-wait">{ui.filmCountdownLeadBg}</p>
-              )}
-            </div>
-          )}
+              </div>
+            ) : (
+              <div className="film-hero__countdown film-hero__countdown--reserved">
+                <div className="film-hero__countdown-ring film-hero__countdown-ring--ghost" aria-hidden="true">
+                  <svg viewBox="0 0 44 44">
+                    <circle className="film-hero__countdown-track" cx="22" cy="22" r="19" />
+                  </svg>
+                </div>
+                <div className="film-hero__countdown-copy">
+                  <p>{ui.filmCountdownLeadBg}</p>
+                  <p className="film-hero__countdown-sub">{ui.filmCountdownSubBg}</p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="film-hero__player-wrap">
@@ -116,16 +138,16 @@ export function FilmHeroScene({ hero, entrance, ui }: Props) {
                 {ui.filmPlayBg}
               </button>
             )}
-            {isMuted && phase === 'playing' && (
-              <button
-                type="button"
-                className="film-hero__unmute"
-                onClick={toggleMute}
-                aria-pressed={false}
-              >
-                {ui.filmUnmuteBg}
-              </button>
-            )}
+            <button
+              type="button"
+              className={`film-hero__unmute${showUnmute ? '' : ' film-hero__unmute--hidden'}`}
+              onClick={toggleMute}
+              aria-pressed={false}
+              tabIndex={showUnmute ? 0 : -1}
+              aria-hidden={!showUnmute}
+            >
+              {ui.filmUnmuteBg}
+            </button>
           </div>
         </div>
       </div>

@@ -59,6 +59,13 @@ async function specialCases(browser) {
   await reduced.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
   await reduced.waitForSelector('.film-hero__poster-play', { timeout: 30000 });
   await snap(reduced, 'desktop-1440-reduced-motion-fallback.png');
+  await reduced.click('.film-hero__poster-play');
+  await reduced.waitForTimeout(900);
+  const reducedPlaying = await reduced.evaluate(
+    () => !document.querySelector('.film-hero__video')?.paused,
+  );
+  if (!reducedPlaying) throw new Error('reduced-motion explicit play failed');
+  await snap(reduced, 'desktop-1440-reduced-motion-playing.png');
   await reduced.close();
 
   const blocked = await browser.newPage({ viewport: { width: 1440, height: 900 } });

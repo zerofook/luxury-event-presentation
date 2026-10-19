@@ -69,6 +69,22 @@
 
 .film-hero__countdown-block {
   margin-top: 1.35rem;
+  min-height: 5.75rem;
+}
+
+.film-hero__countdown-static {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  max-width: 22rem;
+}
+
+.film-hero__countdown--reserved {
+  opacity: 0.55;
+}
+
+.film-hero__countdown-ring--ghost {
+  pointer-events: none;
 }
 
 .film-hero__countdown {
@@ -151,6 +167,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
+  contain: layout style paint;
   background: rgba(10, 16, 22, 0.55);
   border: 1px solid rgba(212, 176, 118, 0.42);
   box-shadow: 0 22px 56px rgba(8, 12, 18, 0.45);
@@ -159,6 +176,8 @@
 }
 
 .film-hero__video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -209,6 +228,11 @@
 .film-hero__unmute:focus-visible {
   outline: var(--focus-ring);
   outline-offset: 2px;
+}
+
+.film-hero__unmute--hidden {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 @media (max-width: 899px) {

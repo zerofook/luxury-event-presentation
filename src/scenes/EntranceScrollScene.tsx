@@ -55,7 +55,7 @@ export function EntranceScrollScene({ entrance, entranceTransition, ui }: Props)
         style={{ height: reduced ? 'auto' : 'min(120svh, 120vh)' }}
       >
         <div className="hero-entrance__stage">
-          <div className="hero-entrance__scrim" style={{ opacity: 0.25 + (1 - gradientReveal) * 0.35 }} aria-hidden />
+          <div className="hero-entrance__scrim" style={{ opacity: 1 - gradientReveal * 0.35 }} aria-hidden />
           <div className="hero-entrance__media" ref={containerRef}>
             <img
               className="hero-entrance__poster"
@@ -65,6 +65,7 @@ export function EntranceScrollScene({ entrance, entranceTransition, ui }: Props)
               width={entrance.width}
               height={entrance.height}
               loading="lazy"
+              decoding="async"
             />
             {!reduced && (
               <video

@@ -7,6 +7,11 @@ const VISIBILITY_THRESHOLD = 0.42;
 
 export type HeroFilmPhase = 'idle' | 'countdown' | 'playing' | 'manual';
 
+type StartOptions = {
+  /** Autoplay after countdown — force muted for browser policy. */
+  automatic?: boolean;
+};
+
 export function useHeroFilm(
   videoRef: RefObject<HTMLVideoElement | null>,
   sectionRef: RefObject<HTMLElement | null>,
@@ -22,34 +27,55 @@ export function useHeroFilm(
 
   const countdownConsumedRef = useRef(false);
   const timersRef = useRef<number[]>([]);
-  const pendingAutoplayRef = useRef(false);
+  const userMutedRef = useRef(true);
 
   const clearTimers = useCallback(() => {
     for (const t of timersRef.current) window.clearTimeout(t);
     timersRef.current = [];
   }, []);
 
-  const startPlayback = useCallback(async () => {
+  const syncMutedState = useCallback(() => {
     const v = videoRef.current;
-    if (!v || reduced) return false;
-    pendingAutoplayRef.current = false;
-    setCountdown(null);
-    countdownConsumedRef.current = true;
-    v.muted = true;
-    setIsMuted(true);
-    requestPlay(VIDEO_ID);
-    try {
-      await v.play();
-      setAutoplayBlocked(false);
-      setPhase('playing');
-      return true;
-    } catch {
-      setAutoplayBlocked(true);
-      setPhase('manual');
-      release(VIDEO_ID);
-      return false;
-    }
-  }, [videoRef, reduced, isMuted, requestPlay, release]);
+    if (!v) return;
+    userMutedRef.current = v.muted;
+    setIsMuted(v.muted);
+  }, [videoRef]);
+
+  const startPlayback = useCallback(
+    async ({ automatic = false }: StartOptions = {}) => {
+      const v = videoRef.current;
+      if (!v) return false;
+      if (automatic && reduced) return false;
+
+      setCountdown(null);
+      countdownConsumedRef.current = true;
+
+      if (automatic) {
+        v.muted = true;
+        userMutedRef.current = true;
+        setIsMuted(true);
+      } else {
+        v.muted = userMutedRef.current;
+        setIsMuted(v.muted);
+      }
+
+      requestPlay(VIDEO_ID);
+      try {
+        await v.play();
+        setAutoplayBlocked(false);
+        setPhase('playing');
+        return true;
+      } catch {
+        if (automatic) {
+          setAutoplayBlocked(true);
+          setPhase('manual');
+        }
+        release(VIDEO_ID);
+        return false;
+      }
+    },
+    [videoRef, reduced, requestPlay, release],
+  );
 
   const beginCountdown = useCallback(() => {
     if (reduced || countdownConsumedRef.current || autoplayBlocked) return;
@@ -60,9 +86,7 @@ export function useHeroFilm(
     steps.forEach((n, i) => {
       const t = window.setTimeout(() => {
         if (n === 0) {
-          setCountdown(null);
-          pendingAutoplayRef.current = true;
-          void startPlayback();
+          void startPlayback({ automatic: true });
         } else {
           setCountdown(n);
         }
@@ -73,8 +97,7 @@ export function useHeroFilm(
 
   const skipCountdown = useCallback(() => {
     clearTimers();
-    setCountdown(null);
-    void startPlayback();
+    void startPlayback({ automatic: true });
   }, [clearTimers, startPlayback]);
 
   const cancelPending = useCallback(() => {
@@ -82,7 +105,6 @@ export function useHeroFilm(
       clearTimers();
       setCountdown(null);
       countdownConsumedRef.current = true;
-      pendingAutoplayRef.current = false;
       setPhase('manual');
     }
   }, [phase, clearTimers]);
@@ -92,13 +114,16 @@ export function useHeroFilm(
     if (!v) return;
     register(VIDEO_ID, v);
     const onCanPlay = () => setMediaReady(true);
+    const onVolumeChange = () => syncMutedState();
     v.addEventListener('canplay', onCanPlay);
+    v.addEventListener('volumechange', onVolumeChange);
     if (v.readyState >= 2) setMediaReady(true);
     return () => {
       v.removeEventListener('canplay', onCanPlay);
+      v.removeEventListener('volumechange', onVolumeChange);
       unregister(VIDEO_ID);
     };
-  }, [register, unregister, videoRef]);
+  }, [register, unregister, videoRef, syncMutedState]);
 
   useEffect(() => {
     const root = sectionRef.current;
@@ -132,27 +157,27 @@ export function useHeroFilm(
   const toggleMute = useCallback(() => {
     const v = videoRef.current;
     if (!v) return;
-    const next = !v.muted;
-    v.muted = next;
-    setIsMuted(next);
-  }, [videoRef]);
+    v.muted = !v.muted;
+    syncMutedState();
+  }, [videoRef, syncMutedState]);
 
   const manualPlay = useCallback(async () => {
-    await startPlayback();
+    await startPlayback({ automatic: false });
   }, [startPlayback]);
 
   const onVideoPause = useCallback(() => {
     release(VIDEO_ID);
+    syncMutedState();
     if (phase === 'playing') setPhase('manual');
-  }, [release, phase]);
+  }, [release, phase, syncMutedState]);
 
   const onVideoPlay = useCallback(() => {
     requestPlay(VIDEO_ID);
+    syncMutedState();
     setPhase('playing');
-  }, [requestPlay]);
+  }, [requestPlay, syncMutedState]);
 
-  const countdownProgress =
-    countdown === null ? 0 : (4 - countdown) / 3;
+  const countdownProgress = countdown === null ? 0 : (4 - countdown) / 3;
 
   return {
     reduced,
