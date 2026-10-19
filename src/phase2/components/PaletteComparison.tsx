@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ResponsivePicture } from '@/components/ResponsivePicture';
+import { ProposalPicture } from './ProposalPicture';
 import { PALETTE_CORRIDOR_ASSETS, PALETTE_ENTRANCE_ASSETS } from '../data/areaAssets';
 
 type PaletteKey = 'C' | 'A' | 'B';
@@ -61,22 +61,22 @@ export function PaletteComparison() {
       {view === 'entrance' ? (
         <div className="p2-palette-compare__pair">
           <figure>
-            <ResponsivePicture assetId={entrance.assetId} objectFit="cover" />
+            <ProposalPicture assetId={entrance.assetId} objectFit="cover" />
             <figcaption>Вход · {entrance.labelBg}</figcaption>
           </figure>
           <figure>
-            <ResponsivePicture assetId={corridor.assetId} objectFit="cover" />
+            <ProposalPicture assetId={corridor.assetId} objectFit="cover" />
             <figcaption>Коридор · {corridor.labelBg}</figcaption>
           </figure>
         </div>
       ) : (
         <div className="p2-palette-compare__pair">
           <figure>
-            <ResponsivePicture assetId={hall.stage} objectFit="cover" />
+            <ProposalPicture assetId={hall.stage} objectFit="cover" />
             <figcaption>Сцена / зала</figcaption>
           </figure>
           <figure>
-            <ResponsivePicture assetId={hall.dining} objectFit="cover" />
+            <ProposalPicture assetId={hall.dining} objectFit="cover" />
             <figcaption>Гостна част</figcaption>
           </figure>
         </div>

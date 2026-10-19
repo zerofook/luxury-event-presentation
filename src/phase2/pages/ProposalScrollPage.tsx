@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { ResponsivePicture } from '@/components/ResponsivePicture';
+import { ProposalPicture } from '../components/ProposalPicture';
 import {
   DECORATION_SUBSECTIONS,
   deriveAlternativeGroups,
@@ -171,7 +171,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
               </li>
             </ul>
             <div className="p2-hero__visual p2-hero__visual--wide">
-              <ResponsivePicture assetId="v4_p21_00_1851x849" objectFit="cover" />
+              <ProposalPicture assetId="v4_p21_00_1851x849" objectFit="cover" />
             </div>
             <h2 className="p2-section__title">Категории</h2>
             <div className="p2-category-grid">
@@ -183,7 +183,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                   onClick={() => navigate(c.section, c.sub)}
                 >
                   <div className="p2-category-card__img">
-                    <ResponsivePicture assetId={c.assetId} objectFit="cover" />
+                    <ProposalPicture assetId={c.assetId} objectFit="cover" />
                   </div>
                   <span className="p2-category-card__num">{c.num}</span>
                   <h3>{c.titleBg}</h3>
@@ -208,24 +208,30 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                 ? 'v4_p07_crop_photozone_ivory_wide'
                 : sub.areas.map((a) => AREA_HERO_ASSET[a]).find(Boolean);
             const layout = DEKOR_LAYOUT[idx % DEKOR_LAYOUT.length];
+            const heroVisualClass =
+              sub.id === 'dekor-masi'
+                ? 'p2-area__visual p2-area__visual--editorial-cap'
+                : sub.id === 'dekor-foto' && vintageCar
+                  ? 'p2-area__visual p2-area__visual--owner-car'
+                  : 'p2-area__visual';
             return (
               <div key={sub.id} id={sub.id} className={`p2-area p2-area--subsection ${layout}`}>
                 <h3 className="p2-area__title">{sub.labelBg}</h3>
-                {hero && (
-                  <div className="p2-area__visual">
-                    <ResponsivePicture assetId={hero} layout="fill" objectFit="cover" />
+                {hero && sub.id !== 'dekor-foto' && (
+                  <div className={heroVisualClass}>
+                    <ProposalPicture assetId={hero} layout="fill" objectFit="cover" capScale={sub.id === 'dekor-masi' ? 1.5 : 1.5} />
                   </div>
                 )}
                 {sub.id === 'dekor-koridor' && (
-                  <div className="p2-area__detail-strip">
-                    <ResponsivePicture assetId="v4_p13_crop_guest_toast" layout="fill" objectFit="cover" />
-                    <ResponsivePicture assetId="v4_p13_crop_led_wall_detail" layout="fill" objectFit="cover" />
+                  <div className="p2-area__detail-strip p2-area__detail-strip--paired">
+                    <ProposalPicture assetId="v4_p13_crop_guest_toast" layout="fill" objectFit="cover" capScale={1} />
+                    <ProposalPicture assetId="v4_p13_crop_led_wall_detail" layout="fill" objectFit="cover" capScale={1} />
                   </div>
                 )}
                 {sub.id === 'dekor-scena' && (
-                  <div className="p2-area__detail-strip">
-                    <ResponsivePicture assetId="v4_p17_crop_stage_decor_detail" layout="fill" objectFit="cover" />
-                    <ResponsivePicture assetId="v4_p17_crop_stage_cake_reveal" layout="fill" objectFit="cover" />
+                  <div className="p2-area__detail-strip p2-area__detail-strip--paired">
+                    <ProposalPicture assetId="v4_p17_crop_stage_decor_detail" layout="fill" objectFit="cover" capScale={1} />
+                    <ProposalPicture assetId="v4_p17_crop_stage_cake_reveal" layout="fill" objectFit="cover" capScale={1} />
                   </div>
                 )}
                 {sub.id === 'dekor-foto' && (
@@ -235,10 +241,10 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                       възложителя.
                     </p>
                     <div className="p2-photo-pdf-row">
-                      <ResponsivePicture assetId="v4_p06_crop_photowall_v3" objectFit="cover" />
-                      <ResponsivePicture assetId="v4_p07_crop_photozone_orange" objectFit="cover" />
+                      <ProposalPicture assetId="v4_p06_crop_photowall_v3" objectFit="cover" />
+                      <ProposalPicture assetId="v4_p07_crop_photozone_orange" objectFit="cover" />
                     </div>
-                    {vintageCar && <VintageCarFeature item={vintageCar} />}
+                    {vintageCar && <VintageCarFeature />}
                   </>
                 )}
                 {areaItems.length > 0 && <ItemRowList items={areaItems} />}
@@ -314,7 +320,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             <p className="p2-lead">{bundle.meta.investmentIntroBg}</p>
             {SECTION_HERO_ASSET.investicia && (
               <div className="p2-section-visual">
-                <ResponsivePicture assetId={SECTION_HERO_ASSET.investicia} objectFit="cover" />
+                <ProposalPicture assetId={SECTION_HERO_ASSET.investicia} objectFit="cover" />
               </div>
             )}
             <InvestmentEditorial meta={bundle.meta} categories={bundle.investmentCategories} items={bundle.items} />

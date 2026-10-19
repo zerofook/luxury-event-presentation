@@ -18,6 +18,15 @@
 - **Декорация:** ретро автомobil via `ResponsivePicture` (full width, no upscale exempt); price range once in feature block; overview copy without repeated € range; cocktail aerial re-crop (top navy band); entrance/table area heroes use full-width clean renders; detail strips equal tiles.
 - **Asset src:** safer ladder pick + native-width rungs for host/gipsy.
 
+## Fix round (PR #10 review)
+
+- Reverted shared `assetSrc` to `main`; proposal uses `ProposalPicture` + `media-ladder.generated.json` (disk-only URLs).
+- `verify-proposal-images`: viewports 390 / 768 / 1440, missing-file check on `dist/media`, duplicate asset per section.
+- Entrance hero → `v4_p04_crop_entrance_v3`; tables hero → `v4_p24_crop_centerpiece_v1` (editorial cap).
+- Re-cropped `v4_p39` / `v4_p38` sources (no left gold / bottom lettering).
+- Retro car: image-only block; client row without overlap note or owner source label.
+- Mobile ceremony: wider aspect + centred crop on Phase 1 scene.
+
 ## Removed
 
 - `public/media/img/owner-vintage-car-installation.jpg` (superseded).

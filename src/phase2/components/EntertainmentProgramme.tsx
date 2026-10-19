@@ -1,4 +1,4 @@
-import { ResponsivePicture } from '@/components/ResponsivePicture';
+import { ProposalPicture } from './ProposalPicture';
 import { assets } from '@/content/assets';
 import { PROGRAMME_CHAPTERS, itemsForChapter } from '../data/programmeChapters';
 import type { ClientLineItem } from '../types';
@@ -40,7 +40,7 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
             {showHero && heroLayout === 'editorial' ? (
               <div className="p2-programme-chapter__hero-row">
                 <div className={`p2-programme-chapter__hero${chapterHeroClass('editorial')}`}>
-                  <ResponsivePicture
+                  <ProposalPicture
                     assetId={chapter.heroAssetId}
                     layout="fill"
                     objectFit="cover"
@@ -59,7 +59,7 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
               </div>
             ) : showHero ? (
               <div className={`p2-programme-chapter__hero${chapterHeroClass(heroLayout)}`}>
-                <ResponsivePicture
+                <ProposalPicture
                   assetId={chapter.heroAssetId}
                   layout="fill"
                   objectFit="cover"
@@ -81,9 +81,9 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
             )}
 
             {chapter.id === 'finale' && chapter.galleryAssetIds?.[0] && finaleSpotlight ? (
-              <div className="p2-programme-chapter__spotlight">
+              <div className="p2-programme-chapter__spotlight p2-programme-chapter__spotlight--finale">
                 <div className="p2-programme-chapter__spotlight-visual">
-                  <ResponsivePicture
+                  <ProposalPicture
                     assetId={chapter.galleryAssetIds[0]}
                     layout="fill"
                     objectFit="cover"
@@ -105,14 +105,14 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
               chapter.galleryAssetIds &&
               chapter.galleryAssetIds.length > 0 && (
                 <div
-                  className={`p2-programme-chapter__gallery p2-programme-chapter__gallery--count-${Math.min(galleryCount, 6)}`}
+                  className={`p2-programme-chapter__gallery p2-programme-chapter__gallery--count-${Math.min(galleryCount, 6)}${chapter.galleryPortraitIds?.length ? ' p2-programme-chapter__gallery--portrait-pair' : ''}`}
                 >
                   {chapter.galleryAssetIds.map((id) => (
                     <div
                       key={id}
                       className={`p2-programme-chapter__thumb${chapter.galleryPortraitIds?.includes(id) ? ' p2-programme-chapter__thumb--portrait' : ''}`}
                     >
-                      <ResponsivePicture
+                      <ProposalPicture
                         assetId={id}
                         layout="fill"
                         objectFit="cover"
@@ -125,7 +125,7 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
             )}
 
             {chapter.id === 'gatsby-show' && gatsbySpotlight && (
-              <div className="p2-programme-chapter__spotlight p2-programme-chapter__spotlight--gatsby">
+              <div className="p2-programme-chapter__spotlight p2-programme-chapter__spotlight--gatsby p2-programme-chapter__spotlight--compact">
                 <div className="p2-programme-chapter__spotlight-copy">
                   <h4>{gatsbySpotlight.titleBg}</h4>
                   {gatsbySpotlight.descriptionBg && <p>{gatsbySpotlight.descriptionBg}</p>}
@@ -137,7 +137,7 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                   </div>
                 </div>
                 <div className="p2-programme-chapter__spotlight-visual p2-programme-chapter__spotlight-visual--gatsby">
-                  <ResponsivePicture
+                  <ProposalPicture
                     assetId="v4_p36_crop_sway_feathers"
                     layout="fill"
                     objectFit="cover"

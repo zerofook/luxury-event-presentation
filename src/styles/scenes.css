@@ -1146,6 +1146,17 @@
   max-height: min(58svh, 560px);
 }
 
+@media (max-width: 767px) {
+  .editorial-section__box--ceremony-hero {
+    aspect-ratio: 1956 / 804;
+    max-height: none;
+  }
+
+  .editorial-section__box--ceremony-hero img {
+    object-position: 50% 50% !important;
+  }
+}
+
 .editorial-section__ceremony-secondary {
   list-style: none;
   padding: 0;

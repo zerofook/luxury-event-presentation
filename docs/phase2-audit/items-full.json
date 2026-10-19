@@ -2202,10 +2202,8 @@
    "bookingStatus": "not_applicable",
    "mediaPath": "media/img/v4_owner_crop_vintage_car_photo_zone-1024.jpg",
    "clientNoteBg": "Цената включва доставянето на автомобила и тематичната декорация. Окончателната стойност зависи от избраните декоративни елементи.",
-   "overlapNoteBg": "Визуализациите за фото зона от 42-страничното PDF остават валидни; пълноразмерната кола там е без цена. Тази оферта е отделен източник и не се включва в частични суми от PDF.",
    "source": {
     "sourceType": "owner-provided",
-    "labelBg": "Допълнителна концепция на собственика",
     "date": "2026-10-19",
     "fileRef": "sources/v4/owner/owner-vintage-car-photo-zone.png"
    },
