@@ -1,0 +1,22 @@
+[
+  {
+    "id": "v4_p27_crop_gifts_feathers",
+    "ok": true,
+    "auditPage": 27,
+    "pdfPage": 28,
+    "width": 2520,
+    "height": 1080,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p27_crop_gifts_feathers.jpg",
+    "phase22": true
+  },
+  {
+    "id": "v4_p27_crop_gifts_rose",
+    "ok": true,
+    "auditPage": 27,
+    "pdfPage": 28,
+    "width": 2520,
+    "height": 1080,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p27_crop_gifts_rose.jpg",
+    "phase22": true
+  }
+]

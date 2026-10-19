@@ -6,3 +6,5 @@ _assets_unpack
 *.log
 playwright-report
 test-results
+v4/presentation.pdf
+public/sources/v4/presentation.pdf

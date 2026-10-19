@@ -1,0 +1,186 @@
+[
+  {
+    "id": "v4_p19_crop_mapping_hall_left",
+    "ok": true,
+    "width": 1029,
+    "height": 872,
+    "method": "pdfimages+crop",
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p19_crop_mapping_hall_left.jpg",
+    "pdfPage": 19,
+    "section": "04 Technical"
+  },
+  {
+    "id": "v4_p20_crop_mapping_hall_left",
+    "ok": true,
+    "width": 1029,
+    "height": 872,
+    "method": "pdfimages+crop",
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p20_crop_mapping_hall_left.jpg",
+    "pdfPage": 20,
+    "section": "04 Technical"
+  },
+  {
+    "id": "v4_p29_crop_tech_atmosphere_top",
+    "ok": true,
+    "width": 5760,
+    "height": 1418,
+    "method": "pdftoppm300+crop top hall",
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p29_crop_tech_atmosphere_top.jpg",
+    "pdfPage": 29,
+    "section": "04 Technical"
+  },
+  {
+    "id": "v4_p05_crop_entrance_hero_clean",
+    "ok": true,
+    "width": 5400,
+    "height": 1856,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p05_crop_entrance_hero_clean.jpg",
+    "pdfPage": 5,
+    "section": "02 Decoration"
+  },
+  {
+    "id": "v4_p11_crop_cocktail_aerial_clean",
+    "ok": true,
+    "width": 3300,
+    "height": 1519,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p11_crop_cocktail_aerial_clean.jpg",
+    "pdfPage": 11,
+    "section": "02 Decoration"
+  },
+  {
+    "id": "v4_p16_crop_table_layout",
+    "ok": true,
+    "width": 5400,
+    "height": 1688,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p16_crop_table_layout.jpg",
+    "pdfPage": 16,
+    "section": "07 Investment"
+  },
+  {
+    "id": "v4_p25_crop_menu_spread",
+    "ok": true,
+    "width": 5640,
+    "height": 1283,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p25_crop_menu_spread.jpg",
+    "pdfPage": 25,
+    "section": "05 Hospitality"
+  },
+  {
+    "id": "v4_p26_crop_menu_alt",
+    "ok": true,
+    "width": 5640,
+    "height": 1283,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p26_crop_menu_alt.jpg",
+    "pdfPage": 26,
+    "section": "05 Hospitality"
+  },
+  {
+    "id": "v4_p27_crop_gifts_layout",
+    "ok": true,
+    "width": 5640,
+    "height": 1283,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p27_crop_gifts_layout.jpg",
+    "pdfPage": 27,
+    "section": "05 Hospitality"
+  },
+  {
+    "id": "v4_p28_crop_miniature_car_hero",
+    "ok": true,
+    "width": 3300,
+    "height": 1519,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p28_crop_miniature_car_hero.jpg",
+    "pdfPage": 28,
+    "section": "05 Hospitality"
+  },
+  {
+    "id": "v4_p30_crop_hall_ivory",
+    "ok": true,
+    "width": 1800,
+    "height": 1080,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p30_crop_hall_ivory.jpg",
+    "pdfPage": 30,
+    "section": "06 Alternatives"
+  },
+  {
+    "id": "v4_p30_crop_hall_orange",
+    "ok": true,
+    "width": 1800,
+    "height": 1080,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p30_crop_hall_orange.jpg",
+    "pdfPage": 30,
+    "section": "06 Alternatives"
+  },
+  {
+    "id": "v4_p30_crop_hall_burgundy",
+    "ok": true,
+    "width": 1800,
+    "height": 1080,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p30_crop_hall_burgundy.jpg",
+    "pdfPage": 30,
+    "section": "06 Alternatives"
+  },
+  {
+    "id": "v4_p33_crop_hosts_row",
+    "ok": true,
+    "width": 5520,
+    "height": 1181,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_hosts_row.jpg",
+    "pdfPage": 33,
+    "section": "03 Entertainment"
+  },
+  {
+    "id": "v4_p33_crop_host_1",
+    "ok": true,
+    "width": 1320,
+    "height": 1283,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_1.jpg",
+    "pdfPage": 33,
+    "section": "03 Entertainment"
+  },
+  {
+    "id": "v4_p33_crop_host_2",
+    "ok": true,
+    "width": 1320,
+    "height": 1283,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_2.jpg",
+    "pdfPage": 33,
+    "section": "03 Entertainment"
+  },
+  {
+    "id": "v4_p33_crop_host_3",
+    "ok": true,
+    "width": 1320,
+    "height": 1283,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_3.jpg",
+    "pdfPage": 33,
+    "section": "03 Entertainment"
+  },
+  {
+    "id": "v4_p33_crop_host_4",
+    "ok": true,
+    "width": 1320,
+    "height": 1283,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_4.jpg",
+    "pdfPage": 33,
+    "section": "03 Entertainment"
+  },
+  {
+    "id": "v4_p40_crop_live_show_hero",
+    "ok": true,
+    "width": 3480,
+    "height": 2430,
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_live_show_hero.jpg",
+    "pdfPage": 40,
+    "section": "03 Entertainment"
+  },
+  {
+    "id": "v4_p40_crop_celebrity_grid",
+    "ok": true,
+    "width": 1087,
+    "height": 800,
+    "method": "pdfimages+crop",
+    "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_celebrity_grid.jpg",
+    "pdfPage": 40,
+    "section": "03 Entertainment"
+  }
+]

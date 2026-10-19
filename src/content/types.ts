@@ -22,6 +22,8 @@ export interface MediaAsset {
   height: number;
   basePath: string; // media/img/{id} without width suffix (use publicUrl at runtime)
   source: { pdfPage?: string; crop?: string; provenance?: string };
+  /** Encoded ladder formats present under public/media/img (defaults to avif+webp+jpg when omitted). */
+  formats?: Array<'avif' | 'webp' | 'jpg'>;
 }
 
 export interface PaletteSwatch {

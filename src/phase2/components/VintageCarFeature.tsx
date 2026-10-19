@@ -7,7 +7,7 @@ export function VintageCarFeature({ item }: { item: ClientLineItem }) {
   const src = item.mediaPath ? `${base}${item.mediaPath}` : null;
 
   return (
-    <article className="p2-feature p2-feature--owner">
+    <article className="p2-feature p2-feature--owner" data-upscale-exempt="owner-vintage-car">
       <div className="p2-feature__visual">
         {src && <img src={src} alt={item.titleBg} loading="lazy" decoding="async" />}
       </div>

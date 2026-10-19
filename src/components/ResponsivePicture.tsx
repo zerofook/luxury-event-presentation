@@ -9,6 +9,8 @@ interface Props {
   priority?: boolean;
   objectFit?: 'cover' | 'contain';
   objectPosition?: string;
+  /** Max display width = native width × scale (default 1.5 — no upscale beyond this). */
+  capScale?: number;
 }
 
 export function ResponsivePicture({
@@ -18,6 +20,7 @@ export function ResponsivePicture({
   priority,
   objectFit = 'cover',
   objectPosition,
+  capScale = 1.5,
 }: Props) {
   const asset: MediaAsset | undefined = assets[assetId];
   const [vw, setVw] = useState(typeof window !== 'undefined' ? window.innerWidth : 1440);
@@ -30,19 +33,32 @@ export function ResponsivePicture({
 
   const { avif, webp, jpg } = useMemo(() => {
     if (!asset) return { avif: '', webp: '', jpg: '' };
+    const formats = asset.formats ?? ['avif', 'webp', 'jpg'];
     return {
-      avif: assetSrc(asset, vw, 'avif'),
-      webp: assetSrc(asset, vw, 'webp'),
+      avif: formats.includes('avif') ? assetSrc(asset, vw, 'avif') : '',
+      webp: formats.includes('webp') ? assetSrc(asset, vw, 'webp') : '',
       jpg: assetSrc(asset, vw, 'jpg'),
     };
   }, [asset, vw]);
 
   if (!asset) return null;
 
+  const formats = asset.formats ?? ['avif', 'webp', 'jpg'];
+  const maxRenderW = Math.round(asset.width * capScale);
+
   return (
-    <picture className={className} style={{ display: 'block', width: '100%', height: '100%' }}>
-      <source type="image/avif" srcSet={avif} sizes={sizes} />
-      <source type="image/webp" srcSet={webp} sizes={sizes} />
+    <div
+      className="p2-media"
+      style={{ width: '100%', maxWidth: maxRenderW, height: '100%', marginInline: 'auto' }}
+      data-max-render-w={maxRenderW}
+    >
+    <picture
+      className={className}
+      data-asset-id={assetId}
+      style={{ display: 'block', width: '100%', height: '100%' }}
+    >
+      {formats.includes('avif') && avif ? <source type="image/avif" srcSet={avif} sizes={sizes} /> : null}
+      {formats.includes('webp') && webp ? <source type="image/webp" srcSet={webp} sizes={sizes} /> : null}
       <img
         src={jpg}
         alt={asset.altBg}
@@ -54,5 +70,6 @@ export function ResponsivePicture({
         style={{ width: '100%', height: '100%', objectFit, objectPosition }}
       />
     </picture>
+    </div>
   );
 }
