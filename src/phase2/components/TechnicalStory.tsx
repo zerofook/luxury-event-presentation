@@ -1,3 +1,4 @@
+import { OwnerTextSlideFigure } from './OwnerTextSlideFigure';
 import { ProposalPicture } from './ProposalPicture';
 import { TECHNICAL_STORY_SLIDES } from '../data/technicalStory';
 import type { ClientLineItem } from '../types';
@@ -70,6 +71,12 @@ export function TechnicalStory({
         <OfferBlockView block={mainBlock} itemMap={itemMap} />
         {extraBlock.items.length > 0 && <OfferBlockView block={extraBlock} itemMap={itemMap} />}
       </div>
+      <section className="p2-tech-summary" aria-labelledby="p2-tech-summary-title">
+        <h3 id="p2-tech-summary-title" className="p2-area__title p2-area__title--spaced">
+          Обобщение на техническото предложение
+        </h3>
+        <OwnerTextSlideFigure assetId="v4_owner_doc_030_technical_package_slide" />
+      </section>
     </>
   );
 }

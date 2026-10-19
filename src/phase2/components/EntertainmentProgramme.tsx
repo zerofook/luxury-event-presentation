@@ -1,4 +1,5 @@
 import { CompactAssetStrip } from './CompactAssetStrip';
+import { OwnerTextSlideFigure } from './OwnerTextSlideFigure';
 import { ProposalPicture } from './ProposalPicture';
 import { assets } from '@/content/assets';
 import { PROGRAMME_CHAPTERS, itemsForChapter } from '../data/programmeChapters';
@@ -127,6 +128,10 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                 )
               )
             ) : null}
+
+            {chapter.id === 'gatsby-show' && (
+              <OwnerTextSlideFigure assetId="v4_owner_doc_036_gatsby_dance_slide" />
+            )}
 
             {chapter.id === 'gatsby-show' && gatsbySpotlight && (
               <div className="p2-programme-chapter__spotlight p2-programme-chapter__spotlight--gatsby p2-programme-chapter__spotlight--text-only">

@@ -429,11 +429,34 @@
 }
 
 .p2-offer-compact__row {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.35rem;
   padding: 0.5rem 0.65rem;
   border-bottom: 1px solid rgba(52, 76, 96, 0.08);
   background: rgba(255, 255, 255, 0.45);
+}
+
+.p2-offer-compact__line {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.p2-offer-compact__row--with-slide {
+  padding-top: 0.75rem;
+}
+
+.p2-offer-compact--cols-2 .p2-offer-compact__row--with-slide {
+  grid-column: 1 / -1;
+  border-right: none;
+}
+
+.p2-offer-compact__slide {
+  width: 100%;
+}
+
+.p2-offer-compact__slide .p2-owner-text-slide {
+  margin: 0;
 }
 
 @media (min-width: 900px) {
@@ -452,7 +475,7 @@
 }
 
 @media (min-width: 768px) {
-  .p2-offer-compact__row {
+  .p2-offer-compact__line {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: start;
   }
