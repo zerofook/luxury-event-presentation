@@ -28,8 +28,8 @@ export function ProposalSiteHeader({ proposalActive }: { proposalActive: boolean
             );
           })}
         </nav>
-        <a className="p2-pdf" href={`${base}sources/v4/presentation.pdf`} download>
-          ИЗТЕГЛИ PDF
+        <a className="p2-pdf" href={`${base}sources/v4/presentation.pdf`} download title="Оригинален PDF от агенцията">
+          ИЗТЕГЛИ КОНЦЕПТУАЛНАТА ПРЕЗЕНТАЦИЯ
         </a>
       </div>
     </header>

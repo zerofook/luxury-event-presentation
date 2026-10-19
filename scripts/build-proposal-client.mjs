@@ -232,6 +232,14 @@ const client = {
     itemCount: clientItems.length,
     investmentIntroBg:
       'Към момента не е представена обща сума. Изисква се избрана конфигурация (палитра, програма, технически пакет, количества) и съгласуване на припокриващи се позиции.',
+    contactPlaceholderBg:
+      'За обсъждане на конфигурацията и следващи стъпки ще бъдат публикувани контактни данни на агенцията след потвърждение от възложителя.',
+  },
+  contact: {
+    agencyNameBg: '',
+    email: '',
+    phone: '',
+    mailto: '',
   },
   items: clientItems,
   paletteAlternatives: (bundle.paletteAlternatives ?? []).map((p) => ({

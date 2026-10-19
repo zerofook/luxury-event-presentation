@@ -56,6 +56,14 @@ export interface ProposalClientMeta {
   currencyNoteBg: string;
   itemCount: number;
   investmentIntroBg?: string;
+  contactPlaceholderBg?: string;
+}
+
+export interface ProposalContactConfig {
+  agencyNameBg?: string;
+  email?: string;
+  phone?: string;
+  mailto?: string;
 }
 
 export interface PartialDecorSumClient {
@@ -94,6 +102,7 @@ export interface ProposalClientBundle {
   paletteAlternatives: PaletteAlternativeClient[];
   investmentCategories: InvestmentCategory[];
   technicalIndicativeNoteBg?: string;
+  contact?: ProposalContactConfig;
 }
 
 /** @deprecated audit-only — not imported by the client app */
