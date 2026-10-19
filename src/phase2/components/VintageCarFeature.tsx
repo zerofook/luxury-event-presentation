@@ -1,15 +1,20 @@
+import { ResponsivePicture } from '@/components/ResponsivePicture';
 import type { ClientLineItem } from '../types';
 import { formatItemPrice } from '../lib/formatMoney';
 import { SourceRef } from './SourceRef';
 
-export function VintageCarFeature({ item }: { item: ClientLineItem }) {
-  const base = import.meta.env.BASE_URL;
-  const src = item.mediaPath ? `${base}${item.mediaPath}` : null;
+const VINTAGE_CAR_ASSET_ID = 'v4_owner_crop_vintage_car_photo_zone';
 
+export function VintageCarFeature({ item }: { item: ClientLineItem }) {
   return (
-    <article className="p2-feature p2-feature--owner" data-upscale-exempt="owner-vintage-car">
-      <div className="p2-feature__visual">
-        {src && <img src={src} alt={item.titleBg} loading="lazy" decoding="async" />}
+    <article className="p2-feature p2-feature--owner p2-feature--full-visual">
+      <div className="p2-feature__visual p2-feature__visual--full">
+        <ResponsivePicture
+          assetId={VINTAGE_CAR_ASSET_ID}
+          layout="fill"
+          objectFit="contain"
+          sizes="(min-width: 1024px) 1128px, 100vw"
+        />
       </div>
       <div className="p2-feature__copy">
         <p className="p2-eyebrow">Допълнителна концепция</p>

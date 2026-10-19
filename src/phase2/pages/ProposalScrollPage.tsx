@@ -213,19 +213,19 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                 <h3 className="p2-area__title">{sub.labelBg}</h3>
                 {hero && (
                   <div className="p2-area__visual">
-                    <ResponsivePicture assetId={hero} objectFit="cover" />
+                    <ResponsivePicture assetId={hero} layout="fill" objectFit="cover" />
                   </div>
                 )}
                 {sub.id === 'dekor-koridor' && (
                   <div className="p2-area__detail-strip">
-                    <ResponsivePicture assetId="v4_p13_crop_guest_toast" objectFit="cover" />
-                    <ResponsivePicture assetId="v4_p13_crop_led_wall_detail" objectFit="cover" />
+                    <ResponsivePicture assetId="v4_p13_crop_guest_toast" layout="fill" objectFit="cover" />
+                    <ResponsivePicture assetId="v4_p13_crop_led_wall_detail" layout="fill" objectFit="cover" />
                   </div>
                 )}
                 {sub.id === 'dekor-scena' && (
                   <div className="p2-area__detail-strip">
-                    <ResponsivePicture assetId="v4_p17_crop_stage_decor_detail" objectFit="cover" />
-                    <ResponsivePicture assetId="v4_p17_crop_stage_cake_reveal" objectFit="cover" />
+                    <ResponsivePicture assetId="v4_p17_crop_stage_decor_detail" layout="fill" objectFit="cover" />
+                    <ResponsivePicture assetId="v4_p17_crop_stage_cake_reveal" layout="fill" objectFit="cover" />
                   </div>
                 )}
                 {sub.id === 'dekor-foto' && (

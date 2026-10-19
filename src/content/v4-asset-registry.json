@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19T06:03:19.318Z",
+  "generated": "2026-10-19T06:53:10.772Z",
   "assets": [
     {
       "id": "v4_p02_00_1688x932",
@@ -144,7 +144,7 @@
     {
       "id": "v4_p11_crop_cocktail_aerial_clean",
       "width": 3300,
-      "height": 1519,
+      "height": 1353,
       "pdfPage": 11,
       "canvaPage": 11,
       "sourcePath": "sources/v4/extract/phase2-2/v4_p11_crop_cocktail_aerial_clean.jpg",
@@ -943,6 +943,25 @@
       "pdfPage": null,
       "canvaPage": null,
       "sourcePath": "sources/v4/assets-v4/n11_first_floor_ivory_clean_B.jpg"
+    },
+    {
+      "id": "v4_owner_crop_cake_ceremony",
+      "width": 1956,
+      "height": 804,
+      "sourcePath": "sources/v4/owner/owner-cake-ceremony.png",
+      "provenance": "owner-export",
+      "altBg": "Официална церемония — тортата и перформанс с перушини",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_crop_vintage_car_photo_zone",
+      "width": 1605,
+      "height": 980,
+      "sourcePath": "sources/v4/owner/owner-vintage-car-photo-zone.png",
+      "provenance": "owner-export",
+      "altBg": "Ретро автомобил в Art Deco фото зона; размерите 6,00 m × 4,00 m на схемата са част от оригиналната визуализация",
+      "intentionalLabelsBg": "Размерите 6,00 m × 4,00 m са умишлени етикети на схемата.",
+      "textFree": true
     }
   ]
 }

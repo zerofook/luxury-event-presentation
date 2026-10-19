@@ -11,6 +11,8 @@ interface Props {
   objectPosition?: string;
   /** Max display width = native width × scale (default 1.5 — no upscale beyond this). */
   capScale?: number;
+  /** Fill the parent slot (proposal heroes / grids) instead of capping width with side margins. */
+  layout?: 'default' | 'fill';
 }
 
 export function ResponsivePicture({
@@ -21,6 +23,7 @@ export function ResponsivePicture({
   objectFit = 'cover',
   objectPosition,
   capScale = 1.5,
+  layout = 'default',
 }: Props) {
   const asset: MediaAsset | undefined = assets[assetId];
   const [vw, setVw] = useState(typeof window !== 'undefined' ? window.innerWidth : 1440);
@@ -46,12 +49,13 @@ export function ResponsivePicture({
   const formats = asset.formats ?? ['avif', 'webp', 'jpg'];
   const maxRenderW = Math.round(asset.width * capScale);
 
+  const wrapStyle =
+    layout === 'fill'
+      ? { width: '100%', maxWidth: maxRenderW, height: '100%', marginInline: 0 }
+      : { width: '100%', maxWidth: maxRenderW, height: '100%', marginInline: 'auto' };
+
   return (
-    <div
-      className="p2-media"
-      style={{ width: '100%', maxWidth: maxRenderW, height: '100%', marginInline: 'auto' }}
-      data-max-render-w={maxRenderW}
-    >
+    <div className="p2-media" style={wrapStyle} data-max-render-w={maxRenderW}>
     <picture
       className={className}
       data-asset-id={assetId}

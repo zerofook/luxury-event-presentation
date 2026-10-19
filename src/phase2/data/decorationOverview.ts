@@ -28,6 +28,6 @@ export const DECORATION_OVERVIEW_TILES = [
   {
     assetId: 'v4_p06_crop_photowall_v3',
     titleBg: 'Фото зона',
-    bodyBg: 'Gatsby фото стена с автомобил — включена в декорацията (отделно: ретро оферта €6 000–€8 000).',
+    bodyBg: 'Gatsby фото стена с автомобил — включена в декорацията; допълнителната ретро оферта е описана по-долу.',
   },
 ] as const;

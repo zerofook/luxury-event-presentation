@@ -164,8 +164,10 @@ export function maxRenderWidth(assetId: string, viewportWidth: number): number {
 
 /** Pick best width ladder file suffix for viewport */
 export function assetSrc(asset: MediaAsset, viewportWidth: number, format: 'avif' | 'webp' | 'jpg' = 'avif'): string {
-  const widths = [640, 1024, 1600, 1944, 2048].filter((w) => w <= asset.width);
-  const pick = widths.reduce((best, w) => (w <= viewportWidth ? w : best), widths[0] ?? 640);
-  const w = Math.min(pick, asset.width);
+  const ladder = [640, 1024, 1600, 1944, 2048];
+  const cap = Math.min(viewportWidth, asset.width);
+  const tiers = [...new Set([...ladder.filter((x) => x <= asset.width), asset.width])].sort((a, b) => a - b);
+  const fitting = tiers.filter((t) => t <= cap);
+  const w = fitting.length ? fitting[fitting.length - 1] : tiers[0] ?? 640;
   return publicUrl(`${asset.basePath}-${w}.${format}`);
 }
