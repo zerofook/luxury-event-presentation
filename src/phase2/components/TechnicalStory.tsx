@@ -68,15 +68,17 @@ export function TechnicalStory({
       </div>
       <div className="p2-offer-stack p2-offer-stack--tech">
         {indicativeNoteBg && <p className="p2-invest-note">{indicativeNoteBg}</p>}
-        <OfferBlockView block={mainBlock} itemMap={itemMap} />
-        {extraBlock.items.length > 0 && <OfferBlockView block={extraBlock} itemMap={itemMap} />}
+        <section className="p2-tech-summary" aria-labelledby="p2-tech-summary-title">
+          <h3 id="p2-tech-summary-title" className="p2-area__title p2-area__title--spaced">
+            Обобщение на техническото предложение
+          </h3>
+          <OwnerTextSlideFigure assetId="v4_owner_doc_030_technical_package_slide" />
+        </section>
+        <OfferBlockView block={mainBlock} itemMap={itemMap} collapsible />
+        {extraBlock.items.length > 0 && (
+          <OfferBlockView block={extraBlock} itemMap={itemMap} collapsible />
+        )}
       </div>
-      <section className="p2-tech-summary" aria-labelledby="p2-tech-summary-title">
-        <h3 id="p2-tech-summary-title" className="p2-area__title p2-area__title--spaced">
-          Обобщение на техническото предложение
-        </h3>
-        <OwnerTextSlideFigure assetId="v4_owner_doc_030_technical_package_slide" />
-      </section>
     </>
   );
 }

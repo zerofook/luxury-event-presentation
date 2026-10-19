@@ -1768,9 +1768,51 @@ button.p2-btn {
 }
 
 .p2-tech-summary {
-  margin-top: 2rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(52, 76, 96, 0.12);
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.p2-tech-offer-details {
+  margin-top: 0.35rem;
+}
+
+.p2-tech-offer-details__intro {
+  margin: 0.65rem 0 0.85rem;
+}
+
+.p2-tech-offer-details summary {
+  list-style: none;
+}
+
+.p2-tech-offer-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.p2-tech-offer-details summary::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-right: 0.45rem;
+  border-top: 0.35rem solid transparent;
+  border-bottom: 0.35rem solid transparent;
+  border-left: 0.55rem solid var(--p2-turquoise);
+  vertical-align: 0.05em;
+  transition: transform 0.15s ease;
+}
+
+.p2-tech-offer-details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.p2-tech-offer-details summary:focus {
+  outline: none;
+  background: transparent;
+}
+
+.p2-tech-offer-details summary:focus-visible {
+  outline: 2px solid var(--p2-turquoise);
+  outline-offset: 2px;
 }
 
 .p2-programme-chapter .p2-owner-text-slide {

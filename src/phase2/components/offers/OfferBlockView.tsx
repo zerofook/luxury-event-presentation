@@ -7,14 +7,30 @@ import { OfferPackageBlock } from './OfferPackageBlock';
 import { OfferSingleRow } from './OfferSingleRow';
 import { OfferVariantRow } from './OfferVariantRow';
 
+function compactRowsBody(block: ResolvedOfferBlock) {
+  return (
+    <div className="p2-offer-block__stack">
+      {block.galleryAssetIds && block.galleryAssetIds.length > 0 && (
+        <div className="p2-offer-block__hero p2-offer-block__hero--wide">
+          <OfferGallery assetIds={block.galleryAssetIds} layout="editorial" visualFill />
+        </div>
+      )}
+      <OfferCompactRows items={block.items} columns={block.items.length >= 6 ? 2 : 1} />
+    </div>
+  );
+}
+
 export function OfferBlockView({
   block,
   itemMap,
   subsectionLabelBg,
+  collapsible,
 }: {
   block: ResolvedOfferBlock;
   itemMap: Map<string, ClientLineItem>;
   subsectionLabelBg?: string;
+  /** Collapsed-by-default disclosure (e.g. §04 tech rows); prices stay in DOM. */
+  collapsible?: boolean;
 }) {
   if (block.layout === 'package' && block.packagePriceItemId) {
     const priceItem = itemMap.get(block.packagePriceItemId);
@@ -36,6 +52,18 @@ export function OfferBlockView({
   const showBlockTitle =
     !singleRowBlock && shouldShowCompactBlockTitle(block.titleBg, subsectionLabelBg);
   const showHead = Boolean(showBlockTitle || block.subtitleBg || block.introBg);
+
+  if (collapsible && block.layout === 'compact-rows' && block.items.length > 0) {
+    return (
+      <details className="p2-programme-chapter__details p2-tech-offer-details">
+        <summary>
+          {block.titleBg} ({block.items.length})
+        </summary>
+        {block.introBg && <p className="p2-offer-block__intro p2-tech-offer-details__intro">{block.introBg}</p>}
+        {compactRowsBody(block)}
+      </details>
+    );
+  }
 
   return (
     <section className="p2-offer-block" aria-labelledby={showHead ? `offer-${block.id}` : undefined}>
@@ -65,16 +93,7 @@ export function OfferBlockView({
           />
         ))}
 
-      {block.layout === 'compact-rows' && (
-        <div className="p2-offer-block__stack">
-          {block.galleryAssetIds && block.galleryAssetIds.length > 0 && (
-            <div className="p2-offer-block__hero p2-offer-block__hero--wide">
-              <OfferGallery assetIds={block.galleryAssetIds} layout="editorial" visualFill />
-            </div>
-          )}
-          <OfferCompactRows items={block.items} columns={block.items.length >= 6 ? 2 : 1} />
-        </div>
-      )}
+      {block.layout === 'compact-rows' && compactRowsBody(block)}
     </section>
   );
 }
