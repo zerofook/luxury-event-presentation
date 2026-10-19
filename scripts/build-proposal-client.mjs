@@ -63,6 +63,15 @@ const TITLE_OVERRIDES = {
   'p29-extra-led-operator': 'Оператор на LED екран',
   'p29-extra-dj': 'DJ и маса',
   'p27-gifts-hair': 'Аксесоари за коса',
+  'p29-tech-1-cocktail': '1. Коктейл зона — атмосферно осветление',
+  'p29-tech-2-corridor': '2. Коридор — осветление и LED екран',
+  'p29-tech-3-gala': '3. Зала гала — сценично осветление',
+  'p29-tech-4-sound': '4. Озвучаване — за коктейл, коридор и зала гала',
+  'p29-tech-5-led': '5. LED екран — коридор',
+  'p29-tech-6a-stage-cocktail': '6. Сцени — зала гала и коктейл (коктейл)',
+  'p29-tech-6b-stage-gala': '6. Сцени — зала гала и коктейл (зала)',
+  'p29-tech-7-truss': '7. Конструкция — за фоайе и коридор',
+  'p29-tech-8-rider': '8. Райдер и допълнително',
 };
 
 function clientTitle(item) {
@@ -97,11 +106,10 @@ function sanitizeVat(v) {
 }
 
 function derivePriceType(item) {
-  if (item.priceType) return item.priceType;
+  if (item.priceType && item.priceType !== 'not_provided') return item.priceType;
   if (item.status === 'price_on_request') return 'on_request';
   if (item.priceMin != null && item.priceMax != null) return 'range';
-  if (item.unitPrice != null && item.quantity != null) return 'unit_price';
-  if (item.unitPrice != null && item.unit === 'маса') return 'unit_price';
+  if (item.unitPrice != null) return 'unit_price';
   if (item.lineTotal != null) {
     if (item.status === 'unconfirmed') return 'pending_confirmation';
     return 'fixed';
@@ -238,14 +246,14 @@ const client = {
     eventTitleBg: 'GEOTRADING — 22-ра юбилейна гала',
     eventDateBg: '12 януари 2027',
     guestCountNoteBg: 'Предложена конфигурация ~150 госта (по изходния план на залата; не е финално потвърдено)',
-    vatNoteBg: 'Цените следват формулировките в източника — основно „без ДДС“, освен където е посочено друго.',
+    vatNoteBg: 'Цените следват формулировките в предложението — основно „без ДДС“, освен където е посочено друго.',
     currencyNoteBg:
       'Почти всички суми са в евро; изключение: страница 40 — Gipsy Kings (85 000 £).',
     itemCount: clientItems.length,
     investmentIntroBg:
       'Към момента не е представена обща сума. Изисква се избрана конфигурация (палитра, програма, технически пакет, количества) и съгласуване на припокриващи се позиции.',
     investmentClarityBg:
-      'Позициите с етикет „алтернатива“ са взаимно изключващи се опции. Диапазоните и „по запитване“ изискват избор и потвърждение преди финална оферта. Всяка сума по-долу е съпоставима със страница от източника.',
+      'Позициите с етикет „алтернатива“ са взаимно изключващи се опции. Диапазоните и „по запитване“ изискват избор и потвърждение преди финална оферта. Всяка сума по-долу е съпоставима със съответната страница в предложението.',
     contactPlaceholderBg:
       'За обсъждане на конфигурацията и следващи стъпки ще бъдат публикувани контактни данни на агенцията след потвърждение от възложителя.',
   },
@@ -277,7 +285,7 @@ const client = {
       titleBg: 'Техническо обезпечаване',
       scopeBg: 'Звук, светлина, LED, сцена, коридор, 3D мапинг.',
       notesBg:
-        'На страница 29 е отпечатана обща цена за техническия пакет; редовете в таблицата и допълнителните услуги изискват съгласуване. Сумите за LED екран в коридора се разминават в източника.',
+        'На страница 29 е отпечатана обща цена за техническия пакет; редовете и допълнителните услуги изискват съгласуване преди финална конфигурация.',
     },
     {
       id: 'gostopriemstvo',

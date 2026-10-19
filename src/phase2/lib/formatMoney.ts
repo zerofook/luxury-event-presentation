@@ -10,6 +10,11 @@ export function formatUnitPrice(amount: number, currency: ItemCurrency = 'EUR'):
   return `${amount.toLocaleString('bg-BG', { maximumFractionDigits: 2 })} ${currency === 'GBP' ? '£' : '€'}`;
 }
 
+export function unitArithmeticMatches(item: ClientLineItem): boolean {
+  if (item.quantity == null || item.unitPrice == null || item.lineTotal == null) return true;
+  return Math.abs(item.quantity * item.unitPrice - item.lineTotal) <= 0.01;
+}
+
 export function formatItemPrice(item: ClientLineItem): string {
   const cur = item.currency ?? 'EUR';
   const vat = item.vatTreatment ? ` · ${item.vatTreatment.replace(/EXCL\. VAT/i, '').trim()}` : '';
@@ -23,7 +28,8 @@ export function formatItemPrice(item: ClientLineItem): string {
     case 'unit_price':
       if (item.unitPrice != null) {
         const unit = item.unit ? ` / ${item.unit}` : '';
-        return `${formatUnitPrice(item.unitPrice, cur)}${unit}${vat}`;
+        const prefix = item.id === 'p27-gifts-hair' ? 'около ' : '';
+        return `${prefix}${formatUnitPrice(item.unitPrice, cur)}${unit}${vat}`;
       }
       break;
     case 'on_request':

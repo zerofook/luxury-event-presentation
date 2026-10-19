@@ -1,6 +1,6 @@
 import { ProposalPicture } from './ProposalPicture';
 import type { ClientLineItem } from '../types';
-import { ItemRowList } from './ItemRowList';
+import { OfferCompactRows } from './offers/OfferCompactRows';
 
 /** Photo-only table decor renders — menus/gifts/mini-car need owner clean layers. */
 const HOSPITALITY_GALLERY = [
@@ -26,7 +26,7 @@ export function HospitalityEditorial({ items }: { items: ClientLineItem[] }) {
         Менюта, подаръци и аксесоари от одобреното предложение — по-долу са отделните оферти с тип цена (на гост, на
         брой или пакет).
       </p>
-      <ItemRowList items={items} />
+      <OfferCompactRows items={items} />
     </>
   );
 }

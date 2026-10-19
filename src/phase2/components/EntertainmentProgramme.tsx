@@ -105,17 +105,18 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
               chapter.galleryAssetIds &&
               chapter.galleryAssetIds.length > 0 && (
                 <div
-                  className={`p2-programme-chapter__gallery p2-programme-chapter__gallery--count-${Math.min(galleryCount, 6)}${chapter.galleryPortraitIds?.length ? ' p2-programme-chapter__gallery--portrait-pair' : ''}`}
+                  className={`p2-programme-chapter__gallery p2-programme-chapter__gallery--count-${Math.min(galleryCount, 6)}${chapter.galleryPortraitIds?.length ? ' p2-programme-chapter__gallery--portrait-pair' : ''}${galleryCount === 1 ? ' p2-programme-chapter__gallery--solo' : ''}`}
                 >
                   {chapter.galleryAssetIds.map((id) => (
                     <div
                       key={id}
-                      className={`p2-programme-chapter__thumb${chapter.galleryPortraitIds?.includes(id) ? ' p2-programme-chapter__thumb--portrait' : ''}`}
+                      className={`p2-programme-chapter__thumb${chapter.galleryPortraitIds?.includes(id) ? ' p2-programme-chapter__thumb--portrait' : ''}${chapter.id === 'hosts' && id.includes('host_1') ? ' p2-programme-chapter__thumb--host' : ''}`}
                     >
                       <ProposalPicture
                         assetId={id}
                         layout="fill"
                         objectFit="cover"
+                        objectPosition={chapter.id === 'hosts' && id.includes('host_1') ? '50% 18%' : undefined}
                         sizes="(min-width: 1024px) 280px, 30vw"
                       />
                     </div>
@@ -138,7 +139,7 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                 </div>
                 <div className="p2-programme-chapter__spotlight-visual p2-programme-chapter__spotlight-visual--gatsby">
                   <ProposalPicture
-                    assetId="v4_p36_crop_sway_feathers"
+                    assetId="v4_p36_crop_little_party_feathers"
                     layout="fill"
                     objectFit="cover"
                     sizes="(min-width: 900px) 420px, 46vw"
@@ -181,12 +182,11 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
             )}
             {chapterItems.length === 0 && chapter.id === 'ceremony' && (
               <p className="p2-muted">
-                Церемонията е описана визуално в предложението (стр. 37); отделни ценови редове за този блок няма в
-                извлечения набор.
+                Церемонията е описана визуално в предложението (стр. 37); отделни ценови позиции за този блок няма.
               </p>
             )}
             {chapterItems.length === 0 && chapter.id === 'hosts' && (
-              <p className="p2-muted">Няма извлечени ценови редове за водещи в клиентския набор.</p>
+              <p className="p2-muted">Ценови редове за водещи не са публикувани в този преглед.</p>
             )}
           </article>
         );

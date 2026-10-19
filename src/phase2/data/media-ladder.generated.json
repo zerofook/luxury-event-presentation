@@ -1150,6 +1150,24 @@
       2048
     ]
   },
+  "v4_p19_crop_mapping_partial_clean": {
+    "avif": [],
+    "webp": [],
+    "jpg": [
+      640,
+      1024,
+      2048
+    ]
+  },
+  "v4_p20_crop_mapping_full_clean": {
+    "avif": [],
+    "webp": [],
+    "jpg": [
+      640,
+      1024,
+      2048
+    ]
+  },
   "v4_p20_crop_mapping_hall_left": {
     "avif": [],
     "webp": [],
