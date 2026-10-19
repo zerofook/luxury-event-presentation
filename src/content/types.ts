@@ -15,15 +15,13 @@ export interface PriceItem {
   notes?: string;
 }
 
-export type AssetProvenance = 'pdf-crop' | 'pdf-page' | 'owner-visualization';
-
 export interface MediaAsset {
   id: string;
   altBg: string;
   width: number;
   height: number;
   basePath: string; // media/img/{id} without width suffix (use publicUrl at runtime)
-  source: { pdfPage?: string; crop?: string; provenance: AssetProvenance };
+  source: { pdfPage?: string; crop?: string; provenance?: string };
 }
 
 export interface PaletteSwatch {
@@ -40,7 +38,7 @@ export interface PaletteVariant {
   previewAssetId: string;
 }
 
-export type EntranceTransition = 'dissolve-still' | 'scroll-natural' | 'hold-video-only';
+export type EntranceTransition = 'dissolve-still' | 'scroll-natural';
 
 export interface HeroSceneData {
   type: 'hero';
@@ -55,7 +53,7 @@ export interface VideoEntranceSceneData {
   id: string;
   videoSrc: string;
   posterSrc: string;
-  stillAssetId?: string;
+  stillAssetId: string;
   stillAltAssetId?: string;
   width: number;
   height: number;
@@ -63,85 +61,6 @@ export interface VideoEntranceSceneData {
   bodyBg: string;
   priceId?: string;
   doorwayOrigin?: { x: number; y: number };
-}
-
-export interface SpatialMarker {
-  id: string;
-  order: number;
-  labelBg: string;
-  /** Shorter label for narrow viewports (legend uses full labelBg) */
-  labelShortBg?: string;
-  /** Approximate normalized position on overview art (0–1) */
-  x: number;
-  y: number;
-}
-
-export interface FirstFloorOverviewSceneData {
-  type: 'firstFloorOverview';
-  id: string;
-  primaryAssetId: string;
-  alternateAssetId?: string;
-  alternateCaptionBg?: string;
-  schematicNoteBg?: string;
-  trackSvh?: number;
-  titleBg: string;
-  bodyBg: string;
-  markers: SpatialMarker[];
-}
-
-export interface VideoBeatSceneData {
-  type: 'videoBeat';
-  id: string;
-  videoSrc: string;
-  posterSrc: string;
-  width: number;
-  height: number;
-  titleBg: string;
-  bodyBg: string;
-  stillAssetId?: string;
-  preload?: 'none' | 'metadata';
-  eager?: boolean;
-}
-
-export interface EditorialInterludeSceneData {
-  type: 'editorialInterlude';
-  id: string;
-  headlineBg: string;
-  sublineBg?: string;
-}
-
-export interface CorridorPassageSceneData {
-  type: 'corridorPassage';
-  id: string;
-  videoSrc: string;
-  posterSrc: string;
-  width: number;
-  height: number;
-  trackSvh: number;
-  titleBg: string;
-  bodyBg: string;
-  playbackNoteBg?: string;
-  variantPanelTitleBg?: string;
-  variantAssetIds?: string[];
-}
-
-export interface GalaPerspective {
-  assetId: string;
-  labelBg: string;
-  /** Documentation only — not shown in UI */
-  provenanceBg?: string;
-}
-
-export interface GalaRevealSceneData {
-  type: 'galaReveal';
-  id: string;
-  primaryAssetId: string;
-  /** CSS object-position for hero still (e.g. crop agency watermark) */
-  primaryObjectPosition?: string;
-  titleBg: string;
-  bodyBg: string;
-  perspectives: GalaPerspective[];
-  perspectivesNoteBg: string;
 }
 
 export interface PhotoExperienceSceneData {
@@ -154,7 +73,78 @@ export interface PhotoExperienceSceneData {
   height: number;
   titleBg: string;
   bodyBg: string;
-  variantAssetIds?: string[];
+}
+
+export type EditorialVideoLayout = 'stack-wide' | 'split-narrow' | 'split-impact';
+
+export interface EditorialVideoSceneData {
+  type: 'editorialVideo';
+  id: string;
+  tone: 'cream' | 'navy';
+  layout?: EditorialVideoLayout;
+  eyebrowBg?: string;
+  titleBg: string;
+  bodyBg: string;
+  disclaimerBg?: string;
+  videoSrc: string;
+  posterSrc: string;
+  width: number;
+  height: number;
+  /** Optional hysteresis for in-view playback (e.g. champagne clip). */
+  videoInView?: { threshold?: number; exitThreshold?: number; resetOnPause?: boolean };
+}
+
+export interface EditorialFrameItem {
+  assetId: string;
+  captionBg: string;
+  objectPosition?: string;
+}
+
+export interface EditorialSectionSceneData {
+  type: 'editorialSection';
+  id: string;
+  tone: 'cream' | 'navy' | 'ivory';
+  variant:
+    | 'standard'
+    | 'passage'
+    | 'gala-reveal'
+    | 'ceremony'
+    | 'programme'
+    | 'entertainment-duo'
+    | 'visual-chapter';
+  titleBg: string;
+  bodyBg: string;
+  eyebrowBg?: string;
+  disclaimerBg?: string;
+  assetId?: string;
+  secondaryAssetId?: string;
+  objectPosition?: string;
+  /** gala-reveal: short label before alive video */
+  aliveLabelBg?: string;
+  /** gala-reveal */
+  stillAssetId?: string;
+  videoSrc?: string;
+  posterSrc?: string;
+  videoWidth?: number;
+  videoHeight?: number;
+  /** passage subtle zoom origin */
+  zoomOrigin?: { x: number; y: number };
+  frames?: EditorialFrameItem[];
+  programmeNoteBg?: string;
+  /** ceremony: dominant hero frame */
+  heroFrame?: EditorialFrameItem;
+}
+
+export interface ClosingSceneData {
+  type: 'closing';
+  id: string;
+  titleBg: string;
+  bodyBg: string;
+  disclaimerBg: string;
+  assetId: string;
+  objectPosition?: string;
+  ctaLabelBg: string;
+  ctaSoonBg: string;
 }
 
 export interface StickyBeat {
@@ -174,23 +164,6 @@ export interface StickyStorySceneData {
   masterAssetId: string;
   trackSvh: { desktop: number; mobile: number };
   beats: StickyBeat[];
-  investmentTitleBg: string;
-  investmentIntroBg: string;
-  priceIds: string[];
-}
-
-export interface ScrubSceneData {
-  type: 'scrubPassage';
-  id: string;
-  trackSvh: number;
-  corridorAssetId: string;
-  passageVariantAssetIds: string[];
-  galaAssetId: string;
-  galaSecondaryAssetId?: string;
-  doorwayOrigin: { x: number; y: number };
-  placeholderLabelBg: string;
-  titleBg: string;
-  bodyBg: string;
 }
 
 export interface DevScrubTestData {
@@ -203,14 +176,11 @@ export interface DevScrubTestData {
 export type SceneData =
   | HeroSceneData
   | VideoEntranceSceneData
-  | FirstFloorOverviewSceneData
-  | VideoBeatSceneData
-  | EditorialInterludeSceneData
-  | CorridorPassageSceneData
-  | GalaRevealSceneData
   | PhotoExperienceSceneData
   | StickyStorySceneData
-  | ScrubSceneData;
+  | EditorialVideoSceneData
+  | EditorialSectionSceneData
+  | ClosingSceneData;
 
 export interface SiteUiStrings {
   playVideo: string;
@@ -218,23 +188,14 @@ export interface SiteUiStrings {
   passagePaletteNote: string;
   devScrubHint: string;
   ariaHeroSection: string;
-  ariaPhotoVariants: string;
-  journeyChapterLabel: string;
-  spatialThreadHint: string;
-  provenancePdf: string;
-  provenanceOwner: string;
-}
-
-export interface JourneyChapter {
-  id: string;
-  labelBg: string;
+  filmOverlayTitle: string;
+  filmOverlayClose: string;
+  programmeDisclaimerBg: string;
 }
 
 export interface SiteContent {
   lang: 'bg';
   title: string;
-  closingLineBg: string;
-  journeyChapters: JourneyChapter[];
   ui: SiteUiStrings;
   dev: {
     entranceTransition: EntranceTransition;

@@ -1,39 +1,52 @@
 import { useEffect, useState } from 'react';
 import type { PhotoExperienceSceneData } from '@/content/types';
 import { ResponsivePicture } from '@/components/ResponsivePicture';
-import { useVideoInView } from '@/lib/useVideoInView';
+import { useActiveVideoInView } from '@/lib/useActiveVideoInView';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
 import { publicUrl } from '@/lib/publicUrl';
 
 interface Props {
   data: PhotoExperienceSceneData;
-  ui: { playVideo: string; ariaPhotoVariants: string };
+  ui: { playVideo: string };
 }
 
 export function PhotoExperienceScene({ data, ui }: Props) {
   const reduced = getPrefersReducedMotion();
-  const { videoRef, containerRef, needsTap, ended, tryPlay } = useVideoInView({
-    playOnce: true,
-    holdLastFrame: true,
-  });
+  const { videoRef, containerRef, needsTap, tryPlay } = useActiveVideoInView({ loop: false });
   const [showStill, setShowStill] = useState(reduced);
   const [textVisible, setTextVisible] = useState(reduced);
 
   useEffect(() => {
+    const v = videoRef.current;
+    if (!v || reduced) return;
+    const onEnded = () => setShowStill(true);
+    v.addEventListener('ended', onEnded);
+    return () => v.removeEventListener('ended', onEnded);
+  }, [videoRef, reduced]);
+
+  useEffect(() => {
     if (reduced) return;
-    if (ended) {
-      const t1 = window.setTimeout(() => setShowStill(true), 600);
-      const t2 = window.setTimeout(() => setTextVisible(true), 900);
-      return () => {
-        clearTimeout(t1);
-        clearTimeout(t2);
-      };
+    if (showStill) {
+      const t = window.setTimeout(() => setTextVisible(true), 400);
+      return () => clearTimeout(t);
     }
-  }, [ended, reduced]);
+  }, [showStill, reduced]);
+
+  useEffect(() => {
+    if (reduced) return;
+    const el = document.querySelector(`#scene-${data.id} .photo-exp__text`);
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => e?.isIntersecting && setTextVisible(true), { threshold: 0.2 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [data.id, reduced]);
 
   return (
-    <section className="photo-exp" aria-labelledby="photo-heading">
-      <div className="photo-exp__band" ref={containerRef}>
+    <section id={`scene-${data.id}`} className="photo-exp" aria-labelledby="photo-heading">
+      <div className="photo-exp__intro">
+        <p className="eyebrow photo-exp__eyebrow">Финал на първия етаж</p>
+      </div>
+      <div className="photo-exp__band photo-exp__band--video" ref={containerRef}>
         {!reduced && (
           <video
             ref={videoRef}
@@ -51,7 +64,7 @@ export function PhotoExperienceScene({ data, ui }: Props) {
         <div className="photo-exp__still" style={{ opacity: showStill || reduced ? 1 : 0 }}>
           <ResponsivePicture assetId={data.stillAssetId} objectFit="cover" />
         </div>
-        {needsTap && !reduced && (
+        {needsTap && !reduced && !showStill && (
           <button type="button" className="play-affordance" onClick={() => void tryPlay()}>
             {ui.playVideo}
           </button>
@@ -64,16 +77,6 @@ export function PhotoExperienceScene({ data, ui }: Props) {
         </h2>
         <p className="section-lead">{data.bodyBg}</p>
       </div>
-
-      {data.variantAssetIds && data.variantAssetIds.length > 0 && (
-        <div className="photo-exp__variants" aria-label={ui.ariaPhotoVariants}>
-          {data.variantAssetIds.map((id) => (
-            <div key={id} className="photo-exp__variant-thumb">
-              <ResponsivePicture assetId={id} objectFit="cover" />
-            </div>
-          ))}
-        </div>
-      )}
     </section>
   );
 }

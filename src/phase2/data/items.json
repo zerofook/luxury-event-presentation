@@ -1,0 +1,3032 @@
+{
+ "meta": {
+  "source": "/workspace/v4/presentation.pdf (42 pages)",
+  "canvaMapping": "PDF p1–40 = Canva c1–40; p41 = c57; p42 = c58. Canva c41–c56 are hidden and were NOT used.",
+  "createdBy": "Grok Bot executor audit",
+  "generated": "2026-10-19",
+  "currencyNote": "All prices are EUR except p40 Gipsy Kings = GBP (85 000 £).",
+  "vatNote": "Every priced item carries \"БЕЗ ДДС\" (excl. VAT) wording except: the p35 jazz-arrangements note (3 000 €) and the p29 \"Допълнителни услуги\" box lines (box itself has no wording; the p29 total box says БЕЗ ДДС). No VAT rate or VAT-inclusive price appears anywhere.",
+  "statusConvention": "status is assigned from page context. The PDF never uses the words recommended/optional; statusBasis records whether the status is explicit or inferred. Performers/programme: bookingStatus=\"proposed_not_confirmed\" for every named performer; none is confirmed.",
+  "statusCounts": {
+   "recommended": 20,
+   "included": 3,
+   "alternative": 18,
+   "optional": 22,
+   "excluded": 1,
+   "unconfirmed": 2,
+   "price_on_request": 9
+  },
+  "itemCount": 75
+ },
+ "items": [
+  {
+   "id": "p05-entrance-total",
+   "pdfPage": 5,
+   "canvaPage": 5,
+   "area": "Вход / Grand Entrance",
+   "titleBg": "ЦЯЛОСТЕН ДЕКОР НА ВХОДА",
+   "descriptionBg": "Ефектна входна визия, която създава неповторима атмосфера и поставя началото на едно специално събитие.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 4300,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "Gold price panel bottom-right of p05: \"ЦЯЛОСТЕН ДЕКОР НА ВХОДА 4 300 € БЕЗ ДДС / EXCL. VAT\". One lump sum for the whole entrance; no quantities.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p05_price_total.png",
+    "crops/p05_spec_items.png"
+   ],
+   "images": [
+    "pages/p05.jpg (single full-bleed render, no extract/ entry; not one of the 3 palette renders of p04)"
+   ],
+   "notes": [
+    "Render on p05 shows a cream/gold scheme with purple-lit glass; p04 shows the same entrance in 3 palettes, but p05 does not say which palette the 4 300 € applies to."
+   ]
+  },
+  {
+   "id": "p05-entrance-stands",
+   "pdfPage": 5,
+   "canvaPage": 5,
+   "area": "Вход / Grand Entrance",
+   "titleBg": "ВИСОКИ МЕТАЛНИ СТОЙКИ С КРИСТАЛИ",
+   "descriptionBg": "Елегантни златни конструкции с осветление, създаващи луксозен и бляскав ефект.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "included",
+   "statusBasis": "inferred",
+   "sourceNote": "Listed as a component of the entrance decor on p05; no separate price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p05_spec_items.png"
+   ],
+   "images": []
+  },
+  {
+   "id": "p05-entrance-florals",
+   "pdfPage": 5,
+   "canvaPage": 5,
+   "area": "Вход / Grand Entrance",
+   "titleBg": "ОБЕМНИ ФЛОРАЛНИ КОМПОЗИЦИИ",
+   "descriptionBg": "Богати аранжировки от цветя, декоративни пера и златни елементи в бяло, шампанско и капучино.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "included",
+   "statusBasis": "inferred",
+   "sourceNote": "Listed as a component of the entrance decor on p05; no separate price; no count.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p05_spec_items.png"
+   ],
+   "images": []
+  },
+  {
+   "id": "p05-entrance-carpet",
+   "pdfPage": 5,
+   "canvaPage": 5,
+   "area": "Вход / Grand Entrance",
+   "titleBg": "ЗЛАТЕН МОКЕТ",
+   "descriptionBg": "Стилен и ефектен път, който води гостите към вътрешното пространство на събитието.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "included",
+   "statusBasis": "inferred",
+   "sourceNote": "Listed as a component of the entrance decor on p05; no separate price; no area given.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p05_spec_items.png"
+   ],
+   "images": []
+  },
+  {
+   "id": "p11-foyer-walls",
+   "pdfPage": 11,
+   "canvaPage": 11,
+   "area": "Коктейл зона / фоайе",
+   "titleBg": "ПЛАТОВЕ ЗА СТЕНИТЕ ВЪВ ФОАЙЕТО",
+   "descriptionBg": "Елегантни бежови платове, създаващи стилна и изискана атмосфера, в хармония с концепцията на събитието.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 3300,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "Callout top-left of p11 render: \"3 300 € БЕЗ ДДС / EXCL. VAT\". No unit printed (lump sum for the foyer walls?) and no length/area.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p11_walls_3300.png",
+    "crops/p11_callouts_top.png"
+   ],
+   "images": [
+    "pages/p11.jpg (annotated aerial of cocktail zone; same overhead view as p08/p09/p10)"
+   ],
+   "notes": [
+    "Unit is not printed: it is not stated whether 3 300 € covers all foyer walls or is per wall/section."
+   ]
+  },
+  {
+   "id": "p11-foyer-columns",
+   "pdfPage": 11,
+   "canvaPage": 11,
+   "area": "Коктейл зона / фоайе",
+   "titleBg": "ДЕКОРАЦИЯ НА КОЛОНИ",
+   "descriptionBg": "Обличане на колоните в бежови платове, декоративни ресни и ринг от цветя в съответствие с темата на събитието.",
+   "quantity": null,
+   "unit": "колона",
+   "unitPrice": 440,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "Callout top-right of p11: \"440 € НА КОЛОНА БЕЗ ДДС / EXCL. VAT\". Number of columns not stated.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p11_columns_440.png",
+    "crops/p11_callouts_top.png"
+   ],
+   "images": [
+    "pages/p11.jpg"
+   ],
+   "notes": [
+    "Quantity of columns not stated -> no line total can be computed."
+   ]
+  },
+  {
+   "id": "p11-foyer-tables",
+   "pdfPage": 11,
+   "canvaPage": 11,
+   "area": "Коктейл зона / фоайе",
+   "titleBg": "КОКТЕЙЛНИ МАСИ",
+   "descriptionBg": "Бежови покривки и стилни аранжировки с цветя и свещи.",
+   "quantity": null,
+   "unit": "маса",
+   "unitPrice": 39,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "Callout right-middle of p11: \"39 € НА МАСА БЕЗ ДДС / EXCL. VAT\". Number of cocktail tables not stated.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p11_tables_39.png",
+    "crops/p11_callouts_bottom.png"
+   ],
+   "images": [
+    "pages/p11.jpg"
+   ],
+   "notes": [
+    "Quantity not stated; the render shows ~15 high tables but the PDF gives no count."
+   ]
+  },
+  {
+   "id": "p11-foyer-florals",
+   "pdfPage": 11,
+   "canvaPage": 11,
+   "area": "Коктейл зона / фоайе",
+   "titleBg": "СВОБОДНО СТОЯЩИ ФЛОРАЛНИ КОМПОЗИЦИИ",
+   "descriptionBg": "Големи композиции с цветя и пера, разположени на ключови места във фоайето, за впечатляващ и луксозен ефект.",
+   "quantity": null,
+   "unit": "брой",
+   "unitPrice": 429,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "Callout bottom-left of p11: \"429 € ЗА БРОЙ БЕЗ ДДС / EXCL. VAT\". Count not stated.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p11_floral_429.png",
+    "crops/p11_callouts_bottom.png"
+   ],
+   "images": [
+    "pages/p11.jpg"
+   ],
+   "notes": [
+    "Quantity not stated. Note: p15/p18 floral compositions are 242 € each, a different (smaller) item from this 429 € foyer composition."
+   ]
+  },
+  {
+   "id": "p15-corridor-led",
+   "pdfPage": 15,
+   "canvaPage": 15,
+   "area": "Коридор към Ивент центъра (Golden Passage)",
+   "titleBg": "LED ЕКРАН В КОРИДОРА",
+   "descriptionBg": "LED екран с обща площ 22 кв/м, интегриран в интериора на коридора, за въздействаща визуална атмосфера и тематично посрещане на гостите.",
+   "quantity": 22,
+   "unit": "кв/м",
+   "unitPrice": null,
+   "lineTotal": 7500,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p15 right column: \"LED екран – 22 кв/м 7 500 €\" (spec card and again in the \"ОБЩА СТОЙНОСТ\" box). No per-sqm price printed.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p15_spec_and_total_right.png",
+    "crops/p15_total_block.png"
+   ],
+   "images": [
+    "extract/p15/p15_crop_corridor_hero.jpg",
+    "extract/p15/p15_00_1660x948.jpg"
+   ],
+   "notes": [
+    "CONFLICT: p29 section 5 \"LED ЕКРАН – КОРИДОР\" prices a 22 кв.м. screen at 5 700 € (technical package). The two prices are not reconciled in the PDF (7 500 vs 5 700).",
+    "VAT wording appears only on the total box (\"БЕЗ ДДС / EXCL. VAT\")."
+   ]
+  },
+  {
+   "id": "p15-corridor-florals",
+   "pdfPage": 15,
+   "canvaPage": 15,
+   "area": "Коридор към Ивент центъра (Golden Passage)",
+   "titleBg": "ФЛОРАЛНИ КОМПОЗИЦИИ В СТИЛА НА СЪБИТИЕТО",
+   "descriptionBg": "Големи композиции от цветя и пера, разположени около LED екрана. Всички части около екрана ще се дооформят с бежови платове.",
+   "quantity": 6,
+   "unit": "бр.",
+   "unitPrice": 242,
+   "lineTotal": 1452,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p15: \"Композиция – 1 бр. 242 €\"; \"Необходими брой композиции: 6 бр. 1 452 €\". 6 × 242 = 1 452 (OK).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p15_spec_and_total_right.png",
+    "crops/p15_led_florals_mid.png"
+   ],
+   "images": [
+    "extract/p15/p15_crop_corridor_hero.jpg"
+   ]
+  },
+  {
+   "id": "p17-stage-decor",
+   "pdfPage": 17,
+   "canvaPage": 17,
+   "area": "Зала гала — сцена и сценография",
+   "titleBg": "Декор на зоната – декоративни пана с въртяща платформа",
+   "descriptionBg": "Концептуален декор на сцената с изграждане на декоративни плоскости в стил Гетсби, които завършват екрана от двете страни. С паната ще оформим обемен декор от дясно на сцената, с който ще скрием сгъващите се стени и нишата. Целият декор в тази зона ще покрие 4 метра от стената от дясно плюс дълбочината на сгъващите се стени. В нишата ще скрием тортата на въртяща се платформа и тя ще остане скрита през по-голямата част от вечерта. По сценарий платформата ще се завърти заедно с декора и ще се появи тортата.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 4620,
+   "currency": "EUR",
+   "vatTreatment": "(без ДДС)",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p17 \"ИНВЕСТИЦИЯ\" panel: \"Декор на зоната – декоративни пана с въртяща платформа 4,620 € (без ДДС)\". Comma used as thousands separator.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p17_invest_block.png",
+    "crops/p17_concept_text_only.png"
+   ],
+   "images": [
+    "extract/p17/p17_crop_stage_hero.jpg",
+    "extract/p17/p17_crop_stage_decor_detail.jpg",
+    "extract/p17/p17_crop_stage_cake_reveal.jpg"
+   ],
+   "notes": [
+    "The LED screen on the p17 render shows a celebrity-like face (likeness/permission is an open question; not a pricing matter)."
+   ]
+  },
+  {
+   "id": "p17-stage-florals",
+   "pdfPage": 17,
+   "canvaPage": 17,
+   "area": "Зала гала — сцена и сценография",
+   "titleBg": "Цветни композиции (12 броя × 220 €)",
+   "descriptionBg": "(без описание на отделната страница; виж p17 панела „ИНВЕСТИЦИЯ“)",
+   "quantity": 12,
+   "unit": "бр.",
+   "unitPrice": 220,
+   "lineTotal": 2904,
+   "currency": "EUR",
+   "vatTreatment": "(без ДДС)",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p17 panel prints \"Цветни композиции (12 броя × 220 €)  2,904 € (без ДДС)\". 12 × 220 = 2 640, NOT 2 904. 2 904 = 12 × 242 (242 € is the unit price of floral compositions on p15 and p18).",
+   "confidence": "medium",
+   "verified": true,
+   "crops": [
+    "crops/p17_invest_block.png"
+   ],
+   "images": [
+    "extract/p17/p17_crop_stage_hero.jpg"
+   ],
+   "notes": [
+    "ARITHMETIC MISMATCH (source): printed unit price 220 € x 12 = 2 640 €, printed line total 2 904 €. Difference 264 €. The printed ОБЩО 7,524 € uses 2 904. Which of the two is correct (220 or 242 per composition) must be confirmed by the owner. unitPrice recorded as printed (220); lineTotal as printed (2904)."
+   ]
+  },
+  {
+   "id": "p18-hall-ceiling",
+   "pdfPage": 18,
+   "canvaPage": 18,
+   "area": "Зала гала — декор",
+   "titleBg": "ДЕКОР ТАВАН",
+   "descriptionBg": "Спирали от златни ресни с дължина около 80 см.",
+   "quantity": 24,
+   "unit": "броя",
+   "unitPrice": 77,
+   "lineTotal": 1848,
+   "currency": "EUR",
+   "vatTreatment": "без ДДС",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p18 callout top-right: \"24 броя по 77 евро 1 848 евро без ДДС\". 24 × 77 = 1 848 (OK).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p18_ceiling_1848.png"
+   ],
+   "images": [
+    "extract/p18/p18_crop_hall_clean_left.jpg",
+    "extract/p18/p18_00_1660x948.jpg"
+   ]
+  },
+  {
+   "id": "p18-hall-walls",
+   "pdfPage": 18,
+   "canvaPage": 18,
+   "area": "Зала гала — декор",
+   "titleBg": "ДЕКОР СТЕНИ",
+   "descriptionBg": "Обличане на стените в бежови платове.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 2200,
+   "currency": "EUR",
+   "vatTreatment": "без ДДС",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p18 callout middle-right: \"2 200 евро без ДДС\". No length/area/unit.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p18_walls_2200.png"
+   ],
+   "images": [
+    "extract/p18/p18_00_1660x948.jpg"
+   ]
+  },
+  {
+   "id": "p18-hall-florals",
+   "pdfPage": 18,
+   "canvaPage": 18,
+   "area": "Зала гала — декор",
+   "titleBg": "ЦВЕТНИ КОМПОЗИЦИИ",
+   "descriptionBg": "Композиции от цветя върху постаменти пред стените.",
+   "quantity": 14,
+   "unit": "броя",
+   "unitPrice": 242,
+   "lineTotal": 3388,
+   "currency": "EUR",
+   "vatTreatment": "без ДДС",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p18 callout bottom-right: \"14 броя по 242 евро 3 388 евро без ДДС\". 14 × 242 = 3 388 (OK).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p18_floral_3388.png"
+   ],
+   "images": [
+    "extract/p18/p18_00_1660x948.jpg"
+   ]
+  },
+  {
+   "id": "p19-map-partial-stock",
+   "pdfPage": 19,
+   "canvaPage": 19,
+   "area": "Зала гала — 3D мапинг",
+   "titleBg": "ВАРИАНТ 1 — 3D МАПИНГ СЪС STOCK ВИЗИИ (PARTIAL 3D MAPPING – STOCK-BASED)",
+   "descriptionBg": "Използване на готови 3D визуализации и сцени, адаптирани към пространството.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 12925,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "alternative",
+   "alternativeGroup": "3D_MAPPING",
+   "statusBasis": "inferred",
+   "sourceNote": "Variant box on p19 with component lines and \"ОБЩА СУМА\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p19_v1_prices.png"
+   ],
+   "images": [
+    "pages/p19.jpg (hall render with 3D-mapped walls; same base render as p18)"
+   ],
+   "components": [
+    {
+     "titleBg": "Проектори за 3D мапинг (професионални)",
+     "amount": 7425,
+     "verbatimAmount": "7 425 €"
+    },
+    {
+     "titleBg": "Видео съдържание – stock визии",
+     "amount": 5500,
+     "verbatimAmount": "5 500 €"
+    },
+    {
+     "titleBg": "Техническа реализация, инсталация и оператор",
+     "amount": null,
+     "verbatimAmount": "Включено"
+    }
+   ]
+  },
+  {
+   "id": "p19-map-partial-custom",
+   "pdfPage": 19,
+   "canvaPage": 19,
+   "area": "Зала гала — 3D мапинг",
+   "titleBg": "ВАРИАНТ 2 — 3D МАПИНГ СЪС CUSTOM ВИЗИИ (PARTIAL 3D MAPPING – ARTISTIC/CUSTOM)",
+   "descriptionBg": "Създаване на персонализирано 3D съдържание, специално разработено за събитието – уникална визия, съобразена с темата, бранд идентичността и пространството.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 16240,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "alternative",
+   "alternativeGroup": "3D_MAPPING",
+   "statusBasis": "inferred",
+   "sourceNote": "Variant box on p19 with component lines and \"ОБЩА СУМА\".",
+   "confidence": "medium",
+   "verified": true,
+   "crops": [
+    "crops/p19_v2_prices.png"
+   ],
+   "images": [
+    "pages/p19.jpg (hall render with 3D-mapped walls; same base render as p18)"
+   ],
+   "components": [
+    {
+     "titleBg": "Проектори за 3D мапинг (професионални)",
+     "amount": 7240,
+     "verbatimAmount": "7 240 €"
+    },
+    {
+     "titleBg": "Видео съдържание – custom визии (концепция, 3D визуализация, анимация)",
+     "amount": 9500,
+     "verbatimAmount": "9 500 €"
+    },
+    {
+     "titleBg": "Техническа реализация, инсталация и оператор",
+     "amount": null,
+     "verbatimAmount": "Включено"
+    }
+   ],
+   "notes": [
+    "ARITHMETIC MISMATCH (source): 7 240 + 9 500 = 16 740 but printed ОБЩА СУМА = 16 240 (difference 500 €). Cross-check: p20 full-mapping projector price 14 480 = 2 x 7 240 (and 14 850 = 2 x 7 425 for variant 1), so the 7 240 component looks right and the printed total 16 240 is the likely error (inference, not confirmed)."
+   ]
+  },
+  {
+   "id": "p20-map-full-stock",
+   "pdfPage": 20,
+   "canvaPage": 20,
+   "area": "Зала гала — 3D мапинг",
+   "titleBg": "ВАРИАНТ 1 — 3D МАПИНГ СЪС STOCK ВИЗИИ (FULL 3D MAPPING – STOCK-BASED)",
+   "descriptionBg": "Използване на готови 3D визуализации и сцени, адаптирани към архитектурата и тематиката на събитието.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 20350,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "alternative",
+   "alternativeGroup": "3D_MAPPING",
+   "statusBasis": "inferred",
+   "sourceNote": "Variant box on p20 with component lines and \"ОБЩА СУМА\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p20_v1_prices.png"
+   ],
+   "images": [
+    "pages/p20.jpg (hall render with 3D-mapped walls; same base render as p18)"
+   ],
+   "components": [
+    {
+     "titleBg": "Проектори за 3D мапинг (професионални)",
+     "amount": 14850,
+     "verbatimAmount": "14 850 €"
+    },
+    {
+     "titleBg": "Визуално съдържание – stock визии",
+     "amount": 5500,
+     "verbatimAmount": "5 500 €"
+    },
+    {
+     "titleBg": "Техническа реализация, инсталация и оператор",
+     "amount": null,
+     "verbatimAmount": "Включено"
+    }
+   ]
+  },
+  {
+   "id": "p20-map-full-custom",
+   "pdfPage": 20,
+   "canvaPage": 20,
+   "area": "Зала гала — 3D мапинг",
+   "titleBg": "ВАРИАНТ 2 — 3D МАПИНГ СЪС CUSTOM ВИЗИИ (FULL 3D MAPPING – ARTISTIC/CUSTOM)",
+   "descriptionBg": "Създаване на персонализирано 3D съдържание, специално разработено за събитието – уникална визия, съобразена с темата, бранд идентичност и пространство.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 23480,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "alternative",
+   "alternativeGroup": "3D_MAPPING",
+   "statusBasis": "inferred",
+   "sourceNote": "Variant box on p20 with component lines and \"ОБЩА СУМА\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p20_v2_prices.png"
+   ],
+   "images": [
+    "pages/p20.jpg (hall render with 3D-mapped walls; same base render as p18)"
+   ],
+   "components": [
+    {
+     "titleBg": "Проектори за 3D мапинг (професионални)",
+     "amount": 14480,
+     "verbatimAmount": "14 480 €"
+    },
+    {
+     "titleBg": "Визуално съдържание – custom визии (концепция, 3D визуализация, анимация)",
+     "amount": 9000,
+     "verbatimAmount": "9 000 €"
+    },
+    {
+     "titleBg": "Техническа реализация, инсталация и оператор",
+     "amount": null,
+     "verbatimAmount": "Включено"
+    }
+   ],
+   "notes": [
+    "Component \"9 000 €\" read on 200 dpi crop; OCR read it as \"30006\" so it was re-checked visually (9 000). 14 480 + 9 000 = 23 480 matches the printed total."
+   ]
+  },
+  {
+   "id": "p24-tables-orange",
+   "pdfPage": 24,
+   "canvaPage": 24,
+   "area": "Декор на гостни маси",
+   "titleBg": "СПЕЦИАЛНА ПАКЕТНА ЦЕНА — Декор на гостни маси (оранжева/терракота гама)",
+   "descriptionBg": "В пакетната цена са включени: 8 подложни чинии, 1 покривка за маса, 1 голяма аранжировка, 1 по-малка аранжировка, 8 декоративни халки за салфетки",
+   "quantity": null,
+   "unit": "маса",
+   "unitPrice": 390,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
+   "status": "alternative",
+   "alternativeGroup": "PALETTE_TABLE_DECOR",
+   "statusBasis": "inferred",
+   "sourceNote": "p24: price box \"СПЕЦИАЛНА ПАКЕТНА ЦЕНА 390 € НА МАСА | БЕЗ ДДС / EXCL. VAT\" sits only at the bottom of the middle (orange/terracotta) panel.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p24_price_package.png",
+    "crops/p24_inclusions_orange.png"
+   ],
+   "images": [
+    "extract/p24/p24_crop_centerpiece_v2.jpg",
+    "extract/p24/p24_00_1536x1024.jpg"
+   ],
+   "notes": [
+    "Table count is not on p24. p16 plan shows 17 tables = 150 guests (14 x 9 + 3 x 8)."
+   ]
+  },
+  {
+   "id": "p24-tables-ivory",
+   "pdfPage": 24,
+   "canvaPage": 24,
+   "area": "Декор на гостни маси",
+   "titleBg": "Декор на гостни маси (светла/слонова кост и злато гама)",
+   "descriptionBg": "В пакетната цена са включени: 8 подложни чинии, 1 покривка за маса, 1 голяма аранжировка, 1 по-малка аранжировка, 8 декоративни халки за салфетки",
+   "quantity": null,
+   "unit": "маса",
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "alternative",
+   "alternativeGroup": "PALETTE_TABLE_DECOR",
+   "statusBasis": "inferred",
+   "sourceNote": "Left panel of p24 shows the same list of inclusions but NO price box. The PDF does not state that 390 € applies.",
+   "confidence": "low",
+   "verified": false,
+   "crops": [
+    "crops/p24_inclusions_ivory.png"
+   ],
+   "images": [
+    "extract/p24/p24_crop_centerpiece_v1.jpg"
+   ],
+   "notes": [
+    "Price not printed for this panel. Applicability of 390 €/table to this palette is UNCONFIRMED."
+   ]
+  },
+  {
+   "id": "p24-tables-plum",
+   "pdfPage": 24,
+   "canvaPage": 24,
+   "area": "Декор на гостни маси",
+   "titleBg": "Декор на гостни маси (слива/бордо гама)",
+   "descriptionBg": "В пакетната цена са включени: 8 подложни чинии, 1 покривка за маса, 1 голяма аранжировка, 1 по-малка аранжировка, 8 декоративни халки за салфетки",
+   "quantity": null,
+   "unit": "маса",
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "alternative",
+   "alternativeGroup": "PALETTE_TABLE_DECOR",
+   "statusBasis": "inferred",
+   "sourceNote": "Right panel of p24 shows the same inclusions but NO price box.",
+   "confidence": "low",
+   "verified": false,
+   "crops": [
+    "crops/p24_inclusions_plum.png"
+   ],
+   "images": [
+    "extract/p24/p24_crop_centerpiece_v3.jpg"
+   ],
+   "notes": [
+    "Price not printed for this panel. Applicability of 390 €/table is UNCONFIRMED."
+   ]
+  },
+  {
+   "id": "p25-menu-thematic",
+   "pdfPage": 25,
+   "canvaPage": 25,
+   "area": "Менюта, подаръци и аксесоари",
+   "titleBg": "ТЕМАТИЧНО МЕНЮ с характер — ПО ЗАЯВКА",
+   "descriptionBg": "Индивидуално изработено меню в автентичен ретро стил, съобразено с темата и визията на Вашето събитие. Предлагаме различни дизайни за дами и господа, както и възможност за персонализация.",
+   "quantity": null,
+   "unit": "брой",
+   "unitPrice": 3.5,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "statusBasis": "explicit-ish (по заявка)",
+   "sourceNote": "p25 top-right box: \"ЦЕНА ЗА ИЗРАБОТКА 3.50 € БЕЗ ДДС ЗА 1 БРОЙ\". Header says \"ПО ЗАЯВКА\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p25_price_top.png"
+   ],
+   "images": [
+    "pages/p25.jpg (6 menu designs; no extract/ entry)"
+   ],
+   "notes": [
+    "The six designs shown (vinyl disc, fan, burgundy disc, pocket-watch, mirror, perfume bottles) look like rigid objects; the footer says 3.50 € is for a textile (\"плат\") menu — unclear if 3.50 € covers the six shown designs.",
+    "Quantity (number of guests/menus) not stated."
+   ]
+  },
+  {
+   "id": "p25-menu-textile",
+   "pdfPage": 25,
+   "canvaPage": 25,
+   "area": "Менюта, подаръци и аксесоари",
+   "titleBg": "ЦЕНА ЗА ИЗРАБОТКА НА МЕНЮ ОТ ТЕКСТИЛ (ПЛАТ)",
+   "descriptionBg": "Може да има различно меню за дамите и господата; луксозен дизайн, създаден специално за вашето събитие; възможност за персонализация – с лого, имена или специално послание.",
+   "quantity": null,
+   "unit": "брой",
+   "unitPrice": 3.5,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "statusBasis": "inferred",
+   "sourceNote": "p25 bottom-left: \"ЦЕНА ЗА ИЗРАБОТКА НА МЕНЮ ОТ ТЕКСТИЛ (ПЛАТ) 3.50 ЕВРО БЕЗ ДДС ЗА 1 БРОЙ\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p25_price_bottom_textile.png",
+    "crops/p25_features_bottom.png"
+   ],
+   "images": [
+    "pages/p25.jpg"
+   ],
+   "notes": [
+    "Same 3.50 € figure as the top box; probably the same item stated twice."
+   ]
+  },
+  {
+   "id": "p26-menu-gramophone",
+   "pdfPage": 26,
+   "canvaPage": 26,
+   "area": "Менюта, подаръци и аксесоари",
+   "titleBg": "МЕНЮ, ВЪРХУ ГРАМОФОННА ПЛОЧА — СПЕЦИАЛНО ПРЕДЛОЖЕНИЕ",
+   "descriptionBg": "Индивидуално изписано меню върху автентична ретро грамофонна плоча, с избор от четири стилни визии – за дами и господа. Допълнено с елегантна декорация от пера, ретро печат и логото на Вашето събитие.",
+   "quantity": null,
+   "unit": "брой",
+   "unitPrice": 15,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "statusBasis": "inferred",
+   "sourceNote": "p26 top-right: \"СПЕЦИАЛНА ЦЕНА 15 € ЗА 1 БРОЙ БЕЗ ДДС\". Four visuals: Визия 1 класическа – дама; 2 класическа – господин; 3 светла и елегантна; 4 златна – премиум.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p26_price_box.png",
+    "crops/p26_params_strip.png",
+    "crops/p26_params_strip_cutoff.png"
+   ],
+   "images": [
+    "pages/p26.jpg"
+   ],
+   "notes": [
+    "Bottom strip headings \"ПАРАМЕТРИ / КОМПОНЕНТИ / ПОДХОДЯЩО ЗА\" are cut off at the page edge; their content is not visible in the PDF.",
+    "Whether this replaces or complements the 3.50 € menu on p25 is not stated."
+   ]
+  },
+  {
+   "id": "p27-gifts-budget",
+   "pdfPage": 27,
+   "canvaPage": 27,
+   "area": "Менюта, подаръци и аксесоари",
+   "titleBg": "ПОДАРЪЦИ ЗА ВАШИТЕ ГОСТИ — БЮДЖЕТ",
+   "descriptionBg": "Подбрахме изискани и тематични подаръци, които да подчертават атмосферата на събитието и да останат като красив спомен за Вашите гости. Част от тях могат да бъдат поставени още при пристигане на масите, а останалите – раздадени по време на вечерта.",
+   "quantity": null,
+   "unit": "човек",
+   "unitPrice": 10,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "statusBasis": "inferred",
+   "sourceNote": "p27 top-right: \"БЮДЖЕТ 10 € НА ЧОВЕК БЕЗ ДДС\". Header \"ПРЕДЛОЖЕНИЕ\". A budget figure, not a fixed product price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p27_budget_box.png"
+   ],
+   "images": [
+    "pages/p27.jpg"
+   ],
+   "notes": [
+    "It is a \"бюджет\" (budget) per person, not an itemised quote. Guests: p16 shows 150 in the creative layout."
+   ]
+  },
+  {
+   "id": "p27-gifts-hair",
+   "pdfPage": 27,
+   "canvaPage": 27,
+   "area": "Менюта, подаръци и аксесоари",
+   "titleBg": "АКСЕСОАРИ ЗА КОСА",
+   "descriptionBg": "Изискани аксесоари за коса – пера, диадеми и брошки, вдъхновени от епохата. Подходящи както за фотомомент, така и като персонален подарък за дамите.",
+   "quantity": null,
+   "unit": "брой",
+   "unitPrice": 5,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "statusBasis": "inferred",
+   "sourceNote": "p27 left box: \"АКСЕСОАРИ ЗА КОСА ~5 € ЗА 1 БРОЙ БЕЗ ДДС\". The tilde \"~\" means approximate.",
+   "confidence": "medium",
+   "verified": true,
+   "crops": [
+    "crops/p27_hair_5eur.png"
+   ],
+   "images": [
+    "pages/p27.jpg"
+   ],
+   "notes": [
+    "Approximate price (\"~5 €\"). Unclear whether included in the 10 €/person gift budget."
+   ]
+  },
+  {
+   "id": "p28-vintage-car-model",
+   "pdfPage": 28,
+   "canvaPage": 28,
+   "area": "Менюта, подаръци и аксесоари",
+   "titleBg": "ВИНТИДЖ АВТОМОБИЛ НА СВЕТЕЩ ПОСТАМЕНТ — СПЕЦИАЛНО ПРЕДЛОЖЕНИЕ",
+   "descriptionBg": "Детайлен колекционерски модел на Mercedes-Benz 500K в ретро стил, поставен на специален светещ постамент, който подчертава неговата елегантност и изключителна изработка. Този подарък съчетава класически дизайн, прецизност и впечатляваща визия – идеален за специални гости, партньори или в чест на важни поводи.",
+   "quantity": null,
+   "unit": "брой",
+   "unitPrice": 45,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "statusBasis": "inferred",
+   "sourceNote": "p28 top-right: \"ЦЕНА 45 € ЗА 1 БРОЙ БЕЗ ДДС\". This is a small collectible model (approx. 21 x 8 x 6 cm; 28 x 14 x 12 cm with stand and cover) used as a gift — NOT the full-size vintage car of the photo zone.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p28_price_only.png",
+    "crops/p28_price_box.png",
+    "crops/p28_specs.png"
+   ],
+   "images": [
+    "pages/p28.jpg"
+   ],
+   "notes": [
+    "The full-size vintage car shown in the photo zone (p02, p06–p08) has NO price anywhere in the PDF."
+   ]
+  },
+  {
+   "id": "p28-vintage-car-branding",
+   "pdfPage": 28,
+   "canvaPage": 28,
+   "area": "Менюта, подаръци и аксесоари",
+   "titleBg": "ВЪЗМОЖНОСТ ЗА БРАНДИРАНЕ",
+   "descriptionBg": "Можем да добавим Ваше лого или персонален надпис върху постамента. Брандирането не е включено в цената.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "excluded",
+   "statusBasis": "inferred",
+   "sourceNote": "p28 bottom-right box: \"Брандирането не е включено в цената.\" No price for branding.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p28_branding_note.png"
+   ],
+   "images": [
+    "pages/p28.jpg"
+   ]
+  },
+  {
+   "id": "p29-tech-1-cocktail",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване",
+   "titleBg": "1. КОКТЕЙЛ ЗОНА — АТМОСФЕРНО ОСВЕТЛЕНИЕ",
+   "descriptionBg": "Оборудване: Robe DLX spot moving head 2 бр.; FOS Q19 Ultra LED wash 4 бр.; LED par BBP 60 (battery & wireless) 18 бр.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 1100,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p29 section header chip: \"€ 1 100 БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_s1_cocktail_header.png",
+    "crops/p29_s1_cocktail_equipment.png"
+   ],
+   "images": [
+    "pages/p29.jpg (equipment poster, no extract/ entry)"
+   ]
+  },
+  {
+   "id": "p29-tech-2-corridor",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване",
+   "titleBg": "2. КОРИДОР — ОСВЕТЛЕНИЕ И LED ЕКРАН",
+   "descriptionBg": "Оборудване: LED par BBP 60 (battery & wireless) 20 бр.; FOS Cyclone D2 Pro 4 бр.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 960,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p29 section header chip: \"€ 960 БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_s2_corridor_header.png",
+    "crops/p29_s2_corridor_equipment.png"
+   ],
+   "images": [
+    "pages/p29.jpg (equipment poster, no extract/ entry)"
+   ]
+  },
+  {
+   "id": "p29-tech-3-gala",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване",
+   "titleBg": "3. ЗАЛА ГАЛА — СЦЕНИЧНО ОСВЕТЛЕНИЕ",
+   "descriptionBg": "Оборудване: Robe POINTE spot moving head 16 бр.; FOS Q19 Ultra wash moving head 8 бр.; FOS Cyclone D2 Pro 12 бр.; Mini LED moving head 7x40 16 бр.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 10200,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p29 section header chip: \"€ 10 200 БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_s3_gala_header.png",
+    "crops/p29_s3_gala_equipment.png"
+   ],
+   "images": [
+    "pages/p29.jpg (equipment poster, no extract/ entry)"
+   ]
+  },
+  {
+   "id": "p29-tech-4-sound",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване",
+   "titleBg": "4. ОЗВУЧАВАНЕ — ЗА КОКТЕЙЛ, КОРИДОР И ЗАЛА ГАЛА",
+   "descriptionBg": "Оборудване: L'acoustics KARA II (зала) 12 бр.; RCF 935 A (коктейл/коридор) 4 бр.; Soundcraft analog mixer 1 бр.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 1800,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p29 section header chip: \"€ 1 800 БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_s4_sound_header.png",
+    "crops/p29_s4_sound_equipment.png"
+   ],
+   "images": [
+    "pages/p29.jpg (equipment poster, no extract/ entry)"
+   ]
+  },
+  {
+   "id": "p29-tech-5-led",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване",
+   "titleBg": "5. LED ЕКРАН – КОРИДОР",
+   "descriptionBg": "Оборудване: LED екран: Qiaoshine/Qiaushine P3 (22 кв.м.) [brand spelling hard to read]; Видео процесор: NovaStar VX 1000",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 5700,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p29 section header chip: \"€ 5 700 БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_s5_led_header.png",
+    "crops/p29_s5_led_equipment.png"
+   ],
+   "images": [
+    "pages/p29.jpg (equipment poster, no extract/ entry)"
+   ],
+   "notes": [
+    "CONFLICT with p15: same 22 кв.м. LED corridor screen priced 7 500 € on p15."
+   ]
+  },
+  {
+   "id": "p29-tech-6a-stage-cocktail",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване",
+   "titleBg": "6. СЦЕНИ — ЗАЛА ГАЛА И КОКТЕЙЛ (коктейл)",
+   "descriptionBg": "NIVTEC 28 кв.м. / 35 кв.м.; Стълби, парапети, подиум; Бяло фолио за завършек",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 1600,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p29 section 6: \"€ 1 600 (коктейл) БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_s6_stages_header.png",
+    "crops/p29_s6_stages_equipment.png"
+   ],
+   "images": [
+    "pages/p29.jpg"
+   ],
+   "notes": [
+    "Which stage size (28 or 35 кв.м.) belongs to which price is not stated."
+   ]
+  },
+  {
+   "id": "p29-tech-6b-stage-gala",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване",
+   "titleBg": "6. СЦЕНИ — ЗАЛА ГАЛА И КОКТЕЙЛ (зала)",
+   "descriptionBg": "NIVTEC 28 кв.м. / 35 кв.м.; Стълби, парапети, подиум; Бяло фолио за завършек",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 2300,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p29 section 6: \"€ 2 300 (зала) БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_s6_stages_header.png",
+    "crops/p29_s6_stages_equipment.png"
+   ],
+   "images": [
+    "pages/p29.jpg"
+   ]
+  },
+  {
+   "id": "p29-tech-7-truss",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване",
+   "titleBg": "7. КОНСТРУКЦИЯ — ЗА ФОАЙЕ И КОРИДОР",
+   "descriptionBg": "Globaltruss FD34 с включени кутии и аксесоари",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "unconfirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p29 section 7 has NO price chip (all other sections have one).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_s7_truss_header.png",
+    "crops/p29_s7_s8_row2.png"
+   ],
+   "images": [
+    "pages/p29.jpg"
+   ],
+   "notes": [
+    "No price printed: unknown whether included in another section or omitted."
+   ]
+  },
+  {
+   "id": "p29-tech-8-rider",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване",
+   "titleBg": "8. РАЙДЕР И ДОПЪЛНИТЕЛНО",
+   "descriptionBg": "Shure drum set (примерен); L'acoustics 112P stage monitors (6 бр.); DI box (10 бр.)",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 1400,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "recommended",
+   "statusBasis": "inferred",
+   "sourceNote": "p29 section 8: \"€ 1 400 БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_s8_rider_header.png",
+    "crops/p29_s7_s8_row2.png"
+   ],
+   "images": [
+    "pages/p29.jpg"
+   ]
+  },
+  {
+   "id": "p29-extra-sound-tech",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване — допълнителни услуги",
+   "titleBg": "Озвучител (техник)",
+   "descriptionBg": null,
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 750,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "optional",
+   "statusBasis": "inferred (listed as \"ДОПЪЛНИТЕЛНИ\")",
+   "sourceNote": "p29 box \"ДОПЪЛНИТЕЛНИ УСЛУГИ\": \"Озвучител (техник) € 750\". The box itself carries no VAT wording (the total box says БЕЗ ДДС).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_extra_services.png"
+   ],
+   "images": [
+    "pages/p29.jpg"
+   ],
+   "notes": [
+    "Not stated whether these are inside the printed total 59 220 €."
+   ]
+  },
+  {
+   "id": "p29-extra-light-tech",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване — допълнителни услуги",
+   "titleBg": "Осветител (техник)",
+   "descriptionBg": null,
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 750,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "optional",
+   "statusBasis": "inferred (listed as \"ДОПЪЛНИТЕЛНИ\")",
+   "sourceNote": "p29 box \"ДОПЪЛНИТЕЛНИ УСЛУГИ\": \"Осветител (техник) € 750\". The box itself carries no VAT wording (the total box says БЕЗ ДДС).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_extra_services.png"
+   ],
+   "images": [
+    "pages/p29.jpg"
+   ],
+   "notes": [
+    "Not stated whether these are inside the printed total 59 220 €."
+   ]
+  },
+  {
+   "id": "p29-extra-led-operator",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване — допълнителни услуги",
+   "titleBg": "Оператор LED екран",
+   "descriptionBg": null,
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 350,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "optional",
+   "statusBasis": "inferred (listed as \"ДОПЪЛНИТЕЛНИ\")",
+   "sourceNote": "p29 box \"ДОПЪЛНИТЕЛНИ УСЛУГИ\": \"Оператор LED екран € 350\". The box itself carries no VAT wording (the total box says БЕЗ ДДС).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_extra_services.png"
+   ],
+   "images": [
+    "pages/p29.jpg"
+   ],
+   "notes": [
+    "Not stated whether these are inside the printed total 59 220 €."
+   ]
+  },
+  {
+   "id": "p29-extra-dj",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване — допълнителни услуги",
+   "titleBg": "DJ + маса",
+   "descriptionBg": null,
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 1900,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "optional",
+   "statusBasis": "inferred (listed as \"ДОПЪЛНИТЕЛНИ\")",
+   "sourceNote": "p29 box \"ДОПЪЛНИТЕЛНИ УСЛУГИ\": \"DJ + маса € 1 900\". The box itself carries no VAT wording (the total box says БЕЗ ДДС).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_extra_services.png"
+   ],
+   "images": [
+    "pages/p29.jpg"
+   ],
+   "notes": [
+    "Not stated whether these are inside the printed total 59 220 €."
+   ]
+  },
+  {
+   "id": "p29-extra-install",
+   "pdfPage": 29,
+   "canvaPage": 29,
+   "area": "Техническо обезпечаване — допълнителни услуги",
+   "titleBg": "Монтаж, демонтаж, екип и транспорт",
+   "descriptionBg": null,
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 7000,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "optional",
+   "statusBasis": "inferred (listed as \"ДОПЪЛНИТЕЛНИ\")",
+   "sourceNote": "p29 box \"ДОПЪЛНИТЕЛНИ УСЛУГИ\": \"Монтаж, демонтаж, екип и транспорт € 7 000\". The box itself carries no VAT wording (the total box says БЕЗ ДДС).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p29_extra_services.png"
+   ],
+   "images": [
+    "pages/p29.jpg"
+   ],
+   "notes": [
+    "Not stated whether these are inside the printed total 59 220 €."
+   ]
+  },
+  {
+   "id": "p32-madam-abazhur",
+   "pdfPage": 32,
+   "canvaPage": 32,
+   "area": "Артистична програма — коктейлна част",
+   "titleBg": "МАДАМ АБАЖУР — ЖИВА СКУЛПТУРА В СТИЛ ГЕТСБИ",
+   "descriptionBg": "Елегантна и загадъчна артистична персона, вдъхновена от разкоша на 20-те години. Балерината, облечена в уникален костюм със светещи абажурени елементи, се движи сред гостите, създавайки незабравима атмосфера и впечатляващи фотомоменти.",
+   "quantity": null,
+   "unit": "балерина",
+   "unitPrice": 500,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p32 card 1: \"500 € БЕЗ ДДС за 1 балерина\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p32_card1_text_price.png"
+   ],
+   "images": [
+    "extract/p32/p32_crop_performer1.jpg"
+   ],
+   "notes": [
+    "Number of ballerinas not stated (1 is the pricing unit)."
+   ]
+  },
+  {
+   "id": "p32-living-painting",
+   "pdfPage": 32,
+   "canvaPage": 32,
+   "area": "Артистична програма — коктейлна част",
+   "titleBg": "ЖИВА КАРТИНА — РАМКА С ТЕКСТИЛ И ПОДВИЖНИ ТАНЦЬОРИ",
+   "descriptionBg": "Впечатляваща инсталация, в която танцьори оживяват като част от картина в стил Гетсби. Комбинация от изкуство, движение и елегантност, подчертаваща тематиката на събитието и създаваща уникален визуален акцент в коктейлната зона.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 1200,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p32 card 2: \"1 200 € БЕЗ ДДС\" (no unit printed).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p32_card2_text_price.png"
+   ],
+   "images": [
+    "extract/p32/p32_crop_performer2.jpg"
+   ]
+  },
+  {
+   "id": "p32-giant-glass",
+   "pdfPage": 32,
+   "canvaPage": 32,
+   "area": "Артистична програма — коктейлна част",
+   "titleBg": "ГЕТСБИ ГИГАНТСКА ЧАША С ШАМПАНСКО И АКРОБАТ",
+   "descriptionBg": "Спектакулярно изпълнение с акробат в гигантска чаша шампанско, съчетаващо елементи на цирково изкуство, елегантност и блясък. Визуален център на коктейлната зона, който впечатлява и провокира възхищение.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 1700,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p32 card 3: \"1 700 € БЕЗ ДДС\" (no unit printed).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p32_card3_text_price.png"
+   ],
+   "images": [
+    "extract/p32/p32_crop_performer3.jpg"
+   ]
+  },
+  {
+   "id": "p32-mobile-champagne-table",
+   "pdfPage": 32,
+   "canvaPage": 32,
+   "area": "Артистична програма — коктейлна част",
+   "titleBg": "ПОДВИЖНА ШАМПАНСКО МАСА С АКРОБАТ В ТЕМА ГЕТСБИ",
+   "descriptionBg": "Две артистични шампанско маси с танцьори, облечени в пищни костюми в стил Гетсби. Момичетата се движат сред гостите, предлагайки шампанско и създавайки интерактивно и запомнящо се преживяване.",
+   "quantity": 2,
+   "unit": "маси",
+   "unitPrice": null,
+   "lineTotal": 1200,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p32 card 4: \"1 200 € БЕЗ ДДС за 2 маси\". 600 €/table is derivable but NOT printed.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p32_card4_text_price.png"
+   ],
+   "images": [
+    "extract/p32/p32_crop_performer4.jpg"
+   ],
+   "notes": [
+    "Price covers 2 tables as printed."
+   ]
+  },
+  {
+   "id": "p33-host-sanya",
+   "pdfPage": 33,
+   "canvaPage": 33,
+   "area": "Водещ на събитието",
+   "titleBg": "САНЯ БОРИСОВА",
+   "descriptionBg": "Очарователно присъствие и естествена комуникация с публиката.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": 2200,
+   "lineTotal": 2200,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "alternative",
+   "alternativeGroup": "HOST",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p33 card: \"2 200 БЕЗ ДДС\" under the name. Intro: \"Предлагаме утвърдени личности с опит в големи събития…\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p33_names_prices_left.png",
+    "crops/p33_intro_text.png"
+   ],
+   "images": [
+    "pages/p33.jpg"
+   ],
+   "notes": [
+    "Event/fee basis (hours, whole evening) not stated."
+   ]
+  },
+  {
+   "id": "p33-host-aleksandra",
+   "pdfPage": 33,
+   "canvaPage": 33,
+   "area": "Водещ на събитието",
+   "titleBg": "АЛЕКСАНДРА БОГДАНСКА",
+   "descriptionBg": "Модерна, енергична и вдъхновяваща – с опит в големи сценични формати.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": 4640,
+   "lineTotal": 4640,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "alternative",
+   "alternativeGroup": "HOST",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p33 card: \"4 640 БЕЗ ДДС\" under the name. Intro: \"Предлагаме утвърдени личности с опит в големи събития…\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p33_names_prices_left.png",
+    "crops/p33_intro_text.png"
+   ],
+   "images": [
+    "pages/p33.jpg"
+   ],
+   "notes": [
+    "Event/fee basis (hours, whole evening) not stated."
+   ]
+  },
+  {
+   "id": "p33-host-yuliyan",
+   "pdfPage": 33,
+   "canvaPage": 33,
+   "area": "Водещ на събитието",
+   "titleBg": "ЮЛИЯН КОСТОВ",
+   "descriptionBg": "Професионализъм, класа и харизма – подходящ за официални и тематични събития.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": 4320,
+   "lineTotal": 4320,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "alternative",
+   "alternativeGroup": "HOST",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p33 card: \"4 320 БЕЗ ДДС\" under the name. Intro: \"Предлагаме утвърдени личности с опит в големи събития…\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p33_names_prices_right.png",
+    "crops/p33_intro_text.png"
+   ],
+   "images": [
+    "pages/p33.jpg"
+   ],
+   "notes": [
+    "Event/fee basis (hours, whole evening) not stated."
+   ]
+  },
+  {
+   "id": "p33-host-fileva",
+   "pdfPage": 33,
+   "canvaPage": 33,
+   "area": "Водещ на събитието",
+   "titleBg": "МИХАЕЛА ФИЛЕВА",
+   "descriptionBg": "Популярна артистична личност с впечатляващо сценично присъствие и силна връзка с публиката.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "price_on_request",
+   "alternativeGroup": "HOST",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p33 card 4: chip \"ПО ЗАЯВКА\" instead of a price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p33_names_prices_right.png"
+   ],
+   "images": [
+    "pages/p33.jpg"
+   ],
+   "notes": [
+    "p35 presents Михаела Филева as a special guest performer at 7 700 € — a different role (performer) from host. Whether the 7 700 € includes hosting is not stated."
+   ]
+  },
+  {
+   "id": "p34-dance-10",
+   "pdfPage": 34,
+   "canvaPage": 34,
+   "area": "Музикална и танцова програма",
+   "titleBg": "ТАНЦОВО ШОУ „ВЕЛИКИЯТ ГЕТСБИ“ — 10 ТАНЦЬОРА",
+   "descriptionBg": "Динамично и въздействащо изпълнение с 10 професионални танцьори, подходящо за откриване или акцентен момент на вечерта.",
+   "quantity": 10,
+   "unit": "танцьори",
+   "unitPrice": null,
+   "lineTotal": 3500,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "alternative",
+   "alternativeGroup": "DANCE_SHOW_GATSBY",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p34 right panel left box: \"10 ТАНЦЬОРА 3 500 € БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p34_opt10_dancers.png"
+   ],
+   "images": [
+    "extract/p34/p34_00_1672x941.jpg",
+    "extract/p34/p34_01_480x220.jpg"
+   ],
+   "notes": [
+    "Intro: \"Специално подготвено изпълнение от софийска опера…\" – performers described as from Sofia Opera; no names or confirmation."
+   ]
+  },
+  {
+   "id": "p34-dance-6",
+   "pdfPage": 34,
+   "canvaPage": 34,
+   "area": "Музикална и танцова програма",
+   "titleBg": "ТАНЦОВО ШОУ „ВЕЛИКИЯТ ГЕТСБИ“ — 6 ТАНЦЬОРА",
+   "descriptionBg": "Елегантна и стилна постановка с 6 професионални танцьори, идеална за по-интимна атмосфера или междинен артистичен акцент.",
+   "quantity": 6,
+   "unit": "танцьори",
+   "unitPrice": null,
+   "lineTotal": 2500,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "alternative",
+   "alternativeGroup": "DANCE_SHOW_GATSBY",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p34 right panel right box: \"6 ТАНЦЬОРА 2 500 € БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p34_opt6_dancers.png"
+   ],
+   "images": [
+    "extract/p34/p34_00_1672x941.jpg"
+   ]
+  },
+  {
+   "id": "p35-fileva-jazz",
+   "pdfPage": 35,
+   "canvaPage": 35,
+   "area": "Музикална и танцова програма",
+   "titleBg": "МИХАЕЛА ФИЛЕВА С ДЖАЗ КВАРТЕТ",
+   "descriptionBg": "БАРАБАНИ, БАС, ПИАНО И САКСОФОН ИЛИ КИТАРА (СПОРЕД АРАНЖИМЕНТА). Специален гост-изпълнител – музикално откриване на гала вечерта.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 7700,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "alternative",
+   "alternativeGroup": "FILEVA_FORMAT",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p35 option 1 box: \"7 700 € БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p35_opt1_price.png"
+   ],
+   "images": [
+    "extract/p35 (crops p35_crop_mihaela_*)"
+   ],
+   "notes": [
+    "p33 lists her as \"ПО ЗАЯВКА\" (host candidate); here a price is printed."
+   ]
+  },
+  {
+   "id": "p35-fileva-dancers",
+   "pdfPage": 35,
+   "canvaPage": 35,
+   "area": "Музикална и танцова програма",
+   "titleBg": "МИХАЕЛА ФИЛЕВА С РЕГУЛЯРНИ ТАНЦЬОРИ",
+   "descriptionBg": "Специален гост-изпълнител – музикално откриване на гала вечерта.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 7700,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "alternative",
+   "alternativeGroup": "FILEVA_FORMAT",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p35 option 2 box: \"7 700 € БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p35_opt2_price.png"
+   ],
+   "images": [
+    "extract/p35 (crops p35_crop_mihaela_*)"
+   ],
+   "notes": [
+    "Number of regular dancers not stated."
+   ]
+  },
+  {
+   "id": "p35-jazz-arrangements",
+   "pdfPage": 35,
+   "canvaPage": 35,
+   "area": "Музикална и танцова програма",
+   "titleBg": "ДЖАЗ АРАНЖИМЕНТИ",
+   "descriptionBg": "За 50-минутната програма ще бъдат изготвени 10 джазови аранжимента – по 300 € на аранжимент, общо 3 000 €.",
+   "quantity": 10,
+   "unit": "аранжимент",
+   "unitPrice": 300,
+   "lineTotal": 3000,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "optional",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p35 bottom-left: \"по 300 € на аранжимент, общо 3 000 €\". No VAT wording on this item.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p35_jazz_arrangements_note.png"
+   ],
+   "images": [
+    "pages/p35.jpg"
+   ],
+   "notes": [
+    "No VAT wording printed. Not stated whether the 3 000 € is inside the 7 700 € jazz-quartet price or additional. 10 x 300 = 3 000 (OK)."
+   ]
+  },
+  {
+   "id": "p35-combined-format",
+   "pdfPage": 35,
+   "canvaPage": 35,
+   "area": "Музикална и танцова програма",
+   "titleBg": "ВЪЗМОЖНОСТ ЗА КОМБИНИРАН ФОРМАТ",
+   "descriptionBg": "При желание програмата може да бъде оформена като вариете шоу с повече танцьори. Можем да направим и танцьори + банда. Всичко зависи от вашите желания и бюджет.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "price_on_request",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p35 bottom-middle: no price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p35_note_combined.png"
+   ],
+   "images": [
+    "pages/p35.jpg"
+   ]
+  },
+  {
+   "id": "p35-flex-formats",
+   "pdfPage": 35,
+   "canvaPage": 35,
+   "area": "Музикална и танцова програма",
+   "titleBg": "ГЪВКАВИ ФОРМАТИ СПОРЕД БЮДЖЕТ И КОНЦЕПЦИЯ",
+   "descriptionBg": "(само заглавие)",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "price_on_request",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p35 bottom-right: no price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p35_note_formats.png"
+   ],
+   "images": [
+    "pages/p35.jpg"
+   ]
+  },
+  {
+   "id": "p36-ballet-nova",
+   "pdfPage": 36,
+   "canvaPage": 36,
+   "area": "Музикална и танцова програма",
+   "titleBg": "BALLET NOVA — ШОУ ПРОГРАМА – 12 ЯНУАРИ",
+   "descriptionBg": "Специално подготвена шоу програма, вдъхновена от блясъка и атмосферата на 20-те години. Елегантни костюми, впечатляващи хореографии и незабравимо изживяване за Вашите гости.",
+   "quantity": 6,
+   "unit": "танцьори",
+   "unitPrice": null,
+   "lineTotal": 2200,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p36 top-right: \"ЦЕНА ЗА ПРОГРАМАТА 2 200 € БЕЗ ДДС ЗА 6 ТАНЦЬОРА\". Programme: cocktail part, 1 set Little Party (x2), 2 set Gimme Gimme, 3 set Sway, cake presentation.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p36_price_box.png"
+   ],
+   "images": [
+    "extract/p36 (6 crops p36_crop_*)"
+   ],
+   "notes": [
+    "Overlaps in function with p34 dance show (6 dancers 2 500 €) — alternative or complementary is not stated.",
+    "The cake presentation (step 6) is also depicted on p37 (steps 2–3)."
+   ]
+  },
+  {
+   "id": "p38-disco-ball",
+   "pdfPage": 38,
+   "canvaPage": 38,
+   "area": "Музикална и танцова програма",
+   "titleBg": "DISCO BALL DANCE — ЕФЕКТЕН ПРЕХОД КЪМ ПАРТИ ЧАСТТА",
+   "descriptionBg": "След фойерверките сцената се преобразява, а атмосферата преминава от елегантната тематика към съвременен клубен ритъм. Танцьори, облечени в огледални костюми от хиляди малки парченца, оживяват под директни светлини и превръщат залата в приказна светлинна игра.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 2500,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p38 bottom-right frame: \"2 500 € БЕЗ ДДС\". No dancer count or unit.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p38_price_box.png"
+   ],
+   "images": [
+    "extract/p38/p38_crop_disco_ball_dancers.jpg"
+   ],
+   "notes": [
+    "Number of dancers not stated. Timing \"след фойерверките\" is the same slot as p39."
+   ]
+  },
+  {
+   "id": "p39-boneva-velyov",
+   "pdfPage": 39,
+   "canvaPage": 39,
+   "area": "Музикална и танцова програма",
+   "titleBg": "VESSELA BONEVA & KALIN VELYOV — LIVE SHOW (след фойерверките)",
+   "descriptionBg": "Това участие е планирано непосредствено след фойерверките като ефектен преход и захождане към парти частта на вечерта. Съчетанието от мощен вокал, живи перкусии и впечатляващи танцьори създава зашеметяваща атмосфера…",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 7500,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p39 bottom-right: \"ОБЩ ХОНОРАР С ТАНЦЬОРИТЕ: 7 500 € БЕЗ ДДС\". Includes 6–8 dancers (\"3 бели и 5 тъмнокожи\" = 8).",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p39_fee_box.png",
+    "crops/p39_dancers_text.png"
+   ],
+   "images": [
+    "extract/p39/p39_crop_live_show_band_dancers.jpg"
+   ],
+   "notes": [
+    "Text says \"планирано\" (planned) — not confirmed booking.",
+    "\"6 – 8 танцьори (3 бели и 5 тъмнокожи)\" is internally inconsistent (3+5 = 8 but range 6–8).",
+    "Same time slot as p38 Disco Ball Dance (after the fireworks): both or either — not stated.",
+    "p37 step 6 names the singer as \"Весела Бонева\" (Cyrillic spelling) while p39 uses \"VESSELA BONEVA\"."
+   ]
+  },
+  {
+   "id": "p39-extra-dancers",
+   "pdfPage": 39,
+   "canvaPage": 39,
+   "area": "Музикална и танцова програма",
+   "titleBg": "ОПЦИЯ ЗА ДОПЪЛНИТЕЛНИ ТАНЦЬОРИ",
+   "descriptionBg": "3-ма танцьори (Диего и още 2 кубинци) – при желание, за още по-динамично и впечатляващо шоу.",
+   "quantity": 3,
+   "unit": "танцьори",
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "price_on_request",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p39 right column: option text without price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p39_extra_dancers_text.png"
+   ],
+   "images": [
+    "pages/p39.jpg"
+   ]
+  },
+  {
+   "id": "p40-gipsy-kings",
+   "pdfPage": 40,
+   "canvaPage": 40,
+   "area": "Допълнителни изпълнители (p40)",
+   "titleBg": "GIPSY KINGS — СВЕТОВНА МУЗИКАЛНА ЛЕГЕНДА",
+   "descriptionBg": "Легендарната формация, известна с хитове като „Bamboléo“ и „Volare“, съчетава фламенко, румба и завладяващи китарни ритми. Международно разпознаваемо музикално преживяване, което може да превърне юбилейната вечер в грандиозен празник.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 85000,
+   "currency": "GBP",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p40 top-left card: \"85 000 £ БЕЗ ДДС\". CURRENCY IS POUND STERLING (£), not euro.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p40_gipsy_price.png",
+    "crops/p40_gipsy_swan_top.png"
+   ],
+   "images": [
+    "pages/p40.jpg"
+   ],
+   "notes": [
+    "Only price in GBP in the entire PDF. No conversion is printed — do not convert.",
+    "Heading: \"ДОПЪЛНИТЕЛНИ ПРЕДЛОЖЕНИЯ ЗА ИЗПЪЛНИТЕЛИ\"."
+   ]
+  },
+  {
+   "id": "p40-the-swan",
+   "pdfPage": 40,
+   "canvaPage": 40,
+   "area": "Допълнителни изпълнители (p40)",
+   "titleBg": "THE SWAN — ФРЕНСКА КАВЪР ФОРМАЦИЯ (PREMIUM WORLDWIDE EVENTS)",
+   "descriptionBg": "Изискана френска кавър формация за най-престижните събития по света. Елегантен репертоар от джаз, соул и съвременни хитове, поднесени с уникален френски стил. Стилно сценично присъствие и международен почерк, подходящи за изискани гала вечери и корпоративни събития от най-висок клас.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 55000,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p40 top-right card: \"55 000 € БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p40_swan_price.png",
+    "crops/p40_swan_card.png"
+   ],
+   "images": [
+    "pages/p40.jpg"
+   ]
+  },
+  {
+   "id": "p40-mihaela-marinova",
+   "pdfPage": 40,
+   "canvaPage": 40,
+   "area": "Допълнителни изпълнители (p40)",
+   "titleBg": "МИХАЕЛА МАРИНОВА — СИЛНА ЕМОЦИЯ И ВПЕЧАТЛЯВАЩ ВОКАЛ",
+   "descriptionBg": "Един от ярките гласове на съвременната българска поп сцена. Вокално майсторство, модерно звучене и силно сценично присъствие.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 6600,
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "optional",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p40 Bulgarian premium performers row, card 1: \"6 600 € БЕЗ ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p40_prices_left.png"
+   ],
+   "images": [
+    "pages/p40.jpg"
+   ],
+   "notes": [
+    "Different person from Михаела Филева (p33/p35)."
+   ]
+  },
+  {
+   "id": "p40-dara-ekimova",
+   "pdfPage": 40,
+   "canvaPage": 40,
+   "area": "Допълнителни изпълнители (p40)",
+   "titleBg": "ДАРА ЕКИМОВА — МОДЕРНА ЕЛЕГАНТНОСТ И СВЕЖА ЕНЕРГИЯ",
+   "descriptionBg": "Млад артист с отличителен глас, съвременно поп звучене и индивидуален стил. Подходяща за концепцията The New Chapter и модерната част на вечерта.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "price_on_request",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p40 Bulgarian premium performers row: \"По запитване\" instead of a price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p40_prices_left.png",
+    "crops/p40_prices_right.png"
+   ],
+   "images": [
+    "pages/p40.jpg"
+   ]
+  },
+  {
+   "id": "p40-orlin-pavlov",
+   "pdfPage": 40,
+   "canvaPage": 40,
+   "area": "Допълнителни изпълнители (p40)",
+   "titleBg": "ОРЛИН ПАВЛОВ — КЛАСА, ХАРИЗМА И ДЖЕНТЪЛМЕНСКИ СТИЛ",
+   "descriptionBg": "Изпълнител с елегантно сценично присъствие и разнообразен репертоар. Отличен избор за концепцията Great Gatsby – суинг, джаз и популярна музика.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "price_on_request",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p40 Bulgarian premium performers row: \"По запитване\" instead of a price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p40_prices_left.png",
+    "crops/p40_prices_right.png"
+   ],
+   "images": [
+    "pages/p40.jpg"
+   ]
+  },
+  {
+   "id": "p40-papi-hans",
+   "pdfPage": 40,
+   "canvaPage": 40,
+   "area": "Допълнителни изпълнители (p40)",
+   "titleBg": "ПАПИ ХАНС (Константин Трендафилов) — АРТИСТИЧНОСТ, ХАРАКТЕР И МОДЕРНО ЗВУЧЕНЕ",
+   "descriptionBg": "Разпознаваем изпълнител със запомнящи се песни и силно взаимодействие с публиката. Подходящ за динамична и съвременна парти атмосфера.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "price_on_request",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p40 Bulgarian premium performers row: \"По запитване\" instead of a price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p40_prices_left.png",
+    "crops/p40_prices_right.png"
+   ],
+   "images": [
+    "pages/p40.jpg"
+   ]
+  },
+  {
+   "id": "p40-kristina-doncheva",
+   "pdfPage": 40,
+   "canvaPage": 40,
+   "area": "Допълнителни изпълнители (p40)",
+   "titleBg": "КРИСТИНА ДОНЧЕВА — ВОКАЛНА ЕЛЕГАНТНОСТ И АРТИСТИЧНО ПРИСЪСТВИЕ",
+   "descriptionBg": "Впечатляващ глас и стилна сценична енергия. Подходяща за изискан музикален момент в официалната част на гала вечерта.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "price_on_request",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p40 Bulgarian premium performers row: \"По запитване\" instead of a price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p40_prices_left.png",
+    "crops/p40_prices_right.png"
+   ],
+   "images": [
+    "pages/p40.jpg"
+   ]
+  },
+  {
+   "id": "p40-vladi-mihaylov",
+   "pdfPage": 40,
+   "canvaPage": 40,
+   "area": "Допълнителни изпълнители (p40)",
+   "titleBg": "ВЛАДИ МИХАЙЛОВ — МИСТИЧНО ПРИСЪСТВИЕ И СИЛНА ЕНЕРГИЯ",
+   "descriptionBg": "Актьор и музикален изпълнител с харизматично сценично поведение. Подходящ за драматичен музикален акцент, артистично шоу или нестандартна интерпретация на тематичната концепция.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "price_on_request",
+   "bookingStatus": "proposed_not_confirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p40 Bulgarian premium performers row: \"По запитване\" instead of a price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [
+    "crops/p40_prices_left.png",
+    "crops/p40_prices_right.png"
+   ],
+   "images": [
+    "pages/p40.jpg"
+   ]
+  },
+  {
+   "id": "p41-full-detailed-concept",
+   "pdfPage": 41,
+   "canvaPage": 57,
+   "area": "Бележка / обхват",
+   "titleBg": "ЦЯЛОСТА ДЕТАЙЛНА КОНЦЕПЦИЯ - СЛЕД ИЗБОР НА КОНКРЕТНА ТЕМА",
+   "descriptionBg": "Closing note: the full detailed concept follows only after a specific theme is chosen.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "unconfirmed",
+   "statusBasis": "inferred",
+   "sourceNote": "p41 (Canva c57) closing slide; text only, no price.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [],
+   "images": [
+    "pages/p41.jpg"
+   ],
+   "notes": [
+    "Implies the proposal is pre-selection: theme/palette not yet chosen."
+   ]
+  },
+  {
+   "id": "p09-carpet-white-gold-light",
+   "pdfPage": 9,
+   "canvaPage": 9,
+   "area": "Коктейл зона — мокет (варианти)",
+   "titleBg": "Бял мокет със златен брокат и светла гама",
+   "descriptionBg": null,
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "alternative",
+   "alternativeGroup": "CARPET_COCKTAIL",
+   "statusBasis": "inferred",
+   "sourceNote": "p09 label above the aerial render. NO price printed anywhere for carpet.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [],
+   "images": [
+    "pages/p09.jpg"
+   ],
+   "notes": [
+    "No price for any carpet variant (also p05 \"ЗЛАТЕН МОКЕТ\" is an entrance carpet included in 4 300 €)."
+   ]
+  },
+  {
+   "id": "p09-carpet-white-gold-orange",
+   "pdfPage": 9,
+   "canvaPage": 9,
+   "area": "Коктейл зона — мокет (варианти)",
+   "titleBg": "Бял мокет със златен брокат и оранж",
+   "descriptionBg": null,
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "alternative",
+   "alternativeGroup": "CARPET_COCKTAIL",
+   "statusBasis": "inferred",
+   "sourceNote": "p09 label above the aerial render. NO price printed anywhere for carpet.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [],
+   "images": [
+    "pages/p09.jpg"
+   ],
+   "notes": [
+    "No price for any carpet variant (also p05 \"ЗЛАТЕН МОКЕТ\" is an entrance carpet included in 4 300 €)."
+   ]
+  },
+  {
+   "id": "p10-carpet-plum",
+   "pdfPage": 10,
+   "canvaPage": 10,
+   "area": "Коктейл зона — мокет (варианти)",
+   "titleBg": "Мокет - цвят слива",
+   "descriptionBg": null,
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "alternative",
+   "alternativeGroup": "CARPET_COCKTAIL",
+   "statusBasis": "inferred",
+   "sourceNote": "p10 label above the aerial render. NO price printed anywhere for carpet.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [],
+   "images": [
+    "pages/p10.jpg"
+   ],
+   "notes": [
+    "No price for any carpet variant (also p05 \"ЗЛАТЕН МОКЕТ\" is an entrance carpet included in 4 300 €)."
+   ]
+  },
+  {
+   "id": "p10-carpet-orange",
+   "pdfPage": 10,
+   "canvaPage": 10,
+   "area": "Коктейл зона — мокет (варианти)",
+   "titleBg": "Мокет оранж",
+   "descriptionBg": null,
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "currency": "EUR",
+   "vatTreatment": null,
+   "status": "alternative",
+   "alternativeGroup": "CARPET_COCKTAIL",
+   "statusBasis": "inferred",
+   "sourceNote": "p10 label above the aerial render. NO price printed anywhere for carpet.",
+   "confidence": "high",
+   "verified": true,
+   "crops": [],
+   "images": [
+    "pages/p10.jpg"
+   ],
+   "notes": [
+    "No price for any carpet variant (also p05 \"ЗЛАТЕН МОКЕТ\" is an entrance carpet included in 4 300 €)."
+   ]
+  }
+ ],
+ "printedTotals": [
+  {
+   "id": "pt-p15",
+   "pdfPage": 15,
+   "verbatim": "ОБЩА СУМА 8 952 € БЕЗ ДДС / EXCL. VAT",
+   "amount": 8952,
+   "currency": "EUR",
+   "scope": "Коридор към Ивент центъра",
+   "itemIds": [
+    "p15-corridor-led",
+    "p15-corridor-florals"
+   ],
+   "crop": "crops/p15_total_block.png"
+  },
+  {
+   "id": "pt-p17",
+   "pdfPage": 17,
+   "verbatim": "ОБЩО 7,524 € (без ДДС)",
+   "amount": 7524,
+   "currency": "EUR",
+   "scope": "Сцена декор и сценография",
+   "itemIds": [
+    "p17-stage-decor",
+    "p17-stage-florals"
+   ],
+   "crop": "crops/p17_invest_block.png"
+  },
+  {
+   "id": "pt-p19-v1",
+   "pdfPage": 19,
+   "verbatim": "ОБЩА СУМА 12 925 € БЕЗ ДДС / EXCL. VAT",
+   "amount": 12925,
+   "currency": "EUR",
+   "scope": "Partial 3D mapping – stock (Вариант 1)",
+   "itemIds": [
+    "p19-map-partial-stock"
+   ],
+   "componentSum": true,
+   "crop": "crops/p19_v1_prices.png"
+  },
+  {
+   "id": "pt-p19-v2",
+   "pdfPage": 19,
+   "verbatim": "ОБЩА СУМА 16 240 € БЕЗ ДДС / EXCL. VAT",
+   "amount": 16240,
+   "currency": "EUR",
+   "scope": "Partial 3D mapping – custom (Вариант 2)",
+   "itemIds": [
+    "p19-map-partial-custom"
+   ],
+   "componentSum": true,
+   "crop": "crops/p19_v2_prices.png"
+  },
+  {
+   "id": "pt-p20-v1",
+   "pdfPage": 20,
+   "verbatim": "ОБЩА СУМА 20 350 € БЕЗ ДДС / EXCL. VAT",
+   "amount": 20350,
+   "currency": "EUR",
+   "scope": "Full 3D mapping – stock (Вариант 1)",
+   "itemIds": [
+    "p20-map-full-stock"
+   ],
+   "componentSum": true,
+   "crop": "crops/p20_v1_prices.png"
+  },
+  {
+   "id": "pt-p20-v2",
+   "pdfPage": 20,
+   "verbatim": "ОБЩА СУМА 23 480 € БЕЗ ДДС / EXCL. VAT",
+   "amount": 23480,
+   "currency": "EUR",
+   "scope": "Full 3D mapping – custom (Вариант 2)",
+   "itemIds": [
+    "p20-map-full-custom"
+   ],
+   "componentSum": true,
+   "crop": "crops/p20_v2_prices.png"
+  },
+  {
+   "id": "pt-p29",
+   "pdfPage": 29,
+   "verbatim": "ОБЩА ЦЕНА € 59 220 БЕЗ ДДС",
+   "amount": 59220,
+   "currency": "EUR",
+   "scope": "Техническо обезпечаване на събитието",
+   "itemIds": [
+    "p29-tech-1-cocktail",
+    "p29-tech-2-corridor",
+    "p29-tech-3-gala",
+    "p29-tech-4-sound",
+    "p29-tech-5-led",
+    "p29-tech-6a-stage-cocktail",
+    "p29-tech-6b-stage-gala",
+    "p29-tech-7-truss",
+    "p29-tech-8-rider"
+   ],
+   "extraIds": [
+    "p29-extra-sound-tech",
+    "p29-extra-light-tech",
+    "p29-extra-led-operator",
+    "p29-extra-dj",
+    "p29-extra-install"
+   ],
+   "crop": "crops/p29_total_box.png"
+  },
+  {
+   "id": "pt-p35-jazz",
+   "pdfPage": 35,
+   "verbatim": "по 300 € на аранжимент, общо 3 000 €",
+   "amount": 3000,
+   "currency": "EUR",
+   "scope": "Джаз аранжименти (10 бр.)",
+   "itemIds": [
+    "p35-jazz-arrangements"
+   ],
+   "crop": "crops/p35_jazz_arrangements_note.png"
+  }
+ ],
+ "otherPrintedFigures": [
+  {
+   "pdfPage": 16,
+   "verbatim": "17 МАСИ = 150 ГОСТИ; 14 маси × 9 гости = 126; 3 маси × 8 гости = 24",
+   "check": "14*9+3*8",
+   "expected": 150,
+   "crop": "crops/p16_tables_count.png"
+  }
+ ],
+ "arithmeticChecks": [
+  {
+   "check": "qty x unit = line total: p15-corridor-florals",
+   "pdfPage": 15,
+   "expression": "6 x 242",
+   "computed": 1452,
+   "printed": 1452,
+   "match": true,
+   "difference": null,
+   "note": ""
+  },
+  {
+   "check": "qty x unit = line total: p17-stage-florals",
+   "pdfPage": 17,
+   "expression": "12 x 220",
+   "computed": 2640,
+   "printed": 2904,
+   "match": false,
+   "difference": 264,
+   "note": ""
+  },
+  {
+   "check": "qty x unit = line total: p18-hall-ceiling",
+   "pdfPage": 18,
+   "expression": "24 x 77",
+   "computed": 1848,
+   "printed": 1848,
+   "match": true,
+   "difference": null,
+   "note": ""
+  },
+  {
+   "check": "qty x unit = line total: p18-hall-florals",
+   "pdfPage": 18,
+   "expression": "14 x 242",
+   "computed": 3388,
+   "printed": 3388,
+   "match": true,
+   "difference": null,
+   "note": ""
+  },
+  {
+   "check": "qty x unit = line total: p35-jazz-arrangements",
+   "pdfPage": 35,
+   "expression": "10 x 300",
+   "computed": 3000,
+   "printed": 3000,
+   "match": true,
+   "difference": null,
+   "note": ""
+  },
+  {
+   "check": "printed total vs sum of lines: pt-p15",
+   "pdfPage": 15,
+   "expression": "7500 + 1452",
+   "computed": 8952,
+   "printed": 8952,
+   "match": true,
+   "difference": null,
+   "note": ""
+  },
+  {
+   "check": "printed total vs sum of lines: pt-p17",
+   "pdfPage": 17,
+   "expression": "4620 + 2904",
+   "computed": 7524,
+   "printed": 7524,
+   "match": true,
+   "difference": null,
+   "note": ""
+  },
+  {
+   "check": "printed total vs component sum: pt-p19-v1",
+   "pdfPage": 19,
+   "expression": "7425 + 5500",
+   "computed": 12925,
+   "printed": 12925,
+   "match": true,
+   "difference": null,
+   "note": ""
+  },
+  {
+   "check": "printed total vs component sum: pt-p19-v2",
+   "pdfPage": 19,
+   "expression": "7240 + 9500",
+   "computed": 16740,
+   "printed": 16240,
+   "match": false,
+   "difference": -500,
+   "note": ""
+  },
+  {
+   "check": "printed total vs component sum: pt-p20-v1",
+   "pdfPage": 20,
+   "expression": "14850 + 5500",
+   "computed": 20350,
+   "printed": 20350,
+   "match": true,
+   "difference": null,
+   "note": ""
+  },
+  {
+   "check": "printed total vs component sum: pt-p20-v2",
+   "pdfPage": 20,
+   "expression": "14480 + 9000",
+   "computed": 23480,
+   "printed": 23480,
+   "match": true,
+   "difference": null,
+   "note": ""
+  },
+  {
+   "check": "p29 printed total vs price chips (sections 1–6 and 8; section 6 has two chips; section 7 has none)",
+   "pdfPage": 29,
+   "expression": "1100 + 960 + 10200 + 1800 + 5700 + 1600 + 2300 + 1400",
+   "computed": 25060,
+   "printed": 59220,
+   "match": false,
+   "difference": 34160,
+   "note": "section chips only"
+  },
+  {
+   "check": "p29 printed total vs chips + \"Допълнителни услуги\" box",
+   "pdfPage": 29,
+   "expression": "25060 + 750 + 750 + 350 + 1900 + 7000",
+   "computed": 35810,
+   "printed": 59220,
+   "match": false,
+   "difference": 23410,
+   "note": "even with all extras included the total is not reached"
+  },
+  {
+   "check": "p29 extras box sum (no printed subtotal)",
+   "pdfPage": 29,
+   "expression": "750 + 750 + 350 + 1900 + 7000",
+   "computed": 10750,
+   "printed": 10750,
+   "match": true,
+   "difference": null,
+   "note": "no printed subtotal for the box; informational"
+  },
+  {
+   "check": "p17 floral line if unit price were 242 (p15/p18 unit price)",
+   "pdfPage": 17,
+   "expression": "12 x 242",
+   "computed": 2904,
+   "printed": 2904,
+   "match": true,
+   "difference": null,
+   "note": "explains the printed 2 904"
+  },
+  {
+   "check": "p19 V2: components vs p20 projector ratio (7 240 x 2)",
+   "pdfPage": 19,
+   "expression": "7240 x 2",
+   "computed": 14480,
+   "printed": 14480,
+   "match": true,
+   "difference": null,
+   "note": "supports 7 240 component; printed total 16 240 is the outlier"
+  },
+  {
+   "check": "p19 V1: components vs p20 projector ratio (7 425 x 2)",
+   "pdfPage": 19,
+   "expression": "7425 x 2",
+   "computed": 14850,
+   "printed": 14850,
+   "match": true,
+   "difference": null,
+   "note": "consistent"
+  },
+  {
+   "check": "p16 guests",
+   "pdfPage": 16,
+   "expression": "14 x 9 + 3 x 8",
+   "computed": 150,
+   "printed": 150,
+   "match": true,
+   "difference": null,
+   "note": ""
+  },
+  {
+   "check": "p16 tables",
+   "pdfPage": 16,
+   "expression": "14 + 3",
+   "computed": 17,
+   "printed": 17,
+   "match": true,
+   "difference": null,
+   "note": ""
+  },
+  {
+   "check": "p35 jazz arrangements",
+   "pdfPage": 35,
+   "expression": "10 x 300",
+   "computed": 3000,
+   "printed": 3000,
+   "match": true,
+   "difference": null,
+   "note": ""
+  }
+ ],
+ "groupSubtotals": [
+  {
+   "label": "A. Corridor to Event Center (p15) — as printed",
+   "derived": false,
+   "terms": [
+    [
+     "p15-corridor-led",
+     7500
+    ],
+    [
+     "p15-corridor-florals",
+     1452
+    ]
+   ],
+   "sum": 8952,
+   "note": "matches printed 8 952"
+  },
+  {
+   "label": "B. Stage decor (p17) — as printed lines",
+   "derived": false,
+   "terms": [
+    [
+     "p17-stage-decor",
+     4620
+    ],
+    [
+     "p17-stage-florals",
+     2904
+    ]
+   ],
+   "sum": 7524,
+   "note": "matches printed 7 524, but the florals line is internally inconsistent (12 x 220 = 2 640)"
+  },
+  {
+   "label": "B2. Stage decor (p17) — if florals = 12 x 220 (printed unit price)",
+   "derived": true,
+   "terms": [
+    [
+     "p17-stage-decor",
+     4620
+    ],
+    [
+     "12x220",
+     2640
+    ]
+   ],
+   "sum": 7260,
+   "note": "alternative reading, NOT printed"
+  },
+  {
+   "label": "C. Gala-hall decor callouts (p18) — three callouts, no printed total",
+   "derived": true,
+   "terms": [
+    [
+     "p18-hall-ceiling",
+     1848
+    ],
+    [
+     "p18-hall-walls",
+     2200
+    ],
+    [
+     "p18-hall-florals",
+     3388
+    ]
+   ],
+   "sum": 7436,
+   "note": "sum of 1 848 + 2 200 + 3 388; PDF prints no total for this page"
+  },
+  {
+   "label": "D. Entrance decor (p5)",
+   "derived": false,
+   "terms": [
+    [
+     "p05-entrance-total",
+     4300
+    ]
+   ],
+   "sum": 4300,
+   "note": "single lump sum"
+  },
+  {
+   "label": "E. Technical package p29 — 8 section chips only (printed 59 220)",
+   "derived": true,
+   "terms": [
+    [
+     "p29-tech-1-cocktail",
+     1100
+    ],
+    [
+     "p29-tech-2-corridor",
+     960
+    ],
+    [
+     "p29-tech-3-gala",
+     10200
+    ],
+    [
+     "p29-tech-4-sound",
+     1800
+    ],
+    [
+     "p29-tech-5-led",
+     5700
+    ],
+    [
+     "p29-tech-6a-stage-cocktail",
+     1600
+    ],
+    [
+     "p29-tech-6b-stage-gala",
+     2300
+    ],
+    [
+     "p29-tech-8-rider",
+     1400
+    ]
+   ],
+   "sum": 25060,
+   "note": "does NOT reach the printed total"
+  },
+  {
+   "label": "F. p29 additional services box",
+   "derived": true,
+   "terms": [
+    [
+     "p29-extra-sound-tech",
+     750
+    ],
+    [
+     "p29-extra-light-tech",
+     750
+    ],
+    [
+     "p29-extra-led-operator",
+     350
+    ],
+    [
+     "p29-extra-dj",
+     1900
+    ],
+    [
+     "p29-extra-install",
+     7000
+    ]
+   ],
+   "sum": 10750,
+   "note": "no printed subtotal"
+  },
+  {
+   "label": "G. p29 chips + additional services (still != 59 220)",
+   "derived": true,
+   "terms": [
+    [
+     "E",
+     25060
+    ],
+    [
+     "F",
+     10750
+    ]
+   ],
+   "sum": 35810,
+   "note": "gap to printed total = 23410"
+  }
+ ],
+ "illustrativeDerived": [
+  {
+   "label": "H. ILLUSTRATIVE ONLY: table decor 17 tables x 390 € (orange palette price; table count from p16 creative layout; 390 € printed only on orange panel)",
+   "expr": "17 x 390",
+   "value": 6630,
+   "assumptions": "all 17 tables decorated; 390 € applies; layout is the \"креативен вариант\""
+  },
+  {
+   "label": "I. ILLUSTRATIVE ONLY: gifts budget 150 guests x 10 €",
+   "expr": "150 x 10",
+   "value": 1500,
+   "assumptions": "150 guests (p16 plan); budget not itemised"
+  },
+  {
+   "label": "J. ILLUSTRATIVE ONLY: menus 150 x 3.50 € (p25) or 150 x 15 € (p26)",
+   "expr": "150 x 3.5 | 150 x 15",
+   "value": [
+    525,
+    2250
+   ],
+   "assumptions": "one menu per guest; unclear if p25/p26 are alternatives"
+  }
+ ],
+ "partialDecorSum": {
+  "label": "K. Partial sum of decor blocks with fully stated lump/line totals (NOT a grand total): p5 + p15 + p17(as printed) + p18",
+  "expr": "4300 + 8952 + 7524 + 7436",
+  "value": 28212,
+  "excludes": "foyer p11 (quantities missing), tables p24 (count/palette), 3D mapping p19–20 (4 mutually-exclusive options), technical p29 (inconsistent), menus/gifts p25–28, programme p32–40, anything not priced (photo wall/zone, carpets, vintage car, cake, fireworks, venue, catering)"
+ },
+ "paletteAlternatives": [
+  {
+   "id": "A",
+   "nameBg": "01 ОРАНЖЕВА / ОРАНЖЕВА ГАМА",
+   "nameEn": "Amber & Copper",
+   "hex": [
+    "#B5522A",
+    "#D77B32",
+    "#F4A248",
+    "#D4B076",
+    "#8A5A2B",
+    "#3E2A1A"
+   ],
+   "note": "p03 hex row: #D77B32 #A94E25 #743321 #D8A45D #573322 #E8C99A; p04/p06 tiles list ТЕРАКОТА, КЕХЛИБАР, МЕД, ЗЛАТО, БРОНЗ, ТЪМНО КАФЯВО"
+  },
+  {
+   "id": "B",
+   "nameBg": "02 СЛИВА И БОРДО / СЛИВА И БОРДО ГАМА",
+   "nameEn": "Plum & Burgundy",
+   "hex": [
+    "#742B37",
+    "#8B1E3F",
+    "#A44455",
+    "#B4935B",
+    "#6B4A2E",
+    "#2E1D1A"
+   ],
+   "note": "p03 hex row: #48242B #742B37 #9B3840 #B9854C #77513C #E8D2B5"
+  },
+  {
+   "id": "C",
+   "nameBg": "03 СВЕТЛА / СВЕТЛА ГАМА",
+   "nameEn": "Ivory & Champagne",
+   "hex": [
+    "#F7F1E6",
+    "#E4D1B8",
+    "#D4B076",
+    "#C7B299",
+    "#9C6A42",
+    "#5B4330"
+   ],
+   "note": "p03 hex row: #F8F3EA #E4D1B8 #D4B076 #A68138 #8C7A62 #5B4632. The PRICED renders of p11, p15, p17, p18, p21–23 are all ivory/champagne."
+  }
+ ],
+ "paletteHexNote": "Hex codes OCR-read from small swatch labels on p03/p04; treat as unverified (OCR misreads 1/I/B/8).",
+ "paletteCoverage": [
+  {
+   "area": "Вход / Grand Entrance",
+   "pages": [
+    4,
+    5
+   ],
+   "palettesShown": [
+    "A",
+    "B",
+    "C"
+   ],
+   "pricePage": 5,
+   "priceTiedToPalette": false,
+   "note": "p04 shows the 3 palettes (no price); p05 shows a different cream/gold render with the single price 4 300 €."
+  },
+  {
+   "area": "Стена за снимки (photo wall)",
+   "pages": [
+    6
+   ],
+   "palettesShown": [
+    "A",
+    "B",
+    "C"
+   ],
+   "pricePage": null,
+   "priceTiedToPalette": null,
+   "note": "No price."
+  },
+  {
+   "area": "Фото зона (vintage car + photo zone)",
+   "pages": [
+    7
+   ],
+   "palettesShown": [
+    "A",
+    "B",
+    "C"
+   ],
+   "pricePage": null,
+   "note": "orange + burgundy pair + ivory wide shot; no price."
+  },
+  {
+   "area": "Коктейл зона – мокет",
+   "pages": [
+    9,
+    10
+   ],
+   "palettesShown": [
+    "A (оранж)",
+    "B (слива)",
+    "C-ish (бял мокет със златен брокат и светла гама)"
+   ],
+   "pricePage": null,
+   "note": "4 carpet variants over the same aerial; no price."
+  },
+  {
+   "area": "Коридор",
+   "pages": [
+    14,
+    15
+   ],
+   "palettesShown": [
+    "A",
+    "B",
+    "C"
+   ],
+   "pricePage": 15,
+   "priceTiedToPalette": false,
+   "note": "p14 three palettes; p15 ivory-style render carries the price 8 952 €."
+  },
+  {
+   "area": "Сцена + зала (допълнителни цветови гами)",
+   "pages": [
+    30,
+    17,
+    21
+   ],
+   "palettesShown": [
+    "A",
+    "B"
+   ],
+   "pricePage": null,
+   "note": "p30 \"ДОПЪЛНИТЕЛНИ ЦВЕТОВИ ГАМИ\": orange + burgundy stage and hall; the priced ivory versions are p17/p18/p21–23. Price effect of switching palette is not stated."
+  },
+  {
+   "area": "Декор на гостни маси",
+   "pages": [
+    24
+   ],
+   "palettesShown": [
+    "C",
+    "A",
+    "B"
+   ],
+   "pricePage": 24,
+   "priceTiedToPalette": true,
+   "note": "390 €/table printed only on the orange panel; all three panels list identical inclusions."
+  }
+ ],
+ "imagePairs": [
+  {
+   "page": 4,
+   "files": [
+    "extract/p04/p04_crop_entrance_v1.jpg (orange)",
+    "extract/p04/p04_crop_entrance_v2.jpg (plum)",
+    "extract/p04/p04_crop_entrance_v3.jpg (light)"
+   ],
+   "sameCameraAngle": true,
+   "basis": "visual: identical entrance viewpoint in all three tiles (one composite raster p04_00_1536x1024.jpg)",
+   "suitableForBeforeAfter": true
+  },
+  {
+   "page": 6,
+   "files": [
+    "extract/p06/p06_crop_photowall_v1.jpg (orange)",
+    "…_v2.jpg (plum)",
+    "…_v3.jpg (light)"
+   ],
+   "sameCameraAngle": true,
+   "basis": "visual: same wall/car composition in all three",
+   "suitableForBeforeAfter": true
+  },
+  {
+   "page": 7,
+   "files": [
+    "extract/p07/p07_crop_photozone_orange.jpg",
+    "extract/p07/p07_crop_photozone_burgundy.jpg"
+   ],
+   "sameCameraAngle": true,
+   "basis": "visual: same viewpoint; ivory shot (p07_crop_photozone_ivory_wide.jpg 1536x507) is a different, wider view",
+   "suitableForBeforeAfter": "orange<->burgundy only"
+  },
+  {
+   "page": "9–10 (+08, +11)",
+   "files": [
+    "pages/p09.jpg (left, right)",
+    "pages/p10.jpg (left, right)",
+    "extract/p08/p08_00_1374x1145.jpg (base ivory/beige)"
+   ],
+   "sameCameraAngle": true,
+   "basis": "visual: same overhead cocktail-zone viewpoint (p08 and p11 are slightly different crops of it). No extract/ files for p09/p10 – use the 150 dpi render crops.",
+   "suitableForBeforeAfter": true
+  },
+  {
+   "page": 14,
+   "files": [
+    "extract/p14/p14_00_1134x680.jpg (orange)",
+    "extract/p14/p14_01_1134x680.jpg (ivory)",
+    "extract/p14/p14_02_1134x680.jpg (burgundy)"
+   ],
+   "sameCameraAngle": true,
+   "basis": "measured: edge-map correlation 0.80–0.86 between the three; visually identical corridor",
+   "suitableForBeforeAfter": true
+  },
+  {
+   "page": 24,
+   "files": [
+    "extract/p24/p24_crop_centerpiece_v1.jpg (ivory)",
+    "…_v2.jpg (orange)",
+    "…_v3.jpg (plum)"
+   ],
+   "sameCameraAngle": true,
+   "basis": "same panel framing/layout, BUT the floral arrangement itself differs per palette (edge correlation only 0.09–0.16) – a before/after slider shows a swap of designs, not a recolour",
+   "suitableForBeforeAfter": "with caution"
+  },
+  {
+   "page": 30,
+   "files": [
+    "pages/p30.jpg top-left (stage orange) vs bottom-left (stage burgundy)",
+    "pages/p30.jpg top-right (hall orange) vs bottom-right (hall burgundy)"
+   ],
+   "sameCameraAngle": true,
+   "basis": "visual: same viewpoint per pair, slightly different framing (not pixel-registered: edge correlation 0.25 / 0.11). No extract/ entries for p30.",
+   "suitableForBeforeAfter": "orange<->burgundy only"
+  },
+  {
+   "page": "17 vs 30",
+   "files": [
+    "extract/p17/p17_crop_stage_hero.jpg",
+    "pages/p30.jpg stage tiles"
+   ],
+   "sameCameraAngle": false,
+   "basis": "visual: p17 hero is a wider audience-level shot of the ivory stage; p30 tiles are closer. Not the same angle -> no ivory/orange/burgundy before/after for the stage from the PDF.",
+   "suitableForBeforeAfter": false
+  },
+  {
+   "page": "21–23 vs 30",
+   "files": [
+    "extract/p21/p21_00_1851x849.jpg",
+    "extract/p22/…",
+    "extract/p23/…",
+    "pages/p30.jpg hall tiles"
+   ],
+   "sameCameraAngle": false,
+   "basis": "visual: p30 hall tiles show a window wall with chandeliers; p21–23 are different cameras (p22/p23 near-identical to each other: edge corr 0.25 only).",
+   "suitableForBeforeAfter": false
+  },
+  {
+   "page": "14 vs 15 vs 13",
+   "files": [
+    "extract/p15/p15_crop_corridor_hero.jpg",
+    "extract/p14/*",
+    "extract/p13/p13_crop_corridor_main.jpg"
+   ],
+   "sameCameraAngle": false,
+   "basis": "measured edge correlation 0.08–0.12",
+   "suitableForBeforeAfter": false
+  }
+ ],
+ "areaImages": {
+  "Вход / Grand Entrance": [
+   "pages/p05.jpg",
+   "extract/p04/p04_crop_entrance_v1.jpg",
+   "extract/p04/p04_crop_entrance_v2.jpg",
+   "extract/p04/p04_crop_entrance_v3.jpg"
+  ],
+  "Стена за снимки / фото зона": [
+   "extract/p02/p02_00_1688x932.jpg",
+   "extract/p06/p06_crop_photowall_v1.jpg",
+   "extract/p06/p06_crop_photowall_v2.jpg",
+   "extract/p06/p06_crop_photowall_v3.jpg",
+   "extract/p07/p07_crop_photozone_orange.jpg",
+   "extract/p07/p07_crop_photozone_burgundy.jpg",
+   "extract/p07/p07_crop_photozone_ivory_wide.jpg"
+  ],
+  "Коктейл зона / фоайе": [
+   "extract/p08/p08_00_1374x1145.jpg",
+   "pages/p09.jpg",
+   "pages/p10.jpg",
+   "pages/p11.jpg",
+   "pages/p12.jpg (stray image: hostesses with champagne trays)"
+  ],
+  "Коридор (Golden Passage)": [
+   "extract/p13/p13_crop_corridor_main.jpg",
+   "extract/p13/p13_crop_led_ceiling.jpg",
+   "extract/p13/p13_crop_guest_toast.jpg",
+   "extract/p13/p13_crop_hostesses.jpg",
+   "extract/p13/p13_crop_led_wall_detail.jpg",
+   "extract/p14/p14_00_1134x680.jpg",
+   "extract/p14/p14_01_1134x680.jpg",
+   "extract/p14/p14_02_1134x680.jpg",
+   "extract/p15/p15_crop_corridor_hero.jpg"
+  ],
+  "Зала гала — сцена": [
+   "extract/p17/p17_crop_stage_hero.jpg",
+   "extract/p17/p17_crop_stage_decor_detail.jpg",
+   "extract/p17/p17_crop_stage_cake_reveal.jpg",
+   "pages/p30.jpg (orange/burgundy stage tiles)"
+  ],
+  "Зала гала — декор и мапинг": [
+   "extract/p18/p18_crop_hall_clean_left.jpg",
+   "extract/p18/p18_00_1660x948.jpg",
+   "pages/p19.jpg",
+   "pages/p20.jpg",
+   "extract/p21/p21_00_1851x849.jpg",
+   "extract/p22/p22_00_1659x948.jpg",
+   "extract/p23/p23_00_1659x948.jpg",
+   "pages/p30.jpg (hall tiles)"
+  ],
+  "Гостни маси": [
+   "extract/p24/p24_crop_centerpiece_v1.jpg",
+   "extract/p24/p24_crop_centerpiece_v2.jpg",
+   "extract/p24/p24_crop_centerpiece_v3.jpg",
+   "extract/p24/p24_00_1536x1024.jpg"
+  ],
+  "Програма": [
+   "extract/p32/p32_crop_performer1.jpg…4",
+   "extract/p34/p34_00_1672x941.jpg",
+   "extract/p35/p35_crop_mihaela_*",
+   "extract/p36/p36_crop_* (6)",
+   "extract/p37/p37_crop_* (6)",
+   "extract/p38/p38_crop_disco_ball_dancers.jpg",
+   "extract/p39/p39_crop_live_show_band_dancers.jpg"
+  ]
+ }
+}

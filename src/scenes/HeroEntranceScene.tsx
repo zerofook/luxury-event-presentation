@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import type { HeroSceneData, VideoEntranceSceneData, EntranceTransition } from '@/content/types';
 import { ResponsivePicture } from '@/components/ResponsivePicture';
+import { FilmOverlay } from '@/components/FilmOverlay';
+import { FILM_BUTTON_LABEL } from '@/config/film';
 import { useVideoInView } from '@/lib/useVideoInView';
 import { useScrollProgress } from '@/lib/useScrollProgress';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
@@ -10,7 +12,7 @@ interface Props {
   hero: HeroSceneData;
   entrance: VideoEntranceSceneData;
   entranceTransition: EntranceTransition;
-  ui: { playVideo: string; ariaHeroSection: string };
+  ui: { playVideo: string; ariaHeroSection: string; filmOverlayTitle: string; filmOverlayClose: string };
 }
 
 export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Props) {
@@ -21,6 +23,7 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
   });
   const { trackRef, progress } = useScrollProgress(!reduced);
   const [dissolve, setDissolve] = useState(false);
+  const [filmOpen, setFilmOpen] = useState(false);
 
   useEffect(() => {
     if (reduced) return;
@@ -30,19 +33,15 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
     }
   }, [ended, entranceTransition, reduced]);
 
-  const holdVideoOnly = entranceTransition === 'hold-video-only';
   const naturalMode = entranceTransition === 'scroll-natural';
-  const stillOpacity =
-    holdVideoOnly || !entrance.stillAssetId
-      ? 0
-      : reduced
+  const stillOpacity = reduced
+    ? 1
+    : naturalMode
+      ? Math.min(1, Math.max(0, (progress - 0.15) * 2.5))
+      : dissolve
         ? 1
-        : naturalMode
-          ? Math.min(1, Math.max(0, (progress - 0.15) * 2.5))
-          : dissolve
-            ? 1
-            : 0;
-  const videoOpacity = reduced ? 0 : holdVideoOnly ? 1 : naturalMode ? 1 - stillOpacity * 0.85 : ended && dissolve ? 0 : 1;
+        : 0;
+  const videoOpacity = reduced ? 0 : naturalMode ? 1 - stillOpacity * 0.85 : ended && dissolve ? 0 : 1;
   const heroFade = reduced ? 1 : 1 - Math.min(1, progress * 1.8);
   const gradientReveal = reduced ? 0 : Math.min(1, progress * 2);
 
@@ -54,15 +53,22 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
         style={{ height: reduced ? 'auto' : 'min(120svh, 120vh)' }}
       >
         <div className="hero-entrance__stage">
-          <div className="hero-entrance__scrim" style={{ opacity: Math.max(0.92, 1 - gradientReveal * 0.08) }} />
+          <div className="hero-entrance__scrim" style={{ opacity: 1 - gradientReveal * 0.35 }} />
           <div className="hero-entrance__copy" style={{ opacity: heroFade }}>
             <p className="eyebrow">{hero.eventMetaBg}</p>
             <h1 className="display">{hero.headlineBg}</h1>
             <p className="lead">{hero.sublineBg}</p>
             <div className="gold-rule" aria-hidden="true" />
+            <button
+              type="button"
+              className="hero-film-cta"
+              onClick={() => setFilmOpen(true)}
+            >
+              {FILM_BUTTON_LABEL}
+            </button>
           </div>
 
-          <div className="hero-entrance__media" id={`scene-${entrance.id}`} ref={containerRef}>
+          <div className="hero-entrance__media" ref={containerRef}>
             <img
               className="hero-entrance__poster"
               src={publicUrl(entrance.posterSrc)}
@@ -81,16 +87,14 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
                 poster={publicUrl(entrance.posterSrc)}
                 muted
                 playsInline
-                preload={holdVideoOnly ? 'auto' : 'metadata'}
+                preload="auto"
                 width={entrance.width}
                 height={entrance.height}
               />
             )}
-            {entrance.stillAssetId && (
-              <div className="hero-entrance__still" style={{ opacity: stillOpacity }}>
-                <ResponsivePicture assetId={entrance.stillAssetId} priority objectFit="cover" />
-              </div>
-            )}
+            <div className="hero-entrance__still" style={{ opacity: stillOpacity }}>
+              <ResponsivePicture assetId={entrance.stillAssetId} priority objectFit="cover" />
+            </div>
             {needsTap && !reduced && (
               <button type="button" className="play-affordance" onClick={() => void tryPlay()}>
                 {ui.playVideo}
@@ -106,6 +110,12 @@ export function HeroEntranceScene({ hero, entrance, entranceTransition, ui }: Pr
           <p className="section-lead">{entrance.bodyBg}</p>
         </div>
       </div>
+      <FilmOverlay
+        open={filmOpen}
+        onClose={() => setFilmOpen(false)}
+        title={ui.filmOverlayTitle}
+        closeLabel={ui.filmOverlayClose}
+      />
     </section>
   );
 }

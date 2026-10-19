@@ -12,7 +12,7 @@
     "build:pages": "VITE_BASE=/luxury-event-presentation/ npm run build",
     "preview": "vite preview",
     "preview:pages": "VITE_BASE=/luxury-event-presentation/ vite preview",
-    "validate": "node scripts/validate-content.mjs",
+    "validate": "node scripts/validate-content.mjs && node scripts/validate-phase2-data.mjs",
     "assets:images": "node scripts/make-images.mjs",
     "assets:video": "bash scripts/make-video.sh",
     "assets:frames": "bash scripts/make-frames.sh",
@@ -20,7 +20,11 @@
     "assets": "npm run assets:images && npm run assets:video && npm run assets:frames && npm run assets:v3",
     "screenshots": "node scripts/capture-screenshots.mjs",
     "screenshots:cocktail-mobile": "node scripts/capture-cocktail-mobile.mjs",
-    "screenshots:v3": "node scripts/capture-journey-v3.mjs"
+    "screenshots:v3": "node scripts/capture-journey-v3.mjs",
+    "screenshots:v5": "node scripts/capture-journey-v5.mjs",
+    "screenshots:v5-1": "node scripts/capture-journey-v5-1.mjs",
+    "record:v5": "node scripts/record-journey-v5.mjs",
+    "record:v5-1": "node scripts/record-journey-v5-1.mjs"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.2.5",
