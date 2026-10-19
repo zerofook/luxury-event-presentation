@@ -10,7 +10,7 @@
 - `HeroEntranceScene` (split into `FilmHeroScene` + `EntranceScrollScene`).
 
 ## Film asset
-- Reuses `public/media/film/placeholder.mp4` + `poster.webp` via `src/config/film.ts` (`preload="metadata"` on the inline player).
+- Final event film: `public/media/film/geotrading-gala-film.mp4` (~66 s, 1280×720) + `geotrading-gala-film-poster.webp` via `src/config/film.ts` (`preload="metadata"` on the inline player).
 
 ## Behaviour notes
 - Countdown runs once per page load when the hero is visible and media is ready; skipped if the user scrolls away first (manual play thereafter).
