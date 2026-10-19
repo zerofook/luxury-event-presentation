@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { getSiteContent } from '@/content/site.bg';
+import { GuestSiteHeader } from '@/components/GuestSiteHeader';
 import { HeroPreload } from '@/components/HeroPreload';
 import { ActiveVideoProvider } from '@/lib/ActiveVideoContext';
 import { HeroEntranceScene } from '@/scenes/HeroEntranceScene';
@@ -44,6 +45,7 @@ export default function GuestExperienceApp() {
 
   return (
     <ActiveVideoProvider>
+      <GuestSiteHeader />
       <HeroPreload />
       <main id="main">
         <HeroEntranceScene
