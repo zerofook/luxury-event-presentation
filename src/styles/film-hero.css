@@ -3,6 +3,10 @@
   isolation: isolate;
   color: var(--color-ivory);
   overflow: hidden;
+  /* Full viewport behind fixed header (do not subtract --g-header-height here). */
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
 }
 
 .film-hero__bg {
@@ -35,9 +39,13 @@
   z-index: 1;
   max-width: 90rem;
   margin: 0 auto;
-  min-height: calc(100svh - var(--g-header-height));
-  padding: calc(var(--g-header-height) + clamp(1rem, 3vh, 2rem)) clamp(1rem, 4vw, 2.5rem)
-    clamp(2rem, 5vh, 3rem);
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  padding-top: calc(var(--g-header-height) + clamp(0.75rem, 2vh, 1.25rem));
+  padding-right: clamp(1rem, 4vw, 2.5rem);
+  padding-bottom: clamp(1.5rem, 4vh, 2.5rem);
+  padding-left: clamp(1rem, 4vw, 2.5rem);
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: clamp(1.25rem, 3vw, 2rem);
@@ -138,12 +146,15 @@
   place-items: center;
   font-family: var(--font-display);
   font-size: 1.35rem;
+  color: var(--color-ivory);
+  text-shadow: 0 1px 8px rgba(8, 12, 18, 0.55);
 }
 
 .film-hero__countdown-copy p {
   margin: 0;
   font-size: 0.92rem;
   line-height: 1.45;
+  color: var(--color-ivory);
 }
 
 .film-hero__countdown-sub {

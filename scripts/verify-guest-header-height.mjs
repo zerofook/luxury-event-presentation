@@ -73,6 +73,16 @@ async function exerciseViewport(page, width, height) {
   await page.setViewportSize({ width, height });
   await page.goto(startUrl(), { waitUntil: 'domcontentloaded', timeout: 90000 });
   await page.waitForSelector('.g-header__inner', { timeout: 45000 });
+  await page.waitForFunction(
+    () => {
+      const inner = document.querySelector('.g-header__inner');
+      if (!(inner instanceof HTMLElement)) return false;
+      const h = Math.round(inner.getBoundingClientRect().height);
+      const v = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--g-header-height'));
+      return Number.isFinite(v) && Math.abs(v - h) <= 1;
+    },
+    { timeout: 8000 },
+  );
 
   const samples = [];
   samples.push(await readHeights(page));
