@@ -20,6 +20,7 @@ We use **full clean renders** and **tight photo-only crops** from the approved P
 | --- | --- | --- |
 | **40** | **The Swan** — piano/performers without „55 000 €“ and titles | Not shown in finale gallery until clean |
 | **40** | **Bulgarian artists** row (Orlin Pavlov, Papi Hans, …) — headshots without name/price bars | Removed from `#programa` finale gallery |
+| **40** | **Mihaela Marinova** party portrait — photo only, no name/price typography | Removed from finale gallery (`p40-mihaela-marinova-clean.jpg`) |
 | **39** | *(Optional)* Higher-res **live show** master without slide chrome | We use a tight photo crop from p39 |
 
 **Gipsy Kings:** tight guitar photo crop is in use (no price chip).
