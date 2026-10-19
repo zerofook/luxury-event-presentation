@@ -15,7 +15,7 @@ export function OfferGallery({
   captionBg?: string;
   sizes?: string;
   layout?: 'default' | 'editorial' | 'thumb';
-  cap?: 'default' | 'sm';
+  cap?: 'default' | 'sm' | 'md';
   visualFill?: boolean;
   /** Owner exports at ~512px — cap display, no upscale beyond 1.5× rule */
   ownerNatural?: boolean;
@@ -39,6 +39,7 @@ export function OfferGallery({
     layout === 'editorial' ? ' p2-offer-gallery__main--editorial' : '',
     layout === 'thumb' ? ' p2-offer-gallery__main--thumb' : '',
     cap === 'sm' ? ' p2-offer-gallery__main--cap-sm' : '',
+    cap === 'md' ? ' p2-offer-gallery__main--cap-md' : '',
     visualFill && !ownerNatural ? ' p2-offer-gallery__main--fill' : '',
     ownerNatural ? ' p2-offer-gallery__main--owner-natural' : '',
   ].join('');

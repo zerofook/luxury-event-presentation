@@ -186,6 +186,26 @@
   max-width: 176px;
 }
 
+.p2-offer-gallery__main--cap-md {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  max-width: min(100%, 420px);
+  max-height: 280px;
+}
+
+@media (min-width: 900px) {
+  .p2-offer-row--medium-media {
+    grid-template-columns: minmax(0, 0.48fr) minmax(0, 0.52fr);
+    align-items: start;
+    gap: 1.25rem;
+  }
+
+  .p2-offer-row--medium-media .p2-offer-gallery__main--cap-md {
+    max-width: 100%;
+    max-height: min(320px, 42vh);
+  }
+}
+
 .p2-offer-row--compact-media {
   grid-template-columns: 1fr;
   gap: 0.75rem;

@@ -121,21 +121,6 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
               )
             )}
 
-            {chapter.id === 'gatsby-show' && chapter.galleryAssetIds?.[0] && (
-              <div className="p2-programme-chapter__gallery p2-programme-chapter__gallery--count-1 p2-programme-chapter__gallery--band">
-                <div className="p2-programme-chapter__thumb p2-programme-chapter__thumb--band">
-                  <ProposalPicture
-                    assetId={chapter.galleryAssetIds[0]}
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="50% 35%"
-                    sizes="100vw"
-                    capScale={1}
-                  />
-                </div>
-              </div>
-            )}
-
             {chapter.id === 'gatsby-show' && gatsbySpotlight && (
               <div className="p2-programme-chapter__spotlight p2-programme-chapter__spotlight--gatsby p2-programme-chapter__spotlight--text-only">
                 <div className="p2-programme-chapter__spotlight-copy">

@@ -426,6 +426,31 @@
    ]
   },
   {
+   "id": "owner-round-bar-4m",
+   "pdfPage": null,
+   "canvaPage": null,
+   "sectionKey": "dekor-gala",
+   "area": "Зала гала — декор",
+   "titleBg": "Кръгъл бар Ø 4 м",
+   "descriptionBg": "Тематичен кръгъл бар с диаметър 4 метра и масивна висяща флорална инсталация — ефектен акцент в гала залата.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": 2900,
+   "currency": "EUR",
+   "vatTreatment": "без ДДС",
+   "status": "recommended",
+   "statusBasis": "owner-doc-export",
+   "sourceNote": "Owner Google Doc image #24 context: \"Кръгъл бар Ø 4 м – 2 900 € без ДДС\".",
+   "confidence": "high",
+   "verified": true,
+   "crops": [],
+   "images": [
+    "sources/v4/owner/round/images/doc-024-round-bar.jpg"
+   ],
+   "notes": []
+  },
+  {
    "id": "p19-map-partial-stock",
    "pdfPage": 19,
    "canvaPage": 19,
@@ -2200,12 +2225,12 @@
    "statusBasis": "owner-provided",
    "proposalStatus": "suggested",
    "bookingStatus": "not_applicable",
-   "mediaPath": "media/img/v4_owner_crop_vintage_car_photo_zone-1024.jpg",
+   "mediaPath": "media/img/v4_owner_doc_008_photozone_car_side-1024.jpg",
    "clientNoteBg": "Цената включва доставянето на автомобила и тематичната декорация. Окончателната стойност зависи от избраните декоративни елементи.",
    "source": {
     "sourceType": "owner-provided",
     "date": "2026-10-19",
-    "fileRef": "sources/v4/owner/owner-vintage-car-photo-zone.png"
+    "fileRef": "sources/v4/owner/round/images/doc-008-photozone-car-side.jpg"
    },
    "specBulletsBg": [
     "Централен декоративен часовник с брандинг",

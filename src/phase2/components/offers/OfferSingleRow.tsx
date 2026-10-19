@@ -15,13 +15,16 @@ export function OfferSingleRow({
   blockTitleBg: string;
   item: ClientLineItem;
   galleryAssetIds?: string[];
-  galleryCap?: 'sm';
+  galleryCap?: 'sm' | 'md';
   introBg?: string;
 }) {
   const displayTitle = singleRowHeading(blockTitleBg, item.titleBg);
   const compactMedia = galleryCap === 'sm';
+  const mediumMedia = galleryCap === 'md';
   return (
-    <article className={`p2-offer-row p2-offer-row--single${compactMedia ? ' p2-offer-row--compact-media' : ''}`}>
+    <article
+      className={`p2-offer-row p2-offer-row--single${compactMedia ? ' p2-offer-row--compact-media' : ''}${mediumMedia ? ' p2-offer-row--medium-media' : ''}`}
+    >
       {galleryAssetIds && galleryAssetIds.length > 0 && (
         <div className="p2-offer-row__visual">
           <OfferGallery

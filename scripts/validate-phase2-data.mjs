@@ -15,7 +15,8 @@ let warns = 0;
 const ids = new Set();
 
 for (const item of bundle.items) {
-  if (item.pdfPage == null && item.id !== 'owner-vintage-car-photo-zone') {
+  const ownerOnly = item.id === 'owner-vintage-car-photo-zone' || item.id === 'owner-round-bar-4m';
+  if (item.pdfPage == null && !ownerOnly) {
     if (!item.source?.sourceType) {
       console.warn(`WARN missing pdfPage/source: ${item.id}`);
       warns++;
@@ -35,10 +36,11 @@ for (const item of bundle.items) {
   }
 }
 
-const vintage = bundle.items.find((i) => i.id === 'owner-vintage-car-photo-zone');
-if (!vintage) {
-  console.error('ERROR missing owner-vintage-car-photo-zone in audit');
-  errors++;
+for (const oid of ['owner-vintage-car-photo-zone', 'owner-round-bar-4m']) {
+  if (!bundle.items.find((i) => i.id === oid)) {
+    console.error(`ERROR missing ${oid} in audit`);
+    errors++;
+  }
 }
 
 if (client.items.length !== bundle.items.length) {

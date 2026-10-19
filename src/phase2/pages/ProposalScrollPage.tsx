@@ -25,6 +25,9 @@ import { PaletteComparison } from '../components/PaletteComparison';
 import { InvestmentEditorial } from '../components/InvestmentEditorial';
 import { ContactClosing } from '../components/ContactClosing';
 import { DecorationOverview } from '../components/DecorationOverview';
+import { PhotoZoneGallery } from '../components/PhotoZoneGallery';
+import { GalaHallVisuals } from '../components/GalaHallVisuals';
+import { AdditionalPerformersGallery } from '../components/AdditionalPerformersGallery';
 
 const CATEGORY_CARDS: {
   section: ProposalSectionId;
@@ -61,7 +64,7 @@ const CATEGORY_CARDS: {
     num: '05',
     titleBg: 'Гостоприемство',
     bodyBg: 'Менюта, подаръци и детайли на масата.',
-    assetId: 'v4_p24_crop_centerpiece_v1',
+    assetId: 'v4_owner_doc_025_gala_tables_clean',
   },
   {
     section: 'alternativi',
@@ -205,12 +208,10 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                     <p className="p2-lead">
                       Gatsby фото зона от предложението и допълнителна оферта за ретро автомобил с тематична декорация.
                     </p>
-                    <div className="p2-photo-pdf-row">
-                      <ProposalPicture assetId="v4_p06_crop_photowall_v3" objectFit="cover" />
-                      <ProposalPicture assetId="v4_p07_crop_photozone_orange" objectFit="cover" />
-                    </div>
+                    <PhotoZoneGallery />
                   </>
                 )}
+                {sub.id === 'dekor-gala' && <GalaHallVisuals />}
                 <SubsectionOffers
                   subsectionId={sub.id}
                   areaItems={areaItems}
@@ -233,6 +234,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
               резервация или наличност.
             </p>
             <EntertainmentProgramme items={prog} />
+            <AdditionalPerformersGallery />
           </section>
 
           <section id="technika" className="p2-section-block">

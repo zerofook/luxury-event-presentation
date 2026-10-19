@@ -1,7 +1,7 @@
 /** Clean full renders for the #dekoracia overview (registry `textFree: true`). */
 export const DECORATION_OVERVIEW_TILES = [
   {
-    assetId: 'v4_p04_crop_entrance_v3',
+    assetId: 'v4_owner_doc_001_entrance_clean',
     titleBg: 'Входна зона',
     bodyBg: 'Светла палитра — основната насока в одобрените визуализации.',
   },
@@ -11,23 +11,23 @@ export const DECORATION_OVERVIEW_TILES = [
     bodyBg: 'Аерозаснемане на първи етаж — маси, осветление и централна композиция.',
   },
   {
-    assetId: 'v4_p14_01_1134x680',
+    assetId: 'v4_owner_doc_015_corridor_led_clean',
     titleBg: 'Златен коридор',
-    bodyBg: 'Коридорен рендер в светла гама — част от декорационния пакет.',
+    bodyBg: 'LED коридор в светла гама — част от декорационния пакет.',
   },
   {
-    assetId: 'v4_p18_crop_hall_clean_left',
+    assetId: 'v4_owner_doc_023_mapping_v2_with_tables',
     titleBg: 'Гала зала',
-    bodyBg: 'Пълноценен рендер на залата — основа за 3D мапинг и декорация.',
+    bodyBg: 'Пълноценен рендер на залата с маси — основа за 3D мапинг и декорация.',
   },
   {
-    assetId: 'v4_p17_crop_stage_hero',
+    assetId: 'v4_owner_doc_stage_gatsby_22',
     titleBg: 'Сцена',
-    bodyBg: 'Сценична декорация и LED „22“ — ключов визуал за церемонията.',
+    bodyBg: 'Gatsby сценография и LED „22“ — ключов визуал за церемонията.',
   },
   {
-    assetId: 'v4_p06_crop_photowall_v3',
+    assetId: 'v4_owner_doc_011_photozone_car_22',
     titleBg: 'Фото зона',
-    bodyBg: 'Gatsby фото стена с автомобил — включена в декорацията; допълнителната ретро оферта е описана по-долу.',
+    bodyBg: 'Art Deco фото зона с ретро автомобил; допълнителната оферта за автомобил е описана по-долу.',
   },
 ] as const;

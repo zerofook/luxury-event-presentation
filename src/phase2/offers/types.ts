@@ -42,7 +42,7 @@ export interface OfferBlockSpec {
   galleryAssetIds?: string[];
   thumbAssetId?: string;
   /** Cap small detail crops (toast, cake) to avoid upscaling */
-  galleryCap?: 'sm';
+  galleryCap?: 'sm' | 'md';
   /** Package: one total + included components without separate prices */
   packagePriceItemId?: string;
   includedItemIds?: string[];

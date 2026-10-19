@@ -13,7 +13,7 @@
     "preview": "vite preview",
     "preview:pages": "VITE_BASE=/luxury-event-presentation/ vite preview",
     "assets:v4": "node scripts/generate-v4-assets.mjs",
-    "assets:owner": "node scripts/ingest-owner-assets.mjs",
+    "assets:owner": "node scripts/ingest-owner-assets.mjs && node scripts/ingest-owner-doc-round.mjs",
     "validate": "node scripts/build-proposal-client.mjs && node scripts/verify-client-copy.mjs && node scripts/validate-v4-text-free.mjs && node scripts/generate-v4-assets.mjs && node scripts/generate-media-ladder-manifest.mjs && node scripts/validate-content.mjs && node scripts/validate-phase2-data.mjs && node scripts/validate-phase2-assets.mjs",
     "sync:text-free": "node scripts/sync-v4-text-free.mjs",
     "verify:proposal-images": "node scripts/verify-proposal-images.mjs",
