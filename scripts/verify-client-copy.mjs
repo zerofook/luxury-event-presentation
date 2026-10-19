@@ -17,6 +17,7 @@ const CLIENT_STRING_KEYS = new Set([
   'guestCountNoteBg',
   'eventTitleBg',
   'eventDateBg',
+  'venueNameBg',
   'investmentIntroBg',
   'investmentClarityBg',
   'technicalIndicativeNoteBg',
@@ -46,9 +47,6 @@ const ALLOW = new Set([
   'Kings',
   'Mihaela',
   'Fileva',
-  'Sofia',
-  'Event',
-  'Center',
   'GBP',
   'Passage',
   'Golden',
@@ -101,6 +99,43 @@ const FORBIDDEN_PHRASES = [
   'частични суми',
 ];
 
+/** Former venue branding — must not appear in client-facing output. */
+const FORBIDDEN_VENUE_RE =
+  /sofia\s+event\s+cent(?:er|re)|софия\s+ивент\s+цент(?:ър|ра)|(?<![\u0400-\u04FF])ивент\s+цент(?:ър|ра)(?![\u0400-\u04FF])/iu;
+
+const CLIENT_SURFACE_PATHS = [
+  path.join(ROOT, 'index.html'),
+  path.join(ROOT, 'src/content/site.bg.ts'),
+  path.join(ROOT, 'src/phase2/pages/ProposalScrollPage.tsx'),
+];
+
+function scanTextForForbiddenVenue(text, label, venueOffenders) {
+  if (FORBIDDEN_VENUE_RE.test(text)) {
+    venueOffenders.push(`${label}: matched forbidden venue name`);
+  }
+}
+
+function scanFileForForbiddenVenue(filePath, venueOffenders) {
+  if (!fs.existsSync(filePath)) return;
+  scanTextForForbiddenVenue(fs.readFileSync(filePath, 'utf8'), filePath.replace(ROOT + path.sep, ''), venueOffenders);
+}
+
+function scanDistForForbiddenVenue(venueOffenders) {
+  const distDir = path.join(ROOT, 'dist');
+  if (!fs.existsSync(distDir)) return;
+  const stack = [distDir];
+  while (stack.length) {
+    const dir = stack.pop();
+    for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, ent.name);
+      if (ent.isDirectory()) stack.push(full);
+      else if (/\.(html|js|css)$/i.test(ent.name)) {
+        scanTextForForbiddenVenue(fs.readFileSync(full, 'utf8'), full.replace(ROOT + path.sep, ''), venueOffenders);
+      }
+    }
+  }
+}
+
 const phraseOffenders = [];
 for (const s of strings) {
   const lower = s.toLowerCase();
@@ -119,6 +154,19 @@ if (offenders.size) {
 if (phraseOffenders.length) {
   console.error('verify-client-copy: forbidden internal phrasing:');
   for (const o of phraseOffenders.slice(0, 30)) console.error(' ', o);
+  process.exit(1);
+}
+
+const venueOffenders = [];
+for (const s of strings) {
+  scanTextForForbiddenVenue(s, 'proposal.client.json', venueOffenders);
+}
+for (const p of CLIENT_SURFACE_PATHS) scanFileForForbiddenVenue(p, venueOffenders);
+scanDistForForbiddenVenue(venueOffenders);
+
+if (venueOffenders.length) {
+  console.error('verify-client-copy: forbidden former venue name:');
+  for (const o of venueOffenders.slice(0, 30)) console.error(' ', o);
   process.exit(1);
 }
 

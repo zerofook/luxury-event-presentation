@@ -158,7 +158,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                 <strong>{bundle.meta.guestCountNoteBg}</strong>
               </li>
               <li>
-                <strong>Sofia Event Center</strong> · Great Gatsby
+                <strong>{bundle.meta.venueNameBg}</strong> · Great Gatsby
               </li>
               <li>
                 <strong>Светла палитра</strong> — препоръчана насока в основните визуализации
