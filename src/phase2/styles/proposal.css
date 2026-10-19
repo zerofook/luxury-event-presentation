@@ -1584,3 +1584,144 @@ button.p2-btn {
   color: var(--p2-turquoise);
   font-size: 1.05rem;
 }
+
+.p2-photo-zone {
+  display: grid;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.p2-photo-zone__hero {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.p2-photo-zone--compact .p2-photo-zone__hero .p2-media {
+  aspect-ratio: 16 / 9;
+  max-height: min(42vh, 380px);
+}
+
+.p2-compact-strip {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.15rem 0 0.35rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.p2-compact-strip__item {
+  position: relative;
+  flex: 0 0 88px;
+  width: 88px;
+  scroll-snap-align: start;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.p2-compact-strip--landscape .p2-compact-strip__item {
+  aspect-ratio: 4 / 3;
+}
+
+.p2-compact-strip--portrait .p2-compact-strip__item {
+  aspect-ratio: 3 / 4;
+}
+
+@media (min-width: 768px) {
+  .p2-compact-strip {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .p2-compact-strip--landscape {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(72px, 96px));
+    gap: 0.5rem;
+  }
+
+  .p2-compact-strip--portrait {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(72px, 96px));
+    gap: 0.5rem;
+  }
+
+  .p2-compact-strip__item {
+    flex: none;
+    width: 100%;
+  }
+}
+
+.p2-gala-intro {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.p2-gala-intro__hero {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.p2-gala-intro__plan {
+  margin: 0;
+  max-width: 720px;
+}
+
+.p2-gala-intro__plan figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  opacity: 0.85;
+}
+
+.p2-additional-performers {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(52, 76, 96, 0.1);
+}
+
+.p2-lead--compact {
+  max-width: 42rem;
+  margin-bottom: 1rem;
+}
+
+.p2-additional-performers__grid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 520px;
+}
+
+@media (min-width: 768px) {
+  .p2-additional-performers__grid {
+    grid-template-columns: repeat(4, minmax(0, 96px));
+    max-width: none;
+  }
+}
+
+.p2-additional-performers__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: center;
+  text-align: center;
+}
+
+.p2-additional-performers__photo {
+  width: 100%;
+  max-width: 96px;
+  aspect-ratio: 3 / 4;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.p2-additional-performers__name {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.3;
+}

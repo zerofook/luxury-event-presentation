@@ -29,7 +29,7 @@ export function SubsectionOffers({
       {leftover.length > 0 && (
         <section className="p2-offer-block">
           <header className="p2-offer-block__head">
-            <h4 className="p2-offer-block__title">Други позиции от източника</h4>
+            <h4 className="p2-offer-block__title">Допълнителни елементи</h4>
           </header>
           <OfferCompactRows items={leftover} />
         </section>

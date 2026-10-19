@@ -1,6 +1,6 @@
 import { ProposalPicture } from './ProposalPicture';
 
-const VINTAGE_CAR_ASSET_ID = 'v4_owner_crop_vintage_car_photo_zone';
+const VINTAGE_CAR_ASSET_ID = 'v4_owner_doc_008_photozone_car_side';
 
 /** Full-width visualization only — pricing lives in the item row below. */
 export function VintageCarFeature() {

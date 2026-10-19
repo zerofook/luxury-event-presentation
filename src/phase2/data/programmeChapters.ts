@@ -1,6 +1,7 @@
 import type { ClientLineItem } from '../types';
 
 export type ProgrammeHeroLayout = 'wide' | 'editorial' | 'none';
+export type ProgrammeGalleryLayout = 'default' | 'compact-strip';
 
 export interface ProgrammeChapterDef {
   id: string;
@@ -10,6 +11,7 @@ export interface ProgrammeChapterDef {
   heroLayout?: ProgrammeHeroLayout;
   heroObjectPosition?: string;
   galleryAssetIds?: string[];
+  galleryLayout?: ProgrammeGalleryLayout;
   /** Portrait-oriented gallery ids — capped display size in UI */
   galleryPortraitIds?: string[];
   match: (item: ClientLineItem) => boolean;
@@ -24,9 +26,9 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     heroAssetId: 'v4_p11_crop_cocktail_aerial_clean',
     heroLayout: 'wide',
     galleryAssetIds: [
-      'v4_p32_crop_performer1',
-      'v4_p32_crop_performer3',
-      'v4_p32_crop_performer4',
+      'v4_owner_doc_003_champagne_tray_performer',
+      'v4_owner_doc_005_giant_glass_acrobat',
+      'v4_owner_doc_004_champagne_tray_group',
       'v4_p36_crop_cocktail_retro_car',
       'v4_p36_crop_little_party_feathers',
     ],
@@ -62,9 +64,10 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     titleBg: 'Gatsby спектакъл',
     leadBg:
       'Танцово шоу „Великият Гетсби“ и балетна програма — централният театрален момент на вечерта с ясно посочени алтернативни формати.',
-    heroAssetId: 'v4_p34_crop_dance_show_dancers',
+    heroAssetId: 'v4_owner_doc_033_opera_gatsby_1',
     heroLayout: 'wide',
-    galleryAssetIds: ['v4_p36_crop_gimme_gimme_cabaret'],
+    galleryLayout: 'compact-strip',
+    galleryAssetIds: ['v4_owner_doc_034_opera_gatsby_2', 'v4_owner_doc_035_opera_gatsby_3'],
     match: (i) =>
       (i.source.pdfPage === 34 || i.source.pdfPage === 36) &&
       i.area.includes('танцова'),
@@ -77,8 +80,8 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     heroAssetId: 'v4_p39_crop_live_show_band_dancers',
     heroLayout: 'wide',
     heroObjectPosition: '48% 32%',
-    galleryAssetIds: ['v4_p35_crop_mihaela_jazz_quartet', 'v4_p35_crop_mihaela_with_dancers'],
-    galleryPortraitIds: ['v4_p35_crop_mihaela_jazz_quartet', 'v4_p35_crop_mihaela_with_dancers'],
+    galleryAssetIds: ['v4_owner_doc_037_mihaela_fileva_portrait', 'v4_owner_doc_038_mihaela_fileva_stage'],
+    galleryPortraitIds: ['v4_owner_doc_037_mihaela_fileva_portrait'],
     match: (i) => i.source.pdfPage === 35 || i.source.pdfPage === 39,
   },
   {
@@ -86,10 +89,21 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     titleBg: 'Празнуване и звезден финал',
     leadBg:
       'Party частта и допълнителни звездни формати — опции след официалната програма, с ясно обозначени алтернативи.',
-    heroAssetId: 'v4_p38_crop_disco_ball_dancers',
+    heroAssetId: 'v4_owner_doc_055_disco_ball_wide',
     heroLayout: 'wide',
     heroObjectPosition: '50% 38%',
-    galleryAssetIds: ['v4_p40_crop_gipsy_kings'],
+    galleryLayout: 'compact-strip',
+    galleryAssetIds: [
+      'v4_owner_doc_052_disco_ball_portrait_1',
+      'v4_owner_doc_053_disco_ball_portrait_2',
+      'v4_owner_doc_054_disco_ball_portrait_3',
+      'v4_owner_doc_057_artist_gipsy_kings',
+    ],
+    galleryPortraitIds: [
+      'v4_owner_doc_052_disco_ball_portrait_1',
+      'v4_owner_doc_053_disco_ball_portrait_2',
+      'v4_owner_doc_054_disco_ball_portrait_3',
+    ],
     match: (i) => i.source.pdfPage === 38 || i.source.pdfPage === 40,
   },
 ];

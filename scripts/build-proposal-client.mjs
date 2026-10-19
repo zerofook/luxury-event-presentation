@@ -48,6 +48,7 @@ function latinRatio(text) {
 /** Client-safe titles where PDF/sanitize pipeline left fragments. */
 const TITLE_OVERRIDES = {
   'p17-stage-decor': 'Декор на зоната — декоративни пана с въртяща платформа',
+  'p17-stage-florals': 'Цветни композиции на сцената',
   'p19-map-partial-stock': 'Вариант 1 — частичен 3D мапинг със стокови визии',
   'p19-map-partial-custom': 'Вариант 2 — частичен 3D мапинг с авторски визии',
   'p20-map-full-stock': 'Вариант 1 — пълен 3D мапинг със стокови визии',
@@ -119,13 +120,13 @@ function derivePriceType(item) {
 }
 
 function clientSourceRef(item) {
-  if (item.source?.sourceType === 'owner-provided') {
-    const labelBg = sanitizeBg(item.source.labelBg);
+  if (item.id === 'owner-round-bar-4m' || item.source?.sourceType === 'owner-provided') {
+    const labelBg = sanitizeBg(item.source?.labelBg);
     return {
       sourceType: 'owner-provided',
       ...(labelBg ? { labelBg } : {}),
-      fileRef: item.source.fileRef,
-      date: item.source.date,
+      ...(item.source?.fileRef ? { fileRef: item.source.fileRef } : {}),
+      ...(item.source?.date ? { date: item.source.date } : {}),
     };
   }
   if (item.pdfPage) {
@@ -223,23 +224,83 @@ function ensureVintageCarItem(bundle) {
     statusBasis: 'owner-provided',
     proposalStatus: 'suggested',
     bookingStatus: 'not_applicable',
-    mediaPath: 'media/img/v4_owner_crop_vintage_car_photo_zone-1024.jpg',
+    mediaPath: 'media/img/v4_owner_doc_008_photozone_car_side-1024.jpg',
     clientNoteBg:
       'Цената включва доставянето на автомобила и тематичната декорация. Окончателната стойност зависи от избраните декоративни елементи.',
     source: {
       sourceType: 'owner-provided',
       date: '2026-10-19',
-      fileRef: 'sources/v4/owner/owner-vintage-car-photo-zone.png',
+      fileRef: 'sources/v4/owner/round/images/doc-008-photozone-car-side.jpg',
     },
   });
   bundle.meta.itemCount = bundle.items.length;
 }
 
+function patchStageFloralsItem(item) {
+  if (item.id !== 'p17-stage-florals') return item;
+  /** PDF p17 prints 12×220 € and 2 904 € total — arithmetic mismatch; show unit × qty only. */
+  return {
+    ...item,
+    titleBg: TITLE_OVERRIDES['p17-stage-florals'],
+    priceType: 'unit_price',
+    quantity: 12,
+    unit: 'броя',
+    unitPrice: 220,
+    lineTotal: null,
+  };
+}
+
+function patchVintageCarMedia(item) {
+  if (item.id !== 'owner-vintage-car-photo-zone') return item;
+  return {
+    ...item,
+    mediaPath: 'media/img/v4_owner_doc_008_photozone_car_side-1024.jpg',
+    source: item.source
+      ? { ...item.source, fileRef: 'sources/v4/owner/round/images/doc-008-photozone-car-side.jpg' }
+      : item.source,
+  };
+}
+
+function ensureRoundBarItem(bundle) {
+  const exists = bundle.items.some((i) => i.id === 'owner-round-bar-4m');
+  if (!exists) {
+    bundle.items.push({
+      id: 'owner-round-bar-4m',
+      sectionKey: 'dekor-gala',
+      area: 'Зала гала — декор',
+      titleBg: 'Кръгъл бар Ø 4 м',
+      descriptionBg:
+        'Тематичен кръгъл бар с диаметър 4 метра и масивна висяща флорална инсталация — ефектен акцент в гала залата.',
+      quantity: null,
+      unit: null,
+      unitPrice: null,
+      lineTotal: 2900,
+      priceType: 'fixed',
+      currency: 'EUR',
+      vatTreatment: 'без ДДС',
+      status: 'recommended',
+      statusBasis: 'owner-doc-export',
+      proposalStatus: 'suggested',
+      bookingStatus: 'not_applicable',
+      mediaPath: 'media/img/v4_owner_doc_024_round_bar-1024.jpg',
+      source: {
+        sourceType: 'owner-provided',
+        date: '2026-10-19',
+        fileRef: 'sources/v4/owner/round/images/doc-024-round-bar.jpg',
+        labelBg: 'Owner Google Doc · изображение #24',
+      },
+    });
+    bundle.meta.itemCount = bundle.items.length;
+  }
+}
+
 const bundle = JSON.parse(fs.readFileSync(AUDIT_PATH, 'utf8'));
 ensureVintageCarItem(bundle);
+ensureRoundBarItem(bundle);
+bundle.items = bundle.items.map((i) => patchVintageCarMedia(patchVintageCarItem(i)));
 fs.writeFileSync(AUDIT_PATH, JSON.stringify(bundle, null, 1));
 
-const clientItems = bundle.items.map(toClientItem);
+const clientItems = bundle.items.map((i) => patchStageFloralsItem(toClientItem(i)));
 
 const client = {
   meta: {

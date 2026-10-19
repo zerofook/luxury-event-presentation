@@ -1,0 +1,1492 @@
+{
+ "doc": "https://docs.google.com/document/d/1ZXTzbjw4fj7NHuRhJpP6eYj2I-kZ2hDos9RnoxlVQf0",
+ "exported": "2026-10-19 14:1x EEST",
+ "note": "Images are embedded originals; zip and docx identical sizes except #22 (docx 2048 > zip 1999, docx used).",
+ "images": [
+  {
+   "n": 1,
+   "file": "images/doc-001-entrance-clean.png",
+   "width": 1672,
+   "height": 941,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Впечатляващо първо посещение",
+    "Ефектна входна визия, която създава неповторима атмосфера и поставя",
+    "началото на едно специално събитие ."
+   ],
+   "context_after": [
+    "ВИСОКИ МЕТАЛНИ СТОЙКИ С КРИСТАЛИ",
+    "Елегантни златни конструкции с осветление, създаващи луксозен и бляскав ефект."
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "02 Входна зона — package hero + 02 overview tile + 01 card",
+   "replaces": "v4_p04_crop_entrance_v3",
+   "replaces_res": "510×614",
+   "note": "Clean full entrance render"
+  },
+  {
+   "n": 2,
+   "file": "images/doc-002-entrance-callouts.png",
+   "width": 1672,
+   "height": 941,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Впечатляващо първо посещение",
+    "Ефектна входна визия, която създава неповторима атмосфера и поставя",
+    "началото на едно специално събитие ."
+   ],
+   "context_after": [
+    "ВИСОКИ МЕТАЛНИ СТОЙКИ С КРИСТАЛИ",
+    "Елегантни златни конструкции с осветление, създаващи луксозен и бляскав ефект."
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Callout circles + labels baked in; use #1"
+  },
+  {
+   "n": 3,
+   "file": "images/doc-003-champagne-tray-performer.png",
+   "width": 1672,
+   "height": 941,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "ЗЛАТЕН МОКЕТ",
+    "Стилен и ефектен път, който води гостите към вътрешното пространство.",
+    "Жива интерпретация на пирамида от шампанско"
+   ],
+   "context_after": [
+    "Тематично облечени артисти поднасят шампанско на гостите с тематично облекло.",
+    "Гигантска стъклена чаша с акробат и конфети"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Коктейл — Жива пирамида от шампанско",
+   "replaces": "v4_p32_crop_performer4",
+   "replaces_res": "375×441",
+   "note": "Clean"
+  },
+  {
+   "n": 4,
+   "file": "images/doc-004-champagne-tray-group.jpg",
+   "width": 1228,
+   "height": 819,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Стилен и ефектен път, който води гостите към вътрешното пространство.",
+    "Жива интерпретация на пирамида от шампанско",
+    "Тематично облечени артисти поднасят шампанско на гостите с тематично облекло."
+   ],
+   "context_after": [
+    "Гигантска стъклена чаша с акробат и конфети",
+    "Фото Зона"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Коктейл — alt/2nd image for champagne performers",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Clean"
+  },
+  {
+   "n": 5,
+   "file": "images/doc-005-giant-glass-acrobat.png",
+   "width": 1672,
+   "height": 941,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Жива интерпретация на пирамида от шампанско",
+    "Тематично облечени артисти поднасят шампанско на гостите с тематично облекло.",
+    "Гигантска стъклена чаша с акробат и конфети"
+   ],
+   "context_after": [
+    "Фото Зона",
+    "Декоративна фотозона с ретро автомобил"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Коктейл — Гигантска чаша с акробат",
+   "replaces": "v4_p32_crop_performer3",
+   "replaces_res": "349×441",
+   "note": "Clean"
+  },
+  {
+   "n": 6,
+   "file": "images/doc-006-photozone-panorama-22.png",
+   "width": 1786,
+   "height": 594,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Тематично облечени артисти поднасят шампанско на гостите с тематично облекло.",
+    "Гигантска стъклена чаша с акробат и конфети",
+    "Фото Зона"
+   ],
+   "context_after": [
+    "Декоративна фотозона с ретро автомобил",
+    "Елегантна и впечатляваща фотозона, съчетаваща модерна сценография с изискан ретро стил."
+   ],
+   "kind": "clean (decor sign/LED text in scene)",
+   "duplicate_of": null,
+   "suggested_section": "02 Фото зона — wide hero",
+   "replaces": "v4_p06_crop_photowall_v3",
+   "replaces_res": "589×577",
+   "note": "Set-design '22 GEOTRADING' sign is part of the decor, not slide text"
+  },
+  {
+   "n": 7,
+   "file": "images/doc-007-photozone-sign-detail.png",
+   "width": 1672,
+   "height": 941,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Гигантска стъклена чаша с акробат и конфети",
+    "Фото Зона",
+    "Декоративна фотозона с ретро автомобил"
+   ],
+   "context_after": [
+    "Елегантна и впечатляваща фотозона, съчетаваща модерна сценография с изискан ретро стил.",
+    "Декоративната композиция е изградена от многостепенно разположени плоскости, допълнени от ефирни текстилни драперии и богати флорални аранжи"
+   ],
+   "kind": "clean (decor sign/LED text in scene)",
+   "duplicate_of": null,
+   "suggested_section": "02 Фото зона — detail",
+   "replaces": "v4_p07_crop_photozone_orange",
+   "replaces_res": "757×502",
+   "note": "Decor sign in scene"
+  },
+  {
+   "n": 8,
+   "file": "images/doc-008-photozone-car-side.png",
+   "width": 1359,
+   "height": 1157,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Декоративна фотозона с ретро автомобил",
+    "Елегантна и впечатляваща фотозона, съчетаваща модерна сценография с изискан ретро стил.",
+    "Декоративната композиция е изградена от многостепенно разположени плоскости, допълнени от ефирни текстилни драперии и богати флорални аранжи"
+   ],
+   "context_after": [
+    "Пред декора ще бъде позициониран ретро автомобил, обграден от стилни цветни композиции, който ще се превърне в централен акцент и атрактивно"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "02 Фото зона — vintage car offer",
+   "replaces": "v4_owner_crop_vintage_car_photo_zone",
+   "replaces_res": "1605×980",
+   "note": "Clean, removes baked 6×4 m dims"
+  },
+  {
+   "n": 9,
+   "file": "images/doc-009-photozone-floral-detail.png",
+   "width": 1321,
+   "height": 1191,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Декоративна фотозона с ретро автомобил",
+    "Елегантна и впечатляваща фотозона, съчетаваща модерна сценография с изискан ретро стил.",
+    "Декоративната композиция е изградена от многостепенно разположени плоскости, допълнени от ефирни текстилни драперии и богати флорални аранжи"
+   ],
+   "context_after": [
+    "Пред декора ще бъде позициониран ретро автомобил, обграден от стилни цветни композиции, който ще се превърне в централен акцент и атрактивно",
+    "Размер на декора: 700 × 400 см"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "02 Фото зона — detail (or Коридор florals alt)",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Clean floral close-up"
+  },
+  {
+   "n": 10,
+   "file": "images/doc-010-photozone-panel-detail.png",
+   "width": 1287,
+   "height": 1222,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Декоративна фотозона с ретро автомобил",
+    "Елегантна и впечатляваща фотозона, съчетаваща модерна сценография с изискан ретро стил.",
+    "Декоративната композиция е изградена от многостепенно разположени плоскости, допълнени от ефирни текстилни драперии и богати флорални аранжи"
+   ],
+   "context_after": [
+    "Пред декора ще бъде позициониран ретро автомобил, обграден от стилни цветни композиции, който ще се превърне в централен акцент и атрактивно",
+    "Размер на декора: 700 × 400 см"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "02 Фото зона — panel detail",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Clean"
+  },
+  {
+   "n": 11,
+   "file": "images/doc-011-photozone-car-22.jpg",
+   "width": 1440,
+   "height": 822,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Декоративна фотозона с ретро автомобил",
+    "Елегантна и впечатляваща фотозона, съчетаваща модерна сценография с изискан ретро стил.",
+    "Декоративната композиция е изградена от многостепенно разположени плоскости, допълнени от ефирни текстилни драперии и богати флорални аранжи"
+   ],
+   "context_after": [
+    "Пред декора ще бъде позициониран ретро автомобил, обграден от стилни цветни композиции, който ще се превърне в централен акцент и атрактивно",
+    "Размер на декора: 700 × 400 см"
+   ],
+   "kind": "clean (decor sign/LED text in scene)",
+   "duplicate_of": null,
+   "suggested_section": "02 Фото зона — main image",
+   "replaces": "v4_p06_crop_photowall_v3",
+   "replaces_res": "589×577",
+   "note": "Decor sign in scene"
+  },
+  {
+   "n": 12,
+   "file": "images/doc-012-photozone-clock-car.jpg",
+   "width": 1279,
+   "height": 731,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Декоративна фотозона с ретро автомобил",
+    "Елегантна и впечатляваща фотозона, съчетаваща модерна сценография с изискан ретро стил.",
+    "Декоративната композиция е изградена от многостепенно разположени плоскости, допълнени от ефирни текстилни драперии и богати флорални аранжи"
+   ],
+   "context_after": [
+    "Пред декора ще бъде позициониран ретро автомобил, обграден от стилни цветни композиции, който ще се превърне в централен акцент и атрактивно",
+    "Размер на декора: 700 × 400 см"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "02 Фото зона — clock wall (ПО ЗАЯВКА)",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "'7.00 m' dimension line baked in; only clock-wall image → flag"
+  },
+  {
+   "n": 13,
+   "file": "images/doc-013-photozone-clock-drawing.png",
+   "width": 1448,
+   "height": 1086,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Декоративната композиция е изградена от многостепенно разположени плоскости, допълнени от ефирни текстилни драперии и богати флорални аранжи",
+    "Пред декора ще бъде позициониран ретро автомобил, обграден от стилни цветни композиции, който ще се превърне в централен акцент и атрактивно",
+    "Размер на декора: 700 × 400 см"
+   ],
+   "context_after": [
+    "Цена за цялостно оформление на зоната със сценография, големи златни цифри: 4 800 € без ДДС",
+    "Цена за ретро автомобила с доставка от Бургас 2000 евро без ДДС"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "02 Фото зона — technical drawing (optional)",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Line drawing 6.00×4.00 m; diagram"
+  },
+  {
+   "n": 14,
+   "file": "images/doc-014-photozone-slide.jpg",
+   "width": 1228,
+   "height": 819,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Цена за цялостно оформление на зоната със сценография, големи златни цифри: 4 800 € без ДДС",
+    "Цена за ретро автомобила с доставка от Бургас 2000 евро без ДДС",
+    "Цена за стената с часовника  - ПО ЗАЯВКА"
+   ],
+   "context_after": [
+    "Коридора към зона ГАЛА, етаж 4",
+    "clip:"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Slide screenshot with prices; clean alts #11/#12"
+  },
+  {
+   "n": 15,
+   "file": "images/doc-015-corridor-led-clean.png",
+   "width": 1672,
+   "height": 941,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Цена за ретро автомобила с доставка от Бургас 2000 евро без ДДС",
+    "Цена за стената с часовника  - ПО ЗАЯВКА",
+    "Коридора към зона ГАЛА, етаж 4"
+   ],
+   "context_after": [
+    "clip:",
+    "https://drive.google.com/file/d/1nS6NONUYe9B4FUtJbOUKj_5FeZdhUnxA/view?usp=drive_link"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "02 Златен коридор — Екран в коридора (+ florals crop)",
+   "replaces": "v4_p13_crop_led_wall_detail",
+   "replaces_res": "443×178",
+   "note": "Clean original of the corridor slide; the slide thumbnails were cut from this"
+  },
+  {
+   "n": 16,
+   "file": "images/doc-016-corridor-slide.jpg",
+   "width": 1440,
+   "height": 822,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Коридора към зона ГАЛА, етаж 4",
+    "clip:",
+    "https://drive.google.com/file/d/1nS6NONUYe9B4FUtJbOUKj_5FeZdhUnxA/view?usp=drive_link"
+   ],
+   "context_after": [
+    "ЗАЛА ГАЛА - етаж 4, след твоите снимки (залата оживява) слагаш примерното разпределние",
+    "* тук трябва да сменим снимките и да следваш следната подредба:"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Slide screenshot with prices (source of current p13 crops); use #15"
+  },
+  {
+   "n": 17,
+   "file": "images/doc-017-gala-floorplan.jpg",
+   "width": 1382,
+   "height": 921,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "ЗАЛА ГАЛА - етаж 4, след твоите снимки (залата оживява) слагаш примерното разпределние",
+    "* тук трябва да сменим снимките и да следваш следната подредба:",
+    "Примерно разпределние:"
+   ],
+   "context_after": [
+    "СЦЕНА ДЕКОР И СЦЕНОГРАФИЯ",
+    "Гетсби декор на сцената"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "02 Гала зала — примерно разпределение (optional)",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Floor plan with labels/dimensions; doc note says photos to be replaced"
+  },
+  {
+   "n": 18,
+   "file": "images/doc-018-stage-slide.jpg",
+   "width": 1228,
+   "height": 819,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "* тук трябва да сменим снимките и да следваш следната подредба:",
+    "Примерно разпределние:",
+    "СЦЕНА ДЕКОР И СЦЕНОГРАФИЯ"
+   ],
+   "context_after": [
+    "Гетсби декор на сцената",
+    "Елегантна сценография в стил Великия Гетсби с обемни Art Deco пана, които обрамчват LED екрана и прикриват сгъваемите стени в дясната част н"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Stage slide with prices; no clean stage render in doc → keep v4_p17_crop_stage_hero"
+  },
+  {
+   "n": 19,
+   "file": "images/doc-019-mapping-v1-left-wall.jpg",
+   "width": 1440,
+   "height": 822,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "В специално оформена ниша ще бъде скрита празничната торта върху въртяща се платформа, която ще я разкрие в кулминационен момент от вечерта.",
+    "Декорът ще бъде допълнен от пищни флорални композиции, пера и пампас в изискана палитра от бяло, златно, шампанско, капучино и бежово.",
+    "3D mapping - частичен - само едната страна на ивент центъра. От входа до края на стъкленото отделение. Ще се получи като естествено продълже"
+   ],
+   "context_after": [
+    "3D mapping - на цялото помещение - всички стени"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_owner_mapping_v1_partial_left",
+   "suggested_section": "02 Гала зала — 3D мапинг Вариант 1",
+   "replaces": "v4_owner_mapping_v1_partial_left",
+   "replaces_res": "512×292",
+   "note": "Same image as current, 2.8× larger"
+  },
+  {
+   "n": 20,
+   "file": "images/doc-020-mapping-prices-slide-a.jpg",
+   "width": 1030,
+   "height": 257,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "В специално оформена ниша ще бъде скрита празничната торта върху въртяща се платформа, която ще я разкрие в кулминационен момент от вечерта.",
+    "Декорът ще бъде допълнен от пищни флорални композиции, пера и пампас в изискана палитра от бяло, златно, шампанско, капучино и бежово.",
+    "3D mapping - частичен - само едната страна на ивент центъра. От входа до края на стъкленото отделение. Ще се получи като естествено продълже"
+   ],
+   "context_after": [
+    "3D mapping - на цялото помещение - всички стени",
+    "Декориране на тавана и други площи:"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Price tables; skip"
+  },
+  {
+   "n": 21,
+   "file": "images/doc-021-mapping-v2-all-walls.png",
+   "width": 1660,
+   "height": 947,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "В специално оформена ниша ще бъде скрита празничната торта върху въртяща се платформа, която ще я разкрие в кулминационен момент от вечерта.",
+    "Декорът ще бъде допълнен от пищни флорални композиции, пера и пампас в изискана палитра от бяло, златно, шампанско, капучино и бежово.",
+    "3D mapping - частичен - само едната страна на ивент центъра. От входа до края на стъкленото отделение. Ще се получи като естествено продълже"
+   ],
+   "context_after": [
+    "3D mapping - на цялото помещение - всички стени",
+    "Декориране на тавана и други площи:"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_owner_mapping_v2_full_all_walls",
+   "suggested_section": "02 Гала зала — 3D мапинг Вариант 2",
+   "replaces": "v4_owner_mapping_v2_full_all_walls",
+   "replaces_res": "512×292",
+   "note": "Same image as current, 3.2× larger"
+  },
+  {
+   "n": 22,
+   "file": "images/doc-022-mapping-prices-slide-b.png",
+   "width": 2048,
+   "height": 685,
+   "source": "docx",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Декорът ще бъде допълнен от пищни флорални композиции, пера и пампас в изискана палитра от бяло, златно, шампанско, капучино и бежово.",
+    "3D mapping - частичен - само едната страна на ивент центъра. От входа до края на стъкленото отделение. Ще се получи като естествено продълже",
+    "3D mapping - на цялото помещение - всички стени"
+   ],
+   "context_after": [
+    "Декориране на тавана и други площи:",
+    "Тематичен кръгъл бар с масивна аранжировка:"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Price tables (docx version 2048 px > zip 1999); skip"
+  },
+  {
+   "n": 23,
+   "file": "images/doc-023-mapping-v2-with-tables.png",
+   "width": 1660,
+   "height": 947,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Декорът ще бъде допълнен от пищни флорални композиции, пера и пампас в изискана палитра от бяло, златно, шампанско, капучино и бежово.",
+    "3D mapping - частичен - само едната страна на ивент центъра. От входа до края на стъкленото отделение. Ще се получи като естествено продълже",
+    "3D mapping - на цялото помещение - всички стени"
+   ],
+   "context_after": [
+    "Декориране на тавана и други площи:",
+    "Тематичен кръгъл бар с масивна аранжировка:"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "02 Гала зала — Вариант 2 2nd image or Таван/стени/флора block",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Clean, hall set with tables"
+  },
+  {
+   "n": 24,
+   "file": "images/doc-024-round-bar.png",
+   "width": 1536,
+   "height": 1024,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Декориране на тавана и други площи:",
+    "Тематичен кръгъл бар с масивна аранжировка:",
+    "Елегантен кръгъл бар с диаметър 4 метра , превърнат в ефектен акцент на събитието. Над него се издига впечатляваща висяща инсталация от пищн"
+   ],
+   "context_after": [
+    "Инвестиция:",
+    "Кръгъл бар Ø 4 м – 2 900 € без ДДС"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "02 Гала зала? — Кръгъл бар Ø4 м (2 900 € без ДДС)",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Clean; bar item not in proposal data → open question"
+  },
+  {
+   "n": 25,
+   "file": "images/doc-025-gala-tables-clean.png",
+   "width": 1672,
+   "height": 941,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Висяща флорална композиция – 2 400 € без ДДС",
+    "Обща стойност: 5 300 € без ДДС",
+    "Декорация на маси - ЗОНА ГАЛА Предлагаме три изискани цветови концепции за декорация на гостните маси – шампанско и златно, топла теракота и"
+   ],
+   "context_after": [
+    "Пакетната цена за една маса включва: покривка, една голяма висока флорална аранжировка, една малка аранжировка, 8 кристални подложни чинии и",
+    "Пакетна цена: 390 € на маса без ДДС."
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "02 Декорация на масите — hero; 01 card 05",
+   "replaces": "v4_p24_crop_centerpiece_v1",
+   "replaces_res": "506×402",
+   "note": "Clean; palette crops v1–v3 stay for palette compare"
+  },
+  {
+   "n": 26,
+   "file": "images/doc-026-tables-palettes-slide.png",
+   "width": 1620,
+   "height": 1080,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Декорация на маси - ЗОНА ГАЛА Предлагаме три изискани цветови концепции за декорация на гостните маси – шампанско и златно, топла теракота и",
+    "Пакетната цена за една маса включва: покривка, една голяма висока флорална аранжировка, една малка аранжировка, 8 кристални подложни чинии и",
+    "Пакетна цена: 390 € на маса без ДДС."
+   ],
+   "context_after": [
+    "Допълнителни декоративни елемент, подаръци за гостите, специални предложения с къстъмизирана изработка"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Slide with 390 € and palettes; current p24 crops stay"
+  },
+  {
+   "n": 27,
+   "file": "images/doc-027-menu-slide.png",
+   "width": 1920,
+   "height": 1080,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Декорация на маси - ЗОНА ГАЛА Предлагаме три изискани цветови концепции за декорация на гостните маси – шампанско и златно, топла теракота и",
+    "Пакетната цена за една маса включва: покривка, една голяма висока флорална аранжировка, една малка аранжировка, 8 кристални подложни чинии и",
+    "Пакетна цена: 390 € на маса без ДДС."
+   ],
+   "context_after": [
+    "Допълнителни декоративни елемент, подаръци за гостите, специални предложения с къстъмизирана изработка",
+    "Техническо обезпечаване на събитието:"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Menu slide; no clean alt in doc; current p26 crops stay"
+  },
+  {
+   "n": 28,
+   "file": "images/doc-028-gifts-slide.png",
+   "width": 1620,
+   "height": 1080,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Пакетната цена за една маса включва: покривка, една голяма висока флорална аранжировка, една малка аранжировка, 8 кристални подложни чинии и",
+    "Пакетна цена: 390 € на маса без ДДС.",
+    "Допълнителни декоративни елемент, подаръци за гостите, специални предложения с къстъмизирана изработка"
+   ],
+   "context_after": [
+    "Техническо обезпечаване на събитието:",
+    "Забавна програма - примерни идеи:"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Gifts slide; no clean alt in doc"
+  },
+  {
+   "n": 29,
+   "file": "images/doc-029-gift-vintage-car-slide.png",
+   "width": 1612,
+   "height": 1075,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Пакетната цена за една маса включва: покривка, една голяма висока флорална аранжировка, една малка аранжировка, 8 кристални подложни чинии и",
+    "Пакетна цена: 390 € на маса без ДДС.",
+    "Допълнителни декоративни елемент, подаръци за гостите, специални предложения с къстъмизирана изработка"
+   ],
+   "context_after": [
+    "Техническо обезпечаване на събитието:",
+    "Забавна програма - примерни идеи:"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Gift product slide (45 €); no clean alt"
+  },
+  {
+   "n": 30,
+   "file": "images/doc-030-technical-slide.png",
+   "width": 1601,
+   "height": 1068,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Пакетната цена за една маса включва: покривка, една голяма висока флорална аранжировка, една малка аранжировка, 8 кристални подложни чинии и",
+    "Пакетна цена: 390 € на маса без ДДС.",
+    "Допълнителни декоративни елемент, подаръци за гостите, специални предложения с къстъмизирана изработка"
+   ],
+   "context_after": [
+    "Техническо обезпечаване на събитието:",
+    "Забавна програма - примерни идеи:"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Tech equipment slide; skip"
+  },
+  {
+   "n": 31,
+   "file": "images/doc-031-cocktail-artists-slide.png",
+   "width": 1673,
+   "height": 1116,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Допълнителни декоративни елемент, подаръци за гостите, специални предложения с къстъмизирана изработка",
+    "Техническо обезпечаване на събитието:",
+    "Забавна програма - примерни идеи:"
+   ],
+   "context_after": [
+    "Предложения за тематични артистични изяви - зона ФОАЙЕ",
+    "Предложения за водещ: Можем да изберем един водещ или тандем: Танцово шоу - ВЕЛИКИЯ ГЕТСБИ на Софийска опера."
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Slide; clean alts #3 #5 + current p32"
+  },
+  {
+   "n": 32,
+   "file": "images/doc-032-hosts-slide.png",
+   "width": 1920,
+   "height": 1080,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Техническо обезпечаване на събитието:",
+    "Забавна програма - примерни идеи:",
+    "Предложения за тематични артистични изяви - зона ФОАЙЕ"
+   ],
+   "context_after": [
+    "Предложения за водещ: Можем да изберем един водещ или тандем: Танцово шоу - ВЕЛИКИЯ ГЕТСБИ на Софийска опера.",
+    "Вмъкнете видеото от вайбър"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Slide; current p33 host crops stay"
+  },
+  {
+   "n": 33,
+   "file": "images/doc-033-opera-gatsby-1.png",
+   "width": 1800,
+   "height": 1182,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Забавна програма - примерни идеи:",
+    "Предложения за тематични артистични изяви - зона ФОАЙЕ",
+    "Предложения за водещ: Можем да изберем един водещ или тандем: Танцово шоу - ВЕЛИКИЯ ГЕТСБИ на Софийска опера."
+   ],
+   "context_after": [
+    "Вмъкнете видеото от вайбър",
+    "Музикални изпълнители по време на събитието:"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Gatsby спектакъл — hero",
+   "replaces": "v4_p34_crop_dance_show_dancers",
+   "replaces_res": "860×312",
+   "note": "Real stage photo"
+  },
+  {
+   "n": 34,
+   "file": "images/doc-034-opera-gatsby-2.jpg",
+   "width": 1800,
+   "height": 1196,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Предложения за тематични артистични изяви - зона ФОАЙЕ",
+    "Предложения за водещ: Можем да изберем един водещ или тандем: Танцово шоу - ВЕЛИКИЯ ГЕТСБИ на Софийска опера.",
+    "Вмъкнете видеото от вайбър"
+   ],
+   "context_after": [
+    "Музикални изпълнители по време на събитието:",
+    "Михаела Филева Музикално откриване с ефект на изненада"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Gatsby спектакъл — gallery",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Real photo; near-dup of current p34 crop (source)"
+  },
+  {
+   "n": 35,
+   "file": "images/doc-035-opera-gatsby-3.png",
+   "width": 1800,
+   "height": 1168,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Предложения за тематични артистични изяви - зона ФОАЙЕ",
+    "Предложения за водещ: Можем да изберем един водещ или тандем: Танцово шоу - ВЕЛИКИЯ ГЕТСБИ на Софийска опера.",
+    "Вмъкнете видеото от вайбър"
+   ],
+   "context_after": [
+    "Музикални изпълнители по време на събитието:",
+    "Михаела Филева Музикално откриване с ефект на изненада"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Gatsby спектакъл — gallery",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Real photo"
+  },
+  {
+   "n": 36,
+   "file": "images/doc-036-opera-gatsby-slide.png",
+   "width": 1838,
+   "height": 1029,
+   "source": "zip",
+   "doc_heading": "Декор на входа",
+   "context_before": [
+    "Предложения за тематични артистични изяви - зона ФОАЙЕ",
+    "Предложения за водещ: Можем да изберем един водещ или тандем: Танцово шоу - ВЕЛИКИЯ ГЕТСБИ на Софийска опера.",
+    "Вмъкнете видеото от вайбър"
+   ],
+   "context_after": [
+    "Музикални изпълнители по време на събитието:",
+    "Михаела Филева Музикално откриване с ефект на изненада"
+   ],
+   "kind": "text-baked",
+   "duplicate_of": null,
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Slide with prices; use #33–35"
+  },
+  {
+   "n": 37,
+   "file": "images/doc-037-mihaela-fileva-portrait.png",
+   "width": 685,
+   "height": 1024,
+   "source": "zip",
+   "doc_heading": "Примерен репертоар",
+   "context_before": [
+    "Примерен репертоар",
+    "Авторски песни: „Опасно близки“, „Приливи и отливи“, „Латино сеньорита“, „А дано, ама надали“, „Инкогнито“, „По навик“, „Обсебен“, „Забранен",
+    "Световни хитове и кавъри: Orange Coloured Sky , All That Jazz , Cry Me a River , Big Spender ."
+   ],
+   "context_after": [
+    "Балет нова в 6 сета",
+    "Ще бъдат вмъкнати в подходящ момент по сценарий. Балетът ще използваме и за поднасяне на тортата - акт 6"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Музика — Михаела Филева portrait",
+   "replaces": "v4_p35_crop_mihaela_jazz_quartet",
+   "replaces_res": "446×250",
+   "note": "Real B/W portrait; content differs → confirm"
+  },
+  {
+   "n": 38,
+   "file": "images/doc-038-mihaela-fileva-stage.png",
+   "width": 920,
+   "height": 466,
+   "source": "zip",
+   "doc_heading": "Примерен репертоар",
+   "context_before": [
+    "Примерен репертоар",
+    "Авторски песни: „Опасно близки“, „Приливи и отливи“, „Латино сеньорита“, „А дано, ама надали“, „Инкогнито“, „По навик“, „Обсебен“, „Забранен",
+    "Световни хитове и кавъри: Orange Coloured Sky , All That Jazz , Cry Me a River , Big Spender ."
+   ],
+   "context_after": [
+    "Балет нова в 6 сета",
+    "Ще бъдат вмъкнати в подходящ момент по сценарий. Балетът ще използваме и за поднасяне на тортата - акт 6"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Музика — Михаела Филева live",
+   "replaces": "v4_p35_crop_mihaela_with_dancers",
+   "replaces_res": "439×281",
+   "note": "Real photo; content differs → confirm"
+  },
+  {
+   "n": 39,
+   "file": "images/doc-039-ballet-retro-car.png",
+   "width": 677,
+   "height": 272,
+   "source": "zip",
+   "doc_heading": "1. Коктейлна част – посрещане на гостите",
+   "context_before": [
+    "Специално подготвена артистична програма, вдъхновена от блясъка и атмосферата на 20-те години. Елегантни костюми, впечатляваща хореография, ",
+    "1. Коктейлна част – посрещане на гостите",
+    "Танцьорките, облечени в елегантни костюми в стил Гетсби, посрещат гостите с артистични пози пред ретро автомобил. Под звуците на тематична м"
+   ],
+   "context_after": [
+    "2. Първи сет – Little Party",
+    "Танцьорките се появяват сред гостите, облечени като сервитьорки с бели или черни фракове. Поднасят чаши шампанско и постепенно въвличат публ"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_p36_crop_cocktail_retro_car",
+   "suggested_section": "03 Gatsby/Ballet — коктейл с ретро автомобил",
+   "replaces": "v4_p36_crop_cocktail_retro_car",
+   "replaces_res": "579×236",
+   "note": "Same crop, slightly larger"
+  },
+  {
+   "n": 40,
+   "file": "images/doc-040-ballet-little-party-waitresses.png",
+   "width": 592,
+   "height": 272,
+   "source": "zip",
+   "doc_heading": "2. Първи сет – Little Party",
+   "context_before": [
+    "2. Първи сет – Little Party",
+    "Танцьорките се появяват сред гостите, облечени като сервитьорки с бели или черни фракове. Поднасят чаши шампанско и постепенно въвличат публ",
+    "За изпълнението е необходимо предварително да бъдат осигурени напитки."
+   ],
+   "context_after": [
+    "3. Втори танц – A Little Party Never Killed Nobody",
+    "Момичетата се събират на дансинга, свалят фраковете и разкриват бляскавите си сценични костюми. Под ритмите на A Little Party Never Killed N"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_p36_crop_little_party_waitresses",
+   "suggested_section": "03 Ballet — Little Party",
+   "replaces": "v4_p36_crop_little_party_waitresses",
+   "replaces_res": "512×236",
+   "note": "Same, larger"
+  },
+  {
+   "n": 41,
+   "file": "images/doc-041-ballet-little-party-feathers.png",
+   "width": 632,
+   "height": 272,
+   "source": "zip",
+   "doc_heading": "3. Втори танц – A Little Party Never Killed Nobody",
+   "context_before": [
+    "За изпълнението е необходимо предварително да бъдат осигурени напитки.",
+    "3. Втори танц – A Little Party Never Killed Nobody",
+    "Момичетата се събират на дансинга, свалят фраковете и разкриват бляскавите си сценични костюми. Под ритмите на A Little Party Never Killed N"
+   ],
+   "context_after": [
+    "4. Трети танц – Gimme Gimme",
+    "Изпълнението започва с ефектна и изненадваща поява на танцьорките сред публиката, облечени в пищни пера и блестящи костюми. Постепенно се съ"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_p36_crop_little_party_feathers",
+   "suggested_section": "03 Ballet — A Little Party Never Killed Nobody",
+   "replaces": "v4_p36_crop_little_party_feathers",
+   "replaces_res": "544×236",
+   "note": "Same, larger"
+  },
+  {
+   "n": 42,
+   "file": "images/doc-042-ballet-gimme-gimme.png",
+   "width": 677,
+   "height": 248,
+   "source": "zip",
+   "doc_heading": "4. Трети танц – Gimme Gimme",
+   "context_before": [
+    "Момичетата се събират на дансинга, свалят фраковете и разкриват бляскавите си сценични костюми. Под ритмите на A Little Party Never Killed N",
+    "4. Трети танц – Gimme Gimme",
+    "Изпълнението започва с ефектна и изненадваща поява на танцьорките сред публиката, облечени в пищни пера и блестящи костюми. Постепенно се съ"
+   ],
+   "context_after": [
+    "5. Четвърти танц – Sway",
+    "На фона на песента Sway танцьорките се появяват с впечатляващи пера и изящни корсети, създавайки завладяваща кабаретна атмосфера. По време н"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_p36_crop_gimme_gimme_cabaret",
+   "suggested_section": "03 Ballet — Gimme Gimme",
+   "replaces": "v4_p36_crop_gimme_gimme_cabaret",
+   "replaces_res": "573×218",
+   "note": "Same, larger"
+  },
+  {
+   "n": 43,
+   "file": "images/doc-043-ballet-sway.png",
+   "width": 592,
+   "height": 248,
+   "source": "zip",
+   "doc_heading": "5. Четвърти танц – Sway",
+   "context_before": [
+    "Изпълнението започва с ефектна и изненадваща поява на танцьорките сред публиката, облечени в пищни пера и блестящи костюми. Постепенно се съ",
+    "5. Четвърти танц – Sway",
+    "На фона на песента Sway танцьорките се появяват с впечатляващи пера и изящни корсети, създавайки завладяваща кабаретна атмосфера. По време н"
+   ],
+   "context_after": [
+    "6. Ефектно изнасяне на празничната торта",
+    "Танцьорките, облечени в изискани костюми от 20-те години, съпровождат тортата с големи, пищни бели светещи пера. Подредени зад нея, те оформ"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_p36_crop_sway_feathers",
+   "suggested_section": "03 Ballet — Sway",
+   "replaces": "v4_p36_crop_sway_feathers",
+   "replaces_res": "512×229",
+   "note": "Same, larger"
+  },
+  {
+   "n": 44,
+   "file": "images/doc-044-ballet-cake-fans.png",
+   "width": 632,
+   "height": 248,
+   "source": "zip",
+   "doc_heading": "6. Ефектно изнасяне на празничната торта",
+   "context_before": [
+    "На фона на песента Sway танцьорките се появяват с впечатляващи пера и изящни корсети, създавайки завладяваща кабаретна атмосфера. По време н",
+    "6. Ефектно изнасяне на празничната торта",
+    "Танцьорките, облечени в изискани костюми от 20-те години, съпровождат тортата с големи, пищни бели светещи пера. Подредени зад нея, те оформ"
+   ],
+   "context_after": [
+    "Всичките шест изображения са изрязани директно от твоя оригинален слайд, без да ги заменям с генерирани снимки. Текстовете са оформени за по",
+    "Обща цена за шоу програмата: 2 200 € без ДДС за 6 танцьора."
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_p36_crop_cake_fans",
+   "suggested_section": "03 Ballet — изнасяне на тортата",
+   "replaces": "v4_p36_crop_cake_fans",
+   "replaces_res": "544×208",
+   "note": "Same, larger"
+  },
+  {
+   "n": 45,
+   "file": "images/doc-045-ceremony-hats.png",
+   "width": 527,
+   "height": 327,
+   "source": "zip",
+   "doc_heading": "Гостите получават елегантни шапки за мъжете и изискани аксесоари за коса за дамите – пера, диадеми и бижута в стил Гетсби. Така всички стават част от празничната атмосфера и специалната кулминация на вечерта.",
+   "context_before": [
+    "Предлагаме празнична кулминация в шест последователни етапа, вдъхновена от блясъка на 20-те години. От тематичното посрещане и тържественото",
+    "1. Раздаване на шапки и тематични аксесоари",
+    "Гостите получават елегантни шапки за мъжете и изискани аксесоари за коса за дамите – пера, диадеми и бижута в стил Гетсби. Така всички става"
+   ],
+   "context_after": [
+    "2. Тържествено изнасяне на тортата",
+    "Празничната торта се появява скрита зад впечатляваща завеса от големи бели пера. Танцьорките постепенно разкриват тортата в тържествен момен"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_p37_crop_hats_accessories",
+   "suggested_section": "03 Церемония 1 / 05 Аксесоари",
+   "replaces": "v4_p37_crop_hats_accessories",
+   "replaces_res": "504×313",
+   "note": "Same, marginally larger"
+  },
+  {
+   "n": 46,
+   "file": "images/doc-046-ceremony-cake-reveal-small.png",
+   "width": 499,
+   "height": 327,
+   "source": "zip",
+   "doc_heading": "Празничната торта се появява скрита зад впечатляваща завеса от големи бели пера. Танцьорките постепенно разкриват тортата в тържествен момент, съпроводен от музика и аплодисментите на гостите.",
+   "context_before": [
+    "Гостите получават елегантни шапки за мъжете и изискани аксесоари за коса за дамите – пера, диадеми и бижута в стил Гетсби. Така всички става",
+    "2. Тържествено изнасяне на тортата",
+    "Празничната торта се появява скрита зад впечатляваща завеса от големи бели пера. Танцьорките постепенно разкриват тортата в тържествен момен"
+   ],
+   "context_after": [
+    "3. Церемониално разрязване на тортата",
+    "Тортата се разрязва от собственика на компанията и неговите директори в компанията на две елегантни дами и двама господа в тематични костюми"
+   ],
+   "kind": "clean",
+   "duplicate_of": "doc-047; repo:v4_p37_crop_cake_arrival",
+   "suggested_section": "—",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Smaller duplicate of #47"
+  },
+  {
+   "n": 47,
+   "file": "images/doc-047-ceremony-cake-reveal.png",
+   "width": 1956,
+   "height": 804,
+   "source": "zip",
+   "doc_heading": "Празничната торта се появява скрита зад впечатляваща завеса от големи бели пера. Танцьорките постепенно разкриват тортата в тържествен момент, съпроводен от музика и аплодисментите на гостите.",
+   "context_before": [
+    "Гостите получават елегантни шапки за мъжете и изискани аксесоари за коса за дамите – пера, диадеми и бижута в стил Гетсби. Така всички става",
+    "2. Тържествено изнасяне на тортата",
+    "Празничната торта се появява скрита зад впечатляваща завеса от големи бели пера. Танцьорките постепенно разкриват тортата в тържествен момен"
+   ],
+   "context_after": [
+    "3. Церемониално разрязване на тортата",
+    "Тортата се разрязва от собственика на компанията и неговите директори в компанията на две елегантни дами и двама господа в тематични костюми"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_owner_crop_cake_ceremony",
+   "suggested_section": "03 Церемония — hero (already used)",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Identical to v4_owner_crop_cake_ceremony 1956×804 — no change"
+  },
+  {
+   "n": 48,
+   "file": "images/doc-048-ceremony-cake-cutting.png",
+   "width": 557,
+   "height": 327,
+   "source": "zip",
+   "doc_heading": "Тортата се разрязва от собственика на компанията и неговите директори в компанията на две елегантни дами и двама господа в тематични костюми. Символичен момент, който отбелязва 22 години успех, развитие и споделени постижения.",
+   "context_before": [
+    "Празничната торта се появява скрита зад впечатляваща завеса от големи бели пера. Танцьорките постепенно разкриват тортата в тържествен момен",
+    "3. Церемониално разрязване на тортата",
+    "Тортата се разрязва от собственика на компанията и неговите директори в компанията на две елегантни дами и двама господа в тематични костюми"
+   ],
+   "context_after": [
+    "4. Обратно броене до 22 – празнична кулминация",
+    "Всички гости заедно отброяват последните секунди до 22. В кулминационния момент сцената оживява с фойерверки и светлинни ефекти, а на LED ек"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_p37_crop_cake_cutting",
+   "suggested_section": "03 Церемония 3",
+   "replaces": "v4_p37_crop_cake_cutting",
+   "replaces_res": "535×313",
+   "note": "Same, marginally larger"
+  },
+  {
+   "n": 49,
+   "file": "images/doc-049-ceremony-countdown-22.png",
+   "width": 527,
+   "height": 304,
+   "source": "zip",
+   "doc_heading": "Всички гости заедно отброяват последните секунди до 22. В кулминационния момент сцената оживява с фойерверки и светлинни ефекти, а на LED екрана се появява надписът „22 години Геотрейдинг АД“.",
+   "context_before": [
+    "Тортата се разрязва от собственика на компанията и неговите директори в компанията на две елегантни дами и двама господа в тематични костюми",
+    "4. Обратно броене до 22 – празнична кулминация",
+    "Всички гости заедно отброяват последните секунди до 22. В кулминационния момент сцената оживява с фойерверки и светлинни ефекти, а на LED ек"
+   ],
+   "context_after": [
+    "5. Празничен тост",
+    "Мъжете вдигат тематичните си шапки, а дамите – чашите с шампанско. Този символичен момент обединява всички гости в общ празничен тост, изпъл"
+   ],
+   "kind": "clean (decor sign/LED text in scene)",
+   "duplicate_of": "repo:v4_p37_crop_countdown_22",
+   "suggested_section": "03 Церемония 4",
+   "replaces": "v4_p37_crop_countdown_22",
+   "replaces_res": "504×291",
+   "note": "'22 ГОДИНИ' on the LED screen in scene; marginal gain"
+  },
+  {
+   "n": 50,
+   "file": "images/doc-050-ceremony-toast.png",
+   "width": 499,
+   "height": 304,
+   "source": "zip",
+   "doc_heading": "Мъжете вдигат тематичните си шапки, а дамите – чашите с шампанско. Този символичен момент обединява всички гости в общ празничен тост, изпълнен с благодарност за изминатия път и вдъхновение за бъдещето.",
+   "context_before": [
+    "Всички гости заедно отброяват последните секунди до 22. В кулминационния момент сцената оживява с фойерверки и светлинни ефекти, а на LED ек",
+    "5. Празничен тост",
+    "Мъжете вдигат тематичните си шапки, а дамите – чашите с шампанско. Този символичен момент обединява всички гости в общ празничен тост, изпъл"
+   ],
+   "context_after": [
+    "6. Let the Party Begin – начало на партито",
+    "Под звуците на A Little Party Never Killed Nobody Весела Бонева изпълнява песента на живо, а сцената се превръща в истинско Gatsby парти. Му"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_p37_crop_toast",
+   "suggested_section": "03 Церемония 5",
+   "replaces": "v4_p37_crop_toast",
+   "replaces_res": "473×291",
+   "note": "Same, marginally larger"
+  },
+  {
+   "n": 51,
+   "file": "images/doc-051-party-begins-live.png",
+   "width": 557,
+   "height": 304,
+   "source": "zip",
+   "doc_heading": "Под звуците на A Little Party Never Killed Nobody Весела Бонева изпълнява песента на живо, а сцената се превръща в истинско Gatsby парти. Музика, танци и незабравимо настроение поставят началото на свободната парти част, която продължава до късно през нощта.",
+   "context_before": [
+    "Мъжете вдигат тематичните си шапки, а дамите – чашите с шампанско. Този символичен момент обединява всички гости в общ празничен тост, изпъл",
+    "6. Let the Party Begin – начало на партито",
+    "Под звуците на A Little Party Never Killed Nobody Весела Бонева изпълнява песента на живо, а сцената се превръща в истинско Gatsby парти. Му"
+   ],
+   "context_after": [
+    "DISCO BALL DANCE",
+    "Ефектен преход към парти частта"
+   ],
+   "kind": "clean",
+   "duplicate_of": "repo:v4_p37_crop_party_begins_live",
+   "suggested_section": "03 Церемония 6 / Let the Party Begin",
+   "replaces": "v4_p37_crop_party_begins_live",
+   "replaces_res": "542×291",
+   "note": "Same, marginally larger"
+  },
+  {
+   "n": 52,
+   "file": "images/doc-052-disco-ball-portrait-1.png",
+   "width": 941,
+   "height": 1672,
+   "source": "zip",
+   "doc_heading": "DISCO BALL DANCE",
+   "context_before": [
+    "Ефектен преход към парти частта",
+    "From Gatsby to the Modern Party",
+    "След фойерверките елегантната атмосфера на гала вечерта се преобразява в динамично клубно преживяване. Танцьори в огледални костюми, покрити"
+   ],
+   "context_after": [
+    "Това е идеалният момент за преминаване от официалната програма към свободната парти част, като създава силен визуален ефект и естествено при",
+    "Акценти на изпълнението"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Финал — Disco Ball gallery (portrait)",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Vertical"
+  },
+  {
+   "n": 53,
+   "file": "images/doc-053-disco-ball-portrait-2.png",
+   "width": 941,
+   "height": 1672,
+   "source": "zip",
+   "doc_heading": "DISCO BALL DANCE",
+   "context_before": [
+    "Ефектен преход към парти частта",
+    "From Gatsby to the Modern Party",
+    "След фойерверките елегантната атмосфера на гала вечерта се преобразява в динамично клубно преживяване. Танцьори в огледални костюми, покрити"
+   ],
+   "context_after": [
+    "Това е идеалният момент за преминаване от официалната програма към свободната парти част, като създава силен визуален ефект и естествено при",
+    "Акценти на изпълнението"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Финал — Disco Ball gallery (portrait)",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Vertical"
+  },
+  {
+   "n": 54,
+   "file": "images/doc-054-disco-ball-portrait-3.png",
+   "width": 941,
+   "height": 1672,
+   "source": "zip",
+   "doc_heading": "DISCO BALL DANCE",
+   "context_before": [
+    "Ефектен преход към парти частта",
+    "From Gatsby to the Modern Party",
+    "След фойерверките елегантната атмосфера на гала вечерта се преобразява в динамично клубно преживяване. Танцьори в огледални костюми, покрити"
+   ],
+   "context_after": [
+    "Това е идеалният момент за преминаване от официалната програма към свободната парти част, като създава силен визуален ефект и естествено при",
+    "Акценти на изпълнението"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Финал — Disco Ball gallery (portrait)",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Vertical"
+  },
+  {
+   "n": 55,
+   "file": "images/doc-055-disco-ball-wide.png",
+   "width": 1672,
+   "height": 941,
+   "source": "zip",
+   "doc_heading": "Акценти на изпълнението",
+   "context_before": [
+    "Акценти на изпълнението",
+    "Визуален спектакъл",
+    "Огледалните костюми отразяват светлината и създават впечатляваща игра от отблясъци в цялата зала."
+   ],
+   "context_after": [
+    "Модерна клубна атмосфера",
+    "Динамична музика, движение и енергия, които променят ритъма на вечерта."
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Финал — hero",
+   "replaces": "v4_p38_crop_disco_ball_dancers",
+   "replaces_res": "933×593",
+   "note": "Clean, 1.8× wider"
+  },
+  {
+   "n": 56,
+   "file": "images/doc-056-live-show-singer-percussion.png",
+   "width": 1672,
+   "height": 941,
+   "source": "zip",
+   "doc_heading": "Участници и програма",
+   "context_before": [
+    "Жив ритъм, сценична енергия и перкусионни изпълнения, които превръщат музикалната програма в истинско шоу.",
+    "Танцьори в стил Гетсби",
+    "6–8 професионални танцьори (3 бели и 5 тъмнокожи според първоначалната концепция) в ефектни тематични костюми, допълващи изпълнението с хоре"
+   ],
+   "context_after": [
+    "Допълнителни предложения за изпълнители",
+    "22 години Геотрейдинг АД · Музика, емоция и незабравимо преживяване"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Музика — Live show alt",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Current p39 hero is 2948 px; keep it, use #56 as gallery"
+  },
+  {
+   "n": 57,
+   "file": "images/doc-057-artist-gipsy-kings.jpg",
+   "width": 1529,
+   "height": 860,
+   "source": "zip",
+   "doc_heading": "Допълнителни предложения за изпълнители",
+   "context_before": [
+    "22 години Геотрейдинг АД · Музика, емоция и незабравимо преживяване",
+    "За гала вечерта предлагаме международни музикални формации и български изпълнители с различно сценично присъствие – от елегантен джаз и френ",
+    "Ще използвам предоставените от теб реални фотографии за съответните изпълнители, а не генерирани портрети."
+   ],
+   "context_after": [
+    "Gipsy Kings",
+    "85 000 € без ДДС"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Финал — Gipsy Kings",
+   "replaces": "v4_p40_crop_gipsy_kings",
+   "replaces_res": "1080×945",
+   "note": "Real photo, different crop (1529 vs 1080)"
+  },
+  {
+   "n": 58,
+   "file": "images/doc-058-artist-the-swan.jpg",
+   "width": 900,
+   "height": 600,
+   "source": "zip",
+   "doc_heading": "Допълнителни предложения за изпълнители",
+   "context_before": [
+    "Ще използвам предоставените от теб реални фотографии за съответните изпълнители, а не генерирани портрети.",
+    "Gipsy Kings",
+    "85 000 € без ДДС"
+   ],
+   "context_after": [
+    "The Swan",
+    "55 000 € без ДДС"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Допълнителни изпълнители — The Swan",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Real photo; check vs v4_p40_crop_the_swan"
+  },
+  {
+   "n": 59,
+   "file": "images/doc-059-artist-mihaela-marinova.jpg",
+   "width": 800,
+   "height": 605,
+   "source": "zip",
+   "doc_heading": "Допълнителни предложения за изпълнители",
+   "context_before": [
+    "85 000 € без ДДС",
+    "The Swan",
+    "55 000 € без ДДС"
+   ],
+   "context_after": [
+    "Михаела Маринова",
+    "6 600 € без ДДС"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Допълнителни изпълнители",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Real photo"
+  },
+  {
+   "n": 60,
+   "file": "images/doc-060-artist-dara-ekimova.jpg",
+   "width": 1255,
+   "height": 705,
+   "source": "zip",
+   "doc_heading": "Допълнителни предложения за изпълнители",
+   "context_before": [
+    "55 000 € без ДДС",
+    "Михаела Маринова",
+    "6 600 € без ДДС"
+   ],
+   "context_after": [
+    "Дара Екимова",
+    "По запитване"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Допълнителни изпълнители",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Real photo; check vs v4_p40_crop_dara_ekimova"
+  },
+  {
+   "n": 61,
+   "file": "images/doc-061-artist-orlin-pavlov.jpg",
+   "width": 1047,
+   "height": 860,
+   "source": "zip",
+   "doc_heading": "Допълнителни предложения за изпълнители",
+   "context_before": [
+    "6 600 € без ДДС",
+    "Дара Екимова",
+    "По запитване"
+   ],
+   "context_after": [
+    "Орлин Павлов",
+    "По запитване"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Допълнителни изпълнители",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Real photo"
+  },
+  {
+   "n": 62,
+   "file": "images/doc-062-artist-papi-hans.jpg",
+   "width": 600,
+   "height": 462,
+   "source": "zip",
+   "doc_heading": "Допълнителни предложения за изпълнители",
+   "context_before": [
+    "По запитване",
+    "Орлин Павлов",
+    "По запитване"
+   ],
+   "context_after": [
+    "Папи Ханс",
+    "По запитване"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Допълнителни изпълнители",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Real photo, small 600 px"
+  },
+  {
+   "n": 63,
+   "file": "images/doc-063-artist-kristina-doncheva.jpg",
+   "width": 640,
+   "height": 360,
+   "source": "zip",
+   "doc_heading": "Допълнителни предложения за изпълнители",
+   "context_before": [
+    "По запитване",
+    "Папи Ханс",
+    "По запитване"
+   ],
+   "context_after": [
+    "Кристина Дончева",
+    "По запитване"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Допълнителни изпълнители",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Real photo, small 640 px"
+  },
+  {
+   "n": 64,
+   "file": "images/doc-064-artist-vladi-mihaylov.jpg",
+   "width": 1200,
+   "height": 798,
+   "source": "zip",
+   "doc_heading": "Допълнителни предложения за изпълнители",
+   "context_before": [
+    "По запитване",
+    "Кристина Дончева",
+    "По запитване"
+   ],
+   "context_after": [
+    "Влади Михайлов",
+    "По запитване"
+   ],
+   "kind": "clean",
+   "duplicate_of": null,
+   "suggested_section": "03 Допълнителни изпълнители",
+   "replaces": null,
+   "replaces_res": null,
+   "note": "Real photo"
+  },
+  {
+   "n": "15b",
+   "file": "images/doc-015b-corridor-florals-crop.png",
+   "width": 447,
+   "height": 735,
+   "source": "derived crop of doc-015 (native px, no upscale)",
+   "doc_heading": "Коридора към зона ГАЛА",
+   "context_before": [],
+   "context_after": [],
+   "kind": "clean",
+   "duplicate_of": "crop of doc-015",
+   "suggested_section": "02 Златен коридор — Флорални композиции",
+   "replaces": "v4_p13_crop_guest_toast",
+   "replaces_res": "272×196",
+   "note": "Right-hand floral column cut from #15"
+  }
+ ]
+}

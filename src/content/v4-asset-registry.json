@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19T06:53:10.772Z",
+  "generated": "2026-10-19T11:32:21.397Z",
   "assets": [
     {
       "id": "v4_p02_00_1688x932",
@@ -1003,6 +1003,355 @@
       "provenance": "owner-export",
       "pdfPage": 20,
       "altBg": "3D мапинг — вариант 2, пълен обхват (всички стени)",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_001_entrance_clean",
+      "width": 1672,
+      "height": 941,
+      "sourcePath": "sources/v4/owner/round/images/doc-001-entrance-clean.jpg",
+      "provenance": "owner-export",
+      "altBg": "Входна зона — светла Art Deco визия с кристални стойки и златен мокет",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_003_champagne_tray_performer",
+      "width": 1672,
+      "height": 941,
+      "sourcePath": "sources/v4/owner/round/images/doc-003-champagne-tray-performer.jpg",
+      "provenance": "owner-export",
+      "altBg": "Артист с шампанско на поднос — жива пирамида от шампанско",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_004_champagne_tray_group",
+      "width": 1228,
+      "height": 819,
+      "sourcePath": "sources/v4/owner/round/images/doc-004-champagne-tray-group.jpg",
+      "provenance": "owner-export",
+      "altBg": "Тематично облечени артисти с шампанско",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_005_giant_glass_acrobat",
+      "width": 1672,
+      "height": 941,
+      "sourcePath": "sources/v4/owner/round/images/doc-005-giant-glass-acrobat.jpg",
+      "provenance": "owner-export",
+      "altBg": "Гигантска стъклена чаша с акробат и конфети",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_006_photozone_panorama_22",
+      "width": 1786,
+      "height": 594,
+      "sourcePath": "sources/v4/owner/round/images/doc-006-photozone-panorama-22.jpg",
+      "provenance": "owner-export",
+      "altBg": "Фото зона — широка панорама с ретро автомобил и „22 GEOTRADING“",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_007_photozone_sign_detail",
+      "width": 1672,
+      "height": 941,
+      "sourcePath": "sources/v4/owner/round/images/doc-007-photozone-sign-detail.jpg",
+      "provenance": "owner-export",
+      "altBg": "Фото зона — детайл на надписа и декорацията",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_008_photozone_car_side",
+      "width": 1359,
+      "height": 1157,
+      "sourcePath": "sources/v4/owner/round/images/doc-008-photozone-car-side.jpg",
+      "provenance": "owner-export",
+      "altBg": "Ретро автомобил в Art Deco фото зона",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_009_photozone_floral_detail",
+      "width": 1321,
+      "height": 1191,
+      "sourcePath": "sources/v4/owner/round/images/doc-009-photozone-floral-detail.jpg",
+      "provenance": "owner-export",
+      "altBg": "Фото зона — флорални и перушини детайли",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_010_photozone_panel_detail",
+      "width": 1287,
+      "height": 1222,
+      "sourcePath": "sources/v4/owner/round/images/doc-010-photozone-panel-detail.jpg",
+      "provenance": "owner-export",
+      "altBg": "Фото зона — панел и златна текстура",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_011_photozone_car_22",
+      "width": 1440,
+      "height": 822,
+      "sourcePath": "sources/v4/owner/round/images/doc-011-photozone-car-22.jpg",
+      "provenance": "owner-export",
+      "altBg": "Фото зона — стена „22 GEOTRADING“ с ретро автомобил",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_012_photozone_clock_car",
+      "width": 1279,
+      "height": 731,
+      "sourcePath": "sources/v4/owner/round/images/doc-012-photozone-clock-car.jpg",
+      "provenance": "owner-export",
+      "altBg": "Фото зона — часовник стена с ретро автомобил (схематична линия на размер)",
+      "intentionalLabelsBg": "Схематична линия на размер — част от одобрената визуализация."
+    },
+    {
+      "id": "v4_owner_doc_013_photozone_clock_drawing",
+      "width": 1448,
+      "height": 1086,
+      "sourcePath": "sources/v4/owner/round/images/doc-013-photozone-clock-drawing.jpg",
+      "provenance": "owner-export",
+      "altBg": "Фото зона — техническа схема на часовниковата стена"
+    },
+    {
+      "id": "v4_owner_doc_015_corridor_led_clean",
+      "width": 1672,
+      "height": 941,
+      "sourcePath": "sources/v4/owner/round/images/doc-015-corridor-led-clean.jpg",
+      "provenance": "owner-export",
+      "altBg": "Златен коридор — LED екран и гости",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_017_gala_floorplan",
+      "width": 1382,
+      "height": 921,
+      "sourcePath": "sources/v4/owner/round/images/doc-017-gala-floorplan.jpg",
+      "provenance": "owner-export",
+      "altBg": "Примерно разпределение на залата — план на масите"
+    },
+    {
+      "id": "v4_owner_doc_019_mapping_v1_left_wall",
+      "width": 1440,
+      "height": 822,
+      "sourcePath": "sources/v4/owner/round/images/doc-019-mapping-v1-left-wall.jpg",
+      "provenance": "owner-export",
+      "altBg": "3D мапинг — вариант 1, частичен обхват (лява стена)",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_021_mapping_v2_all_walls",
+      "width": 1660,
+      "height": 947,
+      "sourcePath": "sources/v4/owner/round/images/doc-021-mapping-v2-all-walls.jpg",
+      "provenance": "owner-export",
+      "altBg": "3D мапинг — вариант 2, пълен обхват (всички стени)",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_023_mapping_v2_with_tables",
+      "width": 1660,
+      "height": 947,
+      "sourcePath": "sources/v4/owner/round/images/doc-023-mapping-v2-with-tables.jpg",
+      "provenance": "owner-export",
+      "altBg": "Гала зала — рендер с маси и декорация",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_024_round_bar",
+      "width": 1536,
+      "height": 1024,
+      "sourcePath": "sources/v4/owner/round/images/doc-024-round-bar.jpg",
+      "provenance": "owner-export",
+      "altBg": "Кръгъл бар Ø 4 м с висяща флорална инсталация",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_025_gala_tables_clean",
+      "width": 1672,
+      "height": 941,
+      "sourcePath": "sources/v4/owner/round/images/doc-025-gala-tables-clean.jpg",
+      "provenance": "owner-export",
+      "altBg": "Декорация на гостни маси — централни композиции",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_033_opera_gatsby_1",
+      "width": 1800,
+      "height": 1182,
+      "sourcePath": "sources/v4/owner/round/images/doc-033-opera-gatsby-1.jpg",
+      "provenance": "owner-export",
+      "altBg": "Gatsby спектакъл — танцови артисти на сцената",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_034_opera_gatsby_2",
+      "width": 1800,
+      "height": 1196,
+      "sourcePath": "sources/v4/owner/round/images/doc-034-opera-gatsby-2.jpg",
+      "provenance": "owner-export",
+      "altBg": "Gatsby спектакъл — допълнителен кадър",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_035_opera_gatsby_3",
+      "width": 1800,
+      "height": 1168,
+      "sourcePath": "sources/v4/owner/round/images/doc-035-opera-gatsby-3.jpg",
+      "provenance": "owner-export",
+      "altBg": "Gatsby спектакъл — допълнителен кадър",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_037_mihaela_fileva_portrait",
+      "width": 685,
+      "height": 1024,
+      "sourcePath": "sources/v4/owner/round/images/doc-037-mihaela-fileva-portrait.jpg",
+      "provenance": "owner-export",
+      "altBg": "Михаела Филева — портрет",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_038_mihaela_fileva_stage",
+      "width": 920,
+      "height": 466,
+      "sourcePath": "sources/v4/owner/round/images/doc-038-mihaela-fileva-stage.jpg",
+      "provenance": "owner-export",
+      "altBg": "Михаела Филева — на сцената",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_052_disco_ball_portrait_1",
+      "width": 941,
+      "height": 1672,
+      "sourcePath": "sources/v4/owner/round/images/doc-052-disco-ball-portrait-1.jpg",
+      "provenance": "owner-export",
+      "altBg": "Disco ball перформанс — портрет 1",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_053_disco_ball_portrait_2",
+      "width": 941,
+      "height": 1672,
+      "sourcePath": "sources/v4/owner/round/images/doc-053-disco-ball-portrait-2.jpg",
+      "provenance": "owner-export",
+      "altBg": "Disco ball перформанс — портрет 2",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_054_disco_ball_portrait_3",
+      "width": 941,
+      "height": 1672,
+      "sourcePath": "sources/v4/owner/round/images/doc-054-disco-ball-portrait-3.jpg",
+      "provenance": "owner-export",
+      "altBg": "Disco ball перформанс — портрет 3",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_055_disco_ball_wide",
+      "width": 1672,
+      "height": 941,
+      "sourcePath": "sources/v4/owner/round/images/doc-055-disco-ball-wide.jpg",
+      "provenance": "owner-export",
+      "altBg": "Disco ball финал — широк кадър с танцьори",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_056_live_show_singer_percussion",
+      "width": 1672,
+      "height": 941,
+      "sourcePath": "sources/v4/owner/round/images/doc-056-live-show-singer-percussion.jpg",
+      "provenance": "owner-export",
+      "altBg": "Owner doc image v4_owner_doc_056_live_show_singer_percussion",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_057_artist_gipsy_kings",
+      "width": 1529,
+      "height": 860,
+      "sourcePath": "sources/v4/owner/round/images/doc-057-artist-gipsy-kings.jpg",
+      "provenance": "owner-export",
+      "altBg": "Gipsy Kings — сценичен кадър",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_058_artist_the_swan",
+      "width": 900,
+      "height": 600,
+      "sourcePath": "sources/v4/owner/round/images/doc-058-artist-the-swan.jpg",
+      "provenance": "owner-export",
+      "altBg": "The Swan — виолончело",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_059_artist_mihaela_marinova",
+      "width": 800,
+      "height": 605,
+      "sourcePath": "sources/v4/owner/round/images/doc-059-artist-mihaela-marinova.jpg",
+      "provenance": "owner-export",
+      "altBg": "Михаела Маринова",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_060_artist_dara_ekimova",
+      "width": 1255,
+      "height": 705,
+      "sourcePath": "sources/v4/owner/round/images/doc-060-artist-dara-ekimova.jpg",
+      "provenance": "owner-export",
+      "altBg": "Дара Екимова",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_061_artist_orlin_pavlov",
+      "width": 1047,
+      "height": 860,
+      "sourcePath": "sources/v4/owner/round/images/doc-061-artist-orlin-pavlov.jpg",
+      "provenance": "owner-export",
+      "altBg": "Орлин Павлов",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_062_artist_papi_hans",
+      "width": 600,
+      "height": 462,
+      "sourcePath": "sources/v4/owner/round/images/doc-062-artist-papi-hans.jpg",
+      "provenance": "owner-export",
+      "altBg": "Папи Ханс",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_063_artist_kristina_doncheva",
+      "width": 640,
+      "height": 360,
+      "sourcePath": "sources/v4/owner/round/images/doc-063-artist-kristina-doncheva.jpg",
+      "provenance": "owner-export",
+      "altBg": "Кристина Дончева",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_064_artist_vladi_mihaylov",
+      "width": 1200,
+      "height": 798,
+      "sourcePath": "sources/v4/owner/round/images/doc-064-artist-vladi-mihaylov.jpg",
+      "provenance": "owner-export",
+      "altBg": "Влади Михайлов",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_015b_corridor_florals_crop",
+      "width": 447,
+      "height": 735,
+      "sourcePath": "sources/v4/owner/round/images/doc-015b-corridor-florals-crop.jpg",
+      "provenance": "owner-export",
+      "altBg": "Златен коридор — флорални композиции",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_doc_stage_gatsby_22",
+      "width": 3242,
+      "height": 1308,
+      "sourcePath": "sources/v4/owner/round/images/owner-stage-gatsby-22.jpg",
+      "provenance": "owner-export",
+      "altBg": "Декор на сцената — Gatsby сценография с LED „22 години GEOTRADING“",
       "textFree": true
     }
   ]

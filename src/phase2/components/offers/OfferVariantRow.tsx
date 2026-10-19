@@ -30,7 +30,6 @@ export function OfferVariantRow({
           captionBg={variant.visualCaptionBg}
           layout="editorial"
           visualFill
-          ownerNatural
           objectPosition="50% 42%"
         />
       </div>

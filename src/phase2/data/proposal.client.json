@@ -9,7 +9,7 @@
     "venueNameBg": "Многофункционален комплекс „Про Ауто“",
     "vatNoteBg": "Цените следват формулировките в предложението — основно „без ДДС“, освен където е посочено друго.",
     "currencyNoteBg": "Почти всички суми са в евро; изключение: страница 40 — Gipsy Kings (85 000 £).",
-    "itemCount": 76,
+    "itemCount": 77,
     "investmentIntroBg": "Към момента не е представена обща сума. Изисква се избрана конфигурация (палитра, програма, технически пакет, количества) и съгласуване на припокриващи се позиции.",
     "investmentClarityBg": "Позициите с етикет „алтернатива“ са взаимно изключващи се опции. Диапазоните и „по запитване“ изискват избор и потвърждение преди финална оферта. Всяка сума по-долу е съпоставима със съответната страница в предложението.",
     "contactPlaceholderBg": "За обсъждане на конфигурацията и следващи стъпки ще бъдат публикувани контактни данни на агенцията след потвърждение от възложителя."
@@ -277,11 +277,11 @@
     {
       "id": "p17-stage-florals",
       "area": "Сцена",
-      "titleBg": "Цветни композиции (12 броя × 220 €)",
+      "titleBg": "Цветни композиции на сцената",
       "quantity": 12,
-      "unit": "бр.",
+      "unit": "броя",
       "unitPrice": 220,
-      "lineTotal": 2904,
+      "lineTotal": null,
       "priceMin": null,
       "priceMax": null,
       "currency": "EUR",
@@ -362,6 +362,28 @@
         "sourceType": "pdf",
         "pdfPage": 18,
         "labelBg": "Страница 18 · одобрено предложение"
+      },
+      "mediaPath": null
+    },
+    {
+      "id": "owner-round-bar-4m",
+      "area": "Гала зала",
+      "sectionKey": "dekor-gala",
+      "titleBg": "Кръгъл бар Ø 4 м",
+      "descriptionBg": "Тематичен кръгъл бар с диаметър 4 метра и масивна висяща флорална инсталация — ефектен акцент в гала залата.",
+      "quantity": null,
+      "unit": null,
+      "unitPrice": null,
+      "lineTotal": 2900,
+      "priceMin": null,
+      "priceMax": null,
+      "currency": "EUR",
+      "vatTreatment": "без ДДС",
+      "priceType": "fixed",
+      "proposalStatus": "suggested",
+      "bookingStatus": "not_applicable",
+      "source": {
+        "sourceType": "owner-provided"
       },
       "mediaPath": null
     },
@@ -1766,11 +1788,11 @@
       "bookingStatus": "not_applicable",
       "source": {
         "sourceType": "owner-provided",
-        "fileRef": "sources/v4/owner/owner-vintage-car-photo-zone.png",
+        "fileRef": "sources/v4/owner/round/images/doc-008-photozone-car-side.jpg",
         "date": "2026-10-19"
       },
       "clientNoteBg": "Цената включва доставянето на автомобила и тематичната декорация. Окончателната стойност зависи от избраните декоративни елементи.",
-      "mediaPath": "media/img/v4_owner_crop_vintage_car_photo_zone-1024.jpg"
+      "mediaPath": "media/img/v4_owner_doc_008_photozone_car_side-1024.jpg"
     }
   ],
   "paletteAlternatives": [

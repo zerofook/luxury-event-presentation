@@ -4,6 +4,8 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const CLIENT = path.join(ROOT, 'src/phase2/data/proposal.client.json');
+const PHASE2_DIR = path.join(ROOT, 'src/phase2');
+const DIST_ASSETS = path.join(ROOT, 'dist/assets');
 
 const CLIENT_STRING_KEYS = new Set([
   'titleBg',
@@ -63,9 +65,35 @@ const ALLOW = new Set([
   'Kalin',
   'Velyov',
   'DJ',
+  'The',
+  'Swan',
 ]);
 
 const WORD_RE = /[A-Za-z]{3,}/g;
+
+const FORBIDDEN_PHRASES = [
+  'в източника',
+  'от източника',
+  'източника',
+  'други позиции от',
+  'не се дублира',
+  'извлечения набор',
+  'извлечени ценови',
+  'без ценови колони',
+  'собственика',
+  'частични суми',
+  'общо по предложението',
+];
+
+/** Former venue branding — must not appear in client-facing output. */
+const FORBIDDEN_VENUE_RE =
+  /sofia\s+event\s+cent(?:er|re)|софия\s+ивент\s+цент(?:ър|ра)|(?<![\u0400-\u04FF])ивент\s+цент(?:ър|ра)(?![\u0400-\u04FF])/iu;
+
+const CLIENT_SURFACE_PATHS = [
+  path.join(ROOT, 'index.html'),
+  path.join(ROOT, 'src/content/site.bg.ts'),
+  path.join(ROOT, 'src/phase2/pages/ProposalScrollPage.tsx'),
+];
 
 function collectClientStrings(value, key, out = []) {
   if (key && CLIENT_STRING_KEYS.has(key) && typeof value === 'string') {
@@ -80,38 +108,14 @@ function collectClientStrings(value, key, out = []) {
   return out;
 }
 
-const client = JSON.parse(fs.readFileSync(CLIENT, 'utf8'));
-const strings = collectClientStrings(client);
-const offenders = new Set();
-
-for (const s of strings) {
-  for (const m of s.matchAll(WORD_RE)) {
-    const w = m[0];
-    if (ALLOW.has(w)) continue;
-    if (/^[A-Z]{2,}$/.test(w)) continue;
-    offenders.add(`${w} in «${s.slice(0, 80)}${s.length > 80 ? '…' : ''}»`);
+function scanTextForForbidden(text, label, phraseOffenders) {
+  const lower = text.toLowerCase();
+  for (const phrase of FORBIDDEN_PHRASES) {
+    if (lower.includes(phrase)) {
+      phraseOffenders.push(`«${phrase}» in ${label}`);
+    }
   }
 }
-
-const FORBIDDEN_PHRASES = [
-  'в източника',
-  'не се дублира',
-  'извлечения набор',
-  'извлечени ценови',
-  'без ценови колони',
-  'собственика',
-  'частични суми',
-];
-
-/** Former venue branding — must not appear in client-facing output. */
-const FORBIDDEN_VENUE_RE =
-  /sofia\s+event\s+cent(?:er|re)|софия\s+ивент\s+цент(?:ър|ра)|(?<![\u0400-\u04FF])ивент\s+цент(?:ър|ра)(?![\u0400-\u04FF])/iu;
-
-const CLIENT_SURFACE_PATHS = [
-  path.join(ROOT, 'index.html'),
-  path.join(ROOT, 'src/content/site.bg.ts'),
-  path.join(ROOT, 'src/phase2/pages/ProposalScrollPage.tsx'),
-];
 
 function scanTextForForbiddenVenue(text, label, venueOffenders) {
   if (FORBIDDEN_VENUE_RE.test(text)) {
@@ -121,7 +125,32 @@ function scanTextForForbiddenVenue(text, label, venueOffenders) {
 
 function scanFileForForbiddenVenue(filePath, venueOffenders) {
   if (!fs.existsSync(filePath)) return;
-  scanTextForForbiddenVenue(fs.readFileSync(filePath, 'utf8'), filePath.replace(ROOT + path.sep, ''), venueOffenders);
+  scanTextForForbiddenVenue(
+    fs.readFileSync(filePath, 'utf8'),
+    filePath.replace(ROOT + path.sep, ''),
+    venueOffenders,
+  );
+}
+
+function walkPhase2Sources(dir, phraseOffenders) {
+  if (!fs.existsSync(dir)) return;
+  for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, ent.name);
+    if (ent.isDirectory()) walkPhase2Sources(p, phraseOffenders);
+    else if (/\.(tsx?|css)$/.test(ent.name)) {
+      const text = fs.readFileSync(p, 'utf8');
+      scanTextForForbidden(text, path.relative(ROOT, p), phraseOffenders);
+    }
+  }
+}
+
+function scanDistPhase2(phraseOffenders) {
+  if (!fs.existsSync(DIST_ASSETS)) return;
+  for (const f of fs.readdirSync(DIST_ASSETS)) {
+    if (!f.includes('phase2-proposal') || !f.endsWith('.js')) continue;
+    const text = fs.readFileSync(path.join(DIST_ASSETS, f), 'utf8');
+    scanTextForForbidden(text, `dist/assets/${f}`, phraseOffenders);
+  }
 }
 
 function scanDistForForbiddenVenue(venueOffenders) {
@@ -140,12 +169,26 @@ function scanDistForForbiddenVenue(venueOffenders) {
   }
 }
 
+const client = JSON.parse(fs.readFileSync(CLIENT, 'utf8'));
+const strings = collectClientStrings(client);
+const offenders = new Set();
+
+for (const s of strings) {
+  for (const m of s.matchAll(WORD_RE)) {
+    const w = m[0];
+    if (ALLOW.has(w)) continue;
+    if (/^[A-Z]{2,}$/.test(w)) continue;
+    offenders.add(`${w} in «${s.slice(0, 80)}${s.length > 80 ? '…' : ''}»`);
+  }
+}
+
 const phraseOffenders = [];
 for (const s of strings) {
-  const lower = s.toLowerCase();
-  for (const phrase of FORBIDDEN_PHRASES) {
-    if (lower.includes(phrase)) phraseOffenders.push(`«${phrase}» in «${s.slice(0, 100)}${s.length > 100 ? '…' : ''}»`);
-  }
+  scanTextForForbidden(s, `proposal.client.json «${s.slice(0, 60)}…»`, phraseOffenders);
+}
+walkPhase2Sources(PHASE2_DIR, phraseOffenders);
+if (process.argv.includes('--with-dist')) {
+  scanDistPhase2(phraseOffenders);
 }
 
 if (offenders.size) {
@@ -157,7 +200,7 @@ if (offenders.size) {
 
 if (phraseOffenders.length) {
   console.error('verify-client-copy: forbidden internal phrasing:');
-  for (const o of phraseOffenders.slice(0, 30)) console.error(' ', o);
+  for (const o of [...new Set(phraseOffenders)].slice(0, 40)) console.error(' ', o);
   process.exit(1);
 }
 
