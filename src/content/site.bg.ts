@@ -213,9 +213,9 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       frames: [
         { assetId: 'v4_p34_crop_dance_show_dancers', captionBg: 'Спектакъл в стил Гетсби — танцово шоу' },
         {
-          assetId: 'v4_p39_crop_live_show_band_dancers',
+          assetId: 'v4_owner_doc_055_disco_ball_wide',
           captionBg: 'Празненството продължава — музика, танци и светлини',
-          objectPosition: '50% 78%',
+          objectPosition: '52% 45%',
         },
       ],
     },
