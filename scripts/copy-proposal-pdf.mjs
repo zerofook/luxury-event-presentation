@@ -5,7 +5,7 @@ import path from 'node:path';
 const ROOT = path.resolve(import.meta.dirname, '..');
 const { proposalPdfDistRel } = await import('./lib/read-proposal-mode.mjs');
 
-const SRC = path.join(ROOT, 'sources/LuxuryGraduationCeremony2026.pdf');
+const SRC = path.join(ROOT, 'sources/geotrading22-presentation_new.pdf');
 const rel = proposalPdfDistRel(ROOT);
 const publicDest = path.join(ROOT, 'public', rel);
 
