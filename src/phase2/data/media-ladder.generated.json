@@ -1334,6 +1334,19 @@
       3242
     ]
   },
+  "v4_owner_financial_parameters": {
+    "avif": [],
+    "webp": [
+      640,
+      1024,
+      1583
+    ],
+    "jpg": [
+      640,
+      1024,
+      1583
+    ]
+  },
   "v4_owner_mapping_v1_partial_left": {
     "avif": [],
     "webp": [],

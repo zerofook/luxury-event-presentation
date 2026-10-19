@@ -263,7 +263,6 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
           <section id="investicia" className="p2-section-block">
             <p className="p2-eyebrow">07 · Инвестиция</p>
             <h2 className="p2-title">Прозрачна структура</h2>
-            <p className="p2-lead">{bundle.meta.investmentIntroBg}</p>
             {SECTION_HERO_ASSET.investicia && (
               <div className="p2-section-visual">
                 <ProposalPicture assetId={SECTION_HERO_ASSET.investicia} objectFit="cover" />

@@ -1437,6 +1437,15 @@ button.p2-btn {
   line-height: 1.55;
 }
 
+.p2-invest-financial-slide {
+  margin: 0 0 1.25rem;
+}
+
+.p2-invest-financial-slide .p2-owner-text-slide {
+  max-width: min(100%, 1128px);
+  margin-inline: auto;
+}
+
 .p2-invest-legend__keys {
   list-style: none;
   padding: 0;
