@@ -90,7 +90,7 @@ if (!isHtmlProposalEnabled(ROOT)) {
       await page.goto(`${url}#/proposal`, { waitUntil: 'networkidle', timeout: 120000 });
       await page.waitForSelector('.proposal-pdf-viewer', { timeout: 60000 });
       const actions = await page.evaluate(() => {
-        const links = [...document.querySelectorAll('.proposal-pdf-viewer a[href]')].map((a) =>
+        const links = [...document.querySelectorAll('.p2-header__pdf-actions a[href]')].map((a) =>
           a.getAttribute('href'),
         );
         const iframe = document.querySelector('.proposal-pdf-viewer__frame');
@@ -100,7 +100,7 @@ if (!isHtmlProposalEnabled(ROOT)) {
         };
       });
       pdfReport.viewports[vp.tag] = actions;
-      if (actions.linkCount < 2) throw new Error(`expected PDF actions @ ${vp.tag}`);
+      if (actions.linkCount < 1) throw new Error(`expected PDF actions @ ${vp.tag}`);
       await page.close();
     }
   } finally {

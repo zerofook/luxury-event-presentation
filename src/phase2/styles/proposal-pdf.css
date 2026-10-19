@@ -81,7 +81,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  min-height: calc(100svh - 7.5rem);
+  min-height: calc(100svh - 4.25rem);
   border: 0;
 }
 
@@ -128,4 +128,12 @@
   .proposal-pdf-viewer__mobile {
     display: none;
   }
+}
+
+/* PDF actions in the header (replaces the second toolbar row) */
+.p2-header__pdf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
 }

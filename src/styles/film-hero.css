@@ -69,6 +69,14 @@
 
 .film-hero__title {
   margin-top: 0.35rem;
+  white-space: pre-line;
+  max-width: 100%;
+  font-size: clamp(1.55rem, 4vw, 2.6rem);
+  line-height: 1.12;
+  letter-spacing: 0.03em;
+  /* Full-height (lining) digits so „22“ matches the capitals */
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
 }
 
 .film-hero__lead {

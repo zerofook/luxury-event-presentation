@@ -1,5 +1,5 @@
 export const proposalPdfUi = {
-  pageTitleBg: 'Предложение · GEOTRADING 22',
+  pageTitleBg: 'Предложение · Геотрейдинг 22 години',
   metaDescriptionBg: 'Официално предложение за корпоративната гала — PDF презентация.',
   viewerAriaLabelBg: 'Предложение за събитието — PDF документ',
   mobileLeadBg:

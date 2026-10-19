@@ -7,30 +7,6 @@ export function getProposalBundle(): ProposalClientBundle {
   return bundle;
 }
 
-export function deriveAlternativeGroups(items: ClientLineItem[]) {
-  const map = new Map<string, ClientLineItem[]>();
-  for (const item of items) {
-    if (!item.alternativeGroup) continue;
-    const list = map.get(item.alternativeGroup) ?? [];
-    list.push(item);
-    map.set(item.alternativeGroup, list);
-  }
-  const titles: Record<string, string> = {
-    '3D_MAPPING': '3D мапинг на сцената',
-    PALETTE_TABLE_DECOR: 'Декор на гостни маси — палитра',
-    DANCE_SHOW_GATSBY: 'Танцово шоу „Великият Гетсби“',
-    FILEVA_FORMAT: 'Михаела Филева — формат',
-    HOST: 'Водещ на събитието',
-    CARPET_COCKTAIL: 'Мокет в коктейл зоната',
-  };
-  return [...map.entries()].map(([id, groupItems]) => ({
-    id,
-    titleBg: titles[id] ?? id,
-    exclusivity: 'one_of' as const,
-    itemIds: groupItems.map((i) => i.id),
-  }));
-}
-
 export const DECORATION_SUBSECTIONS = [
   { id: 'dekor-vhod', labelBg: 'Входна зона', areas: ['Входна зона'] },
   {

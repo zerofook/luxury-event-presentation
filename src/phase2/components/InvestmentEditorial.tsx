@@ -1,4 +1,5 @@
 import type { ClientLineItem, InvestmentCategory, ProposalClientMeta } from '../types';
+import { OwnerTextSlideFigure } from './OwnerTextSlideFigure';
 import { ItemRowList } from './ItemRowList';
 import {
   decorationPricedItems,
@@ -25,6 +26,11 @@ function itemsForInvestCategory(id: string, all: ClientLineItem[]): ClientLineIt
   }
 }
 
+/** Restore explanatory paragraphs + colour legend from `meta` when true. */
+const SHOW_LEGACY_INVESTMENT_EXPLAINER = false;
+
+export const INVESTMENT_FINANCIAL_PARAMETERS_ASSET = 'v4_owner_financial_parameters';
+
 export function InvestmentEditorial({
   meta,
   categories,
@@ -36,26 +42,32 @@ export function InvestmentEditorial({
 }) {
   return (
     <div className="p2-invest-editorial">
-      <div className="p2-invest-legend">
-        <p>{meta.investmentIntroBg}</p>
-        {meta.investmentClarityBg && <p>{meta.investmentClarityBg}</p>}
-        <p>{meta.vatNoteBg}</p>
-        <p>{meta.currencyNoteBg}</p>
-        <ul className="p2-invest-legend__keys">
-          <li>
-            <span className="p2-invest-key p2-invest-key--fixed" /> Фиксирана или единична цена от предложението
-          </li>
-          <li>
-            <span className="p2-invest-key p2-invest-key--range" /> Диапазон
-          </li>
-          <li>
-            <span className="p2-invest-key p2-invest-key--pending" /> Изисква потвърждение / по запитване
-          </li>
-          <li>
-            <span className="p2-invest-key p2-invest-key--alt" /> Алтернатива — избира се една опция от група
-          </li>
-        </ul>
-      </div>
+      {SHOW_LEGACY_INVESTMENT_EXPLAINER ? (
+        <div className="p2-invest-legend">
+          {meta.investmentIntroBg ? <p>{meta.investmentIntroBg}</p> : null}
+          {meta.investmentClarityBg && <p>{meta.investmentClarityBg}</p>}
+          <p>{meta.vatNoteBg}</p>
+          <p>{meta.currencyNoteBg}</p>
+          <ul className="p2-invest-legend__keys">
+            <li>
+              <span className="p2-invest-key p2-invest-key--fixed" /> Фиксирана или единична цена от предложението
+            </li>
+            <li>
+              <span className="p2-invest-key p2-invest-key--range" /> Диапазон
+            </li>
+            <li>
+              <span className="p2-invest-key p2-invest-key--pending" /> Изисква потвърждение / по запитване
+            </li>
+            <li>
+              <span className="p2-invest-key p2-invest-key--alt" /> Алтернатива — избира се една опция от група
+            </li>
+          </ul>
+        </div>
+      ) : (
+        <div className="p2-invest-financial-slide">
+          <OwnerTextSlideFigure assetId={INVESTMENT_FINANCIAL_PARAMETERS_ASSET} />
+        </div>
+      )}
       {categories.map((cat) => {
         const catItems = itemsForInvestCategory(cat.id, items);
         if (!catItems.length && !cat.notesBg) return null;

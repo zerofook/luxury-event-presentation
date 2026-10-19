@@ -7,5 +7,5 @@ export const SECTION_HERO_ASSET: Partial<Record<string, string>> = {
 export const HOSPITALITY_ILLUSTRATION = {
   assetId: 'v4_p37_crop_hats_accessories',
   itemId: 'p27-gifts-hair',
-  captionBg: 'Илюстрация към позицията „Аксесоари за коса“ (страница 27)',
+  captionBg: 'Илюстрация към позицията „ПОДАРЪЦИ ЗА ДАМИ“ (страница 27)',
 };

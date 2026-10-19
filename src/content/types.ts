@@ -57,6 +57,8 @@ export interface VideoEntranceSceneData {
   posterSrc: string;
   stillAssetId: string;
   stillAltAssetId?: string;
+  /** Still shown after the entrance video ends (defaults to stillAssetId). */
+  scrollStillAssetId?: string;
   width: number;
   height: number;
   titleBg: string;

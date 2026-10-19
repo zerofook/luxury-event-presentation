@@ -725,6 +725,21 @@
       1672
     ]
   },
+  "v4_owner_doc_002_entrance_callouts": {
+    "avif": [],
+    "webp": [
+      640,
+      1024,
+      1600,
+      1672
+    ],
+    "jpg": [
+      640,
+      1024,
+      1600,
+      1672
+    ]
+  },
   "v4_owner_doc_003_champagne_tray_performer": {
     "avif": [],
     "webp": [
@@ -1334,6 +1349,19 @@
       3242
     ]
   },
+  "v4_owner_financial_parameters": {
+    "avif": [],
+    "webp": [
+      640,
+      1024,
+      1583
+    ],
+    "jpg": [
+      640,
+      1024,
+      1583
+    ]
+  },
   "v4_owner_mapping_v1_partial_left": {
     "avif": [],
     "webp": [],
@@ -1346,6 +1374,21 @@
     "webp": [],
     "jpg": [
       512
+    ]
+  },
+  "v4_owner_themed_menu_slide": {
+    "avif": [],
+    "webp": [
+      640,
+      1024,
+      1600,
+      1620
+    ],
+    "jpg": [
+      640,
+      1024,
+      1600,
+      1620
     ]
   },
   "v4_p02_00_1688x932": {

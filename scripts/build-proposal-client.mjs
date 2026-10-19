@@ -63,7 +63,8 @@ const TITLE_OVERRIDES = {
   'p29-extra-light-tech': 'Осветител (техник)',
   'p29-extra-led-operator': 'Оператор на LED екран',
   'p29-extra-dj': 'DJ и маса',
-  'p27-gifts-hair': 'Аксесоари за коса',
+  'p27-gifts-budget': 'ПОДАРЪЦИ ЗА ГОСПОДА',
+  'p27-gifts-hair': 'ПОДАРЪЦИ ЗА ДАМИ',
   'p29-tech-1-cocktail': '1. Коктейл зона — атмосферно осветление',
   'p29-tech-2-corridor': '2. Коридор — осветление и LED екран',
   'p29-tech-3-gala': '3. Зала гала — сценично осветление',
@@ -340,8 +341,8 @@ const client = {
     currencyNoteBg:
       'Почти всички суми са в евро; изключение: страница 40 — Gipsy Kings (85 000 £).',
     itemCount: clientItems.length,
-    investmentIntroBg:
-      'Към момента не е представена обща сума. Изисква се избрана конфигурация (палитра, програма, технически пакет, количества) и съгласуване на припокриващи се позиции.',
+    /** Kept for schema/verify; not rendered (see InvestmentEditorial). */
+    investmentIntroBg: '',
     investmentClarityBg:
       'Позициите с етикет „алтернатива“ са взаимно изключващи се опции. Диапазоните и „по запитване“ изискват избор и потвърждение преди финална оферта. Всяка сума по-долу е съпоставима със съответната страница в предложението.',
     contactPlaceholderBg:

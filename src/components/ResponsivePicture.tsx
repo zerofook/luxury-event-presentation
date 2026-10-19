@@ -11,6 +11,8 @@ interface Props {
   objectPosition?: string;
   /** Max display width = native width × scale (default 1.5 — no upscale beyond this). */
   capScale?: number;
+  /** Full-bleed backgrounds: fill the container edge to edge (no width cap). */
+  fullBleed?: boolean;
 }
 
 export function ResponsivePicture({
@@ -21,6 +23,7 @@ export function ResponsivePicture({
   objectFit = 'cover',
   objectPosition,
   capScale = 1.5,
+  fullBleed = false,
 }: Props) {
   const asset: MediaAsset | undefined = assets[assetId];
   const [vw, setVw] = useState(typeof window !== 'undefined' ? window.innerWidth : 1440);
@@ -49,8 +52,8 @@ export function ResponsivePicture({
   return (
     <div
       className="p2-media"
-      style={{ width: '100%', maxWidth: maxRenderW, height: '100%', marginInline: 'auto' }}
-      data-max-render-w={maxRenderW}
+      style={{ width: '100%', maxWidth: fullBleed ? 'none' : maxRenderW, height: '100%', marginInline: 'auto' }}
+      data-max-render-w={fullBleed ? undefined : maxRenderW}
     >
     <picture
       className={className}

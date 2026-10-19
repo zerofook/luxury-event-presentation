@@ -82,7 +82,7 @@ export function EntranceScrollScene({ entrance, entranceTransition, ui }: Props)
               />
             )}
             <div className="hero-entrance__still" style={{ opacity: stillOpacity }}>
-              <ResponsivePicture assetId={entrance.stillAssetId} objectFit="cover" />
+              <ResponsivePicture assetId={entrance.scrollStillAssetId ?? entrance.stillAssetId} objectFit="cover" fullBleed />
             </div>
             {needsTap && !reduced && (
               <button type="button" className="play-affordance" onClick={() => void tryPlay()}>

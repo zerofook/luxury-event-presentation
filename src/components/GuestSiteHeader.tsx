@@ -10,11 +10,12 @@ const SHOW_GUEST_HEADER_PDF = false;
 const CLOSING_SCENE_ID = 'scene-closing';
 const HEADER_HEIGHT_FALLBACK_PX = 60;
 
-const PRIMARY_NAV = [
+type NavItem = { hash: string; labelBg: string; experience?: boolean; contact?: boolean; titleBg?: string };
+
+const PRIMARY_NAV: NavItem[] = [
   { hash: '#/', labelBg: 'ПРЕЖИВЯВАНЕТО', experience: true },
   { hash: '#/proposal', labelBg: 'ПРЕДЛОЖЕНИЕТО' },
-  { hash: '#/', labelBg: 'КОНТАКТ', titleBg: 'Към затварящата секция на преживяването', contact: true },
-] as const;
+];
 
 type HeaderSurface = 'hero' | 'dark' | 'light';
 
@@ -141,7 +142,7 @@ export function GuestSiteHeader() {
     <header className={headerClass}>
       <div className="g-header__inner" ref={innerRef}>
         <a className="g-logo" href={`${base}#/`} onClick={onLogoClick}>
-          GEOTRADING 22
+          Геотрейдинг 22 години
         </a>
         <nav className="g-primary-nav" aria-label="Основна навигация">
           {PRIMARY_NAV.map((n) => {

@@ -170,3 +170,10 @@ video {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Full-height (lining) digits in display titles so numbers like „22“ match capitals */
+.section-title,
+.film-hero__title {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
