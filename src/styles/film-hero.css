@@ -69,6 +69,10 @@
 
 .film-hero__title {
   margin-top: 0.35rem;
+  white-space: pre-line;
+  max-width: min(100%, 22rem);
+  font-size: clamp(2rem, 5.2vw, 3.35rem);
+  line-height: 1.08;
 }
 
 .film-hero__lead {

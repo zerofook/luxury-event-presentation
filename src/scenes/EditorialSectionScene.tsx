@@ -257,7 +257,7 @@ export function EditorialSectionScene({ data, playLabel }: Props) {
             <h2 id={`${data.id}-heading`} className="section-title">
               {data.titleBg}
             </h2>
-            <p className="section-lead">{data.bodyBg}</p>
+            {data.bodyBg && <p className="section-lead">{data.bodyBg}</p>}
             {data.disclaimerBg && <p className="editorial-section__disclaimer">{data.disclaimerBg}</p>}
           </FadeCopy>
           {hero && (

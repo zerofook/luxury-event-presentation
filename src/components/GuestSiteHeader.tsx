@@ -141,7 +141,7 @@ export function GuestSiteHeader() {
     <header className={headerClass}>
       <div className="g-header__inner" ref={innerRef}>
         <a className="g-logo" href={`${base}#/`} onClick={onLogoClick}>
-          GEOTRADING 22
+          Геотрейдинг 22 години
         </a>
         <nav className="g-primary-nav" aria-label="Основна навигация">
           {PRIMARY_NAV.map((n) => {

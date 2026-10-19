@@ -48,7 +48,7 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
     {
       type: 'hero',
       id: 'hero',
-      headlineBg: '22 години Geotrading',
+      headlineBg: '22 ГОДИНИ\nГЕОТРЕЙДИНГ АД',
       sublineBg: 'История, която продължава',
       eventMetaBg: 'Корпоративна гала · 12 януари 2027 · София',
     },
@@ -109,9 +109,8 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       tone: 'cream',
       layout: 'stack-wide',
       eyebrowBg: 'Артистични изяви',
-      titleBg: 'Шампанско обслужване',
-      bodyBg:
-        'Жива интерпретация на пирамида от шампанско — артисти в тематични костюми поднасят шампанско на гостите.',
+      titleBg: 'Жива интерпретация на пирамида от шампанско',
+      bodyBg: 'Артисти в тематични костюми поднасят шампанско на гостите.',
       disclaimerBg: 'Предложена концепция — програмата подлежи на финално одобрение.',
       videoInView: { threshold: 0.52, exitThreshold: 0.16, resetOnPause: false },
       videoSrc: 'media/video/champagne-costume.mp4',
@@ -127,7 +126,6 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       titleBg: 'Гигантска стъклена чаша с акробат и конфети',
       bodyBg:
         'Спектакулярно изпълнение с акробат в гигантска чаша шампанско — цирково изкуство, елегантност и блясък. Визуален център на коктейлната зона.',
-      disclaimerBg: 'Предложена концепция — без имена и без потвърдени изпълнители.',
       videoSrc: 'media/video/glass-confetti.mp4',
       posterSrc: 'media/video/glass-confetti-poster.jpg',
       width: 1280,
@@ -163,7 +161,6 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       variant: 'gala-reveal',
       eyebrowBg: 'Етаж 4',
       titleBg: 'ЗАЛА ГАЛА',
-      bodyBg: 'Пълна декорация, люстри и аранжимент — архитектурна визия преди пристигането на гостите.',
       aliveLabelBg: 'Пространството оживява',
       stillAssetId: 'v4_p21_00_1851x849',
       objectPosition: '50% 45%',
@@ -193,12 +190,10 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       id: 'anniversary-ceremony',
       tone: 'cream',
       variant: 'ceremony',
-      titleBg: '22 години успех. Един незабравим момент.',
-      bodyBg: 'Тортата, тостът и празненството — емоционален връх на юбилейната вечер.',
-      disclaimerBg: 'Концептуална последователност — подлежи на финално одобрение.',
+      titleBg: '22 ГОДИНИ УСПЕХ. ЕДИН НЕЗАБРАВИМ МОМЕНТ.',
       heroFrame: {
         assetId: 'v4_owner_crop_cake_ceremony',
-        captionBg: 'Тортата пристига зад перушина',
+        captionBg: 'Тортата пристига зад Гетсби пера',
         objectPosition: '50% 42%',
       },
       frames: [
@@ -228,7 +223,7 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
     {
       type: 'closing',
       id: 'closing',
-      titleBg: '22 години Геотрейдинг. Историята продължава.',
+      titleBg: '22 ГОДИНИ ГЕОТРЕЙДИНГ. ИСТОРИЯТА ПРОДЪЛЖАВА.',
       bodyBg: 'Концепция и организация — Global Event Agency.',
       disclaimerBg:
         'Предложена програма и визуализации — концепция на вечерта, без потвърдени изпълнители или резервации.',

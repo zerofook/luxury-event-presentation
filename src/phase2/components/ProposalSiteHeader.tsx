@@ -16,7 +16,7 @@ export function ProposalSiteHeader({ proposalActive }: { proposalActive: boolean
     <header className="p2-header">
       <div className="p2-header__inner">
         <a className="p2-logo" href={`${base}#/`}>
-          GEOTRADING 22
+          Геотрейдинг 22 години
         </a>
         <nav className="p2-primary-nav" aria-label="Основна навигация">
           {PRIMARY_NAV.map((n) => {
