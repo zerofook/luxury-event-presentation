@@ -102,7 +102,7 @@ function PassageSection({ data, playLabel }: Props) {
           <h2 id={`${data.id}-heading`} className="section-title">
             {data.titleBg}
           </h2>
-          <p className="section-lead section-lead--passage">{data.bodyBg}</p>
+          {data.bodyBg && <p className="section-lead section-lead--passage">{data.bodyBg}</p>}
         </FadeCopy>
         {data.videoSrc && (
           <div className="editorial-section__box editorial-section__box--passage-video" ref={containerRef}>
@@ -211,7 +211,13 @@ function VisualChapterSection({ data }: { data: EditorialSectionSceneData }) {
           <h2 id={`${data.id}-heading`} className="section-title">
             {data.titleBg}
           </h2>
-          <p className="section-lead">{data.bodyBg}</p>
+          {data.bodyParagraphsBg?.length
+            ? data.bodyParagraphsBg.map((paragraph) => (
+                <p key={paragraph.slice(0, 48)} className="section-lead">
+                  {paragraph}
+                </p>
+              ))
+            : data.bodyBg && <p className="section-lead">{data.bodyBg}</p>}
         </FadeCopy>
         {data.assetId && (
           <BoxedImage
