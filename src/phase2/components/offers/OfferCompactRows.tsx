@@ -3,10 +3,10 @@ import { OfferPriceDisplay } from './OfferPriceDisplay';
 import { SourceRef } from '../SourceRef';
 import { StatusChip } from '../StatusChip';
 
-export function OfferCompactRows({ items }: { items: ClientLineItem[] }) {
+export function OfferCompactRows({ items, columns = 1 }: { items: ClientLineItem[]; columns?: 1 | 2 }) {
   if (!items.length) return null;
   return (
-    <ul className="p2-offer-compact">
+    <ul className={`p2-offer-compact${columns === 2 ? ' p2-offer-compact--cols-2' : ''}`}>
       {items.map((item) => (
         <li key={item.id} className="p2-offer-compact__row">
           <div className="p2-offer-compact__main">

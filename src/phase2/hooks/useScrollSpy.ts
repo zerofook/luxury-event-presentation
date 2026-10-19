@@ -1,28 +1,40 @@
 import { useEffect, useState } from 'react';
 
-const HEADER_OFFSET = 88;
+export const SCROLL_SPY_HEADER_OFFSET = 88;
+const PROBE_BELOW_HEADER = 48;
+
+function sectionDocumentTop(el: HTMLElement): number {
+  return window.scrollY + el.getBoundingClientRect().top;
+}
+
+/** Pick the last section whose top has passed the probe line (stable for long sections). */
+export function resolveScrollSpySection(sectionIds: string[]): string {
+  const probe = window.scrollY + SCROLL_SPY_HEADER_OFFSET + PROBE_BELOW_HEADER;
+  let current = sectionIds[0] ?? '';
+  for (const id of sectionIds) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (sectionDocumentTop(el) <= probe) current = id;
+  }
+  return current;
+}
 
 export function useScrollSpy(sectionIds: string[]) {
   const [active, setActive] = useState(sectionIds[0] ?? '');
 
   useEffect(() => {
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
-    if (!elements.length) return;
+    const tick = () => {
+      const next = resolveScrollSpySection(sectionIds);
+      setActive((prev) => (prev === next ? prev : next));
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]?.target.id) setActive(visible[0].target.id);
-      },
-      { rootMargin: `-${HEADER_OFFSET}px 0px -55% 0px`, threshold: [0, 0.15, 0.35, 0.5] },
-    );
-
-    for (const el of elements) observer.observe(el);
-    return () => observer.disconnect();
+    tick();
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    return () => {
+      window.removeEventListener('scroll', tick);
+      window.removeEventListener('resize', tick);
+    };
   }, [sectionIds.join('|')]);
 
   return active;
@@ -31,5 +43,6 @@ export function useScrollSpy(sectionIds: string[]) {
 export function scrollToSection(id: string) {
   const el = document.getElementById(id);
   if (!el) return;
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const top = sectionDocumentTop(el) - SCROLL_SPY_HEADER_OFFSET;
+  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
 }

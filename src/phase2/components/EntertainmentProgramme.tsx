@@ -47,9 +47,10 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                     objectPosition={chapter.heroObjectPosition}
                     sizes={
                       heroAsset
-                        ? `(min-width: 1024px) ${Math.min(heroAsset.width * 1.5, 1128)}px, 92vw`
+                        ? `(min-width: 1024px) ${Math.min(heroAsset.width, 1128)}px, 92vw`
                         : '(min-width: 1024px) 1128px, 100vw'
                     }
+                    capScale={1}
                   />
                 </div>
                 <div className="p2-programme-chapter__copy p2-programme-chapter__copy--aside">
@@ -66,9 +67,10 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                   objectPosition={chapter.heroObjectPosition}
                   sizes={
                     heroAsset
-                      ? `(min-width: 1024px) ${Math.min(Math.round(heroAsset.width * 1.5), 1128)}px, 100vw`
+                      ? `(min-width: 1024px) ${Math.min(heroAsset.width, 1128)}px, 100vw`
                       : '(min-width: 1024px) 1128px, 100vw'
                   }
+                  capScale={1}
                 />
               </div>
             ) : null}
@@ -80,16 +82,8 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
               </div>
             )}
 
-            {chapter.id === 'finale' && chapter.galleryAssetIds?.[0] && finaleSpotlight ? (
-              <div className="p2-programme-chapter__spotlight p2-programme-chapter__spotlight--finale">
-                <div className="p2-programme-chapter__spotlight-visual">
-                  <ProposalPicture
-                    assetId={chapter.galleryAssetIds[0]}
-                    layout="fill"
-                    objectFit="cover"
-                    sizes="(min-width: 900px) 420px, 46vw"
-                  />
-                </div>
+            {chapter.id === 'finale' && finaleSpotlight ? (
+              <div className="p2-programme-chapter__spotlight p2-programme-chapter__spotlight--finale p2-programme-chapter__spotlight--text-only">
                 <div className="p2-programme-chapter__spotlight-copy">
                   <h4>{finaleSpotlight.titleBg}</h4>
                   {finaleSpotlight.descriptionBg && <p>{finaleSpotlight.descriptionBg}</p>}
@@ -103,7 +97,8 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
               </div>
             ) : (
               chapter.galleryAssetIds &&
-              chapter.galleryAssetIds.length > 0 && (
+              chapter.galleryAssetIds.length > 0 &&
+              !(chapter.id === 'gatsby-show' && galleryCount === 1) && (
                 <div
                   className={`p2-programme-chapter__gallery p2-programme-chapter__gallery--count-${Math.min(galleryCount, 6)}${chapter.galleryPortraitIds?.length ? ' p2-programme-chapter__gallery--portrait-pair' : ''}${galleryCount === 1 ? ' p2-programme-chapter__gallery--solo' : ''}`}
                 >
@@ -118,6 +113,7 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                         objectFit="cover"
                         objectPosition={chapter.id === 'hosts' && id.includes('host_1') ? '50% 18%' : undefined}
                         sizes="(min-width: 1024px) 280px, 30vw"
+                        capScale={1}
                       />
                     </div>
                   ))}
@@ -125,8 +121,23 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
               )
             )}
 
+            {chapter.id === 'gatsby-show' && chapter.galleryAssetIds?.[0] && (
+              <div className="p2-programme-chapter__gallery p2-programme-chapter__gallery--count-1 p2-programme-chapter__gallery--band">
+                <div className="p2-programme-chapter__thumb p2-programme-chapter__thumb--band">
+                  <ProposalPicture
+                    assetId={chapter.galleryAssetIds[0]}
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="50% 35%"
+                    sizes="100vw"
+                    capScale={1}
+                  />
+                </div>
+              </div>
+            )}
+
             {chapter.id === 'gatsby-show' && gatsbySpotlight && (
-              <div className="p2-programme-chapter__spotlight p2-programme-chapter__spotlight--gatsby p2-programme-chapter__spotlight--compact">
+              <div className="p2-programme-chapter__spotlight p2-programme-chapter__spotlight--gatsby p2-programme-chapter__spotlight--text-only">
                 <div className="p2-programme-chapter__spotlight-copy">
                   <h4>{gatsbySpotlight.titleBg}</h4>
                   {gatsbySpotlight.descriptionBg && <p>{gatsbySpotlight.descriptionBg}</p>}
@@ -136,14 +147,6 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                     ) : null}
                     <StatusChip item={gatsbySpotlight} />
                   </div>
-                </div>
-                <div className="p2-programme-chapter__spotlight-visual p2-programme-chapter__spotlight-visual--gatsby">
-                  <ProposalPicture
-                    assetId="v4_p36_crop_little_party_feathers"
-                    layout="fill"
-                    objectFit="cover"
-                    sizes="(min-width: 900px) 420px, 46vw"
-                  />
                 </div>
               </div>
             )}

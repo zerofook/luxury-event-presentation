@@ -710,6 +710,20 @@
       1605
     ]
   },
+  "v4_owner_mapping_v1_partial_left": {
+    "avif": [],
+    "webp": [],
+    "jpg": [
+      512
+    ]
+  },
+  "v4_owner_mapping_v2_full_all_walls": {
+    "avif": [],
+    "webp": [],
+    "jpg": [
+      512
+    ]
+  },
   "v4_p02_00_1688x932": {
     "avif": [
       640,

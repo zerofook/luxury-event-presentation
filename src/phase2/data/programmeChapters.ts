@@ -63,7 +63,7 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     leadBg:
       'Танцово шоу „Великият Гетсби“ и балетна програма — централният театрален момент на вечерта с ясно посочени алтернативни формати.',
     heroAssetId: 'v4_p34_crop_dance_show_dancers',
-    heroLayout: 'editorial',
+    heroLayout: 'wide',
     galleryAssetIds: ['v4_p36_crop_gimme_gimme_cabaret'],
     match: (i) =>
       (i.source.pdfPage === 34 || i.source.pdfPage === 36) &&
@@ -76,7 +76,7 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
       'Джаз и поп формати с Михаела Филева и живо шоу след фоейерверките — предложени комбинации, не финален състав.',
     heroAssetId: 'v4_p39_crop_live_show_band_dancers',
     heroLayout: 'wide',
-    heroObjectPosition: '50% 42%',
+    heroObjectPosition: '48% 32%',
     galleryAssetIds: ['v4_p35_crop_mihaela_jazz_quartet', 'v4_p35_crop_mihaela_with_dancers'],
     galleryPortraitIds: ['v4_p35_crop_mihaela_jazz_quartet', 'v4_p35_crop_mihaela_with_dancers'],
     match: (i) => i.source.pdfPage === 35 || i.source.pdfPage === 39,

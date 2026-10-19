@@ -11,7 +11,7 @@ export const GALA_MAPPING_BLOCK: OfferBlockSpec = {
       key: 'partial-left-wall',
       labelBg: 'Вариант 1 — лява стена',
       summaryBg: '3D мапинг върху лявата стена с готови или авторски визуализации, адаптирани към архитектурата.',
-      galleryAssetIds: ['v4_p19_crop_mapping_partial_clean'],
+      galleryAssetIds: ['v4_owner_mapping_v1_partial_left'],
       visualCaptionBg: 'стр. 19',
       sourcePage: 19,
       priceSubvariants: [
@@ -37,7 +37,7 @@ export const GALA_MAPPING_BLOCK: OfferBlockSpec = {
       key: 'full-all-walls',
       labelBg: 'Вариант 2 — всички стени',
       summaryBg: 'Пълен 3D мапинг върху архитектурата на залата — Stock или Custom визуализации.',
-      galleryAssetIds: ['v4_p20_crop_mapping_full_clean'],
+      galleryAssetIds: ['v4_owner_mapping_v2_full_all_walls'],
       visualCaptionBg: 'стр. 20',
       sourcePage: 20,
       priceSubvariants: [
