@@ -149,6 +149,8 @@ async function useEmbeddedFull(page, id, pdfPage, section, region) {
 // --- define extractions (relative 0–1 boxes, picture-only) ---
 cropEmbedded(19, { left: 0, top: 0, width: 0.62, height: 0.92 }, 'v4_p19_crop_mapping_hall_left', 19, '04 Technical');
 cropEmbedded(20, { left: 0, top: 0, width: 0.62, height: 0.92 }, 'v4_p20_crop_mapping_hall_left', 20, '04 Technical');
+cropEmbedded(19, { left: 0, top: 0, width: 0.64, height: 0.74 }, 'v4_p19_crop_mapping_partial_clean', 19, '04 Technical');
+cropEmbedded(20, { left: 0, top: 0, width: 1, height: 0.52 }, 'v4_p20_crop_mapping_full_clean', 20, '04 Technical');
 cropRender(29, { left: 0.02, top: 0.02, width: 0.96, height: 0.42 }, 'v4_p29_crop_tech_atmosphere_top', 29, '04 Technical', 'pdftoppm300+crop top hall');
 cropRender(5, { left: 0.05, top: 0.08, width: 0.9, height: 0.55 }, 'v4_p05_crop_entrance_hero_clean', 5, '02 Decoration');
 cropRender(11, { left: 0.04, top: 0.11, width: 0.55, height: 0.4 }, 'v4_p11_crop_cocktail_aerial_clean', 11, '02 Decoration');

@@ -1,28 +1,48 @@
 import type { ClientLineItem } from '../../types';
-import { formatItemPrice, formatMoney, formatUnitPrice } from '../../lib/formatMoney';
+import {
+  formatItemPrice,
+  formatMoney,
+  formatUnitPrice,
+  unitArithmeticMatches,
+} from '../../lib/formatMoney';
 
 export function OfferPriceDisplay({ item, prominent }: { item: ClientLineItem; prominent?: boolean }) {
   const price = formatItemPrice(item);
   if (!price) return null;
   const vat = item.vatTreatment?.replace(/^\(|\)$/g, '').trim();
+  const cur = item.currency ?? 'EUR';
 
   let amountLine = price;
   if (price.includes(' · ')) {
     amountLine = price.split(' · ')[0];
   }
 
+  const hasQtyLine =
+    item.priceType === 'unit_price' &&
+    item.unitPrice != null &&
+    item.quantity != null &&
+    item.lineTotal != null &&
+    unitArithmeticMatches(item);
+
+  const hasMismatchLine =
+    item.priceType === 'unit_price' &&
+    item.unitPrice != null &&
+    item.quantity != null &&
+    item.lineTotal != null &&
+    !unitArithmeticMatches(item);
+
   return (
     <div className={`p2-offer-price${prominent ? ' p2-offer-price--prominent' : ''}`}>
-      <span className="p2-offer-price__amount">{amountLine}</span>
-      {item.priceType === 'unit_price' && item.quantity != null && item.lineTotal != null && item.unitPrice != null && (
+      {!hasMismatchLine && <span className="p2-offer-price__amount">{amountLine}</span>}
+      {hasQtyLine && (
         <span className="p2-offer-price__qty">
-          {item.quantity} × {formatUnitPrice(item.unitPrice, item.currency ?? 'EUR')} ={' '}
-          {formatMoney(item.lineTotal, item.currency ?? 'EUR')}
+          {item.quantity} × {formatUnitPrice(item.unitPrice!, cur)} = {formatMoney(item.lineTotal!, cur)}
         </span>
       )}
-      {item.unitPrice != null && item.priceType === 'unit_price' && item.lineTotal == null && item.unit && (
-        <span className="p2-offer-price__qty">
-          {formatUnitPrice(item.unitPrice, item.currency ?? 'EUR')} / {item.unit}
+      {hasMismatchLine && (
+        <span className="p2-offer-price__qty p2-offer-price__qty--printed-total">
+          {item.quantity} {item.unit ?? 'бр.'} · {formatUnitPrice(item.unitPrice!, cur)}
+          {item.unit ? ` / ${item.unit}` : ''} · общо по предложението {formatMoney(item.lineTotal!, cur)}
         </span>
       )}
       {vat && <span className="p2-offer-price__vat">{vat}</span>}

@@ -29,15 +29,21 @@ export function OfferBlockView({
     );
   }
 
+  const showHead = Boolean(block.titleBg?.trim() || block.subtitleBg || block.introBg);
+
   return (
-    <section className="p2-offer-block" aria-labelledby={`offer-${block.id}`}>
-      <header className="p2-offer-block__head">
-        <h4 className="p2-offer-block__title" id={`offer-${block.id}`}>
-          {block.titleBg}
-        </h4>
-        {block.subtitleBg && <p className="p2-offer-block__subtitle">{block.subtitleBg}</p>}
-        {block.introBg && <p className="p2-offer-block__intro">{block.introBg}</p>}
-      </header>
+    <section className="p2-offer-block" aria-labelledby={showHead ? `offer-${block.id}` : undefined}>
+      {showHead && (
+        <header className="p2-offer-block__head">
+          {block.titleBg?.trim() && (
+            <h4 className="p2-offer-block__title" id={`offer-${block.id}`}>
+              {block.titleBg}
+            </h4>
+          )}
+          {block.subtitleBg && <p className="p2-offer-block__subtitle">{block.subtitleBg}</p>}
+          {block.introBg && <p className="p2-offer-block__intro">{block.introBg}</p>}
+        </header>
+      )}
 
       {block.layout === 'multi-variant-rows' &&
         block.variants?.map((variant) => <OfferVariantRow key={variant.key} variant={variant} itemMap={itemMap} />)}
@@ -49,18 +55,19 @@ export function OfferBlockView({
             titleBg={block.titleBg}
             item={item}
             galleryAssetIds={block.galleryAssetIds}
+            galleryCap={block.galleryCap}
           />
         ))}
 
       {block.layout === 'compact-rows' && (
-        <>
+        <div className="p2-offer-block__split">
           {block.galleryAssetIds && block.galleryAssetIds.length > 0 && (
             <div className="p2-offer-block__hero">
-              <OfferGallery assetIds={block.galleryAssetIds} />
+              <OfferGallery assetIds={block.galleryAssetIds} layout="editorial" />
             </div>
           )}
           <OfferCompactRows items={block.items} />
-        </>
+        </div>
       )}
     </section>
   );

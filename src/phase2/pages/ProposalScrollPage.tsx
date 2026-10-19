@@ -213,7 +213,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                 )}
                 <SubsectionOffers subsectionId={sub.id} areaItems={areaItems} allItems={bundle.items} />
                 {areaItems.length === 0 && (
-                  <p className="p2-muted">Няма отделни ценови редове за тази зона в извлечения набор.</p>
+                  <p className="p2-muted">Няма отделни ценови позиции за тази зона.</p>
                 )}
               </div>
             );
@@ -257,24 +257,33 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             </p>
             <PaletteComparison />
             <h3 className="p2-area__title p2-area__title--spaced">Алтернативни опции от предложението</h3>
+            <p className="p2-offer-crossref p2-offer-crossref--alt">
+              3D мапинг в гала залата — цени и варианти:{' '}
+              <a href="#dekor-gala" className="p2-offer-crossref__link">
+                секция „Гала зала“
+              </a>
+              .
+            </p>
             <div className="p2-alt-grid">
-              {altGroups.map((g) => (
-                <article key={g.id} className="p2-alt-group">
-                  <h3>{g.titleBg}</h3>
-                  <ul>
-                    {g.itemIds.map((id) => {
-                      const item = getItemById(bundle.items, id)!;
-                      return (
-                        <li key={id} className="p2-alt-item">
-                          <strong>{item.titleBg}</strong>
-                          <StatusChip item={item} />
-                          <span className="p2-alt-price">{formatItemPrice(item)}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </article>
-              ))}
+              {altGroups
+                .filter((g) => g.id !== '3D_MAPPING')
+                .map((g) => (
+                  <article key={g.id} className="p2-alt-group">
+                    <h3>{g.titleBg}</h3>
+                    <ul>
+                      {g.itemIds.map((id) => {
+                        const item = getItemById(bundle.items, id)!;
+                        return (
+                          <li key={id} className="p2-alt-item">
+                            <strong>{item.titleBg}</strong>
+                            <StatusChip item={item} />
+                            <span className="p2-alt-price">{formatItemPrice(item)}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </article>
+                ))}
             </div>
           </section>
 

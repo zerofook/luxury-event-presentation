@@ -51,6 +51,10 @@ for (const item of client.items) {
     console.error(`ERROR client item missing priceType/proposalStatus: ${item.id}`);
     errors++;
   }
+  if (item.unitPrice != null && item.priceType === 'not_provided') {
+    console.error(`ERROR ${item.id}: unitPrice set but priceType is not_provided`);
+    errors++;
+  }
 }
 
 if (errors) {

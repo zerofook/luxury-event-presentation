@@ -91,10 +91,34 @@ for (const s of strings) {
   }
 }
 
+const FORBIDDEN_PHRASES = [
+  'в източника',
+  'не се дублира',
+  'извлечения набор',
+  'извлечени ценови',
+  'без ценови колони',
+  'собственика',
+  'частични суми',
+];
+
+const phraseOffenders = [];
+for (const s of strings) {
+  const lower = s.toLowerCase();
+  for (const phrase of FORBIDDEN_PHRASES) {
+    if (lower.includes(phrase)) phraseOffenders.push(`«${phrase}» in «${s.slice(0, 100)}${s.length > 100 ? '…' : ''}»`);
+  }
+}
+
 if (offenders.size) {
   console.error('verify-client-copy: Latin words not in allowlist:');
   for (const o of [...offenders].slice(0, 50)) console.error(' ', o);
   if (offenders.size > 50) console.error(`  … and ${offenders.size - 50} more`);
+  process.exit(1);
+}
+
+if (phraseOffenders.length) {
+  console.error('verify-client-copy: forbidden internal phrasing:');
+  for (const o of phraseOffenders.slice(0, 30)) console.error(' ', o);
   process.exit(1);
 }
 

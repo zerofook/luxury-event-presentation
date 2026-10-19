@@ -8,19 +8,25 @@ export function OfferSingleRow({
   titleBg,
   item,
   galleryAssetIds,
+  galleryCap,
   introBg,
 }: {
   titleBg: string;
   item: ClientLineItem;
   galleryAssetIds?: string[];
+  galleryCap?: 'sm';
   introBg?: string;
 }) {
-  const displayTitle = item.titleBg || titleBg;
+  const displayTitle = titleBg?.trim() ? titleBg : item.titleBg;
   return (
     <article className="p2-offer-row p2-offer-row--single">
       {galleryAssetIds && galleryAssetIds.length > 0 && (
         <div className="p2-offer-row__visual">
-          <OfferGallery assetIds={galleryAssetIds} captionBg={item.source.pdfPage ? `стр. ${item.source.pdfPage}` : undefined} />
+          <OfferGallery
+            assetIds={galleryAssetIds}
+            captionBg={item.source.pdfPage ? `стр. ${item.source.pdfPage}` : undefined}
+            cap={galleryCap ?? 'default'}
+          />
         </div>
       )}
       <div className="p2-offer-row__panel">

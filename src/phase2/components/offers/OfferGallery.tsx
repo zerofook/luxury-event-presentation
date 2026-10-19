@@ -4,15 +4,15 @@ import { ProposalPicture } from '../ProposalPicture';
 export function OfferGallery({
   assetIds,
   captionBg,
-  overlayTitleBg,
-  overlaySummaryBg,
   sizes = '(min-width: 900px) 52vw, 94vw',
+  layout = 'default',
+  cap = 'default',
 }: {
   assetIds: string[];
   captionBg?: string;
-  overlayTitleBg?: string;
-  overlaySummaryBg?: string;
   sizes?: string;
+  layout?: 'default' | 'editorial';
+  cap?: 'default' | 'sm';
 }) {
   const ids = assetIds.filter(Boolean);
   const [index, setIndex] = useState(0);
@@ -27,16 +27,16 @@ export function OfferGallery({
 
   if (!current) return null;
 
+  const mainClass = [
+    'p2-offer-gallery__main',
+    layout === 'editorial' ? ' p2-offer-gallery__main--editorial' : '',
+    cap === 'sm' ? ' p2-offer-gallery__main--cap-sm' : '',
+  ].join('');
+
   return (
     <div className="p2-offer-gallery">
-      <div className="p2-offer-gallery__main">
-        <ProposalPicture assetId={current} layout="fill" objectFit="cover" sizes={sizes} />
-        {(overlayTitleBg || overlaySummaryBg) && (
-          <div className="p2-offer-gallery__overlay">
-            {overlayTitleBg && <p className="p2-offer-gallery__overlay-title">{overlayTitleBg}</p>}
-            {overlaySummaryBg && <p className="p2-offer-gallery__overlay-summary">{overlaySummaryBg}</p>}
-          </div>
-        )}
+      <div className={mainClass}>
+        <ProposalPicture assetId={current} layout="fill" objectFit="cover" sizes={sizes} capScale={cap === 'sm' ? 1 : 1.5} />
         {captionBg && <span className="p2-offer-gallery__badge">{captionBg}</span>}
         {ids.length > 1 && (
           <div className="p2-offer-gallery__nav" aria-label="Галерия">

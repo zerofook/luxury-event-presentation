@@ -53,3 +53,53 @@ Committed under `docs/screenshots/phase2-4/` (390 / 1440, all decoration subsect
 | Ceiling / fringe detail (optional) | PDF p18 | Hall wide render used once for three p18 lines. |
 
 Do **not** use hidden Canva c41–c56. No AI upscales (verify enforces ≤1.5× display scale).
+
+## Independent review (Playwright 390 / 768 / 1440)
+
+Post-review fixes on the same branch. **Phase 1 / Investment unchanged.** Gala 3D structure and p18 compact lines kept as-is.
+
+### Verification
+
+```bash
+npm run validate
+npm run build:pages
+node scripts/verify-dist-pricing.mjs
+node scripts/verify-pages-base.mjs
+node scripts/capture-phase2-4.mjs
+```
+
+- **`derivePriceType`** (`build-proposal-client.mjs`): numeric `unitPrice` → `priceType: unit_price` unless audit already sets another type.
+- **`validate-phase2-data.mjs`**: fails when `unitPrice` is set and `priceType === 'not_provided'`.
+- **`verify-client-copy.mjs`**: forbidden phrases include `в източника`, `не се дублира`, `извлечения набор`, `извлечени ценови`, `без ценови колони`, `частични суми`, `собственика`.
+- **`OfferPriceDisplay`**: renders `qty × unit = total` only when `unitArithmeticMatches()`; otherwise prints quantity, unit price, and printed total without an equation (p17 stage florals: 12 × 220 ≠ 2 904 — note stays in audit only).
+
+### Assets (text-free mapping + entrance)
+
+| Asset | Source | Notes |
+| --- | --- | --- |
+| `v4_p19_crop_mapping_partial_clean` | PDF p19 extract (`scripts/extract-phase2-2-from-pdf.mjs`) | Price table cropped out; allowlisted `textFree`. |
+| `v4_p20_crop_mapping_full_clean` | PDF p20 extract | Bottom PDF price strip removed; **if a wider all-walls render is needed**, owner export from **PDF page 20** or **Canva c20** (no table). |
+| `v4_p04_crop_entrance_v3` | PR #10 crop | Replaces `v4_p05_crop_entrance_hero_clean` (baked p05 copy panel). |
+
+Mapping galleries: no image overlay title/summary (panel heading only).
+
+### Layout / UX tweaks
+
+- Compact blocks: `p2-offer-block__split` — hero + priced rows side-by-side on desktop (cocktail, p18 hall, entrance, guest tables, entrance zone).
+- Smaller corridor toast / stage cake crops: `galleryCap: 'sm'` + `__main--cap-sm`.
+- **Алтернативи**: 3D mapping group hidden; short link to `#dekor-gala` (no duplicate prices).
+- Programme: music/disco hero crop position; Gatsby spotlight tile; text cards for ШОУ ПРОГРАМА / Gipsy Kings where renders were blank.
+
+### Review checklist status
+
+| # | Item | Status |
+| --- | --- | --- |
+| 1 | Clean mapping crops; entrance v3; no mapping overlays | Done — owner export note for p20 if full perimeter still needed |
+| 2 | `unit_price` for p11 / hospitality; validation rule | Done |
+| 3 | p17 florals — no false equation | Done |
+| 4 | `p29-extra-install` in extras; full p29 titles | Done |
+| 5 | No duplicate unit lines; vintage title once; Alternativi cross-ref | Done |
+| 6 | Client copy rewrite + forbidden phrases | Done |
+| 7 | Tighter rows, split heroes, cap small tiles, programme fixes | Done — re-check scroll length on device if still long |
+
+Screenshots refreshed in `docs/screenshots/phase2-4/` after `build:pages`.
