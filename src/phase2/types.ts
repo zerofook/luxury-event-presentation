@@ -18,7 +18,7 @@ export type ItemCurrency = 'EUR' | 'GBP';
 
 export interface ClientSourceRef {
   sourceType: 'pdf' | 'owner-provided';
-  labelBg: string;
+  labelBg?: string;
   pdfPage?: number;
   fileRef?: string;
   date?: string;

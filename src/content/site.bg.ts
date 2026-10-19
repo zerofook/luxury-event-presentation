@@ -191,7 +191,11 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       titleBg: '22 години успех. Един незабравим момент.',
       bodyBg: 'Тортата, тостът и празненството — емоционален връх на юбилейната вечер.',
       disclaimerBg: 'Концептуална последователност — подлежи на финално одобрение.',
-      heroFrame: { assetId: 'v4_p37_crop_cake_arrival', captionBg: 'Тортата пристига зад перушина' },
+      heroFrame: {
+        assetId: 'v4_owner_crop_cake_ceremony',
+        captionBg: 'Тортата пристига зад перушина',
+        objectPosition: '50% 42%',
+      },
       frames: [
         { assetId: 'v4_p37_crop_hats_accessories', captionBg: 'Шапки и аксесоари за гостите' },
         { assetId: 'v4_p37_crop_countdown_22', captionBg: 'Обратно броене към 22' },

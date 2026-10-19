@@ -1,4 +1,4 @@
-import { ResponsivePicture } from '@/components/ResponsivePicture';
+import { ProposalPicture } from './ProposalPicture';
 import { TECHNICAL_STORY_SLIDES } from '../data/technicalStory';
 import type { ClientLineItem } from '../types';
 import { ItemRowList } from './ItemRowList';
@@ -21,7 +21,7 @@ export function TechnicalStory({
         {heroes.map((slide) => (
           <figure key={slide.assetId} className="p2-tech-story__slide p2-tech-story__slide--hero">
             <div className="p2-tech-story__visual p2-tech-story__visual--hero">
-              <ResponsivePicture assetId={slide.assetId} objectFit="cover" />
+              <ProposalPicture assetId={slide.assetId} objectFit="cover" />
             </div>
             <figcaption>
               <h3>{slide.titleBg}</h3>
@@ -33,7 +33,7 @@ export function TechnicalStory({
           {halves.map((slide) => (
             <figure key={slide.assetId} className="p2-tech-story__slide">
               <div className="p2-tech-story__visual">
-                <ResponsivePicture assetId={slide.assetId} objectFit="cover" />
+                <ProposalPicture assetId={slide.assetId} objectFit="cover" />
               </div>
               <figcaption>
                 <h3>{slide.titleBg}</h3>

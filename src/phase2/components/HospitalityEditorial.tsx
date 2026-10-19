@@ -1,4 +1,4 @@
-import { ResponsivePicture } from '@/components/ResponsivePicture';
+import { ProposalPicture } from './ProposalPicture';
 import type { ClientLineItem } from '../types';
 import { ItemRowList } from './ItemRowList';
 
@@ -16,7 +16,7 @@ export function HospitalityEditorial({ items }: { items: ClientLineItem[] }) {
         {HOSPITALITY_GALLERY.map((g) => (
           <figure key={g.assetId} className="p2-hospitality-gallery__item">
             <div className="p2-hospitality-gallery__visual">
-              <ResponsivePicture assetId={g.assetId} objectFit="cover" sizes="(min-width: 900px) 380px, 45vw" />
+              <ProposalPicture assetId={g.assetId} objectFit="cover" sizes="(min-width: 900px) 380px, 45vw" />
             </div>
             <figcaption>{g.captionBg}</figcaption>
           </figure>

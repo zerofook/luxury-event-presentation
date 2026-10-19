@@ -112,9 +112,10 @@ function derivePriceType(item) {
 
 function clientSourceRef(item) {
   if (item.source?.sourceType === 'owner-provided') {
+    const labelBg = sanitizeBg(item.source.labelBg);
     return {
       sourceType: 'owner-provided',
-      labelBg: sanitizeBg(item.source.labelBg) || 'Материал от възложителя',
+      ...(labelBg ? { labelBg } : {}),
       fileRef: item.source.fileRef,
       date: item.source.date,
     };
@@ -177,9 +178,23 @@ function toClientItem(item) {
   };
 }
 
+function patchVintageCarItem(item) {
+  if (item.id !== 'owner-vintage-car-photo-zone') return item;
+  return {
+    ...item,
+    overlapNoteBg: undefined,
+    source: item.source
+      ? { ...item.source, labelBg: undefined }
+      : item.source,
+  };
+}
+
 function ensureVintageCarItem(bundle) {
   const exists = bundle.items.some((i) => i.id === 'owner-vintage-car-photo-zone');
-  if (exists) return;
+  if (exists) {
+    bundle.items = bundle.items.map((i) => patchVintageCarItem(i));
+    return;
+  }
   bundle.items.push({
     id: 'owner-vintage-car-photo-zone',
     area: 'Фото зона',
@@ -200,16 +215,13 @@ function ensureVintageCarItem(bundle) {
     statusBasis: 'owner-provided',
     proposalStatus: 'suggested',
     bookingStatus: 'not_applicable',
-    mediaPath: 'media/img/owner-vintage-car-installation.jpg',
+    mediaPath: 'media/img/v4_owner_crop_vintage_car_photo_zone-1024.jpg',
     clientNoteBg:
       'Цената включва доставянето на автомобила и тематичната декорация. Окончателната стойност зависи от избраните декоративни елементи.',
-    overlapNoteBg:
-      'Визуализациите за фото зона от 42-страничното предложение остават валидни; пълноразмерната кола там е без цена. Тази оферта е отделен източник и не се сумира с други позиции.',
     source: {
       sourceType: 'owner-provided',
-      labelBg: 'Допълнителна концепция от възложителя',
       date: '2026-10-19',
-      fileRef: 'public/media/img/owner-vintage-car-installation.jpg',
+      fileRef: 'sources/v4/owner/owner-vintage-car-photo-zone.png',
     },
   });
   bundle.meta.itemCount = bundle.items.length;
