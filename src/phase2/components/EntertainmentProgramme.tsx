@@ -110,12 +110,13 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                   {chapter.galleryAssetIds.map((id) => (
                     <div
                       key={id}
-                      className={`p2-programme-chapter__thumb${chapter.galleryPortraitIds?.includes(id) ? ' p2-programme-chapter__thumb--portrait' : ''}`}
+                      className={`p2-programme-chapter__thumb${chapter.galleryPortraitIds?.includes(id) ? ' p2-programme-chapter__thumb--portrait' : ''}${chapter.id === 'hosts' && id.includes('host_1') ? ' p2-programme-chapter__thumb--host' : ''}`}
                     >
                       <ProposalPicture
                         assetId={id}
                         layout="fill"
                         objectFit="cover"
+                        objectPosition={chapter.id === 'hosts' && id.includes('host_1') ? '50% 18%' : undefined}
                         sizes="(min-width: 1024px) 280px, 30vw"
                       />
                     </div>

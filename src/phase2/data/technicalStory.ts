@@ -21,7 +21,7 @@ export const TECHNICAL_STORY_SLIDES = [
   {
     assetId: 'v4_p18_crop_hall_clean_left',
     titleBg: '3D мапинг и пространство',
-    bodyBg: 'Проекция върху архитектурата — визуален ефект от вариантите за 3D мапинг (без ценови колони).',
+    bodyBg: 'Проекция върху архитектурата — визуален ефект от вариантите за 3D мапинг в гала залата.',
     layout: 'half' as const,
   },
 ] as const;

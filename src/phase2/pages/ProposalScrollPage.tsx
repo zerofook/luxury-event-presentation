@@ -11,11 +11,9 @@ import {
   programmeItems,
   technicalItems,
 } from '../data/loadProposalData';
-import { AREA_HERO_ASSET } from '../data/areaAssets';
 import { SECTION_HERO_ASSET } from '../data/sectionAssets';
 import { ProposalMobileNav, ProposalSidebar } from '../components/ProposalSidebar';
-import { ItemRowList } from '../components/ItemRowList';
-import { VintageCarFeature } from '../components/VintageCarFeature';
+import { SubsectionOffers } from '../components/offers/SubsectionOffers';
 import { formatItemPrice } from '../lib/formatMoney';
 import { StatusChip } from '../components/StatusChip';
 import { scrollToSection, useScrollSpy } from '../hooks/useScrollSpy';
@@ -92,12 +90,8 @@ const SPY_IDS = [
   'sledvashti-stapki',
 ];
 
-/** Full-width media + price rows below (no split/inset frames). */
-const DEKOR_LAYOUT = ['', '', '', '', '', '', ''] as const;
-
 export function ProposalScrollPage({ initialSection }: { initialSection: ProposalSectionId }) {
   const bundle = getProposalBundle();
-  const vintageCar = getItemById(bundle.items, 'owner-vintage-car-photo-zone');
   const altGroups = deriveAlternativeGroups(bundle.items);
   const [dekorExpanded, setDekorExpanded] = useState(initialSection === 'dekoracia');
   const activeSpy = useScrollSpy(SPY_IDS);
@@ -201,54 +195,24 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             </p>
             <DecorationOverview />
 
-          {DECORATION_SUBSECTIONS.map((sub, idx) => {
+          {DECORATION_SUBSECTIONS.map((sub) => {
             const areaItems = itemsForAreas(bundle.items, [...sub.areas]);
-            const hero =
-              sub.id === 'dekor-foto'
-                ? 'v4_p07_crop_photozone_ivory_wide'
-                : sub.areas.map((a) => AREA_HERO_ASSET[a]).find(Boolean);
-            const layout = DEKOR_LAYOUT[idx % DEKOR_LAYOUT.length];
-            const heroVisualClass =
-              sub.id === 'dekor-masi'
-                ? 'p2-area__visual p2-area__visual--editorial-cap'
-                : sub.id === 'dekor-foto' && vintageCar
-                  ? 'p2-area__visual p2-area__visual--owner-car'
-                  : 'p2-area__visual';
             return (
-              <div key={sub.id} id={sub.id} className={`p2-area p2-area--subsection ${layout}`}>
+              <div key={sub.id} id={sub.id} className="p2-area p2-area--subsection p2-area--offers">
                 <h3 className="p2-area__title">{sub.labelBg}</h3>
-                {hero && sub.id !== 'dekor-foto' && (
-                  <div className={heroVisualClass}>
-                    <ProposalPicture assetId={hero} layout="fill" objectFit="cover" capScale={sub.id === 'dekor-masi' ? 1.5 : 1.5} />
-                  </div>
-                )}
-                {sub.id === 'dekor-koridor' && (
-                  <div className="p2-area__detail-strip p2-area__detail-strip--paired">
-                    <ProposalPicture assetId="v4_p13_crop_guest_toast" layout="fill" objectFit="cover" capScale={1} />
-                    <ProposalPicture assetId="v4_p13_crop_led_wall_detail" layout="fill" objectFit="cover" capScale={1} />
-                  </div>
-                )}
-                {sub.id === 'dekor-scena' && (
-                  <div className="p2-area__detail-strip p2-area__detail-strip--paired">
-                    <ProposalPicture assetId="v4_p17_crop_stage_decor_detail" layout="fill" objectFit="cover" capScale={1} />
-                    <ProposalPicture assetId="v4_p17_crop_stage_cake_reveal" layout="fill" objectFit="cover" capScale={1} />
-                  </div>
-                )}
                 {sub.id === 'dekor-foto' && (
                   <>
                     <p className="p2-lead">
-                      Gatsby фото зона от предложението; по-долу — допълнителната оферта за ретро автомобил от
-                      възложителя.
+                      Gatsby фото зона от предложението и допълнителна оферта за ретро автомобил с тематична декорация.
                     </p>
                     <div className="p2-photo-pdf-row">
                       <ProposalPicture assetId="v4_p06_crop_photowall_v3" objectFit="cover" />
                       <ProposalPicture assetId="v4_p07_crop_photozone_orange" objectFit="cover" />
                     </div>
-                    {vintageCar && <VintageCarFeature />}
                   </>
                 )}
-                {areaItems.length > 0 && <ItemRowList items={areaItems} />}
-                {sub.id !== 'dekor-foto' && areaItems.length === 0 && (
+                <SubsectionOffers subsectionId={sub.id} areaItems={areaItems} allItems={bundle.items} />
+                {areaItems.length === 0 && (
                   <p className="p2-muted">Няма отделни ценови редове за тази зона в извлечения набор.</p>
                 )}
               </div>

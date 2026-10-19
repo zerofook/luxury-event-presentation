@@ -1,7 +1,16 @@
 import { ProposalPicture } from './ProposalPicture';
 import { TECHNICAL_STORY_SLIDES } from '../data/technicalStory';
 import type { ClientLineItem } from '../types';
-import { ItemRowList } from './ItemRowList';
+import { OfferBlockView } from './offers/OfferBlockView';
+import { TECH_EXTRA_BLOCK, TECH_OFFER_BLOCK } from '../offers/presentationCatalog';
+import { getItemMap } from '../offers/resolveOffers';
+import type { ResolvedOfferBlock } from '../offers/types';
+
+function resolveTechBlock(spec: typeof TECH_OFFER_BLOCK, items: ClientLineItem[]): ResolvedOfferBlock {
+  const itemMap = getItemMap(items);
+  const blockItems = (spec.itemIds ?? []).map((id) => itemMap.get(id)).filter(Boolean) as ClientLineItem[];
+  return { ...spec, items: blockItems };
+}
 
 export function TechnicalStory({
   mainItems,
@@ -14,6 +23,10 @@ export function TechnicalStory({
 }) {
   const heroes = TECHNICAL_STORY_SLIDES.filter((s) => s.layout === 'hero');
   const halves = TECHNICAL_STORY_SLIDES.filter((s) => s.layout === 'half');
+  const allTech = [...mainItems, ...extraItems];
+  const itemMap = getItemMap(allTech);
+  const mainBlock = resolveTechBlock(TECH_OFFER_BLOCK, allTech);
+  const extraBlock = resolveTechBlock(TECH_EXTRA_BLOCK, allTech);
 
   return (
     <>
@@ -38,23 +51,25 @@ export function TechnicalStory({
               <figcaption>
                 <h3>{slide.titleBg}</h3>
                 <p>{slide.bodyBg}</p>
+                {slide.assetId === 'v4_p18_crop_hall_clean_left' && (
+                  <p className="p2-offer-crossref">
+                    Цени и варианти за 3D мапинг:{' '}
+                    <a href="#dekor-gala" className="p2-offer-crossref__link">
+                      секция „Гала зала“
+                    </a>
+                    .
+                  </p>
+                )}
               </figcaption>
             </figure>
           ))}
         </div>
       </div>
-      <details className="p2-tech-specs">
-        <summary>Технически спецификации и цени от предложението</summary>
+      <div className="p2-offer-stack p2-offer-stack--tech">
         {indicativeNoteBg && <p className="p2-invest-note">{indicativeNoteBg}</p>}
-        <h3 className="p2-area__title">Основен пакет</h3>
-        <ItemRowList items={mainItems} />
-        {extraItems.length > 0 && (
-          <>
-            <h3 className="p2-area__title p2-area__title--spaced">Допълнителни услуги</h3>
-            <ItemRowList items={extraItems} />
-          </>
-        )}
-      </details>
+        <OfferBlockView block={mainBlock} itemMap={itemMap} />
+        {extraBlock.items.length > 0 && <OfferBlockView block={extraBlock} itemMap={itemMap} />}
+      </div>
     </>
   );
 }
