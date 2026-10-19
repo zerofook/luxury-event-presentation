@@ -44,7 +44,7 @@ export function InvestmentEditorial({
     <div className="p2-invest-editorial">
       {SHOW_LEGACY_INVESTMENT_EXPLAINER ? (
         <div className="p2-invest-legend">
-          <p>{meta.investmentIntroBg}</p>
+          {meta.investmentIntroBg ? <p>{meta.investmentIntroBg}</p> : null}
           {meta.investmentClarityBg && <p>{meta.investmentClarityBg}</p>}
           <p>{meta.vatNoteBg}</p>
           <p>{meta.currencyNoteBg}</p>
