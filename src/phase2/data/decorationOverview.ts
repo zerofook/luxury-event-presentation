@@ -18,7 +18,7 @@ export const DECORATION_OVERVIEW_TILES = [
   {
     assetId: 'v4_p18_crop_hall_clean_left',
     titleBg: 'Гала зала',
-    bodyBg: 'Пълноценен рендер на залата без ценови колони от PDF.',
+    bodyBg: 'Пълноценен рендер на залата — основа за 3D мапинг и декорация.',
   },
   {
     assetId: 'v4_p17_crop_stage_hero',

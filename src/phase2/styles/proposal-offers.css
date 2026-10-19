@@ -1,0 +1,445 @@
+/* Universal offer presentation — Phase 2.4 */
+
+.p2-offer-stack {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 1rem;
+}
+
+.p2-offer-stack--tech {
+  margin-top: 2rem;
+}
+
+.p2-offer-block {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.p2-offer-block__split {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .p2-offer-block__split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+  .p2-offer-block__split .p2-offer-block__hero {
+    grid-row: span 2;
+  }
+}
+
+.p2-offer-block__head {
+  border-bottom: 1px solid rgba(52, 76, 96, 0.12);
+  padding-bottom: 0.75rem;
+}
+
+.p2-offer-block__title {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+  color: var(--p2-navy);
+}
+
+.p2-offer-block__subtitle {
+  margin: 0;
+  font-size: 0.92rem;
+  opacity: 0.88;
+}
+
+.p2-offer-block__intro {
+  margin: 0.5rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  max-width: 46rem;
+}
+
+.p2-offer-row {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(52, 76, 96, 0.08);
+}
+
+.p2-offer-row:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 900px) {
+  .p2-offer-row {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: start;
+    gap: 1.75rem;
+  }
+}
+
+.p2-offer-row__visual {
+  min-width: 0;
+}
+
+.p2-offer-row__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.p2-offer-row__title {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+}
+
+.p2-offer-row__summary,
+.p2-offer-row__desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  opacity: 0.92;
+}
+
+.p2-offer-row__pricing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.65rem 1rem;
+}
+
+.p2-offer-row__lower {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .p2-offer-row__lower {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.p2-offer-gallery__main {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  max-height: min(52vh, 480px);
+  overflow: hidden;
+  border: 1px solid rgba(52, 76, 96, 0.12);
+  background: rgba(255, 255, 255, 0.35);
+  width: 100%;
+}
+
+.p2-offer-gallery__main--editorial {
+  aspect-ratio: 21 / 9;
+  max-height: min(46vh, 420px);
+}
+
+.p2-offer-gallery__main--cap-sm {
+  aspect-ratio: 4 / 3;
+  max-height: 240px;
+  max-width: 320px;
+}
+
+.p2-offer-row--single .p2-offer-row__visual:has(.p2-offer-gallery__main--cap-sm) {
+  display: flex;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .p2-offer-row--single .p2-offer-row__visual:has(.p2-offer-gallery__main--cap-sm) {
+    justify-content: center;
+  }
+}
+
+.p2-offer-gallery__overlay {
+  position: absolute;
+  inset: 0 auto auto 0;
+  max-width: min(92%, 420px);
+  margin: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  background: rgba(52, 76, 96, 0.72);
+  color: #f6f2e9;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.p2-offer-gallery__overlay-title {
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.p2-offer-gallery__overlay-summary {
+  margin: 0;
+  opacity: 0.95;
+}
+
+.p2-offer-gallery__badge {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.45rem;
+  background: rgba(246, 242, 233, 0.92);
+  color: var(--p2-navy);
+  border: 1px solid rgba(52, 76, 96, 0.12);
+}
+
+.p2-offer-gallery__nav {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(246, 242, 233, 0.92);
+  border: 1px solid rgba(52, 76, 96, 0.12);
+  padding: 0.15rem 0.35rem;
+  font-size: 0.78rem;
+}
+
+.p2-offer-gallery__nav-btn {
+  font: inherit;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--p2-navy);
+  padding: 0.15rem 0.35rem;
+}
+
+.p2-offer-gallery__thumbs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.p2-offer-gallery__thumb {
+  width: 4.5rem;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  border: 1px solid rgba(52, 76, 96, 0.15);
+  background: #fff;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.p2-offer-gallery__thumb.is-viewing {
+  border-color: var(--p2-gold);
+  box-shadow: inset 0 0 0 1px var(--p2-gold);
+}
+
+.p2-offer-subvariants {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 560px) {
+  .p2-offer-subvariants {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.p2-offer-subvariant {
+  border: 1px solid rgba(52, 76, 96, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+  padding: 0.75rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.p2-offer-subvariant.is-viewing {
+  border-color: var(--p2-gold);
+  box-shadow: inset 0 0 0 1px rgba(178, 149, 98, 0.35);
+}
+
+.p2-offer-subvariant__focus {
+  font: inherit;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+.p2-offer-subvariant__label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.p2-offer-subvariant__hint {
+  display: block;
+  font-size: 0.82rem;
+  opacity: 0.88;
+  margin-top: 0.25rem;
+  line-height: 1.45;
+}
+
+.p2-offer-price__amount {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  display: block;
+}
+
+.p2-offer-price--prominent .p2-offer-price__amount {
+  font-size: 1.55rem;
+}
+
+.p2-offer-price__qty,
+.p2-offer-price__vat {
+  display: block;
+  font-size: 0.78rem;
+  opacity: 0.85;
+  margin-top: 0.15rem;
+}
+
+.p2-offer-included__title,
+.p2-offer-extra__title {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  opacity: 0.8;
+}
+
+.p2-offer-included__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.p2-offer-included__list li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.p2-offer-included__mark {
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: 0.35rem;
+  border-radius: 50%;
+  background: var(--p2-gold);
+  flex-shrink: 0;
+}
+
+.p2-offer-included__note {
+  font-style: normal;
+  opacity: 0.85;
+}
+
+.p2-offer-extra p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.p2-offer-compact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border: 1px solid rgba(52, 76, 96, 0.1);
+}
+
+.p2-offer-compact__row {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid rgba(52, 76, 96, 0.08);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.p2-offer-compact__row:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 768px) {
+  .p2-offer-compact__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+}
+
+.p2-offer-compact__title {
+  margin: 0 0 0.25rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.p2-offer-compact__desc,
+.p2-offer-compact__note {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+  line-height: 1.45;
+}
+
+.p2-offer-compact__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  min-width: 9rem;
+}
+
+.p2-offer-crossref {
+  margin: 0.5rem 0 0;
+  font-size: 0.88rem;
+}
+
+.p2-offer-crossref__link {
+  color: var(--p2-turquoise);
+}
+
+.p2-area--offers .p2-area__title {
+  margin-bottom: 0.75rem;
+}
+
+.p2-programme-chapter__hero--wide {
+  overflow: hidden;
+  border: 1px solid rgba(52, 76, 96, 0.1);
+}
+
+@media (min-width: 768px) {
+  .p2-programme-chapter__hero--wide {
+    max-height: min(48vh, 500px);
+  }
+}
+
+.p2-programme-chapter__gallery--count-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.p2-programme-chapter__thumb--host {
+  aspect-ratio: 3 / 4;
+}
+
+.p2-programme-chapter__gallery--solo {
+  max-width: 360px;
+}
+
+.p2-programme-chapter__gallery--solo .p2-programme-chapter__thumb {
+  max-width: none;
+}
+
+.p2-offer-crossref--alt {
+  margin: 0 0 1rem;
+}
+
+.p2-programme-chapter__spotlight--finale .p2-programme-chapter__spotlight-copy p {
+  max-width: 42rem;
+}

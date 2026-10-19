@@ -295,6 +295,28 @@
       "extractMethod": "pdfimages+crop"
     },
     {
+      "id": "v4_p19_crop_mapping_partial_clean",
+      "width": 1062,
+      "height": 702,
+      "pdfPage": 19,
+      "canvaPage": 19,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p19_crop_mapping_partial_clean.jpg",
+      "phase22": true,
+      "extractMethod": "pdfimages+crop",
+      "textFree": true
+    },
+    {
+      "id": "v4_p20_crop_mapping_full_clean",
+      "width": 1659,
+      "height": 493,
+      "pdfPage": 20,
+      "canvaPage": 20,
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p20_crop_mapping_full_clean.jpg",
+      "phase22": true,
+      "extractMethod": "pdfimages+crop",
+      "textFree": true
+    },
+    {
       "id": "v4_p21_00_1851x849",
       "width": 1851,
       "height": 849,

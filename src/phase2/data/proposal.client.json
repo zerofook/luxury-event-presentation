@@ -3,11 +3,11 @@
     "eventTitleBg": "GEOTRADING — 22-ра юбилейна гала",
     "eventDateBg": "12 януари 2027",
     "guestCountNoteBg": "Предложена конфигурация ~150 госта (по изходния план на залата; не е финално потвърдено)",
-    "vatNoteBg": "Цените следват формулировките в източника — основно „без ДДС“, освен където е посочено друго.",
+    "vatNoteBg": "Цените следват формулировките в предложението — основно „без ДДС“, освен където е посочено друго.",
     "currencyNoteBg": "Почти всички суми са в евро; изключение: страница 40 — Gipsy Kings (85 000 £).",
     "itemCount": 76,
     "investmentIntroBg": "Към момента не е представена обща сума. Изисква се избрана конфигурация (палитра, програма, технически пакет, количества) и съгласуване на припокриващи се позиции.",
-    "investmentClarityBg": "Позициите с етикет „алтернатива“ са взаимно изключващи се опции. Диапазоните и „по запитване“ изискват избор и потвърждение преди финална оферта. Всяка сума по-долу е съпоставима със страница от източника.",
+    "investmentClarityBg": "Позициите с етикет „алтернатива“ са взаимно изключващи се опции. Диапазоните и „по запитване“ изискват избор и потвърждение преди финална оферта. Всяка сума по-долу е съпоставима със съответната страница в предложението.",
     "contactPlaceholderBg": "За обсъждане на конфигурацията и следващи стъпки ще бъдат публикувани контактни данни на агенцията след потвърждение от възложителя."
   },
   "contact": {
@@ -145,7 +145,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "not_provided",
+      "priceType": "unit_price",
       "proposalStatus": "suggested",
       "bookingStatus": "not_applicable",
       "source": {
@@ -191,7 +191,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "not_provided",
+      "priceType": "unit_price",
       "proposalStatus": "suggested",
       "bookingStatus": "not_applicable",
       "source": {
@@ -542,7 +542,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "not_provided",
+      "priceType": "unit_price",
       "proposalStatus": "optional",
       "bookingStatus": "not_applicable",
       "source": {
@@ -565,7 +565,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "not_provided",
+      "priceType": "unit_price",
       "proposalStatus": "optional",
       "bookingStatus": "not_applicable",
       "source": {
@@ -588,7 +588,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "not_provided",
+      "priceType": "unit_price",
       "proposalStatus": "optional",
       "bookingStatus": "not_applicable",
       "source": {
@@ -611,7 +611,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "not_provided",
+      "priceType": "unit_price",
       "proposalStatus": "optional",
       "bookingStatus": "not_applicable",
       "source": {
@@ -634,7 +634,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "not_provided",
+      "priceType": "unit_price",
       "proposalStatus": "optional",
       "bookingStatus": "not_applicable",
       "source": {
@@ -657,7 +657,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "not_provided",
+      "priceType": "unit_price",
       "proposalStatus": "optional",
       "bookingStatus": "not_applicable",
       "source": {
@@ -693,7 +693,7 @@
     {
       "id": "p29-tech-1-cocktail",
       "area": "Техническо обезпечаване",
-      "titleBg": "АТМОСФЕРНО ОСВЕТЛЕНИЕ",
+      "titleBg": "1. Коктейл зона — атмосферно осветление",
       "quantity": null,
       "unit": null,
       "unitPrice": null,
@@ -715,7 +715,7 @@
     {
       "id": "p29-tech-2-corridor",
       "area": "Техническо обезпечаване",
-      "titleBg": "ОСВЕТЛЕНИЕ И LED ЕКРАН",
+      "titleBg": "2. Коридор — осветление и LED екран",
       "quantity": null,
       "unit": null,
       "unitPrice": null,
@@ -737,7 +737,7 @@
     {
       "id": "p29-tech-3-gala",
       "area": "Техническо обезпечаване",
-      "titleBg": "СЦЕНИЧНО ОСВЕТЛЕНИЕ",
+      "titleBg": "3. Зала гала — сценично осветление",
       "quantity": null,
       "unit": null,
       "unitPrice": null,
@@ -759,7 +759,7 @@
     {
       "id": "p29-tech-4-sound",
       "area": "Техническо обезпечаване",
-      "titleBg": "ЗА КОКТЕЙЛ, КОРИДОР И ЗАЛА ГАЛА",
+      "titleBg": "4. Озвучаване — за коктейл, коридор и зала гала",
       "quantity": null,
       "unit": null,
       "unitPrice": null,
@@ -781,7 +781,7 @@
     {
       "id": "p29-tech-5-led",
       "area": "Техническо обезпечаване",
-      "titleBg": "ЕКРАН – КОРИДОР",
+      "titleBg": "5. LED екран — коридор",
       "quantity": null,
       "unit": null,
       "unitPrice": null,
@@ -803,7 +803,7 @@
     {
       "id": "p29-tech-6a-stage-cocktail",
       "area": "Техническо обезпечаване",
-      "titleBg": "ЗАЛА ГАЛА И КОКТЕЙЛ (коктейл)",
+      "titleBg": "6. Сцени — зала гала и коктейл (коктейл)",
       "descriptionBg": "NIVTEC 28 кв.м. / 35 кв.м.; Стълби, парапети, подиум; Бяло фолио за завършек",
       "quantity": null,
       "unit": null,
@@ -826,7 +826,7 @@
     {
       "id": "p29-tech-6b-stage-gala",
       "area": "Техническо обезпечаване",
-      "titleBg": "ЗАЛА ГАЛА И КОКТЕЙЛ (зала)",
+      "titleBg": "6. Сцени — зала гала и коктейл (зала)",
       "descriptionBg": "NIVTEC 28 кв.м. / 35 кв.м.; Стълби, парапети, подиум; Бяло фолио за завършек",
       "quantity": null,
       "unit": null,
@@ -849,7 +849,7 @@
     {
       "id": "p29-tech-7-truss",
       "area": "Техническо обезпечаване",
-      "titleBg": "ЗА ФОАЙЕ И КОРИДОР",
+      "titleBg": "7. Конструкция — за фоайе и коридор",
       "quantity": null,
       "unit": null,
       "unitPrice": null,
@@ -871,7 +871,7 @@
     {
       "id": "p29-tech-8-rider",
       "area": "Техническо обезпечаване",
-      "titleBg": "РАЙДЕР И ДОПЪЛНИТЕЛНО",
+      "titleBg": "8. Райдер и допълнително",
       "quantity": null,
       "unit": null,
       "unitPrice": null,
@@ -1013,7 +1013,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "not_provided",
+      "priceType": "unit_price",
       "proposalStatus": "optional",
       "bookingStatus": "proposed_not_confirmed",
       "source": {
@@ -1105,7 +1105,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "fixed",
+      "priceType": "unit_price",
       "proposalStatus": "alternative",
       "bookingStatus": "proposed_not_confirmed",
       "alternativeGroup": "HOST",
@@ -1129,7 +1129,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "fixed",
+      "priceType": "unit_price",
       "proposalStatus": "alternative",
       "bookingStatus": "proposed_not_confirmed",
       "alternativeGroup": "HOST",
@@ -1153,7 +1153,7 @@
       "priceMax": null,
       "currency": "EUR",
       "vatTreatment": "БЕЗ ДДС",
-      "priceType": "fixed",
+      "priceType": "unit_price",
       "proposalStatus": "alternative",
       "bookingStatus": "proposed_not_confirmed",
       "alternativeGroup": "HOST",
@@ -1822,7 +1822,7 @@
       "id": "technika",
       "titleBg": "Техническо обезпечаване",
       "scopeBg": "Звук, светлина, LED, сцена, коридор, 3D мапинг.",
-      "notesBg": "На страница 29 е отпечатана обща цена за техническия пакет; редовете в таблицата и допълнителните услуги изискват съгласуване. Сумите за LED екран в коридора се разминават в източника."
+      "notesBg": "На страница 29 е отпечатана обща цена за техническия пакет; редовете и допълнителните услуги изискват съгласуване преди финална конфигурация."
     },
     {
       "id": "gostopriemstvo",
