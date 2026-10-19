@@ -6,6 +6,7 @@ import '@/styles/guest-header.css';
 const SHOW_GUEST_HEADER_PDF = false;
 
 const CLOSING_SCENE_ID = 'scene-closing';
+const HEADER_HEIGHT_FALLBACK_PX = 60;
 
 const PRIMARY_NAV = [
   { hash: '#/', labelBg: 'ПРЕЖИВЯВАНЕТО', experience: true },
@@ -14,6 +15,17 @@ const PRIMARY_NAV = [
 ] as const;
 
 type HeaderSurface = 'hero' | 'dark' | 'light';
+
+function readPublishedHeaderHeightPx(): number {
+  const parsed = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue('--g-header-height'),
+  );
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : HEADER_HEIGHT_FALLBACK_PX;
+}
+
+function measureInnerHeaderHeightPx(inner: HTMLElement): number {
+  return Math.round(inner.getBoundingClientRect().height);
+}
 
 function sceneSurfaceForElement(el: Element | null): HeaderSurface {
   let node: Element | null = el;
@@ -44,11 +56,8 @@ function sceneSurfaceForElement(el: Element | null): HeaderSurface {
   return 'light';
 }
 
-function measureHeaderSurface(): HeaderSurface {
-  const root = document.documentElement;
-  const headerH =
-    parseFloat(getComputedStyle(root).getPropertyValue('--g-header-height')) || 3.75 * 16;
-  const probeY = headerH + 14;
+function measureHeaderSurface(probeHeightPx: number): HeaderSurface {
+  const probeY = probeHeightPx + 14;
   const x = Math.min(window.innerWidth - 8, Math.max(8, window.innerWidth * 0.5));
   const hit = document.elementFromPoint(x, probeY);
   return sceneSurfaceForElement(hit);
@@ -56,26 +65,39 @@ function measureHeaderSurface(): HeaderSurface {
 
 export function GuestSiteHeader() {
   const base = import.meta.env.BASE_URL;
-  const headerRef = useRef<HTMLElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const publishedHeightRef = useRef<number | null>(null);
   const [surface, setSurface] = useState<HeaderSurface>('hero');
 
   useEffect(() => {
-    const syncHeight = () => {
-      const el = headerRef.current;
-      if (!el) return;
-      document.documentElement.style.setProperty('--g-header-height', `${el.offsetHeight}px`);
+    const publishHeight = (inner: HTMLElement) => {
+      const h = measureInnerHeaderHeightPx(inner);
+      if (publishedHeightRef.current === h) return h;
+      publishedHeightRef.current = h;
+      document.documentElement.style.setProperty('--g-header-height', `${h}px`);
+      return h;
     };
 
-    const syncSurface = () => setSurface(measureHeaderSurface());
+    const syncHeight = () => {
+      const inner = innerRef.current;
+      if (!inner) return readPublishedHeaderHeightPx();
+      return publishHeight(inner);
+    };
 
-    syncHeight();
+    const syncSurface = () => {
+      const h = syncHeight();
+      setSurface(measureHeaderSurface(h));
+    };
+
     syncSurface();
 
+    const inner = innerRef.current;
+    if (!inner) return;
+
     const ro = new ResizeObserver(() => {
-      syncHeight();
       syncSurface();
     });
-    if (headerRef.current) ro.observe(headerRef.current);
+    ro.observe(inner);
 
     window.addEventListener('scroll', syncSurface, { passive: true });
     window.addEventListener('resize', syncSurface, { passive: true });
@@ -114,8 +136,8 @@ export function GuestSiteHeader() {
     .join(' ');
 
   return (
-    <header ref={headerRef} className={headerClass}>
-      <div className="g-header__inner">
+    <header className={headerClass}>
+      <div className="g-header__inner" ref={innerRef}>
         <a className="g-logo" href={`${base}#/`} onClick={onLogoClick}>
           GEOTRADING 22
         </a>

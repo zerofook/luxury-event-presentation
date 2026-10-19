@@ -48,7 +48,6 @@
 .g-header__inner {
   max-width: 72rem;
   margin: 0 auto;
-  min-height: var(--g-header-height);
   padding: 0.65rem 1.25rem;
   display: flex;
   flex-wrap: nowrap;
