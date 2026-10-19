@@ -177,7 +177,7 @@ export const DECORATION_OFFER_CATALOG: DecorationSubsectionOfferSpec[] = [
         id: 'tables-palettes',
         titleBg: 'Декор на гостни маси — палитри',
         introBg:
-          'Три цветови насоки; пакетна цена на маса (390 €) е отпечатана само за оранжевата/терракота гама. Сравнение на палитрите — в секция „Алтернативи“.',
+          'Три цветови насоки с еднаква пакетна цена на маса (390 €, без ДДС). Сравнение на палитрите — в секция „Алтернативи“.',
         layout: 'compact-rows',
         itemIds: ['p24-tables-orange', 'p24-tables-ivory', 'p24-tables-plum'],
         galleryAssetIds: ['v4_owner_doc_025_gala_tables_clean'],

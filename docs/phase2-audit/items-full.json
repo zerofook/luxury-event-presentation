@@ -668,16 +668,16 @@
    "descriptionBg": "В пакетната цена са включени: 8 подложни чинии, 1 покривка за маса, 1 голяма аранжировка, 1 по-малка аранжировка, 8 декоративни халки за салфетки",
    "quantity": null,
    "unit": "маса",
-   "unitPrice": null,
+   "unitPrice": 390,
    "lineTotal": null,
    "currency": "EUR",
-   "vatTreatment": null,
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
    "status": "alternative",
    "alternativeGroup": "PALETTE_TABLE_DECOR",
-   "statusBasis": "inferred",
-   "sourceNote": "Left panel of p24 shows the same list of inclusions but NO price box. The PDF does not state that 390 € applies.",
-   "confidence": "low",
-   "verified": false,
+   "statusBasis": "owner-confirmed",
+   "sourceNote": "Owner confirmed 2026-10-19: all three table palettes at 390 €/massa bez DDS (owner slide doc #26).",
+   "confidence": "high",
+   "verified": true,
    "crops": [
     "crops/p24_inclusions_ivory.png"
    ],
@@ -685,7 +685,7 @@
     "extract/p24/p24_crop_centerpiece_v1.jpg"
    ],
    "notes": [
-    "Price not printed for this panel. Applicability of 390 €/table to this palette is UNCONFIRMED."
+    "Owner confirmed 2026-10-19 — same package price 390 €/table as orange panel (slide #26)."
    ]
   },
   {
@@ -697,16 +697,16 @@
    "descriptionBg": "В пакетната цена са включени: 8 подложни чинии, 1 покривка за маса, 1 голяма аранжировка, 1 по-малка аранжировка, 8 декоративни халки за салфетки",
    "quantity": null,
    "unit": "маса",
-   "unitPrice": null,
+   "unitPrice": 390,
    "lineTotal": null,
    "currency": "EUR",
-   "vatTreatment": null,
+   "vatTreatment": "БЕЗ ДДС / EXCL. VAT",
    "status": "alternative",
    "alternativeGroup": "PALETTE_TABLE_DECOR",
-   "statusBasis": "inferred",
-   "sourceNote": "Right panel of p24 shows the same inclusions but NO price box.",
-   "confidence": "low",
-   "verified": false,
+   "statusBasis": "owner-confirmed",
+   "sourceNote": "Owner confirmed 2026-10-19: all three table palettes at 390 €/massa bez DDS (owner slide doc #26).",
+   "confidence": "high",
+   "verified": true,
    "crops": [
     "crops/p24_inclusions_plum.png"
    ],
@@ -714,7 +714,7 @@
     "extract/p24/p24_crop_centerpiece_v3.jpg"
    ],
    "notes": [
-    "Price not printed for this panel. Applicability of 390 €/table is UNCONFIRMED."
+    "Owner confirmed 2026-10-19 — same package price 390 €/table as orange panel (slide #26)."
    ]
   },
   {
