@@ -148,17 +148,17 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
         <div className="p2-scroll__content">
           <section id="pregled" className="p2-section-block p2-section-block--hero">
             <p className="p2-eyebrow">Предложение · {bundle.meta.eventDateBg}</p>
-            <h1 className="p2-title">22-ра юбилейна гала — цялостна концепция</h1>
-            <p className="p2-lead">
-              Редакционен преглед на одобрената визия за GEOTRADING: пространство, програма, техническа трансформация и
-              инвестиция — с оригинални визуализации и цени от източника.
-            </p>
+            <h1 className="p2-title">{bundle.meta.overviewTitleBg}</h1>
+            <p className="p2-lead">{bundle.meta.overviewLeadBg}</p>
             <ul className="p2-facts">
               <li>
-                <strong>{bundle.meta.guestCountNoteBg}</strong>
+                <strong>Идейна концепция</strong> — {bundle.meta.conceptThemeBg}
               </li>
               <li>
-                <strong>{bundle.meta.venueNameBg}</strong> · Great Gatsby
+                <strong>Примерен брой гости</strong> — {bundle.meta.guestCountExampleBg}
+              </li>
+              <li>
+                <strong>Локация</strong> — {bundle.meta.venueNameBg}
               </li>
               <li>
                 <strong>Светла палитра</strong> — препоръчана насока в основните визуализации
