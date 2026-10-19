@@ -183,3 +183,18 @@
 #scene-closing {
   scroll-margin-top: calc(var(--g-header-height) + 0.5rem);
 }
+
+/* Logo: all caps with full-height (lining) numerals */
+.g-logo {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 1.15rem;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'lnum' 1;
+}
+
+@media (max-width: 640px) {
+  .g-logo {
+    font-size: 0.98rem;
+  }
+}
