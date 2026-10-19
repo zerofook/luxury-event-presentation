@@ -4,15 +4,22 @@ import { ProposalPicture } from '../ProposalPicture';
 export function OfferGallery({
   assetIds,
   captionBg,
-  sizes = '(min-width: 900px) 52vw, 94vw',
+  sizes = '(min-width: 900px) min(960px, 94vw), 94vw',
   layout = 'default',
   cap = 'default',
+  visualFill,
+  ownerNatural,
+  objectPosition,
 }: {
   assetIds: string[];
   captionBg?: string;
   sizes?: string;
-  layout?: 'default' | 'editorial';
+  layout?: 'default' | 'editorial' | 'thumb';
   cap?: 'default' | 'sm';
+  visualFill?: boolean;
+  /** Owner exports at ~512px — cap display, no upscale beyond 1.5× rule */
+  ownerNatural?: boolean;
+  objectPosition?: string;
 }) {
   const ids = assetIds.filter(Boolean);
   const [index, setIndex] = useState(0);
@@ -30,13 +37,23 @@ export function OfferGallery({
   const mainClass = [
     'p2-offer-gallery__main',
     layout === 'editorial' ? ' p2-offer-gallery__main--editorial' : '',
+    layout === 'thumb' ? ' p2-offer-gallery__main--thumb' : '',
     cap === 'sm' ? ' p2-offer-gallery__main--cap-sm' : '',
+    visualFill && !ownerNatural ? ' p2-offer-gallery__main--fill' : '',
+    ownerNatural ? ' p2-offer-gallery__main--owner-natural' : '',
   ].join('');
 
   return (
-    <div className="p2-offer-gallery">
+    <div className={`p2-offer-gallery${visualFill ? ' p2-offer-gallery--fill' : ''}`}>
       <div className={mainClass}>
-        <ProposalPicture assetId={current} layout="fill" objectFit="cover" sizes={sizes} capScale={cap === 'sm' ? 1 : 1.5} />
+        <ProposalPicture
+          assetId={current}
+          layout="fill"
+          objectFit="cover"
+          objectPosition={objectPosition}
+          sizes={ownerNatural ? '(min-width: 900px) 512px, 92vw' : sizes}
+          capScale={1}
+        />
         {captionBg && <span className="p2-offer-gallery__badge">{captionBg}</span>}
         {ids.length > 1 && (
           <div className="p2-offer-gallery__nav" aria-label="Галерия">

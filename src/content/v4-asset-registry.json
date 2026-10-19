@@ -984,6 +984,26 @@
       "altBg": "Ретро автомобил в Art Deco фото зона; размерите 6,00 m × 4,00 m на схемата са част от оригиналната визуализация",
       "intentionalLabelsBg": "Размерите 6,00 m × 4,00 m са умишлени етикети на схемата.",
       "textFree": true
+    },
+    {
+      "id": "v4_owner_mapping_v1_partial_left",
+      "width": 512,
+      "height": 292,
+      "sourcePath": "sources/v4/owner/owner-mapping-v1-partial-left.jpg",
+      "provenance": "owner-export",
+      "pdfPage": 19,
+      "altBg": "3D мапинг — вариант 1, частичен обхват (лява стена)",
+      "textFree": true
+    },
+    {
+      "id": "v4_owner_mapping_v2_full_all_walls",
+      "width": 512,
+      "height": 292,
+      "sourcePath": "sources/v4/owner/owner-mapping-v2-full-all-walls.png",
+      "provenance": "owner-export",
+      "pdfPage": 20,
+      "altBg": "3D мапинг — вариант 2, пълен обхват (всички стени)",
+      "textFree": true
     }
   ]
 }

@@ -1,31 +1,34 @@
 import type { ClientLineItem } from '../../types';
+import { singleRowHeading } from '../../offers/titleDedup';
 import { OfferGallery } from './OfferGallery';
 import { OfferPriceDisplay } from './OfferPriceDisplay';
 import { SourceRef } from '../SourceRef';
 import { StatusChip } from '../StatusChip';
 
 export function OfferSingleRow({
-  titleBg,
+  blockTitleBg,
   item,
   galleryAssetIds,
   galleryCap,
   introBg,
 }: {
-  titleBg: string;
+  blockTitleBg: string;
   item: ClientLineItem;
   galleryAssetIds?: string[];
   galleryCap?: 'sm';
   introBg?: string;
 }) {
-  const displayTitle = titleBg?.trim() ? titleBg : item.titleBg;
+  const displayTitle = singleRowHeading(blockTitleBg, item.titleBg);
+  const compactMedia = galleryCap === 'sm';
   return (
-    <article className="p2-offer-row p2-offer-row--single">
+    <article className={`p2-offer-row p2-offer-row--single${compactMedia ? ' p2-offer-row--compact-media' : ''}`}>
       {galleryAssetIds && galleryAssetIds.length > 0 && (
         <div className="p2-offer-row__visual">
           <OfferGallery
             assetIds={galleryAssetIds}
-            captionBg={item.source.pdfPage ? `стр. ${item.source.pdfPage}` : undefined}
+            captionBg={compactMedia ? undefined : item.source.pdfPage ? `стр. ${item.source.pdfPage}` : undefined}
             cap={galleryCap ?? 'default'}
+            layout={compactMedia ? 'thumb' : 'default'}
           />
         </div>
       )}

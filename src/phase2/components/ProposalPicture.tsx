@@ -39,7 +39,7 @@ export function ProposalPicture({
   priority,
   objectFit = 'cover',
   objectPosition,
-  capScale = 1.5,
+  capScale = 1,
   layout = 'default',
 }: Props) {
   const asset: MediaAsset | undefined = assets[assetId];

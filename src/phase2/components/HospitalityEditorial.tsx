@@ -16,7 +16,7 @@ export function HospitalityEditorial({ items }: { items: ClientLineItem[] }) {
         {HOSPITALITY_GALLERY.map((g) => (
           <figure key={g.assetId} className="p2-hospitality-gallery__item">
             <div className="p2-hospitality-gallery__visual">
-              <ProposalPicture assetId={g.assetId} objectFit="cover" sizes="(min-width: 900px) 380px, 45vw" />
+              <ProposalPicture assetId={g.assetId} objectFit="cover" sizes="(min-width: 900px) 380px, 45vw" capScale={1} />
             </div>
             <figcaption>{g.captionBg}</figcaption>
           </figure>

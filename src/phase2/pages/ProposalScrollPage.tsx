@@ -165,7 +165,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
               </li>
             </ul>
             <div className="p2-hero__visual p2-hero__visual--wide">
-              <ProposalPicture assetId="v4_p21_00_1851x849" objectFit="cover" />
+              <ProposalPicture assetId="v4_p21_00_1851x849" objectFit="cover" capScale={1} sizes="(min-width: 900px) 960px, 94vw" />
             </div>
             <h2 className="p2-section__title">Категории</h2>
             <div className="p2-category-grid">
@@ -211,7 +211,12 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                     </div>
                   </>
                 )}
-                <SubsectionOffers subsectionId={sub.id} areaItems={areaItems} allItems={bundle.items} />
+                <SubsectionOffers
+                  subsectionId={sub.id}
+                  areaItems={areaItems}
+                  allItems={bundle.items}
+                  subsectionLabelBg={sub.labelBg}
+                />
                 {areaItems.length === 0 && (
                   <p className="p2-muted">Няма отделни ценови позиции за тази зона.</p>
                 )}

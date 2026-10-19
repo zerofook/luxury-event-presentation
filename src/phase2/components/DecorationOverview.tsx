@@ -7,7 +7,7 @@ export function DecorationOverview() {
       {DECORATION_OVERVIEW_TILES.map((tile) => (
         <figure key={tile.assetId} className="p2-dekor-overview__tile">
           <div className="p2-dekor-overview__visual">
-            <ProposalPicture assetId={tile.assetId} objectFit="cover" sizes="(min-width: 900px) 360px, 45vw" />
+            <ProposalPicture assetId={tile.assetId} objectFit="cover" sizes="(min-width: 900px) 360px, 45vw" capScale={1} />
           </div>
           <figcaption>
             <h3>{tile.titleBg}</h3>

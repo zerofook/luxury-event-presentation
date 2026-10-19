@@ -7,10 +7,12 @@ export function SubsectionOffers({
   subsectionId,
   areaItems,
   allItems,
+  subsectionLabelBg,
 }: {
   subsectionId: string;
   areaItems: ClientLineItem[];
   allItems: ClientLineItem[];
+  subsectionLabelBg?: string;
 }) {
   const resolved = offersForSubsection(subsectionId, allItems);
   if (!resolved) return null;
@@ -22,7 +24,7 @@ export function SubsectionOffers({
   return (
     <div className="p2-offer-stack">
       {resolved.blocks.map((block) => (
-        <OfferBlockView key={block.id} block={block} itemMap={itemMap} />
+        <OfferBlockView key={block.id} block={block} itemMap={itemMap} subsectionLabelBg={subsectionLabelBg} />
       ))}
       {leftover.length > 0 && (
         <section className="p2-offer-block">

@@ -25,7 +25,14 @@ export function OfferVariantRow({
   return (
     <article className="p2-offer-row p2-offer-row--variant">
       <div className="p2-offer-row__visual">
-        <OfferGallery assetIds={variant.galleryAssetIds} captionBg={variant.visualCaptionBg} layout="editorial" />
+        <OfferGallery
+          assetIds={variant.galleryAssetIds}
+          captionBg={variant.visualCaptionBg}
+          layout="editorial"
+          visualFill
+          ownerNatural
+          objectPosition="50% 42%"
+        />
       </div>
       <div className="p2-offer-row__panel">
         <header className="p2-offer-row__head">

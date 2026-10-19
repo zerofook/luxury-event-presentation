@@ -1,5 +1,6 @@
 import type { ClientLineItem } from '../../types';
 import type { ResolvedOfferBlock } from '../../offers/types';
+import { shouldShowCompactBlockTitle } from '../../offers/titleDedup';
 import { OfferCompactRows } from './OfferCompactRows';
 import { OfferGallery } from './OfferGallery';
 import { OfferPackageBlock } from './OfferPackageBlock';
@@ -9,9 +10,11 @@ import { OfferVariantRow } from './OfferVariantRow';
 export function OfferBlockView({
   block,
   itemMap,
+  subsectionLabelBg,
 }: {
   block: ResolvedOfferBlock;
   itemMap: Map<string, ClientLineItem>;
+  subsectionLabelBg?: string;
 }) {
   if (block.layout === 'package' && block.packagePriceItemId) {
     const priceItem = itemMap.get(block.packagePriceItemId);
@@ -29,13 +32,16 @@ export function OfferBlockView({
     );
   }
 
-  const showHead = Boolean(block.titleBg?.trim() || block.subtitleBg || block.introBg);
+  const singleRowBlock = block.layout === 'single-row';
+  const showBlockTitle =
+    !singleRowBlock && shouldShowCompactBlockTitle(block.titleBg, subsectionLabelBg);
+  const showHead = Boolean(showBlockTitle || block.subtitleBg || block.introBg);
 
   return (
     <section className="p2-offer-block" aria-labelledby={showHead ? `offer-${block.id}` : undefined}>
       {showHead && (
         <header className="p2-offer-block__head">
-          {block.titleBg?.trim() && (
+          {showBlockTitle && (
             <h4 className="p2-offer-block__title" id={`offer-${block.id}`}>
               {block.titleBg}
             </h4>
@@ -52,7 +58,7 @@ export function OfferBlockView({
         block.items.map((item) => (
           <OfferSingleRow
             key={item.id}
-            titleBg={block.titleBg}
+            blockTitleBg={block.titleBg}
             item={item}
             galleryAssetIds={block.galleryAssetIds}
             galleryCap={block.galleryCap}
@@ -60,13 +66,13 @@ export function OfferBlockView({
         ))}
 
       {block.layout === 'compact-rows' && (
-        <div className="p2-offer-block__split">
+        <div className="p2-offer-block__stack">
           {block.galleryAssetIds && block.galleryAssetIds.length > 0 && (
-            <div className="p2-offer-block__hero">
-              <OfferGallery assetIds={block.galleryAssetIds} layout="editorial" />
+            <div className="p2-offer-block__hero p2-offer-block__hero--wide">
+              <OfferGallery assetIds={block.galleryAssetIds} layout="editorial" visualFill />
             </div>
           )}
-          <OfferCompactRows items={block.items} />
+          <OfferCompactRows items={block.items} columns={block.items.length >= 6 ? 2 : 1} />
         </div>
       )}
     </section>
