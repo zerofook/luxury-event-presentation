@@ -111,7 +111,6 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       eyebrowBg: 'Артистични изяви',
       titleBg: 'Жива интерпретация на пирамида от шампанско',
       bodyBg: 'Артисти в тематични костюми поднасят шампанско на гостите.',
-      disclaimerBg: 'Предложена концепция — програмата подлежи на финално одобрение.',
       videoInView: { threshold: 0.52, exitThreshold: 0.16, resetOnPause: false },
       videoSrc: 'media/video/champagne-costume.mp4',
       posterSrc: 'media/video/champagne-costume-poster.jpg',

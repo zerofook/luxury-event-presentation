@@ -1282,3 +1282,8 @@
   font-size: 0.8rem;
   padding: 1rem;
 }
+
+/* Gatsby stage copy spans the full container, ending where the image ends */
+#scene-stage-scenography .section-lead {
+  max-width: none;
+}
