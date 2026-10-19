@@ -12,6 +12,7 @@ import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { isHtmlProposalEnabled, proposalPdfDistRel } from './lib/read-proposal-mode.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -40,19 +41,18 @@ if (!fs.existsSync(DIST)) {
   process.exit(1);
 }
 
-const registry = JSON.parse(fs.readFileSync(REGISTRY, 'utf8'));
-const textFreeById = new Map(registry.assets.map((a) => [a.id, a.textFree === true]));
-
-function mediaPathFromUrl(url) {
-  let pathname = url;
-  try {
-    pathname = new URL(url, 'http://127.0.0.1').pathname;
-  } catch {
-    /* relative */
+function assertDistPdf(root) {
+  const rel = proposalPdfDistRel(root);
+  const dest = path.join(DIST, rel);
+  if (!fs.existsSync(dest)) throw new Error(`missing dist/${rel}`);
+  const headText = fs.readFileSync(dest, { encoding: 'utf8', flag: 'r' }).slice(0, 64);
+  if (headText.startsWith('version https://git-lfs.github.com/spec/v1')) {
+    throw new Error(`${rel} is an LFS pointer in dist`);
   }
-  const idx = pathname.indexOf('/media/');
-  if (idx === -1) return null;
-  return path.join(DIST, pathname.slice(idx + 1));
+  if (fs.readFileSync(dest).subarray(0, 5).toString('ascii') !== '%PDF-') {
+    throw new Error(`${rel} is not a PDF in dist`);
+  }
+  return rel;
 }
 
 async function preview() {
@@ -76,6 +76,56 @@ async function preview() {
   }
   proc.kill('SIGTERM');
   throw new Error('preview failed');
+}
+
+if (!isHtmlProposalEnabled(ROOT)) {
+  const pdfRel = assertDistPdf(ROOT);
+  const { proc, url } = await preview();
+  const browser = await chromium.launch();
+  /** @type {Record<string, unknown>} */
+  const pdfReport = { mode: 'pdf', pdfRel, viewports: {} };
+  try {
+    for (const vp of VIEWPORTS) {
+      const page = await browser.newPage({ viewport: { width: vp.width, height: vp.height } });
+      await page.goto(`${url}#/proposal`, { waitUntil: 'networkidle', timeout: 120000 });
+      await page.waitForSelector('.proposal-pdf-viewer', { timeout: 60000 });
+      const actions = await page.evaluate(() => {
+        const links = [...document.querySelectorAll('.proposal-pdf-viewer a[href]')].map((a) =>
+          a.getAttribute('href'),
+        );
+        const iframe = document.querySelector('.proposal-pdf-viewer__frame');
+        return {
+          linkCount: links.length,
+          iframeSrc: iframe?.getAttribute('src') ?? null,
+        };
+      });
+      pdfReport.viewports[vp.tag] = actions;
+      if (actions.linkCount < 2) throw new Error(`expected PDF actions @ ${vp.tag}`);
+      await page.close();
+    }
+  } finally {
+    await browser.close();
+    proc.kill('SIGTERM');
+  }
+  console.log('verify-proposal-images report:');
+  console.log(JSON.stringify(pdfReport, null, 2));
+  console.log('verify-proposal-images: OK (PDF proposal mode)');
+  process.exit(0);
+}
+
+const registry = JSON.parse(fs.readFileSync(REGISTRY, 'utf8'));
+const textFreeById = new Map(registry.assets.map((a) => [a.id, a.textFree === true]));
+
+function mediaPathFromUrl(url) {
+  let pathname = url;
+  try {
+    pathname = new URL(url, 'http://127.0.0.1').pathname;
+  } catch {
+    /* relative */
+  }
+  const idx = pathname.indexOf('/media/');
+  if (idx === -1) return null;
+  return path.join(DIST, pathname.slice(idx + 1));
 }
 
 const { proc, url, basePath } = await preview();

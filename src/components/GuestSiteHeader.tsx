@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { getPrefersReducedMotion } from '@/lib/reducedMotion';
 import '@/styles/guest-header.css';
 
-/** Re-enable when `sources/v4/presentation.pdf` is deployed on GitHub Pages. */
+import { PROPOSAL_PDF_MEDIA_PATH } from '@/config/proposalMode';
+import { proposalPdfUi } from '@/content/proposalPdf.bg';
+
 const SHOW_GUEST_HEADER_PDF = false;
 
 const CLOSING_SCENE_ID = 'scene-closing';
@@ -161,12 +163,12 @@ export function GuestSiteHeader() {
         {SHOW_GUEST_HEADER_PDF && (
           <a
             className="g-pdf"
-            href={`${base}sources/v4/presentation.pdf`}
+            href={`${base}${PROPOSAL_PDF_MEDIA_PATH}`}
             download
-            title="Оригинален PDF от агенцията"
-            aria-label="Изтегли концептуалната презентация"
+            title={proposalPdfUi.downloadLabelBg}
+            aria-label={proposalPdfUi.downloadLabelBg}
           >
-            <span className="g-pdf__label g-pdf__label--long">ИЗТЕГЛИ КОНЦЕПТУАЛНАТА ПРЕЗЕНТАЦИЯ</span>
+            <span className="g-pdf__label g-pdf__label--long">{proposalPdfUi.headerDownloadLongBg}</span>
             <span className="g-pdf__label g-pdf__label--short">PDF</span>
           </a>
         )}
