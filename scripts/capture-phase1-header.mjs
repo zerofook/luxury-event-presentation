@@ -55,7 +55,9 @@ async function captureViewport(browser, width, prefix) {
   const page = await browser.newPage({ viewport: { width, height: width <= 390 ? 844 : 900 } });
   const { url } = startUrl();
 
-  await page.goto(`${url}#/`, { waitUntil: 'load', timeout: 90000 });
+  await page.goto(`${url}#/`, { waitUntil: 'domcontentloaded', timeout: 90000 });
+  await page.waitForSelector('#scene-hero h1.display', { state: 'visible', timeout: 45000 });
+  await page.waitForTimeout(1500);
   await page.evaluate(() => window.scrollTo(0, 0));
   await snap(page, `${prefix}-hero-top.png`);
 
