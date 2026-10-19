@@ -1,6 +1,13 @@
-import type { LineItem, ProposalBundle, ValidationIssue } from './types';
+import type { ClientLineItem } from './types';
 
-export function validateLineItemArithmetic(item: LineItem): ValidationIssue | null {
+export interface ValidationIssue {
+  level: 'error' | 'warn';
+  message: string;
+  itemId?: string;
+}
+
+/** Used by audit scripts only — not imported by client UI. */
+export function validateLineItemArithmetic(item: ClientLineItem): ValidationIssue | null {
   if (item.quantity == null || item.unitPrice == null || item.lineTotal == null) return null;
   const computed = item.quantity * item.unitPrice;
   if (Math.abs(computed - item.lineTotal) > 0.01) {
@@ -11,23 +18,4 @@ export function validateLineItemArithmetic(item: LineItem): ValidationIssue | nu
     };
   }
   return null;
-}
-
-export function validateProposalBundle(bundle: ProposalBundle): ValidationIssue[] {
-  const issues: ValidationIssue[] = [];
-  const ids = new Set<string>();
-
-  for (const item of bundle.items) {
-    if (!item.pdfPage) {
-      issues.push({ level: 'error', itemId: item.id, message: `Missing pdfPage: ${item.id}` });
-    }
-    if (ids.has(item.id)) {
-      issues.push({ level: 'error', itemId: item.id, message: `Duplicate id: ${item.id}` });
-    }
-    ids.add(item.id);
-    const ar = validateLineItemArithmetic(item);
-    if (ar) issues.push(ar);
-  }
-
-  return issues;
 }

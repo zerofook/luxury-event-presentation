@@ -1,7 +1,9 @@
-export function SourceRef({ pdfPage, note }: { pdfPage: number; note?: string }) {
+import type { ClientSourceRef } from '../types';
+
+export function SourceRef({ source }: { source: ClientSourceRef }) {
   return (
-    <span className="p2-source" title={note}>
-      PDF стр. {pdfPage}
+    <span className="p2-source" title={source.fileRef}>
+      {source.labelBg}
     </span>
   );
 }

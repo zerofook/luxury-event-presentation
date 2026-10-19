@@ -1,19 +1,37 @@
-import type { ItemStatus } from '../types';
+import type { PriceType, ProposalStatus } from '../types';
 
-const LABELS: Record<ItemStatus, string> = {
-  recommended: 'Препоръчано (базова визия)',
-  included: 'Включено в описания блок',
-  alternative: 'Алтернатива (избор)',
-  optional: 'По заявка / допълнение',
-  excluded: 'Изрично изключено',
-  unconfirmed: 'Неясно / без цена в PDF',
-  price_on_request: 'Цена по запитване',
+const PROPOSAL_LABELS: Record<ProposalStatus, string> = {
+  suggested: 'Предложено',
+  included: 'Включено в описанието',
+  alternative: 'Алтернатива',
+  optional: 'По избор',
+  excluded: 'Изключено',
+  selected: 'Избрано',
 };
 
-export function statusLabel(status: ItemStatus): string {
-  return LABELS[status] ?? status;
+const PRICE_LABELS: Record<PriceType, string> = {
+  fixed: 'Фиксирана цена',
+  unit_price: 'Единична цена',
+  range: 'Ориентировъчен диапазон',
+  on_request: 'По запитване',
+  pending_confirmation: 'Очаква потвърждение',
+  not_provided: 'Не е посочена цена',
+};
+
+export function proposalStatusLabel(status: ProposalStatus): string {
+  return PROPOSAL_LABELS[status] ?? status;
 }
 
-export function statusClass(status: ItemStatus): string {
+export function priceTypeLabel(type: PriceType): string {
+  return PRICE_LABELS[type] ?? type;
+}
+
+export function bookingStatusLabel(status: string): string | null {
+  if (status === 'proposed_not_confirmed') return 'Непотвърдено';
+  if (status === 'confirmed') return 'Потвърдено';
+  return null;
+}
+
+export function proposalStatusClass(status: ProposalStatus): string {
   return `p2-status p2-status--${status}`;
 }

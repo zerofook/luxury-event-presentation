@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           manualChunks(id) {
-            if (id.includes('/src/phase2/') || id.includes('phase2/data/items.json')) {
+            if (id.includes('/src/phase2/') || id.includes('phase2/data/proposal.client.json')) {
               return 'phase2-proposal';
             }
           },

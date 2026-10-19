@@ -5,6 +5,18 @@ import path from 'node:path';
 const ROOT = path.resolve(import.meta.dirname, '..');
 const assetsDir = path.join(ROOT, 'dist', 'assets');
 const PRICE_RE = /€|EUR|ДДС|лв/u;
+const AUDIT_LEAK = [
+  'PDF mismatch',
+  'subtotal-и',
+  'decor sum',
+  'mismatch',
+  'open-questions',
+  'statusBasis',
+  'sourceNote',
+  'arithmeticChecks',
+  'Grok Bot executor',
+  'items-full.json',
+];
 
 const files = fs.readdirSync(assetsDir).filter((f) => f.endsWith('.js'));
 let failed = false;
@@ -15,6 +27,14 @@ for (const file of files) {
   if (!isPhase2 && PRICE_RE.test(text)) {
     console.error(`Phase 1 chunk must not contain price tokens: ${file}`);
     failed = true;
+  }
+  if (isPhase2) {
+    for (const needle of AUDIT_LEAK) {
+      if (text.includes(needle)) {
+        console.error(`Audit-only content in phase2 chunk (${needle}): ${file}`);
+        failed = true;
+      }
+    }
   }
 }
 
