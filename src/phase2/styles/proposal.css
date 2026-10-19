@@ -573,6 +573,18 @@
   margin: 1rem 0;
   padding-left: 1.1rem;
   line-height: 1.6;
+  max-width: 44rem;
+}
+
+.p2-facts li {
+  margin-bottom: 0.35rem;
+}
+
+@media (max-width: 480px) {
+  .p2-facts {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
 }
 
 .p2-vat-note {

@@ -16,9 +16,13 @@ const CLIENT_STRING_KEYS = new Set([
   'clientNoteBg',
   'overlapNoteBg',
   'vatNoteBg',
-  'guestCountNoteBg',
+  'overviewTitleBg',
+  'overviewLeadBg',
+  'conceptThemeBg',
+  'guestCountExampleBg',
   'eventTitleBg',
   'eventDateBg',
+  'venueNameBg',
   'investmentIntroBg',
   'investmentClarityBg',
   'technicalIndicativeNoteBg',
@@ -38,6 +42,7 @@ const ALLOW = new Set([
   'Geotrading',
   'Gatsby',
   'Great',
+  'The',
   'EUR',
   'LED',
   'DJ',
@@ -48,9 +53,6 @@ const ALLOW = new Set([
   'Kings',
   'Mihaela',
   'Fileva',
-  'Sofia',
-  'Event',
-  'Center',
   'GBP',
   'Passage',
   'Golden',
@@ -83,6 +85,16 @@ const FORBIDDEN_PHRASES = [
   'общо по предложението',
 ];
 
+/** Former venue branding — must not appear in client-facing output. */
+const FORBIDDEN_VENUE_RE =
+  /sofia\s+event\s+cent(?:er|re)|софия\s+ивент\s+цент(?:ър|ра)|(?<![\u0400-\u04FF])ивент\s+цент(?:ър|ра)(?![\u0400-\u04FF])/iu;
+
+const CLIENT_SURFACE_PATHS = [
+  path.join(ROOT, 'index.html'),
+  path.join(ROOT, 'src/content/site.bg.ts'),
+  path.join(ROOT, 'src/phase2/pages/ProposalScrollPage.tsx'),
+];
+
 function collectClientStrings(value, key, out = []) {
   if (key && CLIENT_STRING_KEYS.has(key) && typeof value === 'string') {
     out.push(value);
@@ -105,6 +117,21 @@ function scanTextForForbidden(text, label, phraseOffenders) {
   }
 }
 
+function scanTextForForbiddenVenue(text, label, venueOffenders) {
+  if (FORBIDDEN_VENUE_RE.test(text)) {
+    venueOffenders.push(`${label}: matched forbidden venue name`);
+  }
+}
+
+function scanFileForForbiddenVenue(filePath, venueOffenders) {
+  if (!fs.existsSync(filePath)) return;
+  scanTextForForbiddenVenue(
+    fs.readFileSync(filePath, 'utf8'),
+    filePath.replace(ROOT + path.sep, ''),
+    venueOffenders,
+  );
+}
+
 function walkPhase2Sources(dir, phraseOffenders) {
   if (!fs.existsSync(dir)) return;
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -123,6 +150,22 @@ function scanDistPhase2(phraseOffenders) {
     if (!f.includes('phase2-proposal') || !f.endsWith('.js')) continue;
     const text = fs.readFileSync(path.join(DIST_ASSETS, f), 'utf8');
     scanTextForForbidden(text, `dist/assets/${f}`, phraseOffenders);
+  }
+}
+
+function scanDistForForbiddenVenue(venueOffenders) {
+  const distDir = path.join(ROOT, 'dist');
+  if (!fs.existsSync(distDir)) return;
+  const stack = [distDir];
+  while (stack.length) {
+    const dir = stack.pop();
+    for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, ent.name);
+      if (ent.isDirectory()) stack.push(full);
+      else if (/\.(html|js|css)$/i.test(ent.name)) {
+        scanTextForForbiddenVenue(fs.readFileSync(full, 'utf8'), full.replace(ROOT + path.sep, ''), venueOffenders);
+      }
+    }
   }
 }
 
@@ -158,6 +201,19 @@ if (offenders.size) {
 if (phraseOffenders.length) {
   console.error('verify-client-copy: forbidden internal phrasing:');
   for (const o of [...new Set(phraseOffenders)].slice(0, 40)) console.error(' ', o);
+  process.exit(1);
+}
+
+const venueOffenders = [];
+for (const s of strings) {
+  scanTextForForbiddenVenue(s, 'proposal.client.json', venueOffenders);
+}
+for (const p of CLIENT_SURFACE_PATHS) scanFileForForbiddenVenue(p, venueOffenders);
+scanDistForForbiddenVenue(venueOffenders);
+
+if (venueOffenders.length) {
+  console.error('verify-client-copy: forbidden former venue name:');
+  for (const o of venueOffenders.slice(0, 30)) console.error(' ', o);
   process.exit(1);
 }
 
