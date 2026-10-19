@@ -7,8 +7,8 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "npm run validate && tsc -b && vite build",
+    "dev": "node scripts/copy-proposal-pdf.mjs && vite",
+    "build": "npm run validate && tsc -b && node scripts/copy-proposal-pdf.mjs && vite build && node scripts/verify-dist-proposal-pdf.mjs",
     "build:pages": "VITE_BASE=/luxury-event-presentation/ npm run build && node scripts/verify-client-copy.mjs --with-dist && node scripts/verify-proposal-images.mjs",
     "preview": "vite preview",
     "preview:pages": "VITE_BASE=/luxury-event-presentation/ vite preview",

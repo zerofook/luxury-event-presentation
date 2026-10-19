@@ -1,3 +1,7 @@
+import { PROPOSAL_PDF_MEDIA_PATH } from '@/config/proposalMode';
+import { proposalPdfUi } from '@/content/proposalPdf.bg';
+import { publicUrl } from '@/lib/publicUrl';
+
 const PRIMARY_NAV = [
   { hash: '#/', labelBg: 'ПРЕЖИВЯВАНЕТО' },
   { hash: '#/proposal', labelBg: 'ПРЕДЛОЖЕНИЕТО', proposal: true },
@@ -6,6 +10,7 @@ const PRIMARY_NAV = [
 
 export function ProposalSiteHeader({ proposalActive }: { proposalActive: boolean }) {
   const base = import.meta.env.BASE_URL;
+  const pdfUrl = publicUrl(PROPOSAL_PDF_MEDIA_PATH);
 
   return (
     <header className="p2-header">
@@ -28,8 +33,8 @@ export function ProposalSiteHeader({ proposalActive }: { proposalActive: boolean
             );
           })}
         </nav>
-        <a className="p2-pdf" href={`${base}sources/v4/presentation.pdf`} download title="Оригинален PDF от агенцията">
-          ИЗТЕГЛИ КОНЦЕПТУАЛНАТА ПРЕЗЕНТАЦИЯ
+        <a className="p2-pdf" href={pdfUrl} download title={proposalPdfUi.downloadLabelBg}>
+          {proposalPdfUi.headerDownloadLongBg}
         </a>
       </div>
     </header>

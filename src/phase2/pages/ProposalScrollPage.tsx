@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { PROPOSAL_PDF_MEDIA_PATH } from '@/config/proposalMode';
+import { publicUrl } from '@/lib/publicUrl';
 import { ProposalPicture } from '../components/ProposalPicture';
 import {
   DECORATION_SUBSECTIONS,
@@ -18,6 +20,7 @@ import { formatItemPrice } from '../lib/formatMoney';
 import { StatusChip } from '../components/StatusChip';
 import { scrollToSection, useScrollSpy } from '../hooks/useScrollSpy';
 import { proposalHref, type ProposalSectionId } from '../navigation/sections';
+import '../styles/proposal-offers.css';
 import { AdditionalPerformersGallery } from '../components/AdditionalPerformersGallery';
 import { EntertainmentProgramme } from '../components/EntertainmentProgramme';
 import { TechnicalStory } from '../components/TechnicalStory';
@@ -98,7 +101,6 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
   const altGroups = deriveAlternativeGroups(bundle.items);
   const [dekorExpanded, setDekorExpanded] = useState(initialSection === 'dekoracia');
   const activeSpy = useScrollSpy(SPY_IDS);
-  const base = import.meta.env.BASE_URL;
 
   const navigate = useCallback((section: ProposalSectionId, subId?: string) => {
     const target = subId ?? (section === 'dekoracia' ? 'dekor-vhod' : section);
@@ -305,7 +307,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             )}
             <InvestmentEditorial meta={bundle.meta} categories={bundle.investmentCategories} items={bundle.items} />
             <div className="p2-invest-actions">
-              <a className="p2-btn p2-btn--primary" href={`${base}sources/v4/presentation.pdf`} download>
+              <a className="p2-btn p2-btn--primary" href={publicUrl(PROPOSAL_PDF_MEDIA_PATH)} download>
                 Изтегли оригиналната концептуална презентация
               </a>
               <button type="button" className="p2-btn p2-btn--ghost" onClick={scrollToContact}>
