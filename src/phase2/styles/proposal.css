@@ -1184,6 +1184,21 @@ button.p2-btn {
   min-height: 100%;
 }
 
+.p2-performer-card__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  margin: -0.85rem -1rem 0.35rem;
+  width: calc(100% + 2rem);
+  max-height: 220px;
+}
+
+@media (min-width: 768px) {
+  .p2-performer-card__photo {
+    max-height: 280px;
+  }
+}
+
 .p2-performer-card h4 {
   font-size: 0.95rem;
   margin: 0;
@@ -1675,55 +1690,9 @@ button.p2-btn {
   opacity: 0.85;
 }
 
-.p2-additional-performers {
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(52, 76, 96, 0.1);
-}
-
 .p2-lead--compact {
   max-width: 42rem;
   margin-bottom: 1rem;
-}
-
-.p2-additional-performers__grid {
-  display: grid;
-  gap: 0.65rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  max-width: 520px;
-}
-
-@media (min-width: 768px) {
-  .p2-additional-performers__grid {
-    grid-template-columns: repeat(4, minmax(0, 96px));
-    max-width: none;
-  }
-}
-
-.p2-additional-performers__card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  align-items: center;
-  text-align: center;
-}
-
-.p2-additional-performers__photo {
-  width: 100%;
-  max-width: 96px;
-  aspect-ratio: 3 / 4;
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-}
-
-.p2-additional-performers__name {
-  margin: 0;
-  font-size: 0.75rem;
-  line-height: 1.3;
 }
 
 .p2-owner-text-slide {

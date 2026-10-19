@@ -27,7 +27,6 @@ import { ContactClosing } from '../components/ContactClosing';
 import { DecorationOverview } from '../components/DecorationOverview';
 import { PhotoZoneGallery } from '../components/PhotoZoneGallery';
 import { GalaHallVisuals } from '../components/GalaHallVisuals';
-import { AdditionalPerformersGallery } from '../components/AdditionalPerformersGallery';
 
 const CATEGORY_CARDS: {
   section: ProposalSectionId;
@@ -234,7 +233,6 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
               резервация или наличност.
             </p>
             <EntertainmentProgramme items={prog} />
-            <AdditionalPerformersGallery />
           </section>
 
           <section id="technika" className="p2-section-block">
