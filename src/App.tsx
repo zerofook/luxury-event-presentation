@@ -18,7 +18,7 @@ export default function App() {
   if (isProposalRoute(route)) {
     return (
       <Suspense fallback={<Loading />}>
-        <ProposalApp route={route} />
+        <ProposalApp />
       </Suspense>
     );
   }

@@ -1,32 +1,14 @@
-import raw from './items.json';
-import type { AlternativeGroupDerived, ProposalBundle, LineItem } from '../types';
+import raw from './proposal.client.json';
+import type { ClientLineItem, ProposalClientBundle } from '../types';
 
-const bundle = raw as unknown as ProposalBundle & {
-  items: LineItem[];
-  printedTotals?: ProposalBundle['printedTotals'];
-};
+const bundle = raw as unknown as ProposalClientBundle;
 
-export function getProposalBundle(): ProposalBundle {
-  return {
-    meta: {
-      source: bundle.meta.source,
-      vatNote: bundle.meta.vatNote,
-      currencyNote: bundle.meta.currencyNote,
-      itemCount: bundle.meta.itemCount,
-    },
-    items: bundle.items,
-    printedTotals: bundle.printedTotals ?? [],
-    arithmeticChecks: bundle.arithmeticChecks ?? [],
-    groupSubtotals: bundle.groupSubtotals ?? [],
-    paletteAlternatives: bundle.paletteAlternatives ?? [],
-    paletteCoverage: bundle.paletteCoverage ?? [],
-    partialDecorSum: bundle.partialDecorSum,
-    illustrativeDerived: bundle.illustrativeDerived,
-  };
+export function getProposalBundle(): ProposalClientBundle {
+  return bundle;
 }
 
-export function deriveAlternativeGroups(items: LineItem[]): AlternativeGroupDerived[] {
-  const map = new Map<string, LineItem[]>();
+export function deriveAlternativeGroups(items: ClientLineItem[]) {
+  const map = new Map<string, ClientLineItem[]>();
   for (const item of items) {
     if (!item.alternativeGroup) continue;
     const list = map.get(item.alternativeGroup) ?? [];
@@ -49,20 +31,36 @@ export function deriveAlternativeGroups(items: LineItem[]): AlternativeGroupDeri
   }));
 }
 
-/** Decoration & scenography areas (exclude pure programme/tech where listed separately). */
-export const DECORATION_AREA_ORDER = [
-  'Вход / Grand Entrance',
-  'Коктейл зона / фоайе',
-  'Коктейл зона — мокет (варианти)',
-  'Коридор към Ивент центъра (Golden Passage)',
-  'Зала гала — сцена и сценография',
-  'Зала гала — декор',
-  'Зала гала — 3D мапинг',
-  'Декор на гостни маси',
-];
+export const DECORATION_SUBSECTIONS = [
+  { id: 'dekor-vhod', labelBg: 'Входна зона', areas: ['Вход / Grand Entrance'] },
+  {
+    id: 'dekor-koktejl',
+    labelBg: 'Коктейлна зона',
+    areas: ['Коктейл зона / фоайе', 'Коктейл зона — мокет (варианти)'],
+  },
+  { id: 'dekor-foto', labelBg: 'Фото зона', areas: ['Фото зона'] },
+  {
+    id: 'dekor-koridor',
+    labelBg: 'Златен коридор',
+    areas: ['Коридор към Ивент центъра (Golden Passage)'],
+  },
+  {
+    id: 'dekor-gala',
+    labelBg: 'Гала зала',
+    areas: ['Зала гала — декор', 'Зала гала — 3D мапинг'],
+  },
+  {
+    id: 'dekor-scena',
+    labelBg: 'Сцена',
+    areas: ['Зала гала — сцена и сценография'],
+  },
+  { id: 'dekor-masi', labelBg: 'Декорация на масите', areas: ['Декор на гостни маси'] },
+] as const;
 
-export function itemsByArea(items: LineItem[]): Map<string, LineItem[]> {
-  const map = new Map<string, LineItem[]>();
+export const DECORATION_AREA_ORDER = DECORATION_SUBSECTIONS.flatMap((s) => s.areas);
+
+export function itemsByArea(items: ClientLineItem[]): Map<string, ClientLineItem[]> {
+  const map = new Map<string, ClientLineItem[]>();
   for (const item of items) {
     const list = map.get(item.area) ?? [];
     list.push(item);
@@ -71,6 +69,29 @@ export function itemsByArea(items: LineItem[]): Map<string, LineItem[]> {
   return map;
 }
 
-export function getItemById(items: LineItem[], id: string): LineItem | undefined {
+export function itemsForAreas(items: ClientLineItem[], areas: string[]): ClientLineItem[] {
+  const set = new Set(areas);
+  return items.filter((i) => set.has(i.area));
+}
+
+export function getItemById(items: ClientLineItem[], id: string): ClientLineItem | undefined {
   return items.find((i) => i.id === id);
+}
+
+export function programmeItems(items: ClientLineItem[]): ClientLineItem[] {
+  return items.filter(
+    (i) =>
+      i.area.includes('програма') ||
+      i.area.includes('Програма') ||
+      i.area.includes('изпълнител') ||
+      i.area.includes('Водещ'),
+  );
+}
+
+export function technicalItems(items: ClientLineItem[]): ClientLineItem[] {
+  return items.filter((i) => i.area.includes('Техническо'));
+}
+
+export function hospitalityItems(items: ClientLineItem[]): ClientLineItem[] {
+  return items.filter((i) => i.area.includes('Менюта') || i.area.includes('подаръци'));
 }

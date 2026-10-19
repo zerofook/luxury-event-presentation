@@ -16,7 +16,7 @@
    "unconfirmed": 2,
    "price_on_request": 9
   },
-  "itemCount": 75
+  "itemCount": 76
  },
  "items": [
   {
@@ -2180,6 +2180,44 @@
    "notes": [
     "No price for any carpet variant (also p05 \"ЗЛАТЕН МОКЕТ\" is an entrance carpet included in 4 300 €)."
    ]
+  },
+  {
+   "id": "owner-vintage-car-photo-zone",
+   "area": "Фото зона",
+   "sectionKey": "dekor-foto",
+   "titleBg": "Ретро автомобил и тематична фото зона",
+   "descriptionBg": "Елегантен ретро автомобил, вписан в богата Art Deco декорация с флорални композиции, осветление и тематични конструкции.",
+   "quantity": null,
+   "unit": null,
+   "unitPrice": null,
+   "lineTotal": null,
+   "priceMin": 6000,
+   "priceMax": 8000,
+   "priceType": "range",
+   "currency": "EUR",
+   "vatTreatment": "БЕЗ ДДС",
+   "status": "recommended",
+   "statusBasis": "owner-provided",
+   "proposalStatus": "suggested",
+   "bookingStatus": "not_applicable",
+   "mediaPath": "media/img/owner-vintage-car-installation.jpg",
+   "clientNoteBg": "Цената включва доставянето на автомобила и тематичната декорация. Окончателната стойност зависи от избраните декоративни елементи.",
+   "overlapNoteBg": "Визуализациите за фото зона от 42-страничното PDF остават валидни; пълноразмерната кола там е без цена. Тази оферта е отделен източник и не се включва в частични суми от PDF.",
+   "source": {
+    "sourceType": "owner-provided",
+    "labelBg": "Допълнителна концепция на собственика",
+    "date": "2026-10-19",
+    "fileRef": "public/media/img/owner-vintage-car-installation.jpg"
+   },
+   "specBulletsBg": [
+    "Централен декоративен часовник с брандинг",
+    "Модулни Art Deco панели",
+    "LED осветление",
+    "Флорални композиции",
+    "Конструкция, монтаж и демонтаж",
+    "Транспорт и екип"
+   ],
+   "dimensionsNoteBg": "Ориентировъчно ~6,00 m × 4,00 m (концепция от предоставения материал)."
   }
  ],
  "printedTotals": [
