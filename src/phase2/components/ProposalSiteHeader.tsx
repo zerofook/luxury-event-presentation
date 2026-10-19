@@ -45,14 +45,6 @@ export function ProposalSiteHeader({ proposalActive }: { proposalActive: boolean
             <a className="proposal-pdf-viewer__btn proposal-pdf-viewer__btn--primary" href={pdfUrl} download>
               {proposalPdfUi.downloadLabelBg}
             </a>
-            <a
-              className="proposal-pdf-viewer__btn proposal-pdf-viewer__btn--ghost"
-              href={pdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {proposalPdfUi.openFullscreenLabelBg}
-            </a>
           </div>
         )}
       </div>

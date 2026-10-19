@@ -100,7 +100,7 @@ if (!isHtmlProposalEnabled(ROOT)) {
         };
       });
       pdfReport.viewports[vp.tag] = actions;
-      if (actions.linkCount < 2) throw new Error(`expected PDF actions @ ${vp.tag}`);
+      if (actions.linkCount < 1) throw new Error(`expected PDF actions @ ${vp.tag}`);
       await page.close();
     }
   } finally {

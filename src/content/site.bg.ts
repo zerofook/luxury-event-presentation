@@ -209,7 +209,6 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       eyebrowBg: 'Предложена програма',
       titleBg: 'Забавление и финал',
       bodyBg: 'Два запомнящи се акцента — спектакъл в духа на Гетсби и енергията на финала.',
-      programmeNoteBg: 'Предложена програма / концепция — без имена; не е потвърдена резервация.',
       frames: [
         { assetId: 'v4_p34_crop_dance_show_dancers', captionBg: 'Спектакъл в стил Гетсби — танцово шоу' },
         {
