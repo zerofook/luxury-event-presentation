@@ -39,16 +39,16 @@ async function snap(page, name) {
   await page.screenshot({ path: path.join(OUT, name), fullPage: false });
 }
 
-async function scrollCocktailMid(page) {
-  await page.evaluate(() => {
+async function scrollCocktailProgress(page, progress) {
+  await page.evaluate((p) => {
     const track = document.querySelector('#scene-cocktail .sticky-story__track');
     if (!track) return;
     const top = track.getBoundingClientRect().top + window.scrollY;
     const h = track.offsetHeight;
     const introEnd = 0.12;
-    const progress = introEnd + (1.5 / 4) * (1 - introEnd);
-    window.scrollTo({ top: top + progress * h - window.innerHeight * 0.12, behavior: 'instant' });
-  });
+    const prog = p < 0 ? introEnd * 0.35 : introEnd + p * (1 - introEnd);
+    window.scrollTo({ top: top + prog * h - window.innerHeight * 0.1, behavior: 'instant' });
+  }, progress);
 }
 
 async function captureViewport(browser, width, prefix) {
@@ -68,22 +68,26 @@ async function captureViewport(browser, width, prefix) {
   });
   await snap(page, `${prefix}-entrance-mid.png`);
 
-  await scrollCocktailMid(page);
-  await snap(page, `${prefix}-sticky-cocktail.png`);
+  await scrollCocktailProgress(page, 0);
+  await snap(page, `${prefix}-sticky-cocktail-start.png`);
+
+  await scrollCocktailProgress(page, 0.38);
+  await snap(page, `${prefix}-sticky-cocktail-mid.png`);
 
   await page.evaluate(() => {
     document.getElementById('scene-entertainment-programme')?.scrollIntoView({ block: 'start', behavior: 'instant' });
   });
   await snap(page, `${prefix}-dark-show.png`);
 
-  await page.goto(`${url}#/`, { waitUntil: 'load', timeout: 90000 });
-  await page.locator('a.g-primary-nav__link', { hasText: 'КОНТАКТ' }).click();
-  await page.waitForTimeout(1200);
-  await snap(page, `${prefix}-closing-contact.png`);
+  await page.evaluate(() => {
+    document.getElementById('scene-photo-zone')?.scrollIntoView({ block: 'start', behavior: 'instant' });
+  });
+  await snap(page, `${prefix}-light-section.png`);
 
-  await page.goto(`${url}#/proposal`, { waitUntil: 'load', timeout: 90000 });
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await snap(page, `${prefix}-proposal-unchanged.png`);
+  await page.evaluate(() => {
+    document.getElementById('scene-closing')?.scrollIntoView({ block: 'start', behavior: 'instant' });
+  });
+  await snap(page, `${prefix}-closing-contact.png`);
 
   await page.close();
 }
