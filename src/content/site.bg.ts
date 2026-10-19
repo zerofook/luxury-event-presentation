@@ -58,6 +58,7 @@ export const siteStatic: Omit<SiteContent, 'dev'> = {
       videoSrc: 'media/video/grand-entrance.mp4',
       posterSrc: 'media/video/grand-entrance-poster.jpg',
       stillAssetId: 'c01_entrance_render_p05',
+      scrollStillAssetId: 'v4_owner_doc_002_entrance_callouts',
       stillAltAssetId: 'c05c_palette_light_p04',
       width: 1264,
       height: 720,
