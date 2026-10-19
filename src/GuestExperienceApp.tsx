@@ -3,7 +3,8 @@ import { getSiteContent } from '@/content/site.bg';
 import { GuestSiteHeader } from '@/components/GuestSiteHeader';
 import { HeroPreload } from '@/components/HeroPreload';
 import { ActiveVideoProvider } from '@/lib/ActiveVideoContext';
-import { HeroEntranceScene } from '@/scenes/HeroEntranceScene';
+import { FilmHeroScene } from '@/scenes/FilmHeroScene';
+import { EntranceScrollScene } from '@/scenes/EntranceScrollScene';
 import { PhotoExperienceScene } from '@/scenes/PhotoExperienceScene';
 import { StickyStoryScene } from '@/scenes/StickyStoryScene';
 import { EditorialVideoScene } from '@/scenes/EditorialVideoScene';
@@ -48,8 +49,8 @@ export default function GuestExperienceApp() {
       <GuestSiteHeader />
       <HeroPreload />
       <main id="main">
-        <HeroEntranceScene
-          hero={hero}
+        <FilmHeroScene hero={hero} entrance={entrance} ui={site.ui} />
+        <EntranceScrollScene
           entrance={entrance}
           entranceTransition={site.dev.entranceTransition}
           ui={site.ui}

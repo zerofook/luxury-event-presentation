@@ -1,0 +1,232 @@
+.film-hero {
+  position: relative;
+  isolation: isolate;
+  color: var(--color-ivory);
+  overflow: hidden;
+}
+
+.film-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.film-hero__bg picture,
+.film-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.film-hero__bg-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    rgba(23, 36, 48, 0.82) 0%,
+    rgba(37, 59, 80, 0.62) 38%,
+    rgba(37, 59, 80, 0.35) 62%,
+    rgba(51, 80, 107, 0.22) 100%
+  );
+}
+
+.film-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 90rem;
+  margin: 0 auto;
+  min-height: calc(100svh - var(--g-header-height));
+  padding: calc(var(--g-header-height) + clamp(1rem, 3vh, 2rem)) clamp(1rem, 4vw, 2.5rem)
+    clamp(2rem, 5vh, 3rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .film-hero__inner {
+    grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+}
+
+.film-hero__identity {
+  max-width: 32rem;
+}
+
+.film-hero__eyebrow {
+  color: var(--color-champagne);
+}
+
+.film-hero__title {
+  margin-top: 0.35rem;
+}
+
+.film-hero__lead {
+  margin-top: 0.5rem;
+}
+
+.film-hero__countdown-block {
+  margin-top: 1.35rem;
+}
+
+.film-hero__countdown {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.film-hero__countdown-ring {
+  position: relative;
+  width: 3.25rem;
+  height: 3.25rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.film-hero__countdown-ring:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+.film-hero__countdown-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.film-hero__countdown-track {
+  fill: none;
+  stroke: rgba(247, 241, 230, 0.22);
+  stroke-width: 2.5;
+}
+
+.film-hero__countdown-progress {
+  fill: none;
+  stroke: var(--color-champagne);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 119.38;
+  transition: stroke-dashoffset 0.85s linear;
+}
+
+.film-hero__countdown-num {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+.film-hero__countdown-copy p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.film-hero__countdown-sub {
+  margin-top: 0.25rem !important;
+  opacity: 0.82;
+  font-size: 0.85rem !important;
+}
+
+.film-hero__countdown-wait {
+  margin: 0;
+  font-size: 0.88rem;
+  opacity: 0.85;
+}
+
+.film-hero__player-wrap {
+  width: 100%;
+  min-width: 0;
+}
+
+.film-hero__player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(10, 16, 22, 0.55);
+  border: 1px solid rgba(212, 176, 118, 0.42);
+  box-shadow: 0 22px 56px rgba(8, 12, 18, 0.45);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.film-hero__video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #0a1016;
+}
+
+.film-hero__poster-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.75rem 1.25rem;
+  font: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: var(--color-ivory);
+  background: rgba(23, 36, 48, 0.72);
+  border: 1px solid rgba(212, 176, 118, 0.85);
+  border-radius: 2px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.film-hero__poster-play:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.film-hero__unmute {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 3.25rem;
+  z-index: 2;
+  padding: 0.45rem 0.7rem;
+  font: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ivory);
+  background: rgba(23, 36, 48, 0.78);
+  border: 1px solid rgba(212, 176, 118, 0.65);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.film-hero__unmute:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+@media (max-width: 899px) {
+  .film-hero__inner {
+    align-content: start;
+  }
+
+  .film-hero__player {
+    max-height: min(56svh, 520px);
+  }
+
+  .film-hero__unmute {
+    bottom: 3.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .film-hero__countdown-progress {
+    transition: none;
+  }
+}

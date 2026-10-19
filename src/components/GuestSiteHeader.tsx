@@ -19,7 +19,8 @@ function sceneSurfaceForElement(el: Element | null): HeaderSurface {
   let node: Element | null = el;
   while (node && node !== document.body) {
     if (node instanceof HTMLElement) {
-      if (node.id === 'scene-hero' || node.classList.contains('hero-entrance')) return 'hero';
+      if (node.id === 'scene-hero' || node.classList.contains('film-hero')) return 'hero';
+      if (node.id === 'scene-grand-entrance' || node.classList.contains('hero-entrance')) return 'dark';
       if (
         node.classList.contains('sticky-story') ||
         node.classList.contains('editorial-video--navy') ||

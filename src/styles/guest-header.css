@@ -160,6 +160,7 @@
 }
 
 /* Pinned stages: sit below fixed header without changing track scroll distance */
+.hero-entrance__stage,
 .sticky-story__stage,
 .golden-passage__stage {
   top: var(--g-header-height);
