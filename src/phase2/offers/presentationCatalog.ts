@@ -162,6 +162,12 @@ export const DECORATION_OFFER_CATALOG: DecorationSubsectionOfferSpec[] = [
         itemIds: ['p17-stage-decor'],
         galleryAssetIds: ['v4_owner_doc_stage_gatsby_22'],
       },
+      {
+        id: 'stage-florals',
+        titleBg: 'Цветни композиции на сцената',
+        layout: 'single-row',
+        itemIds: ['p17-stage-florals'],
+      },
     ],
   },
   {
