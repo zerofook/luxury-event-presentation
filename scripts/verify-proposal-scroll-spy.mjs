@@ -7,6 +7,7 @@ import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { isHtmlProposalEnabled } from './lib/read-proposal-mode.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -70,6 +71,11 @@ function mapSpyToNavNum(spyId) {
 if (!fs.existsSync(DIST)) {
   console.error('verify-proposal-scroll-spy: run npm run build:pages first');
   process.exit(1);
+}
+
+if (!isHtmlProposalEnabled(ROOT)) {
+  console.log('verify-proposal-scroll-spy: skipped (PDF proposal mode; set SHOW_HTML_PROPOSAL = true to run)');
+  process.exit(0);
 }
 
 async function preview() {
