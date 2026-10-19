@@ -50,8 +50,12 @@ export interface ClientLineItem {
 
 export interface ProposalClientMeta {
   eventTitleBg: string;
+  overviewTitleBg: string;
+  overviewLeadBg: string;
   eventDateBg: string;
-  guestCountNoteBg: string;
+  conceptThemeBg: string;
+  guestCountExampleBg: string;
+  venueNameBg: string;
   vatNoteBg: string;
   currencyNoteBg: string;
   itemCount: number;
