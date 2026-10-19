@@ -2,8 +2,6 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ProposalPicture } from '../components/ProposalPicture';
 import {
   DECORATION_SUBSECTIONS,
-  deriveAlternativeGroups,
-  getItemById,
   getProposalBundle,
   hasDisplayPrice,
   hospitalityItems,
@@ -14,8 +12,6 @@ import {
 import { SECTION_HERO_ASSET } from '../data/sectionAssets';
 import { ProposalMobileNav, ProposalSidebar } from '../components/ProposalSidebar';
 import { SubsectionOffers } from '../components/offers/SubsectionOffers';
-import { formatItemPrice } from '../lib/formatMoney';
-import { StatusChip } from '../components/StatusChip';
 import { scrollToSection, useScrollSpy } from '../hooks/useScrollSpy';
 import { proposalHref, type ProposalSectionId } from '../navigation/sections';
 import { AdditionalPerformersGallery } from '../components/AdditionalPerformersGallery';
@@ -70,7 +66,7 @@ const CATEGORY_CARDS: {
     section: 'alternativi',
     num: '06',
     titleBg: 'Алтернативи',
-    bodyBg: 'Палитри и взаимно изключващи се опции.',
+    bodyBg: 'Сравнение на цветовите палитри в ключовите пространства.',
     assetId: 'v4_p04_00_1536x1024',
   },
   {
@@ -95,7 +91,6 @@ const SPY_IDS = [
 
 export function ProposalScrollPage({ initialSection }: { initialSection: ProposalSectionId }) {
   const bundle = getProposalBundle();
-  const altGroups = deriveAlternativeGroups(bundle.items);
   const [dekorExpanded, setDekorExpanded] = useState(initialSection === 'dekoracia');
   const activeSpy = useScrollSpy(SPY_IDS);
   const base = import.meta.env.BASE_URL;
@@ -260,38 +255,9 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             <p className="p2-eyebrow">06 · Алтернативи</p>
             <h2 className="p2-title">Три стила, една незабравима атмосфера</h2>
             <p className="p2-lead">
-              Сравнение на палитри (препоръка: светла / шампанско) и отделно — технически и програмени алтернативи.
+              Сравнение на цветовите палитри — препоръчваме светлата гама със шампанско злато.
             </p>
             <PaletteComparison />
-            <h3 className="p2-area__title p2-area__title--spaced">Алтернативни опции от предложението</h3>
-            <p className="p2-offer-crossref p2-offer-crossref--alt">
-              3D мапинг в гала залата — цени и варианти:{' '}
-              <a href="#dekor-gala" className="p2-offer-crossref__link">
-                секция „Гала зала“
-              </a>
-              .
-            </p>
-            <div className="p2-alt-grid">
-              {altGroups
-                .filter((g) => g.id !== '3D_MAPPING')
-                .map((g) => (
-                  <article key={g.id} className="p2-alt-group">
-                    <h3>{g.titleBg}</h3>
-                    <ul>
-                      {g.itemIds.map((id) => {
-                        const item = getItemById(bundle.items, id)!;
-                        return (
-                          <li key={id} className="p2-alt-item">
-                            <strong>{item.titleBg}</strong>
-                            <StatusChip item={item} />
-                            <span className="p2-alt-price">{formatItemPrice(item)}</span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </article>
-                ))}
-            </div>
           </section>
 
           <section id="investicia" className="p2-section-block">

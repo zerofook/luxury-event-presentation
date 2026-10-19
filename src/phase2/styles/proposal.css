@@ -787,36 +787,6 @@
   opacity: 0.85;
 }
 
-.p2-alt-grid {
-  display: grid;
-  gap: 1.25rem;
-}
-
-@media (min-width: 768px) {
-  .p2-alt-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.p2-alt-group {
-  background: var(--color-ivory);
-  border: 1px solid rgba(37, 59, 80, 0.1);
-  padding: 1rem;
-}
-
-.p2-alt-group ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.p2-alt-item {
-  display: grid;
-  gap: 0.25rem;
-  padding: 0.65rem 0;
-  border-bottom: 1px solid rgba(37, 59, 80, 0.06);
-}
-
 .p2-subtotal-list {
   display: grid;
   gap: 1rem;
