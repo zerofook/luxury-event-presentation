@@ -63,7 +63,7 @@ export function FilmHeroScene({ hero, entrance, ui }: Props) {
       ref={sectionRef}
     >
       <div className="film-hero__bg" aria-hidden="true">
-        <ResponsivePicture assetId={entrance.stillAssetId} priority objectFit="cover" />
+        <ResponsivePicture assetId={entrance.stillAssetId} priority objectFit="cover" fullBleed />
         <div className="film-hero__bg-veil" />
       </div>
 
