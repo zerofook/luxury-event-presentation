@@ -7,16 +7,17 @@ import fs from 'node:fs';
 const ROOT = path.resolve(import.meta.dirname, '..');
 const OUT_DIR = path.join(ROOT, 'docs', 'artifacts');
 const OUT = path.join(OUT_DIR, 'phase2-2-scroll-desktop.mp4');
-const PORT = 4339;
+const PORT = 4388;
 
 function baseUrl() {
-  return `http://127.0.0.1:${PORT}/`;
+  return `http://127.0.0.1:${PORT}/luxury-event-presentation/`;
 }
 
 async function preview() {
   const url = baseUrl();
   const proc = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort', '--host', '127.0.0.1'], {
     cwd: ROOT,
+    env: { ...process.env, VITE_BASE: '/luxury-event-presentation/' },
     stdio: 'ignore',
   });
   for (let i = 0; i < 50; i++) {
@@ -63,14 +64,15 @@ for (const id of ['programa', 'technika', 'gostopriemstvo']) {
   await sleep(4000);
 }
 
-await page.locator('.p2-sidebar__link', { hasText: 'Алтернативи' }).click();
-await sleep(4000);
+for (const id of ['alternativi', 'investicia']) {
+  await page.evaluate((sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, id);
+  await sleep(4000);
+}
 
-await page.locator('.p2-palette-compare__tab', { hasText: 'Оранжева' }).click();
+await page.locator('.p2-palette-compare__tab', { hasText: 'Оранжева' }).click().catch(() => {});
 await sleep(2000);
-
-await page.locator('.p2-sidebar__link', { hasText: 'Инвестиция' }).click();
-await sleep(3500);
 
 await page.getByRole('button', { name: 'Обсъдете предложението' }).click();
 await sleep(3500);

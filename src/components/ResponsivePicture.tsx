@@ -30,19 +30,22 @@ export function ResponsivePicture({
 
   const { avif, webp, jpg } = useMemo(() => {
     if (!asset) return { avif: '', webp: '', jpg: '' };
+    const formats = asset.formats ?? ['avif', 'webp', 'jpg'];
     return {
-      avif: assetSrc(asset, vw, 'avif'),
-      webp: assetSrc(asset, vw, 'webp'),
+      avif: formats.includes('avif') ? assetSrc(asset, vw, 'avif') : '',
+      webp: formats.includes('webp') ? assetSrc(asset, vw, 'webp') : '',
       jpg: assetSrc(asset, vw, 'jpg'),
     };
   }, [asset, vw]);
 
   if (!asset) return null;
 
+  const formats = asset.formats ?? ['avif', 'webp', 'jpg'];
+
   return (
     <picture className={className} style={{ display: 'block', width: '100%', height: '100%' }}>
-      <source type="image/avif" srcSet={avif} sizes={sizes} />
-      <source type="image/webp" srcSet={webp} sizes={sizes} />
+      {formats.includes('avif') && avif ? <source type="image/avif" srcSet={avif} sizes={sizes} /> : null}
+      {formats.includes('webp') && webp ? <source type="image/webp" srcSet={webp} sizes={sizes} /> : null}
       <img
         src={jpg}
         alt={asset.altBg}

@@ -63,7 +63,7 @@ const jobs = [
   [27, { left: 0.74, top: 0.18, width: 0.22, height: 0.38 }, 'v4_p26_crop_menu_vision4', 26],
   [28, { left: 0.04, top: 0.14, width: 0.45, height: 0.42 }, 'v4_p27_crop_gifts_feathers', 27],
   [28, { left: 0.52, top: 0.14, width: 0.44, height: 0.42 }, 'v4_p27_crop_gifts_rose', 27],
-  [29, { left: 0.06, top: 0.12, width: 0.52, height: 0.48 }, 'v4_p28_crop_miniature_car_hero', 28],
+  [29, { left: 0.18, top: 0.38, width: 0.2, height: 0.24 }, 'v4_p28_crop_miniature_car_hero', 28],
   // Technical audit p29 on PDF 30 — atmosphere cells (picture areas only)
   [30, { left: 0.03, top: 0.14, width: 0.23, height: 0.18 }, 'v4_p29_crop_tech_foyer_light', 29],
   [30, { left: 0.03, top: 0.34, width: 0.23, height: 0.18 }, 'v4_p29_crop_tech_corridor_light', 29],
@@ -77,13 +77,16 @@ const jobs = [
   [31, { left: 0.02, top: 0.52, width: 0.48, height: 0.42 }, 'v4_p30_crop_hall_burgundy_stage', 30],
   [31, { left: 0.52, top: 0.52, width: 0.46, height: 0.42 }, 'v4_p30_crop_hall_burgundy_dining', 30],
   // Hosts audit p33 on PDF 34
-  [34, { left: 0.04, top: 0.14, width: 0.22, height: 0.42 }, 'v4_p33_crop_host_1', 33],
-  [34, { left: 0.27, top: 0.14, width: 0.22, height: 0.42 }, 'v4_p33_crop_host_2', 33],
-  [34, { left: 0.5, top: 0.14, width: 0.22, height: 0.42 }, 'v4_p33_crop_host_3', 33],
-  [34, { left: 0.73, top: 0.14, width: 0.22, height: 0.42 }, 'v4_p33_crop_host_4', 33],
-  // Celebrities audit p40 on PDF 41
-  [41, { left: 0.03, top: 0.12, width: 0.46, height: 0.36 }, 'v4_p40_crop_gipsy_kings', 40],
-  [41, { left: 0.51, top: 0.12, width: 0.46, height: 0.36 }, 'v4_p40_crop_the_swan', 40],
+  [34, { left: 0.04, top: 0.2, width: 0.22, height: 0.28 }, 'v4_p33_crop_host_1', 33],
+  [34, { left: 0.27, top: 0.2, width: 0.22, height: 0.28 }, 'v4_p33_crop_host_2', 33],
+  [34, { left: 0.5, top: 0.2, width: 0.22, height: 0.28 }, 'v4_p33_crop_host_3', 33],
+  [34, { left: 0.73, top: 0.2, width: 0.22, height: 0.28 }, 'v4_p33_crop_host_4', 33],
+  // Live show audit p39 on PDF 40 — photo strip only (no headline typography)
+  [40, { left: 0.03, top: 0.1, width: 0.52, height: 0.38 }, 'v4_p39_crop_live_show_band_dancers', 39],
+  [40, { left: 0.05, top: 0.48, width: 0.55, height: 0.32 }, 'v4_p40_crop_live_show_hero', 40],
+  // Celebrities audit p40 on PDF 41 — photo panels only (no price chips)
+  [41, { left: 0.3, top: 0.28, width: 0.18, height: 0.28 }, 'v4_p40_crop_gipsy_kings', 40],
+  [41, { left: 0.54, top: 0.14, width: 0.14, height: 0.2 }, 'v4_p40_crop_the_swan', 40],
   [41, { left: 0.03, top: 0.52, width: 0.15, height: 0.28 }, 'v4_p40_crop_mihaela_marinova', 40],
   [41, { left: 0.2, top: 0.52, width: 0.15, height: 0.28 }, 'v4_p40_crop_dara_ekimova', 40],
   [41, { left: 0.37, top: 0.52, width: 0.15, height: 0.28 }, 'v4_p40_crop_orlin_pavlov', 40],
@@ -93,8 +96,10 @@ const jobs = [
 const registry = JSON.parse(fs.readFileSync(REGISTRY, 'utf8'));
 const byId = new Map(registry.assets.map((a) => [a.id, a]));
 
+const onlyIds = process.env.ONLY_IDS?.split(',').filter(Boolean);
 const log = [];
 for (const [pdfPage, region, id, auditPage] of jobs) {
+  if (onlyIds && !onlyIds.includes(id)) continue;
   try {
     const asset = await cropPdfPage(pdfPage, region, id, auditPage);
     byId.set(id, {

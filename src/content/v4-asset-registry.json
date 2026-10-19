@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19T05:05:02.087Z",
+  "generated": "2026-10-19T05:33:52.007Z",
   "assets": [
     {
       "id": "v4_p02_00_1688x932",
@@ -412,8 +412,8 @@
     },
     {
       "id": "v4_p28_crop_miniature_car_hero",
-      "width": 3120,
-      "height": 1620,
+      "width": 1200,
+      "height": 810,
       "pdfPage": 28,
       "canvaPage": 28,
       "sourcePath": "sources/v4/extract/phase2-2/v4_p28_crop_miniature_car_hero.jpg",
@@ -555,7 +555,7 @@
     {
       "id": "v4_p33_crop_host_1",
       "width": 1320,
-      "height": 1418,
+      "height": 945,
       "pdfPage": 33,
       "canvaPage": 33,
       "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_1.jpg",
@@ -565,7 +565,7 @@
     {
       "id": "v4_p33_crop_host_2",
       "width": 1320,
-      "height": 1418,
+      "height": 945,
       "pdfPage": 33,
       "canvaPage": 33,
       "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_2.jpg",
@@ -575,7 +575,7 @@
     {
       "id": "v4_p33_crop_host_3",
       "width": 1320,
-      "height": 1418,
+      "height": 945,
       "pdfPage": 33,
       "canvaPage": 33,
       "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_3.jpg",
@@ -585,7 +585,7 @@
     {
       "id": "v4_p33_crop_host_4",
       "width": 1320,
-      "height": 1418,
+      "height": 945,
       "pdfPage": 33,
       "canvaPage": 33,
       "sourcePath": "sources/v4/extract/phase2-2/v4_p33_crop_host_4.jpg",
@@ -746,11 +746,13 @@
     },
     {
       "id": "v4_p39_crop_live_show_band_dancers",
-      "width": 1085,
-      "height": 415,
+      "width": 3120,
+      "height": 1283,
       "pdfPage": 39,
       "canvaPage": 39,
-      "sourcePath": "sources/v4/extract/p39/p39_crop_live_show_band_dancers.jpg"
+      "sourcePath": "sources/v4/extract/phase2-2/v4_p39_crop_live_show_band_dancers.jpg",
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
     },
     {
       "id": "v4_p40_crop_dara_ekimova",
@@ -764,8 +766,8 @@
     },
     {
       "id": "v4_p40_crop_gipsy_kings",
-      "width": 2760,
-      "height": 1215,
+      "width": 1080,
+      "height": 945,
       "pdfPage": 40,
       "canvaPage": 40,
       "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_gipsy_kings.jpg",
@@ -774,12 +776,13 @@
     },
     {
       "id": "v4_p40_crop_live_show_hero",
-      "width": 3480,
-      "height": 2430,
+      "width": 3300,
+      "height": 1080,
       "pdfPage": 40,
       "canvaPage": 40,
       "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_live_show_hero.jpg",
-      "phase22": true
+      "phase22": true,
+      "extractMethod": "pdftoppm300+crop (fix pass)"
     },
     {
       "id": "v4_p40_crop_mihaela_marinova",
@@ -813,8 +816,8 @@
     },
     {
       "id": "v4_p40_crop_the_swan",
-      "width": 2760,
-      "height": 1215,
+      "width": 840,
+      "height": 675,
       "pdfPage": 40,
       "canvaPage": 40,
       "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_the_swan.jpg",

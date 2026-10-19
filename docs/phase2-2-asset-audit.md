@@ -59,6 +59,7 @@ See [phase2-2-owner-export-list.md](./phase2-2-owner-export-list.md) — mainly 
 
 ## Borderline
 
-- `v4_p40_crop_gipsy_kings`, `v4_p40_crop_the_swan`, `v4_p40_crop_live_show_hero` — usable but typography remains.
+- `v4_p40_crop_gipsy_kings`, `v4_p39_crop_live_show_band_dancers`, `v4_p28_crop_miniature_car_hero` — tight photo-only crops (2026-10-19 bug-fix pass).
+- `v4_p40_crop_the_swan` — **not shown in finale gallery** until owner supplies clean layer (see owner export list).
 - `v4_p33_crop_host_*` — portraits good; price bars may peek on some crops.
 - `v4_p29_crop_tech_*` — small cell crops (~1380×608); adequate for cards, not hero-scale.

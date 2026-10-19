@@ -83,9 +83,9 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     heroAssetId: 'v4_p38_crop_disco_ball_dancers',
     galleryAssetIds: [
       'v4_p40_crop_gipsy_kings',
-      'v4_p40_crop_the_swan',
       'v4_p40_crop_mihaela_marinova',
       'v4_p40_crop_orlin_pavlov',
+      'v4_p40_crop_papi_hans',
     ],
     match: (i) => i.source.pdfPage === 38 || i.source.pdfPage === 40,
   },

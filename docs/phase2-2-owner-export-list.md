@@ -8,8 +8,7 @@ We extracted most visuals from the approved Canva PDF in the agent environment (
 
 | PDF page | What to export | Format & size | Save as | Used for |
 | --- | --- | --- | --- | --- |
-| **40** | **Gipsy Kings** photo only — crop the band image; **do not include** the „85 000 £“ box or title text | JPG or PNG, long edge **≥ 2400 px** | `p40-gipsy-kings-clean.jpg` | `public/media/img/v4_p40_crop_gipsy_kings_clean-*` — Entertainment finale |
-| **40** | **The Swan** formation photo without price strip | Same | `p40-the-swan-clean.jpg` | `public/media/img/v4_p40_crop_the_swan_clean-*` |
+| **40** | **The Swan** formation photo without price strip or title (piano / performers only) | JPG or PNG, long edge **≥ 2400 px** | `p40-the-swan-clean.jpg` | `public/media/img/v4_p40_crop_the_swan_clean-*` — Entertainment finale (not shown large until clean) |
 | **40** | Bottom row **Bulgarian artists** (6 headshots) — each portrait **without** the name/price bar at the bottom | Same | `p40-artist-<name>-clean.jpg` | Optional upgrade for finale cards |
 
 *Why:* Current crops still include baked-in typography from the slide layout.
@@ -20,9 +19,9 @@ We extracted most visuals from the approved Canva PDF in the agent environment (
 
 | PDF page | What to export | Format & size | Save as | Used for |
 | --- | --- | --- | --- | --- |
-| **39** | **Vessela Boneva & Kalin Velyov** stage photo — **left part of the slide only**, excluding the „7 500 €“ box and large name lettering | JPG, **≥ 2400 px** wide | `p39-live-show-clean.jpg` | `public/media/img/v4_p39_live_show_clean-*` — Music chapter |
+| **39** | *(Optional upgrade)* **Vessela Boneva & Kalin Velyov** stage photo — higher-res master without slide chrome | JPG, **≥ 2400 px** wide | `p39-live-show-clean.jpg` | Optional replacement for `v4_p39_crop_live_show_band_dancers` |
 
-*Why:* The only embedded stream is the full composed slide.
+*Why:* We use a tight photo crop from the slide; a clean layer would improve quality.
 
 ---
 

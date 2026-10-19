@@ -6,16 +6,17 @@ import fs from 'node:fs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const OUT = path.join(ROOT, 'docs', 'screenshots', 'phase2-2');
-const PORT = 4338;
+const PORT = 4377;
 
 function startUrl() {
-  return { url: `http://127.0.0.1:${PORT}/` };
+  return { url: `http://127.0.0.1:${PORT}/luxury-event-presentation/` };
 }
 
 async function preview() {
   const { url } = startUrl();
   const proc = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort', '--host', '127.0.0.1'], {
     cwd: ROOT,
+    env: { ...process.env, VITE_BASE: '/luxury-event-presentation/' },
     stdio: 'ignore',
   });
   for (let i = 0; i < 50; i++) {

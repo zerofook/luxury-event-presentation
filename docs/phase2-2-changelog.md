@@ -1,36 +1,24 @@
-# Phase 2.2 — Changelog (polish round)
+# Phase 2.2 — Changelog (bug fix round)
 
-## Assets
-- Downloaded approved Canva PDF locally; extracted **30+ crops** via `pdfimages` / `pdftoppm` (300 dpi) + sharp.
-- Fixed page mapping for hospitality (p25–28), technical (p29), hall variants (p30), hosts (p33), celebrities (p40).
-- Rebuilt contact sheet (`docs/artifacts/phase2-2-asset-contact-sheet.jpg`) — numbered, no empty tiles.
-- Rewrote owner export list for non-technical readers (only remaining gaps).
+## Root cause — empty Technical / Programme visuals
+- Phase 2.2 asset ids (`v4_p29_*`, `v4_p19_*`, `v4_p33_*`, hospitality crops, etc.) existed on disk and in `v4-asset-registry.json` but were **missing from** `assets.v4.generated.ts`, so `ResponsivePicture` returned `null` (blank `.p2-tech-story__visual` / `.p2-programme-chapter__hero` boxes).
+- JPG-only phase 2.2 ladders had **no AVIF/WebP** files; `<picture>` still advertised AVIF/WebP sources, so the browser selected broken URLs and showed empty slots.
 
-## 03 Entertainment
-- Added **hosts** chapter with `v4_p33_crop_host_*` portraits.
-- Finale gallery: Gipsy Kings / The Swan / premium artists from p40.
-- Music chapter uses live-show crop from p39 slide.
+## Fixes
+- **`scripts/generate-v4-assets.mjs`** — regenerates the v4 manifest from the registry (with per-asset `formats` detected on disk). Wired into `npm run validate` as `assets:v4`.
+- **`scripts/validate-phase2-assets.mjs`** — fails validate if any `src/phase2` `assetId` is absent from the merged manifest.
+- **`ResponsivePicture`** — omits `<source>` tags for formats not listed on the asset (defaults to avif+webp+jpg when all exist).
+- **`scripts/verify-proposal-images.mjs`** — Playwright smoke on production `dist/` after `build:pages`: scrolls `#/proposal`, requires every `img` `naturalWidth > 0` and no empty visual/hero slots.
+- **Tighter PDF crops** (`extract-phase2-2-fix.mjs`, `ONLY_IDS` for selective re-run): p28 car, p39 live show, p40 Gipsy Kings; **The Swan** dropped from finale gallery (no clean crop) — listed in owner export list.
+- **Capture / record** scripts use `VITE_BASE=/luxury-event-presentation/` preview URL (matches GitHub Pages).
 
-## 04 Technical
-- Large hero + two-up story using **p29 atmosphere cells** and **p19 mapping** crop.
-- Small p13 crops removed from story; specs stay in `<details>`.
+## Verification (this round)
+- `npm run validate` — OK (includes `validate-phase2-assets`)
+- `npm run build:pages` — OK + **`verify-proposal-images: OK (62 images loaded)`** (all four technical visuals loaded as `.jpg`)
+- `node scripts/verify-dist-pricing.mjs` — OK
+- `node scripts/verify-pages-base.mjs` — OK
+- Manual review of refreshed `docs/screenshots/phase2-2/desktop-1440-04-technika-full.png`, `03-programa-full.png`, and crop JPGs under `public/media/img/` (hosts, car, live show, Gipsy Kings).
+- Desktop scroll video re-recorded: `docs/artifacts/phase2-2-scroll-desktop.mp4` (~5.5 MB).
 
-## 05 Hospitality
-- Gallery upgraded with menu (p25–26), gifts (p27), miniature car (p28) extractions.
-
-## 06 Alternatives
-- Palette switcher adds **hall variant** view (p30 orange/burgundy + ivory references).
-
-## 07 Investment
-- **All priced rows visible by default** per category; long descriptions in per-row `<details>`.
-- Added clarity copy on alternatives, ranges, and confirmation (`investmentClarityBg`).
-- Contact closing: intentional placeholder with next-step list when agency contact empty.
-
-## Artifacts
-- Full-height desktop section screenshots: `docs/screenshots/phase2-2/desktop-1440-*-full.png`
-- Mobile full-page: nav, programme, technical, hospitality, alternatives, investment
-- Video refreshed: `docs/artifacts/phase2-2-scroll-desktop.mp4` (~4.6 MB)
-
-## Scripts
-- `scripts/extract-phase2-2-from-pdf.mjs`, `scripts/extract-phase2-2-fix.mjs`
-- Capture uses element screenshots for full section height
+## PDF download
+- Link target unchanged (`public/sources/v4/presentation.pdf`); file still not committed (owner compressed PDF pending).
