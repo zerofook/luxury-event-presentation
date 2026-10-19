@@ -3,7 +3,6 @@ import { OwnerTextSlideFigure } from './OwnerTextSlideFigure';
 import { ProposalPicture } from './ProposalPicture';
 import { assets } from '@/content/assets';
 import { PROGRAMME_CHAPTERS, itemsForChapter } from '../data/programmeChapters';
-import { resolveProgrammeOwnerPhoto } from '../data/programmePerformerPhotos';
 import type { ClientLineItem } from '../types';
 import { ItemRowList } from './ItemRowList';
 import { formatItemPrice } from '../lib/formatMoney';
@@ -36,12 +35,7 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
             : undefined;
         const gatsbyCards =
           chapter.id === 'gatsby-show' ? chapterItems.filter((i) => i !== gatsbySpotlight) : listItems;
-        const featured =
-          chapter.id === 'gatsby-show'
-            ? gatsbyCards.slice(0, 4)
-            : chapter.id === 'finale'
-              ? listItems
-              : listItems.slice(0, 4);
+        const featured = chapter.id === 'gatsby-show' ? gatsbyCards.slice(0, 4) : listItems.slice(0, 4);
 
         return (
           <article key={chapter.id} id={`programa-${chapter.id}`} className="p2-programme-chapter">
@@ -158,21 +152,8 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
               <ul className="p2-performer-cards">
                 {featured.map((item) => {
                   const price = formatItemPrice(item);
-                  const ownerPhoto = resolveProgrammeOwnerPhoto(item.id);
                   return (
                     <li key={item.id} className="p2-performer-card">
-                      {ownerPhoto ? (
-                        <div className="p2-performer-card__photo">
-                          <ProposalPicture
-                            assetId={ownerPhoto.assetId}
-                            layout="fill"
-                            objectFit="cover"
-                            objectPosition={ownerPhoto.objectPosition}
-                            sizes="(min-width: 768px) 280px, 45vw"
-                            capScale={1}
-                          />
-                        </div>
-                      ) : null}
                       <div className="p2-performer-card__body">
                         <h4>{item.titleBg}</h4>
                         {item.descriptionBg && <p>{item.descriptionBg}</p>}
@@ -187,7 +168,7 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
               </ul>
             )}
 
-            {listItems.length > 4 && chapter.id !== 'gatsby-show' && chapter.id !== 'finale' && (
+            {listItems.length > 4 && chapter.id !== 'gatsby-show' && (
               <details className="p2-programme-chapter__details">
                 <summary>Пълен списък оферти ({listItems.length})</summary>
                 <ItemRowList items={listItems} compact />

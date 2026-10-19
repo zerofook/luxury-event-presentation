@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19T12:03:36.796Z",
+  "generated": "2026-10-19T12:38:39.086Z",
   "assets": [
     {
       "id": "v4_p02_00_1688x932",
@@ -1407,6 +1407,15 @@
       "provenance": "owner-export",
       "ownerApprovedTextSlide": true,
       "altBg": "Слайд: танцово шоу „Великият Гетсби“ — 10 танцьора 3 500 € или 6 танцьора 2 500 € без ДДС"
+    },
+    {
+      "id": "v4_owner_doc_additional_performers_slide",
+      "width": 4658,
+      "height": 3105,
+      "sourcePath": "sources/v4/owner/additions/performers-slide.jpg",
+      "provenance": "owner-export",
+      "ownerApprovedTextSlide": true,
+      "altBg": "Слайд: допълнителни предложения за изпълнители — Gipsy Kings, The Swan, Михаела Маринова и други; цени на слайда без ДДС или по запитване"
     }
   ]
 }

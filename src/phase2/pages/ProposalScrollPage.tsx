@@ -18,6 +18,7 @@ import { formatItemPrice } from '../lib/formatMoney';
 import { StatusChip } from '../components/StatusChip';
 import { scrollToSection, useScrollSpy } from '../hooks/useScrollSpy';
 import { proposalHref, type ProposalSectionId } from '../navigation/sections';
+import { AdditionalPerformersGallery } from '../components/AdditionalPerformersGallery';
 import { EntertainmentProgramme } from '../components/EntertainmentProgramme';
 import { TechnicalStory } from '../components/TechnicalStory';
 import { HospitalityEditorial } from '../components/HospitalityEditorial';
@@ -233,6 +234,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
               резервация или наличност.
             </p>
             <EntertainmentProgramme items={prog} />
+            <AdditionalPerformersGallery />
           </section>
 
           <section id="technika" className="p2-section-block">

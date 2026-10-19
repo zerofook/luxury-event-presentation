@@ -51,13 +51,21 @@ const SLIDES = [
     altBg:
       'Слайд: танцово шоу „Великият Гетсби“ — 10 танцьора 3 500 € или 6 танцьора 2 500 € без ДДС',
   },
+  {
+    file: 'performers-slide.jpg',
+    id: 'v4_owner_doc_additional_performers_slide',
+    altBg:
+      'Слайд: допълнителни предложения за изпълнители — Gipsy Kings, The Swan, Михаела Маринова и други; цени на слайда без ДДС или по запитване',
+  },
 ];
 
 async function writeLadder(id, inputPath) {
   const meta = await sharp(inputPath).metadata();
   const srcW = meta.width ?? 0;
   const srcH = meta.height ?? 0;
-  const widths = [...new Set([640, 1024, 1600, 1944, srcW].filter((w) => w <= srcW))].sort((a, b) => a - b);
+  const widths = [...new Set([640, 1024, 1600, 1944, 2400, 3200, srcW].filter((w) => w <= srcW))].sort(
+    (a, b) => a - b,
+  );
 
   for (const w of widths) {
     const targetW = Math.min(w, srcW);

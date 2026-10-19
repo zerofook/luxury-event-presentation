@@ -1184,21 +1184,6 @@ button.p2-btn {
   min-height: 100%;
 }
 
-.p2-performer-card__photo {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  margin: -0.85rem -1rem 0.35rem;
-  width: calc(100% + 2rem);
-  max-height: 220px;
-}
-
-@media (min-width: 768px) {
-  .p2-performer-card__photo {
-    max-height: 280px;
-  }
-}
-
 .p2-performer-card h4 {
   font-size: 0.95rem;
   margin: 0;
@@ -1693,6 +1678,74 @@ button.p2-btn {
 .p2-lead--compact {
   max-width: 42rem;
   margin-bottom: 1rem;
+}
+
+.p2-additional-performers {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(52, 76, 96, 0.1);
+}
+
+.p2-additional-performers__grid {
+  display: grid;
+  gap: 0.65rem 0.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
+@media (min-width: 480px) {
+  .p2-additional-performers__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .p2-additional-performers__card:nth-child(5) {
+    grid-column: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .p2-additional-performers__grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+  .p2-additional-performers__card:nth-child(5) {
+    grid-column: auto;
+  }
+}
+
+.p2-additional-performers__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+}
+
+.p2-additional-performers__photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.p2-additional-performers__name {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .p2-additional-performers__name {
+    font-size: 0.78rem;
+  }
+}
+
+.p2-additional-performers__slide {
+  margin-top: 0.5rem;
 }
 
 .p2-owner-text-slide {
