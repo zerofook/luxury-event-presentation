@@ -13,6 +13,7 @@ export function ItemRowList({ items, compact }: { items: ClientLineItem[]; compa
             <h4 className="p2-item-row__title">{item.titleBg}</h4>
             {!compact && item.descriptionBg && <p className="p2-item-row__desc">{item.descriptionBg}</p>}
             {item.clientNoteBg && <p className="p2-item-row__note">{item.clientNoteBg}</p>}
+            {item.overlapNoteBg && <p className="p2-item-row__overlap">{item.overlapNoteBg}</p>}
           </div>
           <div className="p2-item-row__meta">
             <span className="p2-item-row__price">{formatItemPrice(item)}</span>

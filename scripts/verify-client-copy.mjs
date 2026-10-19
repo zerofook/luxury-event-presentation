@@ -53,6 +53,9 @@ const ALLOW = new Set([
   'Benz',
   'Bamboléo',
   'Volare',
+  'Kalin',
+  'Velyov',
+  'DJ',
 ]);
 
 const WORD_RE = /[A-Za-z]{3,}/g;

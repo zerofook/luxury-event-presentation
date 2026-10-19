@@ -45,14 +45,39 @@ function latinRatio(text) {
   return latin / Math.max(1, latin + cyr);
 }
 
-function clientTitle(title) {
+/** Client-safe titles where PDF/sanitize pipeline left fragments. */
+const TITLE_OVERRIDES = {
+  'p17-stage-decor': 'Декор на зоната — декоративни пана с въртяща платформа',
+  'p19-map-partial-stock': 'Вариант 1 — частичен 3D мапинг със стокови визии',
+  'p19-map-partial-custom': 'Вариант 2 — частичен 3D мапинг с авторски визии',
+  'p20-map-full-stock': 'Вариант 1 — пълен 3D мапинг със стокови визии',
+  'p20-map-full-custom': 'Вариант 2 — пълен 3D мапинг с авторски визии',
+  'p24-tables-orange': 'Декор на гостни маси — оранжева/терракота гама',
+  'p24-tables-ivory': 'Декор на гостни маси — светла гама (слонова кост и злато)',
+  'p24-tables-plum': 'Декор на гостни маси — слива/бордо гама',
+  'p39-boneva-velyov': 'Живо шоу — Весела Бонева и Калин Velyov (след фойерверките)',
+  'p10-carpet-plum': 'Мокет — цвят слива',
+  'p10-carpet-orange': 'Мокет — оранж',
+  'p29-extra-sound-tech': 'Озвучител (техник)',
+  'p29-extra-light-tech': 'Осветител (техник)',
+  'p29-extra-led-operator': 'Оператор на LED екран',
+  'p29-extra-dj': 'DJ и маса',
+  'p27-gifts-hair': 'Аксесоари за коса',
+};
+
+function clientTitle(item) {
+  if (TITLE_OVERRIDES[item.id]) return TITLE_OVERRIDES[item.id];
+  const title = item.titleBg;
   if (!title) return title;
-  const chunks = title.split(/[\u2014\u2013–—/]+/).map((p) => sanitizeBg(p.trim())).filter(Boolean);
-  const withCyr = chunks.filter((c) => (c.match(/[\u0400-\u04FF]/g) || []).length >= 6);
-  if (withCyr.length) {
-    return withCyr[withCyr.length - 1].replace(/^[A-Z0-9&'’.\s]+(?=\(|[\u0400-\u04FF])/i, '').trim();
-  }
-  return clientTextField(title) || chunks[chunks.length - 1] || sanitizeBg(title);
+  const cleaned = sanitizeBg(title);
+  const chunks = cleaned.split(/[\u2014\u2013–—/]+/).map((p) => p.trim()).filter(Boolean);
+  const ranked = chunks
+    .map((c) => ({ c, n: (c.match(/[\u0400-\u04FF]/g) || []).length }))
+    .sort((a, b) => b.n - a.n);
+  let best = ranked[0]?.n >= 8 ? ranked[0].c : cleaned;
+  best = best.replace(/^[A-Z0-9&'’.\s-]+(?=[\u0400-\u04FF(])/i, '').replace(/^\)\s*/, '').trim();
+  if (/^[а-я]/.test(best)) best = best.charAt(0).toUpperCase() + best.slice(1);
+  return best || cleaned;
 }
 
 function clientTextField(text) {
@@ -131,7 +156,7 @@ function toClientItem(item) {
     id: item.id,
     area: AREA_BG[item.area] ?? (sanitizeBg(item.area) || item.area),
     sectionKey: item.sectionKey,
-    titleBg: clientTitle(item.titleBg) || item.titleBg,
+    titleBg: clientTitle(item) || item.titleBg,
     descriptionBg: clientTextField(item.descriptionBg),
     quantity: item.quantity,
     unit: item.unit,

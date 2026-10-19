@@ -13,10 +13,9 @@ import {
   technicalItems,
 } from '../data/loadProposalData';
 import { AREA_HERO_ASSET, PALETTE_CORRIDOR_ASSETS, PALETTE_ENTRANCE_ASSETS } from '../data/areaAssets';
-import { SECTION_HERO_ASSET } from '../data/sectionAssets';
+import { HOSPITALITY_ILLUSTRATION, SECTION_HERO_ASSET } from '../data/sectionAssets';
 import { ProposalMobileNav, ProposalSidebar } from '../components/ProposalSidebar';
 import { ItemRowList } from '../components/ItemRowList';
-import { LineItemTable } from '../components/LineItemTable';
 import { VintageCarFeature } from '../components/VintageCarFeature';
 import { formatItemPrice } from '../lib/formatMoney';
 import { StatusChip } from '../components/StatusChip';
@@ -215,7 +214,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
                     {vintageCar && <VintageCarFeature item={vintageCar} />}
                   </>
                 )}
-                {areaItems.length > 0 && <LineItemTable items={areaItems} />}
+                {areaItems.length > 0 && <ItemRowList items={areaItems} />}
                 {sub.id !== 'dekor-foto' && areaItems.length === 0 && (
                   <p className="p2-muted">Детайлните редове за тази зона са в съседни секции на предложението или без отделна цена.</p>
                 )}
@@ -230,20 +229,24 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
               Имената и сумите идват от предложението като ориентир. Посочена цена не означава потвърдено участие или
               наличност.
             </p>
-            <ProgrammeCards items={prog} />
+            <ProgrammeBlocks items={prog} />
           </section>
 
           <section id="technika" className="p2-section-block">
             <p className="p2-eyebrow">04 · Техника</p>
             <h2 className="p2-title">Техническо обезпечаване</h2>
             <p className="p2-lead">{bundle.technicalIndicativeNoteBg}</p>
-            <SectionVisual assetId={SECTION_HERO_ASSET.technika} />
+            <div className="p2-section-opener" aria-hidden>
+              <span className="p2-section-opener__line" />
+              <span className="p2-section-opener__label">Звук · светлина · LED · сцена</span>
+              <span className="p2-section-opener__line" />
+            </div>
             <h3 className="p2-area__title">Основен пакет</h3>
-            <ItemRowList items={techMain.filter(hasDisplayPrice)} compact />
+            <ItemRowList items={techMain.filter(hasDisplayPrice)} />
             {techExtra.length > 0 && (
               <>
                 <h3 className="p2-area__title p2-area__title--spaced">Допълнителни услуги</h3>
-                <ItemRowList items={techExtra.filter(hasDisplayPrice)} compact />
+                <ItemRowList items={techExtra.filter(hasDisplayPrice)} />
               </>
             )}
           </section>
@@ -252,8 +255,8 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             <p className="p2-eyebrow">05 · Детайли</p>
             <h2 className="p2-title">Гостоприемство и детайли</h2>
             <p className="p2-lead">Менюта, подаръци и аксесоари — с ясно обозначен тип цена (на гост, на брой, пакет).</p>
-            <SectionVisual assetId={SECTION_HERO_ASSET.gostopriemstvo} />
-            <ItemRowList items={hosp.filter(hasDisplayPrice)} compact />
+            <HospitalityAside />
+            <ItemRowList items={hosp.filter(hasDisplayPrice)} />
           </section>
 
           <section id="alternativi" className="p2-section-block">
@@ -304,7 +307,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             <p className="p2-eyebrow">07 · Инвестиция</p>
             <h2 className="p2-title">Прозрачна структура и ясна представа за бюджета</h2>
             <p className="p2-lead">{bundle.meta.investmentIntroBg}</p>
-            <SectionVisual assetId={SECTION_HERO_ASSET.investicia} />
+            {SECTION_HERO_ASSET.investicia && <SectionVisual assetId={SECTION_HERO_ASSET.investicia} />}
             <div className="p2-invest-grid">
               {bundle.investmentCategories.map((cat) => (
                 <article key={cat.id} className="p2-invest-card">
@@ -319,7 +322,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
               Всяка сума по-долу е отпечатана или посочена на съответната страница. Обща сума за декорация не е
               посочена в предложението — позициите се разглеждат поотделно.
             </p>
-            <ItemRowList items={decorPriced} compact />
+            <ItemRowList items={decorPriced} />
             <div className="p2-invest-actions">
               <a className="p2-btn p2-btn--primary" href={`${base}sources/v4/presentation.pdf`} download>
                 Изтегли пълна оферта
@@ -335,7 +338,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
   );
 }
 
-function ProgrammeCards({ items }: { items: ReturnType<typeof programmeItems> }) {
+function ProgrammeBlocks({ items }: { items: ReturnType<typeof programmeItems> }) {
   const groups = new Map<string, typeof items>();
   for (const item of items) {
     const list = groups.get(item.area) ?? [];
@@ -343,20 +346,12 @@ function ProgrammeCards({ items }: { items: ReturnType<typeof programmeItems> })
     groups.set(item.area, list);
   }
   return (
-    <div className="p2-programme-grid">
+    <div className="p2-programme-blocks">
       {[...groups.entries()].map(([area, list]) => (
-        <article key={area} className="p2-programme-card">
-          <h3>{area}</h3>
-          <ul>
-            {list.map((item) => (
-              <li key={item.id}>
-                <strong>{item.titleBg}</strong>
-                <span>{formatItemPrice(item)}</span>
-                <StatusChip item={item} />
-              </li>
-            ))}
-          </ul>
-        </article>
+        <div key={area} className="p2-programme-block">
+          <h3 className="p2-area__title">{area}</h3>
+          <ItemRowList items={list} />
+        </div>
       ))}
     </div>
   );
@@ -367,5 +362,19 @@ function SectionVisual({ assetId }: { assetId: string }) {
     <div className="p2-section-visual">
       <ResponsivePicture assetId={assetId} objectFit="cover" />
     </div>
+  );
+}
+
+function HospitalityAside() {
+  return (
+    <aside className="p2-aside-illustration">
+      <figure className="p2-aside-illustration__figure">
+        <ResponsivePicture assetId={HOSPITALITY_ILLUSTRATION.assetId} objectFit="cover" />
+        <figcaption>{HOSPITALITY_ILLUSTRATION.captionBg}</figcaption>
+      </figure>
+      <p className="p2-aside-illustration__text">
+        Подаръци и аксесоари от предложението — цените са на гост или на брой, без предположени количества.
+      </p>
+    </aside>
   );
 }
