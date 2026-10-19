@@ -9,6 +9,8 @@ interface Props {
   priority?: boolean;
   objectFit?: 'cover' | 'contain';
   objectPosition?: string;
+  /** Max display width = native width × scale (default 1.5 — no upscale beyond this). */
+  capScale?: number;
 }
 
 export function ResponsivePicture({
@@ -18,6 +20,7 @@ export function ResponsivePicture({
   priority,
   objectFit = 'cover',
   objectPosition,
+  capScale = 1.5,
 }: Props) {
   const asset: MediaAsset | undefined = assets[assetId];
   const [vw, setVw] = useState(typeof window !== 'undefined' ? window.innerWidth : 1440);
@@ -41,8 +44,14 @@ export function ResponsivePicture({
   if (!asset) return null;
 
   const formats = asset.formats ?? ['avif', 'webp', 'jpg'];
+  const maxRenderW = Math.round(asset.width * capScale);
 
   return (
+    <div
+      className="p2-media"
+      style={{ width: '100%', maxWidth: maxRenderW, height: '100%', marginInline: 'auto' }}
+      data-max-render-w={maxRenderW}
+    >
     <picture
       className={className}
       data-asset-id={assetId}
@@ -61,5 +70,6 @@ export function ResponsivePicture({
         style={{ width: '100%', height: '100%', objectFit, objectPosition }}
       />
     </picture>
+    </div>
   );
 }

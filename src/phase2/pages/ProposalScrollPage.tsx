@@ -92,7 +92,8 @@ const SPY_IDS = [
   'sledvashti-stapki',
 ];
 
-const DEKOR_LAYOUT = ['', 'p2-area--split', 'p2-area--inset', 'p2-area--wide-caption'] as const;
+/** Full-width media + price rows below (no split/inset frames). */
+const DEKOR_LAYOUT = ['', '', '', '', '', '', ''] as const;
 
 export function ProposalScrollPage({ initialSection }: { initialSection: ProposalSectionId }) {
   const bundle = getProposalBundle();

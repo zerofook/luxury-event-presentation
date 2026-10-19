@@ -1,12 +1,12 @@
 /** Clean full renders for the #dekoracia overview (registry `textFree: true`). */
 export const DECORATION_OVERVIEW_TILES = [
   {
-    assetId: 'v4_p05_crop_entrance_hero_clean',
+    assetId: 'v4_p04_crop_entrance_v3',
     titleBg: 'Входна зона',
     bodyBg: 'Светла палитра — основната насока в одобрените визуализации.',
   },
   {
-    assetId: 'v4_p08_00_1374x1145',
+    assetId: 'v4_p11_crop_cocktail_aerial_clean',
     titleBg: 'Коктейлна зона',
     bodyBg: 'Аерозаснемане на първи етаж — маси, осветление и централна композиция.',
   },

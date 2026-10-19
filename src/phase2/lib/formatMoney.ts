@@ -33,7 +33,7 @@ export function formatItemPrice(item: ClientLineItem): string {
         ? `${formatMoney(item.lineTotal, cur)} · цена за потвърждение${vat}`
         : 'Цена за потвърждение';
     case 'not_provided':
-      return '—';
+      return '';
     case 'fixed':
     default:
       if (item.lineTotal != null) return `${formatMoney(item.lineTotal, cur)}${vat}`;

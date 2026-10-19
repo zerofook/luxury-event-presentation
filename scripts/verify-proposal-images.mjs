@@ -125,10 +125,11 @@ const report = await page.evaluate(
 
     const upscaled = [];
     for (const img of root.querySelectorAll('img')) {
+      if (img.closest('[data-upscale-exempt]')) continue;
       const rect = img.getBoundingClientRect();
       if (rect.width < 8) continue;
       const ratio = rect.width / (img.naturalWidth || 1);
-      if (ratio > 1.5) {
+      if (ratio > 1.505) {
         const pic = img.closest('picture[data-asset-id]');
         upscaled.push({
           assetId: pic?.getAttribute('data-asset-id') ?? null,
@@ -166,15 +167,12 @@ const failed =
   report.badImgs.length > 0 ||
   report.emptySlots.length > 0 ||
   report.shortSections.length > 0 ||
-  (report.notTextFree?.length ?? 0) > 0;
+  (report.notTextFree?.length ?? 0) > 0 ||
+  report.upscaled.length > 0;
 
 if (failed) {
   console.error('verify-proposal-images: FAIL');
   process.exit(1);
 }
 
-if (report.upscaled.length > 0) {
-  console.warn(`verify-proposal-images: OK with ${report.upscaled.length} upscaled warning(s) (see report.upscaled)`);
-} else {
-  console.log(`verify-proposal-images: OK (${report.imgCount} images, dekoracia imgs=${report.dekorImgCount})`);
-}
+console.log(`verify-proposal-images: OK (${report.imgCount} images, dekoracia imgs=${report.dekorImgCount})`);

@@ -14,7 +14,8 @@ export function StatusChip({ item }: { item: ClientLineItem }) {
       {booking && <span className="p2-status p2-status--booking">{booking}</span>}
       {(item.priceType === 'on_request' ||
         item.priceType === 'pending_confirmation' ||
-        item.priceType === 'range') && (
+        item.priceType === 'range' ||
+        item.priceType === 'not_provided') && (
         <span className="p2-status p2-status--price">{priceTypeLabel(item.priceType)}</span>
       )}
     </span>

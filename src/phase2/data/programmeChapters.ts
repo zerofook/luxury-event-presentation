@@ -15,7 +15,7 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     titleBg: 'Коктейл и първи впечатления',
     leadBg:
       'Живи инсталации и перформанси в Art Deco дух — предложени артисти за фоайето и коктейлната част, преди официалното откриване.',
-    heroAssetId: 'v4_p08_00_1374x1145',
+    heroAssetId: 'v4_p11_crop_cocktail_aerial_clean',
     galleryAssetIds: [
       'v4_p32_crop_performer1',
       'v4_p32_crop_performer3',
@@ -43,7 +43,7 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     titleBg: 'Водещ на вечерта',
     leadBg:
       'Предложени водещи с професионално присъствие — изборът определя тона на официалната част и прехода към шоу програмата.',
-    heroAssetId: 'v4_p33_crop_host_2',
+    heroAssetId: 'v4_p33_crop_host_1',
     galleryAssetIds: [
       'v4_p33_crop_host_1',
       'v4_p33_crop_host_3',
@@ -77,7 +77,7 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     leadBg:
       'Party частта и допълнителни звездни формати — опции след официалната програма, с ясно обозначени алтернативи.',
     heroAssetId: 'v4_p38_crop_disco_ball_dancers',
-    galleryAssetIds: ['v4_p40_crop_gipsy_kings', 'v4_p40_crop_mihaela_marinova'],
+    galleryAssetIds: ['v4_p40_crop_gipsy_kings'],
     match: (i) => i.source.pdfPage === 38 || i.source.pdfPage === 40,
   },
 ];

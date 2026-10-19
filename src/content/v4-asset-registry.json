@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19T05:46:34.549Z",
+  "generated": "2026-10-19T06:03:19.318Z",
   "assets": [
     {
       "id": "v4_p02_00_1688x932",
@@ -52,8 +52,7 @@
       "pdfPage": 5,
       "canvaPage": 5,
       "sourcePath": "sources/v4/extract/phase2-2/v4_p05_crop_entrance_hero_clean.jpg",
-      "phase22": true,
-      "textFree": true
+      "phase22": true
     },
     {
       "id": "v4_p06_05_830x474",
@@ -846,8 +845,7 @@
       "canvaPage": 40,
       "sourcePath": "sources/v4/extract/phase2-2/v4_p40_crop_mihaela_marinova.jpg",
       "phase22": true,
-      "extractMethod": "pdftoppm300+crop (fix pass)",
-      "textFree": true
+      "extractMethod": "pdftoppm300+crop (fix pass)"
     },
     {
       "id": "v4_p40_crop_orlin_pavlov",

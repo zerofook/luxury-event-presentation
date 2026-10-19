@@ -1,27 +1,25 @@
-# Phase 2.2 — Changelog (post-merge fix round)
+# Phase 2.2 — Changelog (layout & QA round)
 
-## Merge
-- Merged **`origin/main`** at **`dc60cdf`** (PR #9 Guest Experience copy fixes) into PR #8 branch via **merge commit** — Phase 1 copy (`site.bg.ts`, `bodyParagraphsBg`, Passage/Editorial scenes) preserved from main.
+## Programme
+- Finale: removed `v4_p40_crop_mihaela_marinova` (baked PDF text); single-thumb grid (`--count-1`).
+- Gallery rows use count-based CSS (2-up, 3-up, …) to fill width; Gatsby row equal columns.
+- Native hero presentation for hosts/ceremony/Gatsby/finale — no upscale beyond 1.5× native (`ResponsivePicture` cap + `verify-proposal-images` **fail**).
 
-## #dekoracia
-- `#dekoracia` now wraps the full decoration block (overview + subsections) with **`DecorationOverview`** — 6 clean registry renders (entrance, cocktail, corridor, hall, stage, photo wall).
-- Subsections remain as scroll targets (`dekor-vhod`, …) inside the same section.
+## Decoration
+- Overview entrance → `v4_p04_crop_entrance_v3` (no signage panel); cocktail overview → `v4_p11_crop_cocktail_aerial_clean`.
+- Subsections: removed split/inset layouts — full-width heroes on desktop and mobile.
+- Detail strips full-width; no champagne inset frames on table/photo blocks.
 
-## #technika
-- Technical story uses **full clean renders** only: `v4_p21_00_1851x849`, `v4_p17_crop_stage_hero`, `v4_p14_01_1134x680`, `v4_p18_crop_hall_clean_left` (removed p29 icon strips and p19 spec typography).
+## Hospitality
+- Three centerpiece tiles span the row; `not_provided` prices show **„Не е посочена цена“** (no „—“).
 
-## #programa
-- Removed baked-text crops: `v4_p40_crop_live_show_hero`, `v4_p40_crop_orlin_pavlov`, `v4_p40_crop_papi_hans`.
-- Music hero → `v4_p39_crop_live_show_band_dancers` (photo crop); cocktail hero → `v4_p08_00_1374x1145`.
+## Hygiene
+- `validate` runs **`validate-v4-text-free.mjs`** (read-only); registry updates via **`npm run sync:text-free`** only.
+- Vintage car owner block unchanged (`data-upscale-exempt` for upscale check).
 
-## #gostopriemstvo
-- Gallery deduped to **three centerpiece renders** only; menus/gifts/mini-car deferred to owner export list.
-
-## Layout & QA
-- CSS: image slots fill card width (`object-fit: cover`, explicit `picture`/`img` sizing); programme gallery uses `auto-fill`; `scroll-margin-top` for sticky header.
-- Registry **`textFree`** flag + `scripts/annotate-v4-text-free.mjs` (runs in `validate`).
-- **`verify-proposal-images`**: section min-heights, `textFree` on gallery slots, upscaled warnings (>1.5× natural width).
+## Note
+- Коктейлна зона overview card still says **„на първи етаж“** (owner confirmation pending).
 
 ## Verification
-- `npm run validate`, `npm run build:pages` (+ image smoke), `verify-dist-pricing`, `verify-pages-base`, `verify-client-copy`.
-- Refreshed `docs/screenshots/phase2-2/`, contact sheet, `docs/artifacts/phase2-2-scroll-desktop.mp4`.
+- `npm run validate`, `build:pages` + `verify-proposal-images` (upscale fail), dist/pages/client-copy checks.
+- Refreshed screenshots, contact sheet, video (~6.2 MB).
