@@ -43,7 +43,7 @@ export function InvestmentEditorial({
         <p>{meta.currencyNoteBg}</p>
         <ul className="p2-invest-legend__keys">
           <li>
-            <span className="p2-invest-key p2-invest-key--fixed" /> Фиксирана или единична цена от източника
+            <span className="p2-invest-key p2-invest-key--fixed" /> Фиксирана или единична цена от предложението
           </li>
           <li>
             <span className="p2-invest-key p2-invest-key--range" /> Диапазон

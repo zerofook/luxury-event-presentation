@@ -1,7 +1,7 @@
-import { assets } from '@/content/assets';
 import { ADDITIONAL_PERFORMER_SUGGESTIONS } from '../data/additionalPerformers';
 import { ProposalPicture } from './ProposalPicture';
 
+/** Doc #58–64 — compact suggestion cards (not confirmed bookings). */
 export function AdditionalPerformersGallery() {
   return (
     <section className="p2-additional-performers" aria-labelledby="p2-additional-performers-title">
@@ -13,25 +13,21 @@ export function AdditionalPerformersGallery() {
         състава.
       </p>
       <ul className="p2-additional-performers__grid">
-        {ADDITIONAL_PERFORMER_SUGGESTIONS.map((p) => {
-          const meta = assets[p.assetId];
-          const capPx = Math.min(p.maxRenderPx, Math.round((meta?.width ?? p.maxRenderPx) * 1.5));
-          return (
-            <li key={p.assetId} className="p2-additional-performers__card">
-              <div className="p2-additional-performers__photo" style={{ maxWidth: `${capPx}px` }}>
-                <ProposalPicture
-                  assetId={p.assetId}
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition={p.objectPosition}
-                  capScale={1}
-                  sizes={`(min-width: 768px) ${capPx}px, 42vw`}
-                />
-              </div>
-              <p className="p2-additional-performers__name">{p.nameBg}</p>
-            </li>
-          );
-        })}
+        {ADDITIONAL_PERFORMER_SUGGESTIONS.map((p) => (
+          <li key={p.assetId} className="p2-additional-performers__card">
+            <div className="p2-additional-performers__photo">
+              <ProposalPicture
+                assetId={p.assetId}
+                layout="fill"
+                objectFit="cover"
+                objectPosition={p.objectPosition}
+                capScale={1}
+                sizes="96px"
+              />
+            </div>
+            <p className="p2-additional-performers__name">{p.nameBg}</p>
+          </li>
+        ))}
       </ul>
     </section>
   );

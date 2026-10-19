@@ -1,3 +1,4 @@
+import { CompactAssetStrip } from './CompactAssetStrip';
 import { ProposalPicture } from './ProposalPicture';
 import { assets } from '@/content/assets';
 import { PROGRAMME_CHAPTERS, itemsForChapter } from '../data/programmeChapters';
@@ -95,31 +96,37 @@ export function EntertainmentProgramme({ items }: { items: ClientLineItem[] }) {
                   </div>
                 </div>
               </div>
-            ) : (
-              chapter.galleryAssetIds &&
-              chapter.galleryAssetIds.length > 0 &&
-              !(chapter.id === 'gatsby-show' && galleryCount === 1) && (
-                <div
-                  className={`p2-programme-chapter__gallery p2-programme-chapter__gallery--count-${Math.min(galleryCount, 6)}${chapter.galleryPortraitIds?.length ? ' p2-programme-chapter__gallery--portrait-pair' : ''}${galleryCount === 1 ? ' p2-programme-chapter__gallery--solo' : ''}`}
-                >
-                  {chapter.galleryAssetIds.map((id) => (
-                    <div
-                      key={id}
-                      className={`p2-programme-chapter__thumb${chapter.galleryPortraitIds?.includes(id) ? ' p2-programme-chapter__thumb--portrait' : ''}${chapter.id === 'hosts' && id.includes('host_1') ? ' p2-programme-chapter__thumb--host' : ''}`}
-                    >
-                      <ProposalPicture
-                        assetId={id}
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition={chapter.id === 'hosts' && id.includes('host_1') ? '50% 18%' : undefined}
-                        sizes="(min-width: 1024px) 280px, 30vw"
-                        capScale={1}
-                      />
-                    </div>
-                  ))}
-                </div>
+            ) : chapter.galleryAssetIds && chapter.galleryAssetIds.length > 0 ? (
+              chapter.galleryLayout === 'compact-strip' ? (
+                <CompactAssetStrip
+                  assetIds={chapter.galleryAssetIds}
+                  variant={chapter.galleryPortraitIds?.length ? 'portrait' : 'landscape'}
+                  sizes="112px"
+                />
+              ) : (
+                !(chapter.id === 'gatsby-show' && galleryCount === 1) && (
+                  <div
+                    className={`p2-programme-chapter__gallery p2-programme-chapter__gallery--count-${Math.min(galleryCount, 6)}${chapter.galleryPortraitIds?.length ? ' p2-programme-chapter__gallery--portrait-pair' : ''}${galleryCount === 1 ? ' p2-programme-chapter__gallery--solo' : ''}`}
+                  >
+                    {chapter.galleryAssetIds.map((id) => (
+                      <div
+                        key={id}
+                        className={`p2-programme-chapter__thumb${chapter.galleryPortraitIds?.includes(id) ? ' p2-programme-chapter__thumb--portrait' : ''}${chapter.id === 'hosts' && id.includes('host_1') ? ' p2-programme-chapter__thumb--host' : ''}`}
+                      >
+                        <ProposalPicture
+                          assetId={id}
+                          layout="fill"
+                          objectFit="cover"
+                          objectPosition={chapter.id === 'hosts' && id.includes('host_1') ? '50% 18%' : undefined}
+                          sizes="(min-width: 1024px) 280px, 30vw"
+                          capScale={1}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )
               )
-            )}
+            ) : null}
 
             {chapter.id === 'gatsby-show' && gatsbySpotlight && (
               <div className="p2-programme-chapter__spotlight p2-programme-chapter__spotlight--gatsby p2-programme-chapter__spotlight--text-only">

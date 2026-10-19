@@ -1,6 +1,7 @@
 import type { ClientLineItem } from '../types';
 
 export type ProgrammeHeroLayout = 'wide' | 'editorial' | 'none';
+export type ProgrammeGalleryLayout = 'default' | 'compact-strip';
 
 export interface ProgrammeChapterDef {
   id: string;
@@ -10,6 +11,7 @@ export interface ProgrammeChapterDef {
   heroLayout?: ProgrammeHeroLayout;
   heroObjectPosition?: string;
   galleryAssetIds?: string[];
+  galleryLayout?: ProgrammeGalleryLayout;
   /** Portrait-oriented gallery ids — capped display size in UI */
   galleryPortraitIds?: string[];
   match: (item: ClientLineItem) => boolean;
@@ -64,6 +66,7 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
       'Танцово шоу „Великият Гетсби“ и балетна програма — централният театрален момент на вечерта с ясно посочени алтернативни формати.',
     heroAssetId: 'v4_owner_doc_033_opera_gatsby_1',
     heroLayout: 'wide',
+    galleryLayout: 'compact-strip',
     galleryAssetIds: ['v4_owner_doc_034_opera_gatsby_2', 'v4_owner_doc_035_opera_gatsby_3'],
     match: (i) =>
       (i.source.pdfPage === 34 || i.source.pdfPage === 36) &&
@@ -89,6 +92,7 @@ export const PROGRAMME_CHAPTERS: ProgrammeChapterDef[] = [
     heroAssetId: 'v4_owner_doc_055_disco_ball_wide',
     heroLayout: 'wide',
     heroObjectPosition: '50% 38%',
+    galleryLayout: 'compact-strip',
     galleryAssetIds: [
       'v4_owner_doc_052_disco_ball_portrait_1',
       'v4_owner_doc_053_disco_ball_portrait_2',

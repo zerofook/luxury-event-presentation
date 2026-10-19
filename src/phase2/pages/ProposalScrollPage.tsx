@@ -154,7 +154,7 @@ export function ProposalScrollPage({ initialSection }: { initialSection: Proposa
             <h1 className="p2-title">22-ра юбилейна гала — цялостна концепция</h1>
             <p className="p2-lead">
               Редакционен преглед на одобрената визия за GEOTRADING: пространство, програма, техническа трансформация и
-              инвестиция — с оригинални визуализации и цени от източника.
+              инвестиция — с оригинални визуализации и цени от предложението.
             </p>
             <ul className="p2-facts">
               <li>

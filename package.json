@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run validate && tsc -b && vite build",
-    "build:pages": "VITE_BASE=/luxury-event-presentation/ npm run build && node scripts/verify-proposal-images.mjs",
+    "build:pages": "VITE_BASE=/luxury-event-presentation/ npm run build && node scripts/verify-client-copy.mjs --with-dist && node scripts/verify-proposal-images.mjs",
     "preview": "vite preview",
     "preview:pages": "VITE_BASE=/luxury-event-presentation/ vite preview",
     "assets:v4": "node scripts/generate-v4-assets.mjs",

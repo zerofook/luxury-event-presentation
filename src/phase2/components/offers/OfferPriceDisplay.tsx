@@ -41,8 +41,8 @@ export function OfferPriceDisplay({ item, prominent }: { item: ClientLineItem; p
       )}
       {hasMismatchLine && (
         <span className="p2-offer-price__qty p2-offer-price__qty--printed-total">
-          {item.quantity} {item.unit ?? 'бр.'} · {formatUnitPrice(item.unitPrice!, cur)}
-          {item.unit ? ` / ${item.unit}` : ''} · общо по предложението {formatMoney(item.lineTotal!, cur)}
+          {item.quantity} {item.unit ?? 'бр.'} × {formatUnitPrice(item.unitPrice!, cur)}
+          {item.unit ? ` / ${item.unit}` : ''}
         </span>
       )}
       {vat && <span className="p2-offer-price__vat">{vat}</span>}

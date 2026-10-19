@@ -48,6 +48,7 @@ function latinRatio(text) {
 /** Client-safe titles where PDF/sanitize pipeline left fragments. */
 const TITLE_OVERRIDES = {
   'p17-stage-decor': 'Декор на зоната — декоративни пана с въртяща платформа',
+  'p17-stage-florals': 'Цветни композиции на сцената',
   'p19-map-partial-stock': 'Вариант 1 — частичен 3D мапинг със стокови визии',
   'p19-map-partial-custom': 'Вариант 2 — частичен 3D мапинг с авторски визии',
   'p20-map-full-stock': 'Вариант 1 — пълен 3D мапинг със стокови визии',
@@ -235,6 +236,20 @@ function ensureVintageCarItem(bundle) {
   bundle.meta.itemCount = bundle.items.length;
 }
 
+function patchStageFloralsItem(item) {
+  if (item.id !== 'p17-stage-florals') return item;
+  /** PDF p17 prints 12×220 € and 2 904 € total — arithmetic mismatch; show unit × qty only. */
+  return {
+    ...item,
+    titleBg: TITLE_OVERRIDES['p17-stage-florals'],
+    priceType: 'unit_price',
+    quantity: 12,
+    unit: 'броя',
+    unitPrice: 220,
+    lineTotal: null,
+  };
+}
+
 function patchVintageCarMedia(item) {
   if (item.id !== 'owner-vintage-car-photo-zone') return item;
   return {
@@ -285,7 +300,7 @@ ensureRoundBarItem(bundle);
 bundle.items = bundle.items.map((i) => patchVintageCarMedia(patchVintageCarItem(i)));
 fs.writeFileSync(AUDIT_PATH, JSON.stringify(bundle, null, 1));
 
-const clientItems = bundle.items.map(toClientItem);
+const clientItems = bundle.items.map((i) => patchStageFloralsItem(toClientItem(i)));
 
 const client = {
   meta: {
